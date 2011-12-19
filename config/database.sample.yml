@@ -1,0 +1,28 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: muzkom_development
+  username: root
+  password: 
+  host: localhost
+  
+test:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: muzkom_test
+  username: root
+  password: 
+  host: localhost
+  
+production:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: muzkom_production
+  pool: 5
+  username: root
+  password: 
+  host: 127.0.0.1
+  socket: /tmp/mysql.sock
