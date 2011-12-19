@@ -1,0 +1,33 @@
+=simple-button($bgcolor: #ddd, $color: #fff, $radius: 5px)
+  color: $color
+  cursor: pointer
+  padding: 3px 10px 4px 10px
+  text-decoration: none
+  $shadow: inset 0 1px 0 rgba(255,255,255,.4), 0 1px 2px rgba(0,0,0,.05)
+  border: 1px solid darken($bgcolor, 10%)
+  +inline-block()
+  +border-radius($radius)
+  +box-shadow($shadow)
+  +vertical-gradient(lighten($bgcolor, 10%), $bgcolor)
+  +text-shadow(0px -1px 0 rgba(0, 0, 0, 0.45))
+  &:hover
+    text-decoration: none
+    color: $color
+    background: lighten($bgcolor, 2%)
+  &:active
+    $shadow: 0 2px 4px rgba(0, 0, 0, .25) inset, 0 1px 2px rgba(0, 0, 0, 0.05)
+    +box-shadow($shadow)
+
+=simple-navigation($padding, $color)
+  li
+    float: left
+    a
+      display: block
+      padding: 0 $padding
+      text-decoration: none
+      color: $color
+      &:hover
+        color: $link
+    &:first-child a
+      border-left: none
+      

@@ -7,8 +7,52 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="wrapper">
+    <div class="header">
+      <div class="clearfix">
+        <div class="col1of3">
+          <a href=""><%= image_tag "logo1.png", :class=>"mvs" %></a>
+        </div>
+        <div class="col1of3 ptl">
+          <%= image_tag "header_order.png", :class=>"" %>
+        </div>
+        <div class="right mvm">
+          <div class="mbm">
+            <span class="muted">Все цены в </span>
+            <select name="" id="" style="width: 80px">
+              <option value="">ГРН</option>
+              <option value="">EUR</option>
+              <option value="">USD</option>
+            </select>
+          </div>
+          <div class="cart">
+             <%= image_tag "cart.png", :class=>"" %>
+            <div class="left mtx">
+              <strong>товаров:</strong> <strong class="value">2</strong><br />
+              <strong>на сумму:</strong> <strong class="value">3000.00 грн</strong>
+            </div>
+          </div>
+        </div>  
+      </div>
+    </div>
+    <div class="navigation">
+      <ul class="mainmenu col4of5">
+        <li><a href="">Новости</a></li>
+        <li><a href="">О нас</a></li>
+        <li><a href="">Оплата/доставка</a></li>
+        <li><a href="">Гарантия</a></li>
+        <li><a href="">Акции</a></li>
+        <li><a href="">Дисконт</a></li>
+        <li><a href="">Контакты</a></li>
+      </ul>
+      <div class="col1of5 mts">
 
-<%= yield %>
+      </div>
+    </div>
+    <div class="body">
 
+      <%= yield %>
+    </div>
+  </div>
 </body>
 </html>

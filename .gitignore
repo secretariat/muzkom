@@ -16,3 +16,8 @@
 /tmp
 .DS_Store
 /public/assets
+db/schema.rb
+db/test*
+log/*
+tmp/*
+test/*
