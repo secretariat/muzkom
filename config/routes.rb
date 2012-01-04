@@ -1,6 +1,17 @@
 Muzkom::Application.routes.draw do
   
-  root :to=>"pages#index"
+  root :to=>'pages#index'
+  resources :sessions, :only=>[:new, :create, :destroy]
+  match '/login' => 'sessions#new', :as=>:login
+  match '/logout' => 'sessions#destroy', :as=>:logout
+  
+  namespace :admin do
+    root :to=>'index#index'
+    resources :pages
+    resources :categories
+    resources :products
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

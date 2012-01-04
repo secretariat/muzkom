@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title> Administration Area</title>
+  <%= stylesheet_link_tag    "admin" %>
+  <%= javascript_include_tag "admin" %>
+  <%= csrf_meta_tags %>
+  <%=yield :head%>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="navigation">
+      <div class="inner">
+        <div class="clearfix">
+          <div class="col1of5">
+            <h1 class="ptxs">Muzkom.com.ua</h1>
+          </div>
+          <div class="col3of5">
+            <ul class="unstyled nav">
+              <li><%= link_to "Главная", admin_root_path %></li>
+              <li><%= link_to "Страницы", admin_pages_path%></li>
+              <li><%= link_to "Каталог", admin_categories_path%></li>
+              <li><%= link_to "Товары", admin_products_path%></li>
+              <li><a href="">Заказы</a></li>
+              <li><%= link_to "Выход", logout_path%></li>
+            </ul>
+          </div>
+          <div class="col1of5">
+            <% flash.each do |key, value| %>
+              <div class="flash_message <%= key%>"><%=value%></div>
+            <%end%>
+            <div class="account-block">
+              <a href="#"><%= @current_user.email%></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="body">
+      <div class="inner">
+        <%=yield%>
+      </div>
+    </div>
+    <div class="content-pusher"></div>
+  </div>
+  <div class="footer">
+    <div class="inner">
+      <div class="ptm">Admin Dashboard &copy; <%= Time.now.year%></div>
+    </div>
+  </div>
+</body>
+</html>

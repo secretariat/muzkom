@@ -17,6 +17,7 @@
 .DS_Store
 /public/assets
 db/schema.rb
+db/seeds.rb
 db/test*
 log/*
 tmp/*

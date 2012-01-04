@@ -1,350 +1,222 @@
-  <div class="clearfix">
-    <div class="col1of5">
-      <div class="container">
-        <h2><span>Производители</span></h2>
-        <select name="" id="" class="mam">
-          <option value="">Выберите производителя</option>
-          <option value="">AARDVARK</option>
-          <option value="">ACME</option>
-          <option value="">ADAM</option> 
-        </select>
-      </div>
-      <div class="container">
-        <h2 class="highlight">Каталог товаров</h2>
-        <ul class="catalog">
-          <li>
-            <a href="" class="category">DJ оборудование</a>
-            <ul class="hidden">
-              <li><a href="" class="subcategory">DJ Контроллеры</a></li>
-              <li><a href="" class="subcategory">CD/DVD проигрыватели</a></li>
-              <li><a href="" class="subcategory">Микшерные пульты</a></li>
-              <li><a href="" class="subcategory">Вертушки</a></li>
-              <li><a href="" class="subcategory">DJ Эффекторы</a></li>
-            </ul>
-          </li>
-          <li><a href="" class="category">Студия</a></li>
-          <li><a href="" class="category">Синтезаторы/Рабочие станции</a></li>
-          <li><a href="" class="category">Гитарное оборудование</a></li>
-          <li><a href="" class="category">Гитарные аксессуары </a></li>
-          <li><a href="" class="category">Микрофоны</a></li>
-          <li><a href="" class="category">Коммутация/Кабеля</a></li>
-          <li><a href="" class="category">Сумки/Рэки/Стойки</a></li>
-          <li><a href="" class="category">Свет</a></li>
-          <li><a href="" class="category">Звук</a></li>
-          <li><a href="" class="category">Спецэффекты/Лазера</a></li>
-        </ul>
-      </div>
-      <div class="container">
-        <h2><span>Новости</span></h2>
-        <div class="mam ">
-          <div class="publication">
-            <a href="">12 декабря 2011</a>
-            <p>
-              На склад поступили микрофоны и аксессуары австралийской фирмы RØDE Microphones.
-              Студийные микрофоны: BROA
-            </p>
-          </div>
-          <div class="publication">
-            <a href="">12 декабря 2011</a>
-            <p>
-              SALE - распродажа оборудования для диджеинга от компании Reloop. Количество товара ограничено. В распродаже участвую
-            </p>
-          </div> 
-        </div>
-      </div>
-      <p style="text-align: center;">
-      <object width="150" height="230" type="application/x-shockwave-flash" data="http://muzkom.com.ua/banners/lasers2.swf">
-      <param value="  http://muzkom.com.ua/banners/lasers2.swf" name="src">
-      </object></p>
-      
-      <p style="text-align: center;"><a href="http://muzkom.com.ua/view_product.php?id=6374"><img width="150" height="200" alt="" src="http://muzkom.com.ua/banners/nis2b.jpg"></a></p>
+<div class="clearfix">
+  <div class="col1of5">
+    <div class="container">
+      <h2><span>Производители</span></h2>
+      <select name="" id="" class="mam">
+        <option value="">Выберите производителя</option>
+        <option value="">AARDVARK</option>
+        <option value="">ACME</option>
+        <option value="">ADAM</option> 
+      </select>
     </div>
-    <div class="col3of5">
-      
-      <div class="container mhs">
-        <img src="images/rotator/001.jpg" alt="" />
+    <%=render "shared/catalog"%>
+    <%=render "shared/news"%>
+  </div>
+  <div class="col3of5">
+
+    <div class="container mhs">
+      <%=image_tag "rotator/001.jpg" %>
+    </div>
+    <div class="mhs">
+      <div class="clearfix mbs">
+        <div class="col1of2">
+
+          <div class="product block mrx">
+            <div class="clearfix mbm">
+              <div class="image">
+                <a href=""><%=image_tag "noimage.jpeg", :width=>'100'%></a>
+              </div>
+              <div class="description last-col">
+                <p><a href=""><strong>Sennheiser FP 35</strong></a></p>
+                <p>Беспроводная вокальная микрофонная система Sennheiser FP 35</p>
+                <a href="">подробнее</a>
+              </div>
+            </div>
+            <div class="clearfix">
+              <div class="col1of2">
+                <strong class="price">2640.00 грн</strong> 
+              </div>
+              <div class="col1of2">
+                <a href=""><a href="" class="buy-button right">Купить</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col1of2">
+          <div class="product block mlx">
+            <div class="clearfix mbm">
+              <div class="image">
+                <a href=""><%=image_tag "noimage.jpeg", :width=>'100'%></a>
+              </div>
+              <div class="description last-col">
+                <p><a href=""><strong>Novation Launchpad</strong></a></p>
+                <p>Novation Launchpad — специализированный контроллер для Ableton Live</p>
+                <a href="">подробнее</a>
+              </div>
+            </div>
+            <div class="clearfix">
+              <div class="col1of2">
+                <strong class="price">1880.00 грн</strong> 
+              </div>
+              <div class="col1of2">
+                <a href="" class="buy-button right">Купить</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="mhs">
-        <div class="clearfix mbs">
-          <div class="col1of2">
 
-            <div class="product block mrx">
-              <div class="clearfix mbm">
-                <div class="image">
-                  <a href=""><img src="images/products/fp_351.jpg" alt="" /></a>
-                </div>
-                <div class="description last-col">
-                  <p><a href=""><strong>Sennheiser FP 35</strong></a></p>
-                  <p>Беспроводная вокальная микрофонная система Sennheiser FP 35</p>
-                  <a href="">подробнее</a>
-                </div>
+      <div class="clearfix mbs">
+        <div class="col1of2">
+
+          <div class="product block mrx">
+            <div class="clearfix mbm">
+              <div class="image">
+                <a href=""><%=image_tag "noimage.jpeg", :width=>'100'%></a>
               </div>
-              <div class="clearfix">
-                <div class="col1of2">
-                  <strong class="price">2640.00 грн</strong> 
-                </div>
-                <div class="col1of2">
-                  <a href=""><a href="" class="buy-button right">Купить</a>
-                </div>
+              <div class="description last-col">
+                <p><a href=""><strong>Sennheiser FP 35</strong></a></p>
+                <p>Беспроводная вокальная микрофонная система Sennheiser FP 35</p>
+                <a href="">подробнее</a>
               </div>
             </div>
-
-          </div>
-          <div class="col1of2">
-            <div class="product block mlx">
-              <div class="clearfix mbm">
-                <div class="image">
-                  <a href=""><img src="images/products/Launchpad.jpg" alt="" /></a>
-                </div>
-                <div class="description last-col">
-                  <p><a href=""><strong>Novation Launchpad</strong></a></p>
-                  <p>Novation Launchpad — специализированный контроллер для Ableton Live</p>
-                  <a href="">подробнее</a>
-                </div>
+            <div class="clearfix">
+              <div class="col1of2">
+                <strong class="price">1200.00 грн</strong> 
               </div>
-              <div class="clearfix">
-                <div class="col1of2">
-                  <strong class="price">1880.00 грн</strong> 
-                </div>
-                <div class="col1of2">
-                  <a href="" class="buy-button right">Купить</a>
-                </div>
+              <div class="col1of2">
+                <a href="" class="buy-button right">Купить</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col1of2">
+          <div class="product block mlx">
+            <div class="clearfix mbm">
+              <div class="image">
+                <a href=""><%=image_tag "noimage.jpeg", :width=>'100'%></a>
+              </div>
+              <div class="description last-col">
+                <p><a href=""><strong>CR Laser FIT-S G</strong></a></p>
+                <p>Беспроводная вокальная микрофонная система Sennheiser FP 35</p>
+                <a href="">подробнее</a>
+              </div>
+            </div>
+            <div class="clearfix">
+              <div class="col1of2">
+                <strong class="price">1740.00 грн</strong> 
+              </div>
+              <div class="col1of2">
+                <a href="" class="buy-button right">Купить</a>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="clearfix mbs">
-          <div class="col1of2">
-
-            <div class="product block mrx">
-              <div class="clearfix mbm">
-                <div class="image">
-                  <a href=""> <img src="images/products/CR.jpg" alt="" /></a>
-                </div>
-                <div class="description last-col">
-                  <p><a href=""><strong>Sennheiser FP 35</strong></a></p>
-                  <p>Беспроводная вокальная микрофонная система Sennheiser FP 35</p>
-                  <a href="">подробнее</a>
-                </div>
+      </div>
+      <div class="clearfix mbs">
+        <div class="col1of2">
+          <div class="product block mrx">
+            <div class="clearfix mbm">
+              <div class="image">
+                <a href=""><%=image_tag "noimage.jpeg", :width=>'100'%></a>
               </div>
-              <div class="clearfix">
-                <div class="col1of2">
-                  <strong class="price">1200.00 грн</strong> 
-                </div>
-                <div class="col1of2">
-                  <a href="" class="buy-button right">Купить</a>
-                </div>
+              <div class="description last-col">
+                <p><a href=""><strong>MXL 990 USB</strong></a></p>
+                <p>Беспроводная вокальная микрофонная система Sennheiser FP 35</p>
+                <a href="">подробнее</a>
               </div>
             </div>
-
-          </div>
-          <div class="col1of2">
-            <div class="product block mlx">
-              <div class="clearfix mbm">
-                <div class="image">
-                  <a href=""><img src="images/products/FIT.jpg" alt="" /></a>
-                </div>
-                <div class="description last-col">
-                  <p><a href=""><strong>CR Laser FIT-S G</strong></a></p>
-                  <p>Беспроводная вокальная микрофонная система Sennheiser FP 35</p>
-                  <a href="">подробнее</a>
-                </div>
+            <div class="clearfix">
+              <div class="col1of2">
+                <strong class="price">1200.00 грн</strong> 
               </div>
-              <div class="clearfix">
-                <div class="col1of2">
-                  <strong class="price">1740.00 грн</strong> 
-                </div>
-                <div class="col1of2">
-                  <a href="" class="buy-button right">Купить</a>
-                </div>
+              <div class="col1of2">
+                <a href="" class="buy-button right">Купить</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col1of2">
+          <div class="product block mlx">
+            <div class="clearfix mbm">
+              <div class="image">
+                <a href=""><%=image_tag "noimage.jpeg", :width=>'100'%></a>
+              </div>
+              <div class="description last-col">
+                <p><a href=""><strong>VOX AC1 RHYTHM VOX</strong></a></p>
+                <p>Беспроводная вокальная микрофонная система Sennheiser FP 35</p>
+                <a href="">подробнее</a>
+              </div>
+            </div>
+            <div class="clearfix">
+              <div class="col1of2">
+                <strong class="price">1740.00 грн</strong> 
+              </div>
+              <div class="col1of2">
+                <a href="" class="buy-button right">Купить</a>
               </div>
             </div>
           </div>
         </div>
-        <div class="clearfix mbs">
-          <div class="col1of2">
-            <div class="product block mrx">
-              <div class="clearfix mbm">
-                <div class="image">
-                  <a href=""> <img src="images/products/990USB_ic.gif" alt="" /></a>
-                </div>
-                <div class="description last-col">
-                  <p><a href=""><strong>MXL 990 USB</strong></a></p>
-                  <p>Беспроводная вокальная микрофонная система Sennheiser FP 35</p>
-                  <a href="">подробнее</a>
-                </div>
+      </div>
+      <div class="clearfix mbs">
+        <div class="col1of2">
+          <div class="product block mrx">
+            <div class="clearfix mbm">
+              <div class="image">
+                <a href=""><%=image_tag "noimage.jpeg", :width=>'100'%></a>
               </div>
-              <div class="clearfix">
-                <div class="col1of2">
-                  <strong class="price">1200.00 грн</strong> 
-                </div>
-                <div class="col1of2">
-                  <a href="" class="buy-button right">Купить</a>
-                </div>
+              <div class="description last-col">
+                <p><a href=""><strong>Sennheiser FP 35</strong></a></p>
+                <p>Беспроводная вокальная микрофонная система Sennheiser FP 35</p>
+                <a href="">подробнее</a>
               </div>
             </div>
+            <div class="clearfix">
+              <div class="col1of2">
+                <strong class="price">1200.00 грн</strong> 
+              </div>
+              <div class="col1of2">
+                <a href="" class="buy-button right">Купить</a>
+              </div>
+            </div>
+          </div>
 
-          </div>
-          <div class="col1of2">
-            <div class="product block mlx">
-              <div class="clearfix mbm">
-                <div class="image">
-                  <a href=""><img src="images/products/vox-ac1-rhythm.jpg" alt="" /></a>
-                </div>
-                <div class="description last-col">
-                  <p><a href=""><strong>VOX AC1 RHYTHM VOX</strong></a></p>
-                  <p>Беспроводная вокальная микрофонная система Sennheiser FP 35</p>
-                  <a href="">подробнее</a>
-                </div>
-              </div>
-              <div class="clearfix">
-                <div class="col1of2">
-                  <strong class="price">1740.00 грн</strong> 
-                </div>
-                <div class="col1of2">
-                  <a href="" class="buy-button right">Купить</a>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-        <div class="clearfix mbs">
-          <div class="col1of2">
-            <div class="product block mrx">
-              <div class="clearfix mbm">
-                <div class="image">
-                  <a href=""> <img src="images/products/CR.jpg" alt="" /></a>
-                </div>
-                <div class="description last-col">
-                  <p><a href=""><strong>Sennheiser FP 35</strong></a></p>
-                  <p>Беспроводная вокальная микрофонная система Sennheiser FP 35</p>
-                  <a href="">подробнее</a>
-                </div>
+        <div class="col1of2">
+          <div class="product block mlx">
+            <div class="clearfix mbm">
+              <div class="image">
+                <a href=""><%=image_tag "noimage.jpeg", :width=>'100'%></a>
               </div>
-              <div class="clearfix">
-                <div class="col1of2">
-                  <strong class="price">1200.00 грн</strong> 
-                </div>
-                <div class="col1of2">
-                  <a href="" class="buy-button right">Купить</a>
-                </div>
+              <div class="description last-col">
+                <p><a href=""><strong>CR Laser FIT-S G</strong></a></p>
+                <p>Беспроводная вокальная микрофонная система Sennheiser FP 35</p>
+                <a href="">подробнее</a>
               </div>
             </div>
-
-          </div>
-          <div class="col1of2">
-            <div class="product block mlx">
-              <div class="clearfix mbm">
-                <div class="image">
-                  <a href=""><img src="images/products/FIT.jpg" alt="" /></a>
-                </div>
-                <div class="description last-col">
-                  <p><a href=""><strong>CR Laser FIT-S G</strong></a></p>
-                  <p>Беспроводная вокальная микрофонная система Sennheiser FP 35</p>
-                  <a href="">подробнее</a>
-                </div>
+            <div class="clearfix">
+              <div class="col1of2">
+                <strong class="price">1740.00 грн</strong> 
               </div>
-              <div class="clearfix">
-                <div class="col1of2">
-                  <strong class="price">1740.00 грн</strong> 
-                </div>
-                <div class="col1of2">
-                  <a href="" class="buy-button right">Купить</a>
-                </div>
+              <div class="col1of2">
+                <a href="" class="buy-button right">Купить</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col1of5">
-      <div class="container">
-        <h2><span>Контакты</span></h2>
-        <div class="pam">
-          <p>
-            Пн.- Пт.<br />
-            с 10.00 – 19.00<br />
-            он-лайн заказы 24/7<br />
-            Сб. с 11.00 - 15.00<br />
-          </p>
-          <p>
-            Тел. (063) 625 48 05,<br /> 
-            (044) 592 86 14<br />
-            ICQ: 570560950
-          </p>
-        </div>
-      </div>
-      
-      <div class="container">
-        <h2><span>Новые поступления</span></h2>
-        <div class="pam">
-          <div class="by-center mbl">
-            <div class="">
-              <a href=""><strong>CR Laser TOP-1S (100)</strong></a>
-            </div>
-            <div class="mbs">
-              <img src="images/products/CR.jpg" alt="" />
-            </div>
-            <strong>2240.00 грн</strong>
-          </div>
-          <div class="by-center mbm">
-            <div class="">
-              <a href=""><strong>CR Laser FIT-S G</strong></a>
-            </div>
-            <div class="mbs">
-              <img src="images/products/FIT.jpg" alt="" />
-            </div>
-            <strong>1780.00 грн</strong>
-          </div>
-        </div>
-      </div>
-      <p style="text-align: center;"><a href="http://muzkom.com.ua/page.php?id=4"><img width="150" height="230" alt="" src="http://muzkom.com.ua/banners/freedelivery.jpg"></a></p>
-      
-      <p style="text-align: center;"><a href="http://muzkom.com.ua/view_product.php?id=5335"><img width="150" height="200" alt="" src="http://muzkom.com.ua/banners/rvmb.jpg"></a></p>
-      
-    </div>
+  </div>
+  <div class="col1of5">
+    <%=render "shared/contacts"%>
+    <%=render "shared/latest"%>
+    <p style="text-align: center;"><a href="http://muzkom.com.ua/page.php?id=4"><img width="150" height="230" alt="" src="http://muzkom.com.ua/banners/freedelivery.jpg"></a></p>
+
+    <p style="text-align: center;"><a href="http://muzkom.com.ua/view_product.php?id=5335"><img width="150" height="200" alt="" src="http://muzkom.com.ua/banners/rvmb.jpg"></a></p>
+
   </div>
 </div>
-<div class="footer">
-  <div class="clearfix">
-    <div class="col3of4">
-      <div class="clearfix mbl">
-        <div class="col2of5">
-          <p class="block by-center">
-            <img src="images/logo_small.png" alt="" /><br />
-            профессиональное музыкальное оборуование
-            <br />
-            <br />
-          </p>
-        </div>
-        <div class="col3of5">
-          <div class="block">
-            <p class="mbn">г. Киев</p>
-            <p class="mbn">Тел.:<br /> (063) 625 48 05,</p>
-            <p class="mbn">(044) 592 86 14</p>
-            <p class="mbn">ICQ: 570560950</p>
-          </div>
-        </div>
-      </div>
-      <div class="clearfix">
-        <p>Copyright 2011 Muzcom.com.ua. Интернет магазин Muzkom предлагает купить музыкальное оборудование</p>
-      </div>
-    </div>
-    <div class="col1of4">
-      <div class="mll">
-        <div class="mbm">
-          <img src="images/icons/facebook.png" alt="" class="icon" /> <a href="">Facebook</a>
-        </div>
-        <div class="mbm">
-          <img src="images/icons/vkontakte.png" alt="" class="icon" /> <a href="">Вконтакте</a>
-        </div>
-        <div class="mbm">
-          <img src="images/icons/twitter.png" alt="" class="icon" /> <a href="">Twitter</a>
-        </div>
-        <div class="mbm">
-          <img src="images/icons/youtube.png" alt="" class="icon" /> <a href="">YouTube</a>
-        </div>
-      </div>
-    </div>
-  </div>

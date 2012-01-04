@@ -1,0 +1,12 @@
+ru:
+  authlogic:
+    login: "Вы успешно вошли в систему"
+    logout: "Вы успешно вышли из системы"
+    error_messages:
+      login_blank: Вы не ввели логин
+      login_not_found: Пользователь с таким логином не найден
+      login_invalid: Не правильный логин
+      password_blank: Вы не ввели пароль
+      password_invalid: Не правильный пароль
+      not_active: Этот аккаунт не активирован
+      no_authentication_details: Вы не ввели данных для авторизации

@@ -50,9 +50,50 @@
       </div>
     </div>
     <div class="body">
-
       <%= yield %>
     </div>
-  </div>
+    <div class="footer">
+      <div class="clearfix">
+        <div class="col3of4">
+          <div class="clearfix mbl">
+            <div class="col2of5">
+              <p class="block by-center">
+                <%= image_tag "logo_small.png" %><br />
+                профессиональное музыкальное оборуование
+                <br />
+                <br />
+              </p>
+            </div>
+            <div class="col3of5">
+              <div class="block">
+                <p class="mbn">г. Киев</p>
+                <p class="mbn">Тел.:<br /> (063) 625 48 05,</p>
+                <p class="mbn">(044) 592 86 14</p>
+                <p class="mbn">ICQ: 570560950</p>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix">
+            <p>Copyright <%= Time.now.year%> Muzcom.com.ua. Интернет магазин Muzkom предлагает купить музыкальное оборудование</p>
+          </div>
+        </div>
+        <div class="col1of4">
+          <div class="mll">
+            <div class="mbm">
+              <%= image_tag "icons/facebook.png", :class=>"icon" %> <a href="">Facebook</a>
+            </div>
+            <div class="mbm">
+              <%=image_tag src="icons/vkontakte.png", :class=>"icon"%> <a href="">Вконтакте</a>
+            </div>
+            <div class="mbm">
+              <%=image_tag "icons/twitter.png", :class=>"icon" %> <a href="">Twitter</a>
+            </div>
+            <div class="mbm">
+              <%=image_tag "icons/youtube.png", :class=>"icon" %> <a href="">YouTube</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 </body>
 </html>

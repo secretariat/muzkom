@@ -1,0 +1,16 @@
+<div class="login-pannel">
+  <h3 class="header mbl">Авторизация</h3>
+  <%=form_for @user_session do |f|%>
+  <div class="mhl">
+    <div class="field">
+      <%= f.text_field :username,  :placeholder=>"Login", :class=>"text" %>
+    </div>
+    <div class="field">
+      <%= f.password_field :password,  :placeholder=>"Password", :class=>"text" %>
+    </div>
+  </div>
+  <div class="footer">
+    <%=submit_tag "Войти", :class=> "submit-button"%>
+  </div>
+  <%end%>
+</div>

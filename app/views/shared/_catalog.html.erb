@@ -1,0 +1,17 @@
+<div class="container">
+  <h2 class="highlight">Каталог товаров</h2>
+  <ul class="catalog">
+    <% @categories.each do |category|%>
+      <li>
+        <%= link_to category.name, "#", :class=>"category"%>
+        <% unless category.categories.empty?%>
+          <ul>
+            <%category.categories.each do |subcategory|%>
+              <li><%=link_to subcategory.name, "#", :class=>"subcategory"%></li>
+            <%end%>
+          </ul>
+        <%end%>
+      </li>
+    <%end%>
+  </ul>
+</div>
