@@ -16,6 +16,7 @@
 /tmp
 .DS_Store
 /public/assets
+/public/uploads
 db/schema.rb
 db/seeds.rb
 db/test*
