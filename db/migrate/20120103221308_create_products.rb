@@ -1,7 +1,8 @@
 class CreateProducts < ActiveRecord::Migration
   def change
     create_table :products do |t|
-      t.integer :category_id
+      t.integer :subcategory_id
+      t.integer :brand_id
       t.string :name, :default=>"", :null=>false
       t.string :title, :default=>"", :null=>false
       t.string :meta_d, :default=>"", :null=>false
@@ -12,7 +13,7 @@ class CreateProducts < ActiveRecord::Migration
       t.decimal :price, :precision=>10, :scale=>2, :default=>0
       t.string :currency, :null=>false, :default=>"UAH", :limit=>3
       t.boolean :visibility, :default=>false
-      t.string :status, :null=>false, :default=>""
+      t.string :status_id, :null=>false, :default=>""
       t.timestamps
     end
   end

@@ -1,0 +1,22 @@
+<div class="clearfix">
+  <div class="col1of5">
+    <%=render "shared/brands_filter"%>
+    <%=render "shared/catalog"%>
+    <%=render "shared/news"%>
+  </div>
+  <div class="col3of5">
+    <div class="container clearfix mhs">
+      <div class="wysiwyg mam">
+        <%= @page.text.html_safe%>
+      </div>
+    </div>
+  </div>
+  <div class="col1of5">
+    <%=render "shared/contacts"%>
+    <%=render "shared/latest"%>
+    <p style="text-align: center;"><a href="http://muzkom.com.ua/page.php?id=4"><img width="150" height="230" alt="" src="http://muzkom.com.ua/banners/freedelivery.jpg"></a></p>
+
+    <p style="text-align: center;"><a href="http://muzkom.com.ua/view_product.php?id=5335"><img width="150" height="200" alt="" src="http://muzkom.com.ua/banners/rvmb.jpg"></a></p>
+
+  </div>
+</div>

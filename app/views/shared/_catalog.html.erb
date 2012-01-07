@@ -4,10 +4,10 @@
     <% @categories.each do |category|%>
       <li>
         <%= link_to category.name, "#", :class=>"category"%>
-        <% unless category.categories.empty?%>
-          <ul>
-            <%category.categories.each do |subcategory|%>
-              <li><%=link_to subcategory.name, "#", :class=>"subcategory"%></li>
+        <% unless category.subcategories.empty?%>
+          <ul class="">
+            <%category.subcategories.each do |subcategory|%>
+              <li><%=link_to subcategory.name, category_path(subcategory), :class=>"subcategory"%></li>
             <%end%>
           </ul>
         <%end%>

@@ -3,6 +3,7 @@ class ShopController < ApplicationController
   
   def load_catalog
     @categories = Category.visible_categories
+    @brands = Brand.alphabetical
   end
   
 end

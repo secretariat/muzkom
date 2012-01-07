@@ -11,7 +11,7 @@
     <div class="header">
       <div class="clearfix">
         <div class="col1of3">
-          <a href=""><%= image_tag "logo1.png", :class=>"mvs" %></a>
+          <%= link_to image_tag("logo1.png", :class=>"mvs"), root_path %>
         </div>
         <div class="col1of3 ptl">
           <%= image_tag "header_order.png", :class=>"" %>
@@ -37,13 +37,13 @@
     </div>
     <div class="navigation">
       <ul class="mainmenu col4of5">
-        <li><a href="">Новости</a></li>
-        <li><a href="">О нас</a></li>
-        <li><a href="">Оплата/доставка</a></li>
-        <li><a href="">Гарантия</a></li>
-        <li><a href="">Акции</a></li>
-        <li><a href="">Дисконт</a></li>
-        <li><a href="">Контакты</a></li>
+        <li><%= link_to "Новости", "/news"%></li>
+        <li><%= link_to "О нас", "/about_us"%></li>
+        <li><%= link_to "Оплата/доставка", "/payment_delivery"%></li>
+        <li><%= link_to "Гарантия", "/warranty"%></li>
+        <li><%= link_to "Акции", "/stock"%></li>
+        <li><%= link_to "Дисконт", "/discount"%></li>
+        <li><%= link_to "Контакты", "/contacts"%></li>
       </ul>
       <div class="col1of5 mts">
 

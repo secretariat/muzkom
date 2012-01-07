@@ -1,0 +1,77 @@
+<div class="clearfix">
+  <div class="col1of5">
+    <%=render "shared/brands_filter"%>
+    <%=render "shared/catalog"%>
+    <%=render "shared/news"%>
+  </div>
+  <div class="col3of5">
+
+      <div class="container mhs">
+        <div class="mhm mvs">
+          <h3 class="mbs"><%= @subcategory.name%></h3>
+          <div class="breadcrumb">
+            <%= link_to "Главная", root_path %> /
+            <%= link_to @subcategory.category.name, "#"%> /
+            <span><%= @subcategory.name%></span>
+          </div>
+          
+          <div class="clearfix mbm">
+            <div class="col1of2">
+              <span>Сортировка по:</span>
+              <a href="">цене</a>
+              <a href="">названию</a>
+              <a href="">дате</a>
+              <a href=""><strong>АКЦИИ</strong></a>
+            </div>
+            <div class="col1of2">
+              <div class="pagination right">
+                <a href="">1</a> |
+                <a href="">2</a> |
+                <a href="">3</a> |
+                <a href="">4</a> |
+              </div>
+            </div>
+          </div>
+          <hr color="#f5f5f5"/>
+          <% @products.each do |product|%>
+          <div class="product list">
+            <div class="clearfix mbm">
+              <div class="image">
+                <a href=""><img src="images/products/FIT.jpg" alt="" /></a>
+              </div>
+              <div class="last-col pll">
+                <p><strong><%=link_to product.name, product_path(product)%></strong></p>
+                <p><%= product.short_description.html_safe%></p>
+                <%= link_to "подробнее", product_path(product) %>
+              </div>
+            </div>
+            <div class="clearfix">
+              <div class="col1of2">
+                <strong class="price"><%= product.price%> <%=product.currency%></strong> 
+              </div>
+              <div class="col1of2">
+                <a href="" class="buy-button right">Купить</a>
+              </div>
+            </div>
+          </div>
+          <%end%>
+          <div class="clearfix mbm">
+            <div class="pagination right">
+              <a href="">1</a> |
+              <a href="">2</a> |
+              <a href="">3</a> |
+              <a href="">4</a> |
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+  <div class="col1of5">
+    <%=render "shared/contacts"%>
+    <%=render "shared/latest"%>
+    <p style="text-align: center;"><a href="http://muzkom.com.ua/page.php?id=4"><img width="150" height="230" alt="" src="http://muzkom.com.ua/banners/freedelivery.jpg"></a></p>
+
+    <p style="text-align: center;"><a href="http://muzkom.com.ua/view_product.php?id=5335"><img width="150" height="200" alt="" src="http://muzkom.com.ua/banners/rvmb.jpg"></a></p>
+
+  </div>
+</div>
