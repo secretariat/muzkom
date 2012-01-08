@@ -1,5 +1,7 @@
 class PagesController < ShopController
   
+  before_filter :latest_products
+  
   def index
     @products = Product.limit(12).all
   end

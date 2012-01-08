@@ -10,3 +10,10 @@ ru:
       password_invalid: Не правильный пароль
       not_active: Этот аккаунт не активирован
       no_authentication_details: Вы не ввели данных для авторизации
+  views:
+     pagination:
+       next: >
+       previous: <
+       first: <- 
+       last: ->
+       truncate: ...

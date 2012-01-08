@@ -25,10 +25,7 @@
             </div>
             <div class="col1of2">
               <div class="pagination right">
-                <a href="">1</a> |
-                <a href="">2</a> |
-                <a href="">3</a> |
-                <a href="">4</a> |
+                <%= paginate @products%>
               </div>
             </div>
           </div>
@@ -37,7 +34,7 @@
           <div class="product list">
             <div class="clearfix mbm">
               <div class="image">
-                <a href=""><img src="images/products/FIT.jpg" alt="" /></a>
+                <%= link_to image_for_product(product), product_path(product)%>
               </div>
               <div class="last-col pll">
                 <p><strong><%=link_to product.name, product_path(product)%></strong></p>
@@ -47,20 +44,19 @@
             </div>
             <div class="clearfix">
               <div class="col1of2">
-                <strong class="price"><%= product.price%> <%=product.currency%></strong> 
+                <strong class="price">
+                  <%= human_price product.converted_price(session[:currency])%>
+                </strong> 
               </div>
               <div class="col1of2">
-                <a href="" class="buy-button right">Купить</a>
+                <%= link_to "Купить", add_to_cart_path(product), :class=>"buy-button right", :method=>"put"%>
               </div>
             </div>
           </div>
           <%end%>
           <div class="clearfix mbm">
             <div class="pagination right">
-              <a href="">1</a> |
-              <a href="">2</a> |
-              <a href="">3</a> |
-              <a href="">4</a> |
+              <%= paginate @products%>
             </div>
           </div>
         </div>

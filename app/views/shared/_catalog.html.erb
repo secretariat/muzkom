@@ -5,7 +5,7 @@
       <li>
         <%= link_to category.name, "#", :class=>"category"%>
         <% unless category.subcategories.empty?%>
-          <ul class="">
+          <ul class="subcategories <%=show_subcategories(category)%>">
             <%category.subcategories.each do |subcategory|%>
               <li><%=link_to subcategory.name, category_path(subcategory), :class=>"subcategory"%></li>
             <%end%>

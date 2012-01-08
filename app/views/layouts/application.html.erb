@@ -26,10 +26,11 @@
             </select>
           </div>
           <div class="cart">
-             <%= image_tag "cart.png", :class=>"" %>
+             <%= link_to image_tag("cart.png"), cart_path %>
             <div class="left mtx">
-              <strong>товаров:</strong> <strong class="value">2</strong><br />
-              <strong>на сумму:</strong> <strong class="value">3000.00 грн</strong>
+              <strong>товаров:</strong> 
+              <strong class="value"><%=@cart.items.count%></strong><br />
+              <strong>на сумму:</strong> <strong class="value"><%=@cart.total(session[:currency])%> грн</strong>
             </div>
           </div>
         </div>  

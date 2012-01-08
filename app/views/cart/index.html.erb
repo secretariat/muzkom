@@ -1,0 +1,55 @@
+<div class="clearfix">
+  <div class="col1of5">
+    <%=render "shared/brands_filter"%>
+    <%=render "shared/catalog"%>
+    <%=render "shared/news"%>
+  </div>
+  <div class="col3of5">
+    <div class="mhs">
+      <div class="container phm pvs">
+        <h1>Корзина</h1>
+         <table border="0" width="100%" class="cart-table mbl">
+            <thead>
+              <tr>
+                <th colspan="2">Товар</th>
+                <th>Количество</th>
+                <th>Цена</th>
+                <th>Действия</th>
+              </tr>
+            </thead>
+            <tfoot>
+            <tr>
+              <td colspan="5">
+                <strong>Итого</strong>
+                <strong class="product-price right">
+                  <%=human_price @cart.total(session[:currency])%>
+                </strong>
+              </td>
+            </tr>
+            </tfoot>
+            <tbody>
+            <%if @cart.items.empty?%>
+              <tr>
+                <td colspan="5">Ваша корзина пуста</td>
+              </tr>
+            <%end%>
+            <% @cart.items.each do |item|%>
+              <tr>
+                <td><%= image_for_product(item.product)%></td>
+                <td><%= link_to item.title, product_path(:id=>item.product.id)%></td>
+                <td><%= item.quantity%></td>
+                <td><%= human_price item.price(session[:currency])%></td>
+                <td><%= link_to "Удалить", delete_from_cart_path(item.product.id), :method => :delete%></td>
+              </tr>
+            <%end%>
+            </tbody>
+          </table>
+          <%= link_to "Продолжить покупки", request.referer, :class=>"submit-button"%>
+          <%= link_to "Оформить заказ", new_checkout_path, :class=>"submit-button right"%>
+      </div>
+    </div>
+  </div>
+  <div class="col1of5">
+    <%=render "shared/contacts"%>
+  </div>
+</div>

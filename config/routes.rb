@@ -5,8 +5,13 @@ Muzkom::Application.routes.draw do
   resources :categories, :only=>[:show]
   resources :products, :only=>[:show]
   resources :news, :only=>[:index, :show]
+  resources :checkout, :only=>[:new, :create]
   match '/login' => 'sessions#new', :as=>:login
   match '/logout' => 'sessions#destroy', :as=>:logout
+  get 'cart' => 'cart#index', :as =>:cart
+  put 'cart/add/:id' => 'cart#add', :as => :add_to_cart
+  delete 'cart/delete/:id' => 'cart#delete', :as => :delete_from_cart
+  delete 'cart/empty' => 'cart#empty', :as =>:empty_cart
   
   namespace :admin do
     root :to=>'index#index'

@@ -10,7 +10,7 @@
         <h3 class="mbs"><%= @product.name%></h3>
         <div class="breadcrumb">
           <a href=""><%= @product.subcategory.category.name%></a> /
-          <a href=""><%= @product.subcategory.name%></a> /
+          <%= link_to @product.subcategory.name, category_path(@product.subcategory)%> /
           <span><%= @product.name%></span>
         </div>
 
@@ -19,30 +19,30 @@
             <div class="mrm mtl">
               <div class="mbm">
                 <span class="muted">цена:</span>
-                <span class="product-price"><%=@product.price%> <%=@product.currency%></span>
+                <span class="product-price">
+                  <%= human_price @product.converted_price(session[:currency])%>
+                </span>
               </div>
               <div class="mbs">
                 <strong>Наличие: </strong> 
-                <span class="success"><></span>
+                <span class="success"><%= @product.status.name%></span>
               </div>
               <div class="mbl">
                 <strong>Производитель: </strong> 
                 <a href=""><%= @product.brand.name%></a>
               </div>
               <div class="mbm">
-                <a href="" class="buy-button">Купить</a>
+                <%= link_to "Купить", add_to_cart_path(@product), :class=>"buy-button"%>
               </div>
               <div class="clearfix mbm">
                 <div class="col1of2">
-                  <a href="">
-                    <img src="images/icons/delivery.png" alt="" />
-                  </a>
+
                 </div>
               </div>
             </div>
           </div>
           <div class="col1of3 by-center">
-            <a href=""><img src="images/products/vox-ac1-rhythm.jpg" alt="" style="width:170px"/></a>
+            <a href=""><%=image_for_product(@product)%></a>
           </div>
         </div>
         <div class="clearfix">
@@ -52,64 +52,26 @@
     </div>
   </div>
   <div class="col1of5">
-    <div class="container">
-      <h2><span>Контакты</span></h2>
-      <div class="pam">
-        <p>
-          Пн.- Пт.<br />
-          с 10.00 – 19.00<br />
-          он-лайн заказы 24/7<br />
-          Сб. с 11.00 - 15.00<br />
-        </p>
-        <p>
-          Тел. (063) 625 48 05,<br /> 
-          (044) 592 86 14<br />
-          ICQ: 570560950
-        </p>
-      </div>
-    </div>
-
+    <%=render "shared/contacts"%>
     <div class="container">
       <h2><span>Похожие товары</span></h2>
       <div class="pam">
+        <% @similar.each do |product|%>
         <div class="by-center mbl">
           <div class="">
-            <a href=""><strong>CR Laser TOP-1S (100)</strong></a>
+            <strong>
+              <%= link_to product.name, product_path(product)%>
+            </strong>
           </div>
           <div class="mbs">
-            <img src="images/products/CR.jpg" alt="" />
+            <%= image_for_product(product)%>
           </div>
-          <strong>2240.00 грн</strong>
+          <strong>
+            <%= human_price product.converted_price(session[:currency])%>
+          </strong>
         </div>
-        <div class="by-center mbm">
-          <div class="">
-            <a href=""><strong>CR Laser FIT-S G</strong></a>
-          </div>
-          <div class="mbs">
-            <img src="images/products/FIT.jpg" alt="" />
-          </div>
-          <strong>1780.00 грн</strong>
-        </div>
-        <div class="by-center mbl">
-          <div class="">
-            <a href=""><strong>CR Laser TOP-1S (100)</strong></a>
-          </div>
-          <div class="mbs">
-            <img src="images/products/CR.jpg" alt="" />
-          </div>
-          <strong>2240.00 грн</strong>
-        </div>
-        <div class="by-center mbm">
-          <div class="">
-            <a href=""><strong>CR Laser FIT-S G</strong></a>
-          </div>
-          <div class="mbs">
-            <img src="images/products/FIT.jpg" alt="" />
-          </div>
-          <strong>1780.00 грн</strong>
-        </div>
+        <%end%>
       </div>
     </div>
-
   </div>
 </div>

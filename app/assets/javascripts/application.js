@@ -7,3 +7,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function(){
+  Pubsub.init();
+  $(".catalog .category").click(function(e){
+    e.preventDefault();
+    $(".subcategories").slideUp();
+    $(this).parent().find(".subcategories").slideDown();
+ });
+});

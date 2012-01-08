@@ -16,7 +16,7 @@
             <div class="product block<%= product_class index+1%>">
               <div class="clearfix mbm">
                 <div class="image">
-                  <a href=""><%=image_tag "noimage.jpeg", :width=>'100'%></a>
+                  <%= link_to image_for_product(product), product_path(product)%>
                 </div>
                 <div class="description last-col">
                   <p><%= link_to product.name, product_path(product)%></strong></p>
@@ -26,7 +26,9 @@
               </div>
               <div class="clearfix">
                 <div class="col1of2">
-                  <strong class="price"><%= product.price%> грн</strong> 
+                  <strong class="price">
+                    <%= human_price product.converted_price(session[:currency])%>
+                  </strong> 
                 </div>
                 <div class="col1of2">
                   <a href=""><a href="" class="buy-button right">Купить</a>
