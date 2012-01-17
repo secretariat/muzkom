@@ -4,8 +4,9 @@ Muzkom::Application.routes.draw do
   resources :sessions, :only=>[:new, :create, :destroy]
   resources :categories, :only=>[:show]
   resources :products, :only=>[:show]
-  resources :news, :only=>[:index, :show]
-  resources :checkout, :only=>[:new, :create]
+  resources :brands, :only=>[:show]
+  resources :publications, :only=>[:index, :show]
+  resources :checkouts, :only=>[:new, :create]
   match '/login' => 'sessions#new', :as=>:login
   match '/logout' => 'sessions#destroy', :as=>:logout
   get 'cart' => 'cart#index', :as =>:cart

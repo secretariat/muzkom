@@ -32,7 +32,7 @@
                 <a href=""><%= @product.brand.name%></a>
               </div>
               <div class="mbm">
-                <%= link_to "Купить", add_to_cart_path(@product), :class=>"buy-button"%>
+                <%= link_to "Купить", add_to_cart_path(@product), :class=>"buy-button", :method=>"put"%>
               </div>
               <div class="clearfix mbm">
                 <div class="col1of2">

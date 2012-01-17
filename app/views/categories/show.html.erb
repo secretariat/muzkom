@@ -14,6 +14,12 @@
             <%= link_to @subcategory.category.name, "#"%> /
             <span><%= @subcategory.name%></span>
           </div>
+          <div class="clearfix mbm">
+            <%@brand_list.each do |brand|%>
+              <%=brand.name.downcase.capitalize%>
+              <%= @products.count{|p| p.brand == brand}%> 
+            <%end%>
+          </div>
           
           <div class="clearfix mbm">
             <div class="col1of2">
