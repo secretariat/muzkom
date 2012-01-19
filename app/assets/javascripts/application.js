@@ -20,4 +20,7 @@ $(document).ready(function(){
    id = $(this).val();
    window.location.href = "/brands/"+id
  });
+ $("select[change=submitForm]").change(function(){
+    $(this).closest("form").submit();
+ });
 });

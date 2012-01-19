@@ -2,7 +2,12 @@ class ShopController < ApplicationController
  
   before_filter :load_catalog
   before_filter :get_store_data    
-
+  
+  def change
+    session[:currency] = params[:currency]
+    redirect_to request.env['HTTP_REFERER']
+  end
+  
   private
 
     def order_by

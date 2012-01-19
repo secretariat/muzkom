@@ -11,6 +11,7 @@ Muzkom::Application.routes.draw do
   resources :checkouts, :only=>[:new, :create]
   match '/login' => 'sessions#new', :as=>:login
   match '/logout' => 'sessions#destroy', :as=>:logout
+  put "/currency_change" => 'shop#change', :as=>:change_currency
   get 'cart' => 'cart#index', :as =>:cart
   put 'cart/add/:id' => 'cart#add', :as => :add_to_cart
   delete 'cart/delete/:id' => 'cart#delete', :as => :delete_from_cart

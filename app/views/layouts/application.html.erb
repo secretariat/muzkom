@@ -19,18 +19,20 @@
         <div class="right mvm">
           <div class="mbm">
             <span class="muted">Все цены в </span>
-            <select name="" id="" style="width: 80px">
-              <option value="">ГРН</option>
-              <option value="">EUR</option>
-              <option value="">USD</option>
+            <%= form_tag change_currency_path, :method => :put do%>
+            <select name="currency" id="" style="width: 80px" change="submitForm">
+              <option value="uah" <%= "selected" if session[:currency] == "uah"%>>ГРН</option>
+              <option value="usd" <%= "selected" if session[:currency] == "usd"%>>USD</option>
+              <option value="eur" <%= "selected" if session[:currency] == "eur"%>>EUR</option>
             </select>
+            <%end%>
           </div>
           <div class="cart">
              <%= link_to image_tag("cart.png"), cart_path %>
             <div class="left mtx">
               <strong>товаров:</strong> 
               <strong class="value"><%=@cart.items.count%></strong><br />
-              <strong>на сумму:</strong> <strong class="value"><%=@cart.total(session[:currency])%> грн</strong>
+              <strong>на сумму:</strong> <strong class="value"><%= human_price @cart.total(session[:currency])%> </strong>
             </div>
           </div>
         </div>  
