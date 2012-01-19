@@ -15,4 +15,9 @@ $(document).ready(function(){
     $(".subcategories").slideUp();
     $(this).parent().find(".subcategories").slideDown();
  });
+ 
+ $("select[change=selectBrand]").change(function(){
+   id = $(this).val();
+   window.location.href = "/brands/"+id
+ });
 });

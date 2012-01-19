@@ -3,13 +3,21 @@ module ApplicationHelper
   
   CU = {:usd=>"USD", :uah=>"грн", :eur=>"EUR"}
   
-  def product_class(index)
-    return (index%2==0) ? " mlx" : " mrx"
+  def human_price(price)
+    number_with_precision(price, :precision => 2, :separator => '.')+" #{CU[:"#{session[:currency]}"]}"
+  end
+  
+  def product_price(product)
+    human_price product.converted_price(session[:currency])
   end
   
   def show_subcategories(category)
     return "hidden" if @current_category.nil?
     return "hidden" unless @current_category.category.id == category.id
+  end
+  
+  def product_class(index)
+    return (index%2==0) ? " mlx" : " mrx"
   end
   
   def image_for_product(product)
@@ -20,7 +28,4 @@ module ApplicationHelper
     end
   end
   
-  def human_price(price)
-    number_with_precision(price, :precision => 2, :separator => '.')+" #{CU[:"#{session[:currency]}"]}"
-  end
 end

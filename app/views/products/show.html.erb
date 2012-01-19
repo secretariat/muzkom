@@ -20,7 +20,7 @@
               <div class="mbm">
                 <span class="muted">цена:</span>
                 <span class="product-price">
-                  <%= human_price @product.converted_price(session[:currency])%>
+                  <%= product_price(@product)%>
                 </span>
               </div>
               <div class="mbs">

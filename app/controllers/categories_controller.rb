@@ -1,16 +1,18 @@
 class CategoriesController < ShopController
 
   before_filter :latest_products
-  
+  before_filter :list_brands
+
   def show
-    list_brands
+    @order_by = order_by
     @subcategory = Subcategory.find params[:id]
-    @products = Product.where("subcategory_id = #{params[:id]}").page(params[:page]).per(10)
-    @current_category = @subcategory
+    @products = @subcategory.products.visible.order(:"#{@order_by}").page(params[:page])
   end
   
+  private
+ 
   def list_brands 
-    @brand_list = Brand.where("id in (select distinct brand_id from products where subcategory_id=#{params[:id]})").order(:name)
+    @brand_list = Brand.where("id in (select distinct brand_id from products where subcategory_id=#{params[:id]} and visibility=0)").order(:name)
   end
   
 end

@@ -2,8 +2,10 @@ Muzkom::Application.routes.draw do
   
   root :to=>'pages#index'
   resources :sessions, :only=>[:new, :create, :destroy]
-  resources :categories, :only=>[:show]
-  resources :products, :only=>[:show]
+  resources :categories, :only=>[:show] do
+    resources :brands, :only=>[:show]
+  end
+  resources :products, :only=>[:show] 
   resources :brands, :only=>[:show]
   resources :publications, :only=>[:index, :show]
   resources :checkouts, :only=>[:new, :create]

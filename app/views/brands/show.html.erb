@@ -8,21 +8,10 @@
 
       <div class="container mhs">
         <div class="mhm mvs">
-          <h3 class="mbs"><%= @subcategory.name%> <%= @brand.name if @brand%></h3>
+          <h3 class="mbs"><%= @brand.name%></h3>
           <div class="breadcrumb">
             <%= link_to "Главная", root_path %> /
-            <%= link_to @subcategory.category.name, "#"%> /
-            <span><%= @subcategory.name%></span>
-          </div>
-          <div class="clearfix mbm">
-          <% if !@brand%>
-            <%@brand_list.each do |brand|%>
-              <%= link_to brand.name.downcase.capitalize, category_brand_path(@subcategory, brand)%>
-              (<%= brand.products.by_subcategory(@subcategory).count%>)
-            <%end%>
-          <%else%>
-            <%= link_to "Все производители", category_path(@subcategory)%>
-          <%end%>
+            <span>Товары <%= @brand.name%></span>
           </div>
           <div class="clearfix mbm">
             <div class="col1of2">

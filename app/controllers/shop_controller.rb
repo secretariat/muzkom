@@ -4,7 +4,16 @@ class ShopController < ApplicationController
   before_filter :get_store_data    
 
   private
-  
+
+    def order_by
+      unless params[:order].nil?
+        return "created_at DESC" if params[:order] == "date"
+        params[:order]
+      else
+        "name"
+      end
+    end
+    
     def load_catalog
       @categories = Category.visible.includes(:subcategories).where(:subcategories=>{:visibility=>true})
       @brands = Brand.alphabetical

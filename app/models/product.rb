@@ -1,4 +1,7 @@
 class Product < ActiveRecord::Base
+
+  paginates_per 10
+  
   belongs_to :subcategory
   belongs_to :brand
   belongs_to :status
@@ -8,6 +11,9 @@ class Product < ActiveRecord::Base
   scope :withdrawn, where(:status_id=>4).visible
   scope :latest, order('created_at DESC').limit(2).visible
   
+  def self.by_subcategory(subcategory)
+    where(:subcategory_id => subcategory.id)
+  end
   
   def self.similar(product)
     where(:brand_id=>product.brand.id, :subcategory_id=>product.subcategory.id).limit(6)
