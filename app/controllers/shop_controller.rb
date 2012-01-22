@@ -2,6 +2,7 @@ class ShopController < ApplicationController
  
   before_filter :load_catalog
   before_filter :get_store_data    
+  before_filter :latest_news
   
   def change
     session[:currency] = params[:currency]
@@ -35,6 +36,10 @@ class ShopController < ApplicationController
   
     def latest_products
       @latest_products = Product.latest
+    end
+    
+    def latest_news
+      @latest_news = Publication.latest
     end
     
 end

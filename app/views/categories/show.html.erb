@@ -14,14 +14,14 @@
             <%= link_to @subcategory.category.name, "#"%> /
             <span><%= @subcategory.name%></span>
           </div>
-          <div class="clearfix mbm">
+          <div class="clearfix mbl">
           <% if !@brand%>
             <%@brand_list.each do |brand|%>
               <%= link_to brand.name.downcase.capitalize, category_brand_path(@subcategory, brand)%>
-              (<%= brand.products.by_subcategory(@subcategory).count%>)
+              <span class="muted">(<%= brand.products.by_subcategory(@subcategory).count%>)</span>
             <%end%>
           <%else%>
-            <%= link_to "Все производители", category_path(@subcategory)%>
+            <%= link_to "&larr; Все производители".html_safe, category_path(@subcategory)%>
           <%end%>
           </div>
           <div class="clearfix mbm">
@@ -43,7 +43,7 @@
           <div class="product list">
             <div class="clearfix mbm">
               <div class="image">
-                <%= link_to image_for_product(product), product_path(product)%>
+                <%= link_to image_tag(product.image_url(:thumb)), product_path(product)%>
               </div>
               <div class="last-col pll">
                 <p><strong><%=link_to product.name, product_path(product)%></strong></p>

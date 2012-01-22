@@ -2,13 +2,17 @@ Muzkom::Application.routes.draw do
   
   root :to=>'pages#index'
   resources :sessions, :only=>[:new, :create, :destroy]
+  
   resources :categories, :only=>[:show] do
     resources :brands, :only=>[:show]
   end
+  get 'products/' => 'products#index', :as=>:products_option
   resources :products, :only=>[:show] 
   resources :brands, :only=>[:show]
   resources :publications, :only=>[:index, :show]
   resources :checkouts, :only=>[:new, :create]
+  
+  get 'checkout/finish' => 'checkouts#finish', :as=>:finish_checkout
   match '/login' => 'sessions#new', :as=>:login
   match '/logout' => 'sessions#destroy', :as=>:logout
   put "/currency_change" => 'shop#change', :as=>:change_currency

@@ -32,7 +32,9 @@
                 <a href=""><%= @product.brand.name%></a>
               </div>
               <div class="mbm">
-                <%= link_to "Купить", add_to_cart_path(@product), :class=>"buy-button", :method=>"put"%>
+                <%unless @product.withdrawn?%>
+                  <%= link_to "Купить", add_to_cart_path(@product), :class=>"buy-button", :method=>"put"%>
+                <%end%>
               </div>
               <div class="clearfix mbm">
                 <div class="col1of2">
@@ -42,7 +44,7 @@
             </div>
           </div>
           <div class="col1of3 by-center">
-            <a href=""><%=image_for_product(@product)%></a>
+            <a href=""><%=image_tag(@product.image_url, :width=>"200")%></a>
           </div>
         </div>
         <div class="clearfix">
@@ -64,7 +66,7 @@
             </strong>
           </div>
           <div class="mbs">
-            <%= image_for_product(product)%>
+            <%= image_tag(product.image_url(:thumb))%>
           </div>
           <strong>
             <%= human_price product.converted_price(session[:currency])%>

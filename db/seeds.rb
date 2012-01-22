@@ -13,4 +13,5 @@
 # Category.create(:name=>"Вертушки", :title=>"Вертушки", :meta_d=>"Вертушки", :category_id=>1)
 # Category.create(:name=>"Студия", :title=>"Студия", :meta_d=>"Студия", :category_id=>0)
 
+Currency.create(:brand_id=>0, :usd_to_uah=> 8.1000, :eur_to_uah=>11.0000, :uah_to_usd=>0.1235, :eur_to_usd=>1.3580, :uah_to_eur=>0.0909, :usd_to_eur=>0.7364)
 User.create(:username=>"admin", :password=>"12345", :password_confirmation=>"12345", :email=>"a@a.com") 

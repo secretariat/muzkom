@@ -7,8 +7,10 @@ class CartController < ShopController
   end
   
   def add
-    quantity = params[:quantity] || 1
-    @item = @cart.add_product(@product, quantity) 
+    unless @product.withdrawn?
+      quantity = params[:quantity] || 1
+      @item = @cart.add_product(@product, quantity) 
+    end
     redirect_to request.env["HTTP_REFERER"]
   end
   

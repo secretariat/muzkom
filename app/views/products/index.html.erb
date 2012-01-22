@@ -1,0 +1,83 @@
+<div class="clearfix">
+  <div class="col1of5">
+    <%=render "shared/brands_filter"%>
+    <%=render "shared/catalog"%>
+    <%=render "shared/news"%>
+  </div>
+  <div class="col3of5">
+
+      <div class="container mhs">
+        <div class="mhm mvs">
+          <h3 class="mbs">Товары снятые с производства</h3>
+          <div class="breadcrumb">
+            <%= link_to "Главная", root_path %> /
+            <span>Товары снтые с производства</span>
+          </div>
+          <div class="clearfix mbm">
+          <% if !@brand%>
+            <%@brand_list.each do |brand|%>
+              <%= link_to brand.name.downcase.capitalize, brand_path(brand)%>
+              (<%= brand.products.count%>)
+            <%end%>
+          <%else%>
+            
+          <%end%>
+          </div>
+          <div class="clearfix mbm">
+            <div class="col1of2">
+              <span>Сортировка по:</span>
+              <a href="?order=price">цене</a>
+              <a href="?order=name">названию</a>
+              <a href="?order=date">дате</a>
+              <a href=""><strong>АКЦИИ</strong></a>
+            </div>
+            <div class="col1of2">
+              <div class="pagination right">
+                <%= paginate @products%>
+              </div>
+            </div>
+          </div>
+          <hr color="#f5f5f5"/>
+          <% @products.each do |product|%>
+          <div class="product list">
+            <div class="clearfix mbm">
+              <div class="image">
+                <%= link_to image_tag(product.image_url(:thumb)), product_path(product)%>
+              </div>
+              <div class="last-col pll">
+                <p><strong><%=link_to product.name, product_path(product)%></strong></p>
+                <p><%= product.short_description.html_safe%></p>
+                <%= link_to "подробнее", product_path(product) %>
+              </div>
+            </div>
+            <div class="clearfix">
+              <div class="col1of2">
+                <strong class="price">
+                  <%= product_price(product)%>
+                </strong> 
+              </div>
+              <div class="col1of2">
+                <%unless product.withdrawn?%>
+                <%= link_to "Купить", add_to_cart_path(product), :class=>"buy-button right", :method=>"put"%>
+                <%end%>
+              </div>
+            </div>
+          </div>
+          <%end%>
+          <div class="clearfix mbm">
+            <div class="pagination right">
+              <%= paginate @products%>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+  <div class="col1of5">
+    <%=render "shared/contacts"%>
+    <%=render "shared/latest"%>
+    <p style="text-align: center;"><a href="http://muzkom.com.ua/page.php?id=4"><img width="150" height="230" alt="" src="http://muzkom.com.ua/banners/freedelivery.jpg"></a></p>
+
+    <p style="text-align: center;"><a href="http://muzkom.com.ua/view_product.php?id=5335"><img width="150" height="200" alt="" src="http://muzkom.com.ua/banners/rvmb.jpg"></a></p>
+
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="clearfix">
+  <div class="col1of5">
+    <%=render "shared/brands_filter"%>
+    <%=render "shared/catalog"%>
+    <%=render "shared/news"%>
+  </div>
+  <div class="col3of5">
+      <div class="container mhs">
+        <div class="mhm mvs">
+          <h3 class="mbs">Новости</h3>
+          <div class="breadcrumb">
+            <%= link_to "Главная", root_path %> /
+            <span>Новости</span>
+          </div>
+          <%@publications.each do |pub|%>
+            <h4><%=pub.title%></h4>
+            <p><%= human_date pub.date%></p>
+            <p><%= pub.description.html_safe%></p>
+          <%end%>
+        </div>
+      </div>  
+    </div>
+  <div class="col1of5">
+    <%=render "shared/contacts"%>
+  </div>
+</div

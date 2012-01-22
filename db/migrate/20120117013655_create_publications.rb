@@ -6,6 +6,7 @@ class CreatePublications < ActiveRecord::Migration
       t.string :meta_k, :default=>"", :null=>false
       t.datetime :date,  :null=>false
       t.string :description, :default=>"", :null=>false
+      t.string :image, :default=>"", :null=>false
       t.text :text, :default=>"", :null=>false
       t.boolean :visibility, :null=>false, :default=>false
       t.timestamps

@@ -38,6 +38,9 @@ body
     vertical-align: middle
     margin-right: 10px
 
+.phone 
+  color: #831111
+  
 .mainmenu
   li 
     float: left
@@ -143,5 +146,39 @@ body
 .product-price
   font-size: 20px
   
-.buy-button
+table.cart-table
+  border-collapse: collapse
+  +border-radius(5px)
+  td, th
+    padding: 8px 10px
+    border: 1px solid #e7e7e7
+    vertical-align: middle
+  thead th
+    +box-shadow(inset 0 0 0 1px rgba(255,255,255,0.5))
+    background: #F6F6F6
+    color: #555
+  
+.buy-button, .submit-button
   +simple-button(#990000, #fff)
+  
+.submit-button
+  +simple-button(#ddd, #333)
+  +text-shadow(0 1px 0 #fff)
+  padding: 5px 10px
+  
+.text
+  width: 100%
+  border: 1px solid #bbb
+  padding: 2px 4px
+  +box-sizing()
+  +border-radius(5px)
+  $shadow: 0 0 3px rgba(100,100,100,0.2),inset 1px 2px 2px rgba(100,100,100,0.1)
+  +box-shadow($shadow)
+.field_with_errors .text
+  border-color: #db9292
+  
+.field
+  margin-bottom: 10px
+  label
+    display: block
+    margin-bottom: 3px

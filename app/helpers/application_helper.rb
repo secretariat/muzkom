@@ -3,6 +3,10 @@ module ApplicationHelper
   
   CU = {:usd=>"USD", :uah=>"грн", :eur=>"EUR"}
   
+  def human_date(date)
+    date.strftime('%d.%m.%Y')
+  end
+  
   def human_price(price)
     number_with_precision(price, :precision => 2, :separator => '.')+" #{CU[:"#{session[:currency]}"]}"
   end

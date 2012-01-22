@@ -2,6 +2,8 @@ class Product < ActiveRecord::Base
 
   paginates_per 10
   
+  mount_uploader :image, ProductImageUploader
+  
   belongs_to :subcategory
   belongs_to :brand
   belongs_to :status
@@ -26,6 +28,10 @@ class Product < ActiveRecord::Base
     else
       price
     end
+  end
+  
+  def withdrawn?
+    status_id == "4" ? true : false
   end
   
 end

@@ -7,10 +7,11 @@ class CategoriesController < ShopController
     @order_by = order_by
     @subcategory = Subcategory.find params[:id]
     @products = @subcategory.products.visible.order(:"#{@order_by}").page(params[:page])
+    @current_category = @subcategory
   end
   
   private
- 
+  
   def list_brands 
     @brand_list = Brand.where("id in (select distinct brand_id from products where subcategory_id=#{params[:id]} and visibility=0)").order(:name)
   end

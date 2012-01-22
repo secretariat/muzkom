@@ -7,7 +7,7 @@
         <strong><%= link_to product.name, product_path(product)%></strong>
       </div>
       <div class="mbs">
-        <%= image_for_product product%>
+        <%= image_tag product.image_url(:thumb)%>
       </div>
       <strong><%= product.price%>грн</strong>
     </div>

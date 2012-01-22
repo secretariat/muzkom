@@ -4,6 +4,7 @@ class PagesController < ShopController
   
   def index
     @products = Product.limit(12).all
+    @page = Page.find :first
   end
   
   def show

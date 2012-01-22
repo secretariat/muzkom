@@ -1,19 +1,24 @@
 class CheckoutsController < ShopController
   
   def new
+    redirect_to cart_path if @cart.items.empty?
     @checkout = Checkout.new
   end
   
   def create
-    @checkout = Checkout.new(params[:order])
+    @checkout = Checkout.new(params[:checkout])
     @checkout.add_purchases_from_cart(@cart)
     if @checkout.save
       session[:cart] = nil
       flash[:submitted_order_id] = @checkout.id
-      redirect_to checkout_finish_url
+      redirect_to finish_checkout_url
     else
       flash[:notice] = t("flash.form_error")
-      render :action => :new
+      render :new
     end
+  end
+  
+  def finish
+    
   end
 end

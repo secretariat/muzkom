@@ -16,7 +16,7 @@
             <div class="product block<%= product_class index+1%>">
               <div class="clearfix mbm">
                 <div class="image">
-                  <%= link_to image_for_product(product), product_path(product)%>
+                  <%= link_to image_tag(product.image_url(:thumb)), product_path(product)%>
                 </div>
                 <div class="description last-col">
                   <p><%= link_to product.name, product_path(product)%></strong></p>
@@ -40,6 +40,9 @@
             </div><div class="clearfix mbs">
           <%end%>
         <%end%>
+      </div>
+      <div class="mbs">
+        <%= @page.text.html_safe%>
       </div>
     </div>
   </div>

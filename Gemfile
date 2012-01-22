@@ -9,6 +9,8 @@ gem 'mysql2'
 gem 'hirb'
 gem 'kaminari'
 gem 'authlogic'
+gem 'mini_magick'
+gem 'carrierwave'
 gem 'capistrano'
 
 
