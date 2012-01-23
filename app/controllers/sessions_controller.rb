@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   layout "signin"
+ 
   def new
     #redirect_to admin_root_url if current_user
     @user_session = Session.new
