@@ -9,13 +9,14 @@
       <div class="mhm mvs">
         <h3 class="mbs"><%= @product.name%></h3>
         <div class="breadcrumb">
+          <%= link_to "Каталог товаров", root_path %> /
           <a href=""><%= @product.subcategory.category.name%></a> /
           <%= link_to @product.subcategory.name, category_path(@product.subcategory)%> /
           <span><%= @product.name%></span>
         </div>
 
         <div class="clearfix mbm">
-          <div class="col2of3">
+          <div class="col1of2">
             <div class="mrm mtl">
               <div class="mbm">
                 <span class="muted">цена:</span>
@@ -27,9 +28,19 @@
                 <strong>Наличие: </strong> 
                 <span class="success"><%= @product.status.name%></span>
               </div>
-              <div class="mbl">
+              <div class="mbs">
                 <strong>Производитель: </strong> 
                 <a href=""><%= @product.brand.name%></a>
+              </div>
+              <div class="mbl">
+                <strong>Валюта:</strong>
+                <%= form_tag change_currency_path, :method => :put, :style=>"display: inline;" do%>
+                <select name="currency" id="" style="width: 80px" change="submitForm">
+                  <option value="uah" <%= "selected" if session[:currency] == "uah"%>>ГРН</option>
+                  <option value="usd" <%= "selected" if session[:currency] == "usd"%>>USD</option>
+                  <option value="eur" <%= "selected" if session[:currency] == "eur"%>>EUR</option>
+                </select>
+                <%end%>
               </div>
               <div class="mbm">
                 <%unless @product.withdrawn?%>
@@ -43,12 +54,29 @@
               </div>
             </div>
           </div>
-          <div class="col1of3 by-center">
-            <a href=""><%=image_tag(@product.image_url, :width=>"200")%></a>
+          <div class="col1of2">
+            <div class="by-right">
+            <%= link_to image_tag(@product.image_url, :width=>"200"), @product.image_url, :rel=>'facebox'%>
+            </div>
           </div>
         </div>
         <div class="clearfix">
-          <%= @product.description.html_safe%>
+          <ul class="tab-switcher clearfix">
+            <li><a href="#tab1" class="current">Описание</a></li>
+            <li><a href="#tab2">Видео</a></li>
+            <li><a href="#tab3">Комментарии (0)</a></li>
+          </ul>
+          <div class="tab-container">
+            <div id="tab1" class="tab">
+              <%= @product.description.html_safe%>
+            </div>
+            <div id="tab2" class="tab">
+              Видео
+            </div>
+            <div id="tab3" class="tab">
+              Комментарии
+            </div>
+          </div>
         </div>
       </div>
     </div>

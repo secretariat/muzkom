@@ -6,7 +6,7 @@ class CategoriesController < ShopController
   def show
     @order_by = order_by
     @subcategory = Subcategory.find params[:id]
-    @products = @subcategory.products.visible.order(:"#{@order_by}").page(params[:page])
+    @products = @subcategory.products.on_sale.order(:"#{@order_by}").page(params[:page])
     @current_category = @subcategory
   end
   

@@ -7,7 +7,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-
 $(document).ready(function(){
   Pubsub.init();
   $(".catalog .category").click(function(e){
@@ -23,4 +22,16 @@ $(document).ready(function(){
  $("select[change=submitForm]").change(function(){
     $(this).closest("form").submit();
  });
+ 
+  $("a[rel=facebox]").facebox();
+ 
+ $(".tab-switcher a").click(function(e){
+   e.preventDefault();
+   var selector = $(this).attr('href');
+   $('.tab-switcher a').removeClass('current');
+   $(this).addClass('current');
+   $('.tab-container .tab').hide();
+   $(selector).fadeIn(200);
+ });
+ 
 });

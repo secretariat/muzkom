@@ -11,6 +11,9 @@ class Product < ActiveRecord::Base
   scope :visible, where(:visibility=>false)
   
   scope :withdrawn, where(:status_id=>4).visible
+
+  scope :on_sale, where("status_id != 4").visible
+  
   scope :latest, order('created_at DESC').limit(2).visible
   
   def self.by_subcategory(subcategory)
