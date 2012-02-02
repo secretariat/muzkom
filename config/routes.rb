@@ -7,7 +7,9 @@ Muzkom::Application.routes.draw do
     resources :brands, :only=>[:show]
   end
   get 'products/' => 'products#index', :as=>:products_option
-  resources :products, :only=>[:show] 
+  resources :products, :only=>[:show] do
+    resources :comments, :only=>[:create]
+  end
   resources :brands, :only=>[:show]
   resources :publications, :only=>[:index, :show]
   resources :checkouts, :only=>[:new, :create]

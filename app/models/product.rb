@@ -7,13 +7,13 @@ class Product < ActiveRecord::Base
   belongs_to :subcategory
   belongs_to :brand
   belongs_to :status
+  has_many :photos
+  has_many :videos
+  has_many :comments
   
   scope :visible, where(:visibility=>false)
-  
   scope :withdrawn, where(:status_id=>4).visible
-
   scope :on_sale, where("status_id != 4").visible
-  
   scope :latest, order('created_at DESC').limit(2).visible
   
   def self.by_subcategory(subcategory)

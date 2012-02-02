@@ -63,18 +63,38 @@
         <div class="clearfix">
           <ul class="tab-switcher clearfix">
             <li><a href="#tab1" class="current">Описание</a></li>
-            <li><a href="#tab2">Видео</a></li>
+            <% unless @product.videos.empty?%>
+              <li><a href="#tab2">Видео</a></li>
+            <%end%>
             <li><a href="#tab3">Комментарии (0)</a></li>
           </ul>
           <div class="tab-container">
             <div id="tab1" class="tab">
               <%= @product.description.html_safe%>
             </div>
+            <% unless @product.videos.empty?%>
             <div id="tab2" class="tab">
-              Видео
+              
             </div>
+            <%end%>
             <div id="tab3" class="tab">
-              Комментарии
+              <% @product.comments.each do |comment|%>
+              <%end%>
+              <%if @product.comments.empty?%>
+                <p class="mbl">Не комментариев. Будьте первым, кто оставит комментарий.</p>
+              <%end%>
+              <h4 class="mbm">Добавить новый комментарий</h4>
+              <%=form_for [@product, @comment] do |f|%>
+                <div class="field">
+                  <label for="">Ваше имя</label>
+                  <%= f.text_field :name, :class=>"text"%>
+                </div>
+                <div class="field">
+                  <label for="">Комментарий</label>
+                  <%= f.text_area :text, :class=>"text", :size=>"0x5"%>
+                </div>
+                  <%= f.submit "Отправить", :class=>"submit-button"%>
+              <%end%>
             </div>
           </div>
         </div>

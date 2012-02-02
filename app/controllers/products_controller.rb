@@ -12,6 +12,7 @@ class ProductsController < ShopController
     @product = Product.find params[:id]
     @similar = Product.similar(@product)
     @current_category = @product.subcategory
+    @comment = Comment.new
   end
   
   private 
