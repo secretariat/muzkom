@@ -1,3 +1,4 @@
+//= require_directory ./plugins
 @import "scaffy/scaffy"
 html, body
   height: 100%
@@ -80,26 +81,25 @@ h3
   line-height: 21px
   color: #333
 a 
-  color: $link
+  color: #2B587A
   text-decoration: none
   &:hover
-    color: $link-hover  
+    text-decoration: none
+    color: #333  
     
 .flash_message 
-  width: 400px
-  margin: 0 auto
-  height: 18px
-  padding: 5px 10px
+  position: absolute
+  padding: 11px 0
+  width: 100%
+  color: #fff
+  opacity: .95
   text-align: center
-  +border-radius(5px)
-  &.success
-    color: #345F0E
-    border: 1px solid #90B96B
-    background: #C2EE9B
+  top: -38px
+  left: 0
+  &.notice
+    background: green
   &.error
-    color: #882626
-    border: 1px solid #C88383 
-    background: #FABBBB
+    background: #b34c00
     
   
 .login-pannel
@@ -151,8 +151,7 @@ a
     padding: 14px 0 8px 0
     text-align: right
   a
-    color: #bfbfbf
-    text-shadow: 0 1px 1px rgba(0,0,0,.2)
+    color: #f0f0f0
   a:hover 
     color: #fff
   .nav li
@@ -214,9 +213,9 @@ a
   .checkbox 
     width: 15px
   .actions 
-    width: 120px
+    width: 110px
   .info 
-    width: 100px
+    width: 80px
     
 .tabs
   position: relative
@@ -237,8 +236,10 @@ a
     &#current
       background: #F8F8F8
       border-bottom: 1px solid #F8F8F8
+    &.inactive
+      color: #aaa
     
-.submit-button, .action-button
+.submit-button, .action-button, .visibility-button
   border: 1px solid #aaa
   color: #3B3B3B
   +text-shadow(0 1px 0 #fff)
@@ -258,11 +259,13 @@ a
   &:active
     +box-shadow(inset 2px 3px 3px darken(#326BA0, 10%))
 .submit-button
-  padding: 4px 10px
+  padding: 5px 10px
 .action-button
-  line-height: 15px
-  padding: 3px 3px 0 3px
   font-size: 12px
+  padding: 2px 4px
+.visibility-button
+  width: 16px
+  text-align: center
   
 fieldset 
   position: relative
@@ -272,7 +275,7 @@ fieldset
   +border-radius(5px)
     
 .field
-  margin-bottom: 10px
+  margin-bottom: 15px
   label
     display: block
     margin-bottom: 2px
@@ -294,10 +297,7 @@ fieldset
 
 .image-preview
   border: 1px solid #aaa
-  width: 300px
+  width: 180px
+  margin: 10px 0
   img
     width: inherit
-.gallery_preview img
-  width: 100px
-  border: 1px solid #aaa
-  mrgin-right: 10px

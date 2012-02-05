@@ -1,0 +1,50 @@
+<div class="clearfix">
+  <div class="col1of4">
+    <%=render "catalog"%>
+  </div>
+  <div class="col3of4">
+  <div class="container mbl mls">
+    <div class="box-header mbm"><h1>Товары</h1></div>
+      <div class="clearfix mam">
+        <%= link_to "Добавить", new_admin_product_path, :class=>"submit-button right"%>
+      </div>
+      <div class="mhm">
+      <table class="data-table mbm">
+        <thead>
+          <tr>
+            <td class="checkbox"><input type="checkbox"></td>
+            <td class="actions">Производитель</td>
+            <td>Товар</td>
+            <td class='info'>Цена</td>
+            <td class="actions">Действия</td>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <td colspan="9">Показано <%= "#{@products.count} из #{Product.count}" %> товаров</td>
+          </tr>
+        </tfoot>
+        <tbody>
+          <% @products.each do |product|%>
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td><%= product.brand.name%></td>
+            <td><%= link_to product.title, edit_admin_product_path(product)%></td>
+            <td><%= real_product_price product.price%> <%= product.currency.upcase%></td>
+            <td>
+            <%=link_to visibility_button(product.visibility), "", :class=>"visibility-button"%>
+            <%=link_to 'Edit' , edit_admin_product_path(product), :class=>"action-button" %>
+            <%=link_to 'Delete' , admin_product_path(product), :method=>:delete, :confirm=>"Вы уверены, что хотите удалить эту страницу?", :class=>"action-button"%>
+            </td>
+          </tr>
+          <%end%>
+          <%if @products.empty?%>
+            <tr>
+              <td colspan="9"><p>Нет страниц</p></td>
+            </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

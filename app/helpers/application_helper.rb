@@ -1,18 +1,26 @@
 #encoding: utf-8
 module ApplicationHelper
   
-  CU = {:usd=>"USD", :uah=>"грн", :eur=>"EUR"}
+  CURRENCIES = {:usd=>"USD", :uah=>"грн", :eur=>"EUR"}
   
   def human_date(date)
     date.strftime('%d.%m.%Y')
   end
   
+  def human_date_time(date)
+    date.strftime('%d.%m.%Y %H:%M')
+  end
+  
   def human_price(price)
-    number_with_precision(price, :precision => 2, :separator => '.')+" #{CU[:"#{session[:currency]}"]}"
+    number_with_precision(price, :precision => 2, :separator => '.')+" #{CURRENCIES[:"#{session[:currency]}"]}"
   end
   
   def product_price(product)
     human_price product.converted_price(session[:currency])
+  end
+  
+  def real_product_price(price)
+    number_with_precision(price, :precision => 2, :separator => '.')
   end
   
   def show_subcategories(category)

@@ -1,0 +1,44 @@
+<div class="clearfix">
+  <div class="container mbl">
+    <div class="box-header mbm"><h1>Новости</h1></div>
+      <div class="clearfix mam">
+        <%= link_to "Добавить", new_admin_publication_path, :class=>"submit-button right"%>
+      </div>
+      <div class="mhm">
+      <table class="data-table mbm">
+        <thead>
+          <tr>
+            <td class="checkbox"><input type="checkbox"></td>
+            <td colspan="2">Новость</td>
+            <td class="actions">Посл.Редакт.</td>
+            <td class="actions">Действия</td>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <td colspan="9">Показано <%=  @publications.count %> новостей</td>
+          </tr>
+        </tfoot>
+        <tbody>
+          <% @publications.each do |publication|%>
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td><%= human_date publication.date%></td>
+            <td><%= link_to publication.title, edit_admin_publication_path(publication)%></td>
+            <td><%= human_date_time publication.updated_at || "-"%></td>
+            <td>
+            <%=link_to 'Edit' , edit_admin_publication_path(publication), :class=>"action-button" %>
+            <%=link_to 'Delete' , admin_publication_path(publication), :method=>:delete, :confirm=>"Вы уверены, что хотите удалить эту страницу?", :class=>"action-button"%>
+            </td>
+          </tr>
+          <%end%>
+          <%if @publications.empty?%>
+            <tr>
+              <td colspan="9"><p>Нет новостей</p></td>
+            </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

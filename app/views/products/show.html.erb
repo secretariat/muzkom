@@ -66,7 +66,7 @@
             <% unless @product.videos.empty?%>
               <li><a href="#tab2">Видео</a></li>
             <%end%>
-            <li><a href="#tab3">Комментарии (0)</a></li>
+            <li><a href="#tab3">Комментарии (<%= @product.comments.count%>)</a></li>
           </ul>
           <div class="tab-container">
             <div id="tab1" class="tab">

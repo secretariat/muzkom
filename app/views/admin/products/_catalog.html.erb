@@ -1,0 +1,17 @@
+<div class="container mbl mrs">
+  <div class="box-header mbm"><h1>Каталог</h1></div>
+  <ul class="mam">
+  <% @categories.each do |cat|%>
+    <li>
+      <%= link_to "&rarr; #{cat.name}".html_safe, "#"%>
+      <%unless cat.subcategories.empty?%>
+        <ul class="hidden">
+          <%cat.subcategories.each do |subcat|%>
+          <li><%= subcat.name%></li>
+          <%end%>
+        </ul>
+      <%end%>
+    </li>
+  <%end%>
+  </ul>
+</div>

@@ -1,4 +1,9 @@
 ru:
+  crud:
+    successful_create: "Новая запись успешно сохранена"
+    successful_update: "Изменения успешно сохранены"
+    successful_destroy: "Запись успешно удалена"
+    error: "Не удалось сохранить запись"
   authlogic:
     login: "Вы успешно вошли в систему"
     logout: "Вы успешно вышли из системы"

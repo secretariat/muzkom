@@ -25,9 +25,17 @@ Muzkom::Application.routes.draw do
   
   namespace :admin do
     root :to=>'index#index'
-    resources :pages
     resources :categories
+    resources :checkouts
+    resources :pages
+    resources :publications
+    resources :promotions
     resources :products
+    resources :subcategories do 
+    #  resources :products
+    end
+    resources :videos
+    resources :users, :only=>[:edit, :update]
   end
   
   match "/:uri" => "pages#show"

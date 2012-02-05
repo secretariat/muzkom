@@ -11,7 +11,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string :short_description, :default=>"", :null=>false
       t.text :description, :default=>"", :null=>false
       t.decimal :price, :precision=>10, :scale=>2, :default=>0
-      t.string :currency, :null=>false, :default=>"UAH", :limit=>3
+      t.string :currency, :null=>false, :default=>"uah", :limit=>3
       t.boolean :visibility, :default=>false
       t.string :status_id, :null=>false, :default=>""
       t.timestamps

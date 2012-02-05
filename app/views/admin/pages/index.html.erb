@@ -1,0 +1,45 @@
+<div class="clearfix">
+  <div class="container mbl">
+    <div class="box-header mbm"><h1>Страницы</h1></div>
+      <div class="clearfix mam">
+        <%= link_to "Добавить", new_admin_page_path, :class=>"submit-button right"%>
+      </div>
+      <div class="mhm">
+      <table class="data-table mbm">
+        <thead>
+          <tr>
+            <td class="checkbox"><input type="checkbox"></td>
+            <td>Страница</td>
+            <td class='info'>URL</td>
+            <td class="actions">Посл.Редакт.</td>
+            <td class="actions">Действия</td>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <td colspan="9">Показано <%=  @pages.count %> страниц</td>
+          </tr>
+        </tfoot>
+        <tbody>
+          <% @pages.each do |page|%>
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td><%= link_to page.name, edit_admin_page_path(page)%></td>
+            <td><span class="muted">/<%= page.uri%></span></td>
+            <td><%= page.updated_at || "-"%></td>
+            <td>
+            <%=link_to 'Edit' , edit_admin_page_path(page), :class=>"action-button" %>
+            <%=link_to 'Delete' , admin_page_path(page), :method=>:delete, :confirm=>"Вы уверены, что хотите удалить эту страницу?", :class=>"action-button"%>
+            </td>
+          </tr>
+          <%end%>
+          <%if @pages.empty?%>
+            <tr>
+              <td colspan="9"><p>Нет страниц</p></td>
+            </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

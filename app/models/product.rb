@@ -7,9 +7,11 @@ class Product < ActiveRecord::Base
   belongs_to :subcategory
   belongs_to :brand
   belongs_to :status
-  has_many :photos
-  has_many :videos
+  has_many :photos, :dependent => :destroy
+  has_many :videos, :dependent => :destroy
   has_many :comments
+  
+  accepts_nested_attributes_for :videos, :allow_destroy => :true, :reject_if => :all_blank
   
   scope :visible, where(:visibility=>false)
   scope :withdrawn, where(:status_id=>4).visible

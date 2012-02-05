@@ -1,0 +1,19 @@
+<div class="container mrs mbm">
+  <div class="box-header">
+    <h1><small>Вы вошли как</small> <%=@current_user.email%></h1>
+  </div>
+  <div class="user-info pam">
+    <div class="clearfix">
+      <div class="user">
+        <%= image_tag "admin/avatar.png"%>
+        <br />
+        <br />
+      </div>
+      <ul class="user-links">
+        <li><%= link_to "Профиль", edit_admin_user_path(@current_user)%></li>
+        <li><%= link_to "Сменить пароль", "" %></li>
+        <li><%= link_to "Выход", logout_path %></li>
+      </ul>
+    </div>
+  </div>
+</div>

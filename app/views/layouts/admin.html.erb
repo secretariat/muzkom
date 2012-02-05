@@ -14,15 +14,16 @@
       <div class="inner">
         <div class="clearfix">
           <div class="col1of5">
-            <h1 class="ptxs">Muzkom.com.ua</h1>
+            <h1><%= link_to "Muzkom.com.ua",admin_root_path %> </h1>
           </div>
           <div class="col3of5">
             <ul class="unstyled nav">
-              <li><%= link_to "Главная", admin_root_path %></li>
               <li><%= link_to "Страницы", admin_pages_path%></li>
+              <li><%= link_to "Новости", admin_publications_path%></li>
+              <li><%= link_to "Акции", admin_promotions_path%></li>
               <li><%= link_to "Каталог", admin_categories_path%></li>
               <li><%= link_to "Товары", admin_products_path%></li>
-              <li><a href="">Заказы</a></li>
+              <li><%= link_to "Заказы", admin_checkouts_path %></li>
               <li><%= link_to "Выход", logout_path%></li>
             </ul>
           </div>

@@ -6,7 +6,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require_directory ./plugins
 $(document).ready(function(){
   Pubsub.init();
   $(".catalog .category").click(function(e){
