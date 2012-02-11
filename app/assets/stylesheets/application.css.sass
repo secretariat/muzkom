@@ -80,9 +80,10 @@ body
   a
     margin-right: 3px
     padding: 7px 10px
-    color: #fff
-    border: 1px solid #831111
-    background: #A30000
+    color: #333
+    border: 1px solid #ddd
+    background: #ECECEC
+    +text-shadow(0 1px 0 #fff)
     +inline-block()
     +border-radius(5px 5px 0 0)
     &.current
@@ -90,10 +91,10 @@ body
       border-bottom: 1px solid #fff
       background: #fff
       color: #000
-      +box-shadow(1px -1px 1px rgba(100, 100, 100, .2))
+      +box-shadow(1px -1px 1px rgba(180, 180, 180, .2))
     &:hover
       text-decoration: none
-      +box-shadow(1px -1px 3px rgba(100, 100, 100, .2))
+      +box-shadow(1px -1px 3px rgba(180, 180, 180, .2))
 
 .pagination
   color: #888
@@ -173,6 +174,10 @@ body
   color: #029f11
 .product-price
   font-size: 20px
+.product-image
+  +inline-block()
+  padding: 10px
+  border: 1px solid #eee
   
 table.cart-table
   border-collapse: collapse

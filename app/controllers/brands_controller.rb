@@ -15,4 +15,9 @@ class BrandsController < ShopController
     end
   end
   
+  def withdrawn
+    @products = Product.withdrawn.page(params[:page])
+    @brand_list = @products.collect{|product| product.brand}.uniq
+  end
+  
 end

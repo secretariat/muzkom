@@ -9,7 +9,7 @@ class Product < ActiveRecord::Base
   belongs_to :status
   has_many :photos, :dependent => :destroy
   has_many :videos, :dependent => :destroy
-  has_many :comments
+  has_many :product_comments, :dependent => :destroy
   
   accepts_nested_attributes_for :videos, :allow_destroy => :true, :reject_if => :all_blank
   

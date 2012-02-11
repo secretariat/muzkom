@@ -27,4 +27,12 @@ Muzkom::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    :user_name => "muzkom",
+    :password => "7972ee7efc77c711",
+    :address => "mailtrap.io",
+    :port => 2525,
+    :authentication => :plain,
+  }
 end

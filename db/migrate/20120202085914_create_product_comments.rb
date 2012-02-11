@@ -1,6 +1,6 @@
-class CreateComments < ActiveRecord::Migration
+class CreateProductComments < ActiveRecord::Migration
   def change
-    create_table :comments do |t|
+    create_table :product_comments do |t|
       t.integer :product_id, :null=>false
       t.string :name, :null=>false, :default=>""
       t.text :text, :null=>false, :default=>""

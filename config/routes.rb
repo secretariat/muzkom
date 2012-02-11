@@ -6,11 +6,15 @@ Muzkom::Application.routes.draw do
   resources :categories, :only=>[:show] do
     resources :brands, :only=>[:show]
   end
+  
   get 'products/' => 'products#index', :as=>:products_option
+  
   resources :products, :only=>[:show] do
-    resources :comments, :only=>[:create]
+    resources :product_comments, :only=>[:create]
   end
-  resources :brands, :only=>[:show]
+  resources :brands, :only=>[:show] do
+    get :withdrawn, :on => :collection
+  end
   resources :publications, :only=>[:index, :show]
   resources :checkouts, :only=>[:new, :create]
   
