@@ -1,5 +1,5 @@
 class Mailer < ActionMailer::Base
-  default from: "noreply@muzkom.com.ua"
+  default :from => "noreply@muzkom.com.ua"
   
   def client_purchase_notification
   end
