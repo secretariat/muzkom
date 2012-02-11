@@ -15,6 +15,7 @@ gem 'mini_magick'
 gem 'carrierwave'
 gem 'tinymce-rails'
 gem 'capistrano'
+gem 'exception_notification'
 
 
 # Gems used only for assets and not required

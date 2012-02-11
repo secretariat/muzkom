@@ -34,5 +34,10 @@ Muzkom::Application.configure do
     :address => "mailtrap.io",
     :port => 2525,
     :authentication => :plain,
+    :enable_starttls_auto => false 
   }
+  config.active_support.deprecation = :notify
+  config.middleware.use ExceptionNotifier, 
+    :sender_address => 'noreply@muzkom.com.ua',
+    :exception_recipients => 'alchapone@yandex.ru'
 end
