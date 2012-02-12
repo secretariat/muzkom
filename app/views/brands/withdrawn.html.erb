@@ -1,0 +1,32 @@
+<div class="clearfix">
+  <div class="col1of5">
+    <%=render "shared/brands_filter"%>
+    <%=render "shared/catalog"%>
+    <%=render "shared/news"%>
+  </div>
+  <div class="col3of5">
+    <div class="container mhs">
+      <div class="mhm mvs">
+        <h3 class="mbs">Товары снятые с производства</h3>
+        <div class="breadcrumb">
+          <%= link_to "Главная", root_path %> /
+          <span>Товары снятые с производства</span>
+        </div>
+        <div class="clearfix mbm">
+          <% @brand_list.each_with_index do |brand, index|%>
+            <div class="col1of4">
+              <%= link_to brand.name, withdrawn_products_path(:brand => brand.id) %>
+            </div>
+            <%if (index+1)%4==0%>
+              </div><div class="clearfix mbm">
+            <%end%>
+          <%end%>
+        </div>
+      </div>  
+    </div>  
+  </div>
+  <div class="col1of5">
+    <%=render "shared/contacts"%>
+    <%=render "shared/latest"%>
+  </div>
+</div>

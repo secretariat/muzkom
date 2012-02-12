@@ -10,6 +10,8 @@ class CheckoutsController < ShopController
     @checkout.add_purchases_from_cart(@cart)
     if @checkout.save
       session[:cart] = nil
+      Mailer.client_purchase_notification(@checkout).deliver
+      Mailer.admin_purchase_notification(@checkout).deliver
       flash[:submitted_order_id] = @checkout.id
       redirect_to finish_checkout_url
     else

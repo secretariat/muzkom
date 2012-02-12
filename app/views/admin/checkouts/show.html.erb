@@ -1,0 +1,42 @@
+<div class="clearfix">
+  <div class="col3of4">
+    <div class="container mbl mls">
+      <div class="box-header mbm">
+        <h1 class="left">Заказ № <%=four_digit_id@checkout.id%></h1>
+        <p class="mtm right"><%= human_date_time @checkout.created_at%></p>
+      </div>
+      <div class="mam">
+        <div class="mbm">
+          <%= link_to "&larr; К списку заказов".html_safe, admin_checkouts_path%>
+        </div>
+        <div class="mbs"><strong>Имя: </strong> <%= @checkout.fullname%></div>
+        <div class="mbs"><strong>Email: </strong> <%= @checkout.email%></div>
+        <div class="mbs"><strong>Телефон: </strong> <%= @checkout.phone%></div>
+        <div class="mbs"><strong>Адрес: </strong> <%= "#{@checkout.country}, #{@checkout.city}"%> <%= @checkout.address%></div>
+        <div class="mbs"><strong>Время доставки: </strong> <%= @checkout.delivery_time%></div>
+        <div class="mbs"><strong>Комментарий: </strong> <%= @checkout.comment%></div>
+        <div class="mbs"><strong>Дисконтная карта: </strong> <%= @checkout.discount%></div>
+        <div class="mbl"><strong>Владелец дисконта: </strong> <%= @checkout.discount_owner%></div>
+        <div class="mbs"><strong>Куплено:</strong></div>
+        <table class="simple-table">
+        <%@checkout.purchases.each do |purchase|%>
+          <tr>
+            <td><%= image_tag purchase.product.image_url(:thumb), :size=>"80x80"%></td>
+            <td><%= link_to purchase.product.title, product_path(purchase.product), :target=>"_blank"%></td>
+            <td><%= purchase.quantity%></td>
+            <td><strong><%= real_product_price purchase.price%> грн</strong></td>
+          </tr>
+        <%end%>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col1of4">
+    <div class="container mbl mls">
+      <div class="box-header mbm"><h1>Статус</h1></div>
+      <%=form_for [:admin, @checkout] do |f|%>
+        
+      <%end%>
+    </div>
+  </div>
+</div>

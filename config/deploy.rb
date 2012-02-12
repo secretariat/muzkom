@@ -59,6 +59,6 @@ namespace :deploy do
   end
 end
 
-after "deploy:symlink", "deploy:bundle"
+after "deploy:update_code", "deploy:bundle"
 after "deploy:bundle", "deploy:database"
 after "deploy:database", "deploy:assets"

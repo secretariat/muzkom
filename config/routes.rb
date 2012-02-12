@@ -11,6 +11,7 @@ Muzkom::Application.routes.draw do
   
   resources :products, :only=>[:show] do
     resources :product_comments, :only=>[:create]
+    get :withdrawn, :on => :collection
   end
   resources :brands, :only=>[:show] do
     get :withdrawn, :on => :collection

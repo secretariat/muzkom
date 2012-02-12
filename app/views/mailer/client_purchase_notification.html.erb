@@ -1,0 +1,19 @@
+<p>Вы закончили оформление заказа на сайте www.muzkom.com.ua</p>
+<p>Ваша информация:</p>
+<p>
+  <strong>Имя:</strong> <%= @checkout.fullname%><br />
+  <strong>Email:</strong> <%= @checkout.email%><br />
+  <strong>Телефон:</strong> <%= @checkout.phone%><br />
+  <strong>Адрес:</strong> <%= @checkout.country%>, <%=@checkout.city%> <%= @checkout.address%><br />
+</p>
+<p>Ваш заказ:</p>
+<table style="border-collpase: collapse; border: 1px solid #eee;">
+  <% @checkout.purchases.each do |purchase|%>
+  <tr>
+    <td style="padding: 10px;border: 1px solid #eee;"><%= image_tag "http://muzkom.com.ua{#{purchase.product.image_url}", :size=>"100x100"%></td>
+    <td style="padding: 10px;border: 1px solid #eee;"><%= purchase.product.title %></td>
+    <td style="padding: 10px;border: 1px solid #eee; width: 50px;"><%= purchase.quantity %></td>
+    <td style="padding: 10px;border: 1px solid #eee;"><%= purchase.price %></td>
+  </tr>
+  <%end%>
+</table>

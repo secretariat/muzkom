@@ -3,9 +3,9 @@ class ProductsController < ShopController
 #  before_filter :list_brands, :only=>[:index]
   before_filter :latest_products
   
-  def index
-    @products = Product.withdrawn.page(params[:page])
-    @brand_list = @products.collect{|product| product.brand}.uniq
+  def withdrawn
+    @products = Product.withdrawn.where("brand_id = ?", params[:brand]).page(params[:page])
+  
   end
   
   def show

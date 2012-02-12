@@ -14,22 +14,11 @@
             <span>Товары снтые с производства</span>
           </div>
           <div class="clearfix mbm">
-          <% if !@brand%>
-            <%@brand_list.each do |brand|%>
-              <%= link_to brand.name.downcase.capitalize, brand_path(brand)%>
-              (<%= brand.products.count%>)
-            <%end%>
-          <%else%>
-            
-          <%end%>
+            <%= link_to "Все производители", withdrawn_brands_path%>
           </div>
           <div class="clearfix mbm">
             <div class="col1of2">
-              <span>Сортировка по:</span>
-              <a href="?order=price">цене</a>
-              <a href="?order=name">названию</a>
-              <a href="?order=date">дате</a>
-              <a href=""><strong>АКЦИИ</strong></a>
+             &nbsp;
             </div>
             <div class="col1of2">
               <div class="pagination right">
