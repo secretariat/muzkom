@@ -58,6 +58,7 @@ namespace :deploy do
     run "source $HOME/.bash_profile && bundle install --gemfile #{current_path}/Gemfile"
   end
 end
-#after "deploy:bundle", "deploy:database"
-after "deploy:update_code", "deploy:assets"
+
 after "deploy:symlink", "deploy:bundle"
+after "deploy:bundle", "deploy:database"
+after "deploy:database", "deploy:assets"
