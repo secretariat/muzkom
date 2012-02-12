@@ -7,7 +7,11 @@
   <div class="col3of5">
 
     <div class="container mhs">
-      <%=image_tag "rotator/001.jpg" %>
+      <div class="slider">
+      <% @slides.each do |slide|%>
+        <%=link_to image_tag(slide.image_url), slide.link%>
+      <%end%>
+      </div>
     </div>
     <div class="mhs">
       <div class="clearfix mbs">

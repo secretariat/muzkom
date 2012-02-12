@@ -1,0 +1,10 @@
+<tr>
+  <td><input type="checkbox"></td>
+  <td><%= image_tag slide.image_url, :style=>"height: 50px"%></td>
+  <td><%= link_to slide.link, slide.link%></td>
+  <td><%= human_date_time slide.updated_at%></td>
+  <td>
+    <%=link_to 'Edit' , edit_admin_slide_path(slide), :class=>"action-button" %>
+    <%=link_to 'Delete' , admin_slide_path(slide), :method=>:delete, :confirm=>"Вы уверены?", :class=>"action-button"%>
+  </td>
+</tr>

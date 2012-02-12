@@ -5,6 +5,7 @@ class PagesController < ShopController
   def index
     @products = Product.limit(12).all
     @page = Page.find :first
+    @slides = Slide.all
   end
   
   def show

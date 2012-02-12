@@ -1,0 +1,38 @@
+<div class="container mls">
+  <div class="box-header">
+    <h1>Ротатор изображений</h1>
+  </div>
+  <div class="mam">
+    <div class="clearfix mbm">
+      <%= link_to "Добавить", new_admin_slide_path, :class=>"submit-button right"%>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <td class="checkbox"><input type="checkbox"></td>
+          <td>Изображение</td>
+          <td>Ссылка</td>
+          <td class="actions">Посл. редакт.</td>
+          <td class="actions">Действия</td>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td colspan="5"><p>Показано <%= @slides.length%> из <%= @slides.length%></p></td>
+        </tr>
+      </tfoot>
+      <tbody>
+        <% @slides.each do |slide|%>
+        <%= render "slide_row", :slide=>slide%>
+        <%end%>
+        <% if @slides.empty?%>
+        <tr>
+          <td colspan="6">
+            <p>Не найдено ни одного изображения</p>
+          </td>
+        </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+</div>

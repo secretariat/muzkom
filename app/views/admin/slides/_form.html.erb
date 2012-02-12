@@ -1,0 +1,20 @@
+<%=form_for [:admin, @slide] do |f|%>
+<div class="clearfix mbm">
+  <%= link_to "Оменить", admin_publications_path, :class=>"submit-button right"%>
+  <%=f.submit "Сохранить", :class=>"submit-button right mrs"%>
+</div>
+<fieldset>
+  <div class="field clearfix">
+    <label for="">Изображение</label>
+    <%= image_tag(@slide.image_url, :style=>"border: 1px solid #ddd; height: 210px; width: 590px") %><br />
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+  </div>
+  <div class="field clearfix">
+    <div class="col3of4">
+      <label for="">URL</label>
+      <%=f.text_field :link, :class=>"text"%>
+    </div>
+  </div>
+</fieldset>
+<%end%>

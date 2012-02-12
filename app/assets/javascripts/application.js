@@ -7,8 +7,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require_directory ./plugins
+
 $(document).ready(function(){
   Pubsub.init();
+  
+  $('.slider').nivoSlider({
+    animSpeed: 500,
+    pauseTime: 5000,
+    directionNavHide: true
+  });
+  
   $(".catalog .category").click(function(e){
     e.preventDefault();
     $(".subcategories").slideUp();

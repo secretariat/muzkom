@@ -35,6 +35,7 @@ Muzkom::Application.routes.draw do
     resources :publications
     resources :promotions
     resources :products
+    resources :slides
     resources :subcategories do 
     #  resources :products
     end
