@@ -56,7 +56,7 @@ Muzkom::Application.configure do
   config.i18n.fallbacks = true
 
   # Send deprecation notices to registered listeners
-  config.active_support.deprecation = :notify
+  config.action_mailer.smpt_settings = {:enable_starttls_auto => false}
   config.active_support.deprecation = :notify
   config.middleware.use ExceptionNotifier, 
     :sender_address => 'noreply@muzkom.com',
