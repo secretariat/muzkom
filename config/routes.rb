@@ -35,10 +35,14 @@ Muzkom::Application.routes.draw do
     resources :pages
     resources :publications
     resources :promotions
-    resources :products
+    resources :products do
+      post :visibility, :on => :member
+    end
     resources :slides
     resources :subcategories do 
-    #  resources :products
+      resources :products do
+        post :visibility, :on => :member
+      end
     end
     resources :videos
     resources :users, :only=>[:edit, :update]

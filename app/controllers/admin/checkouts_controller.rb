@@ -8,4 +8,15 @@ class Admin::CheckoutsController < AdminController
     @checkout = Checkout.find params[:id]
   end
   
+  def update
+    @checkout = Checkout.find params[:id]
+    @checkout.update_attributes(params[:checkout])
+    if @checkout.save
+      flash[:notice] = t("crud.successful_update")
+      redirect_to admin_checkout_url(@checkout)
+    else
+      render :show
+    end
+  end
+  
 end

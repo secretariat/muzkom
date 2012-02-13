@@ -1,5 +1,5 @@
 <% @product.videos.build %>
-<%= form_for [:admin, @product] do |product_form|%>
+<%= form_for [:admin, @subcategory, @product] do |product_form|%>
 <div class="clearfix">
   <ul class="tabs" id="tab-switcher">
     <li id="current" for="tab1">Основное</li>
@@ -7,7 +7,7 @@
     <li for="tab3" <%='class=inactive' if @product.new_record?%>>Видео</li>
     <li for="tab4" <%='class=inactive' if @product.new_record?%>>Изображения</li>
   </ul>
-  <%= link_to "Оменить", admin_products_path, :class=>"submit-button right"%>
+  <%= link_to "Оменить", product_cancel_link, :class=>"submit-button right"%>
   <%=product_form.submit "Сохранить", :class=>"submit-button right mrs"%>
 </div>
 <fieldset class="mbm">

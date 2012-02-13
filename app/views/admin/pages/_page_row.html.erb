@@ -1,0 +1,10 @@
+<tr>
+  <td><input type="checkbox"></td>
+  <td><%= link_to page.name, edit_admin_page_path(page)%></td>
+  <td>/<%= page.uri%></td>
+  <td><%= human_date_time page.updated_at%></td>
+  <td>
+    <%=link_to 'Edit' , edit_admin_page_path(page), :class=>"action-button" %>
+    <%=link_to 'Delete' , admin_page_path(page), :method=>:delete, :confirm=>"Вы уверены что хотите удалить эту страницу?", :class=>"action-button"%>
+  </td>
+</tr>

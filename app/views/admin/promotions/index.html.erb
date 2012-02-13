@@ -1,0 +1,37 @@
+<div class="container mls">
+  <div class="box-header">
+    <h1>Акции</h1>
+  </div>
+  <div class="mam">
+    <div class="clearfix mbm">
+      <%= link_to "Добавить", new_admin_promotion_path, :class=>"submit-button right"%>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <td class="checkbox"><input type="checkbox"></td>
+          <td>Название акции</td>
+          <td class="actions">Посл. редакт.</td>
+          <td class="actions">Действия</td>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td colspan="5"><p>Показано <%= @promotions.length%> из <%= @promotions.length%></p></td>
+        </tr>
+      </tfoot>
+      <tbody>
+        <% @promotions.each do |promotion|%>
+        <%= render "promotion_row", :promotion=>promotion%>
+        <%end%>
+        <% if @promotions.empty?%>
+        <tr>
+          <td colspan="6">
+            <p>Не найдено ни одной акции</p>
+          </td>
+        </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+</div>

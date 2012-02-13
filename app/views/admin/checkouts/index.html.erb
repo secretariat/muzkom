@@ -22,11 +22,13 @@
         <% @checkouts.each do |checkout|%>
         <tr>
           <td><input type="checkbox" /></td>
-          <td><%= link_to image_tag("icons/ticket.png")+" "+four_digit_id(checkout.id), admin_checkout_path(checkout)%></td>
+          <td>
+          <%= link_to image_tag("icons/ticket.png")+" "+four_digit_id(checkout.id), admin_checkout_path(checkout)%>
+          </td>
           <td><%= human_date_time checkout.created_at%></td>
           <td><%= checkout.fullname%></td>
           <td><span class="muted"><%=checkout.country%>, <%=checkout.city%><br /><%=checkout.address%></span></td>
-          <td></td>
+          <td><%= link_to image_tag("icons/icon_comment.gif"), "#", :title => checkout.comment unless checkout.comment.blank?%></td>
           <td>
             <%=link_to 'Delete' , admin_checkout_path(checkout), :method=>:delete, :confirm=>"Вы уверены, что хотите удалить этот заказ?", :class=>"action-button"%>
           </td>

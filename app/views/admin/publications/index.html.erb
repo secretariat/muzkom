@@ -25,7 +25,7 @@
             <td><input type="checkbox" /></td>
             <td><%= human_date publication.date%></td>
             <td><%= link_to publication.title, edit_admin_publication_path(publication)%></td>
-            <td><%= human_date_time publication.updated_at || "-"%></td>
+            <td><%= human_date_time publication.updated_at %></td>
             <td>
             <%=link_to 'Edit' , edit_admin_publication_path(publication), :class=>"action-button" %>
             <%=link_to 'Delete' , admin_publication_path(publication), :method=>:delete, :confirm=>"Вы уверены, что хотите удалить эту страницу?", :class=>"action-button"%>

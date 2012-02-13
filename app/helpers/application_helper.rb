@@ -4,10 +4,12 @@ module ApplicationHelper
   CURRENCIES = {:usd=>"USD", :uah=>"грн", :eur=>"EUR"}
   
   def human_date(date)
+    return "–" if date.nil?
     date.strftime('%d.%m.%Y')
   end
   
   def human_date_time(date)
+    return "–" if date.nil?
     date.strftime('%d.%m.%Y %H:%M')
   end
   

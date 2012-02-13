@@ -1,4 +1,7 @@
+# encoding: utf-8
 class Checkout < ActiveRecord::Base
+  
+  STATUSES = {"Ожидает"=>"pending", "Выполняется"=>"started", "Выполнен"=>"finished"}
 
   validates_presence_of :firstname, :lastname, :fathername, :phone, :email, :country, :city, :address
   validates :email, :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i}

@@ -1,6 +1,6 @@
 <div class="clearfix">
   <div class="col3of4">
-    <div class="container mbl mls">
+    <div class="container mbl mrs">
       <div class="box-header mbm">
         <h1 class="left">Заказ № <%=four_digit_id@checkout.id%></h1>
         <p class="mtm right"><%= human_date_time @checkout.created_at%></p>
@@ -16,7 +16,7 @@
         <div class="mbs"><strong>Время доставки: </strong> <%= @checkout.delivery_time%></div>
         <div class="mbs"><strong>Комментарий: </strong> <%= @checkout.comment%></div>
         <div class="mbs"><strong>Дисконтная карта: </strong> <%= @checkout.discount%></div>
-        <div class="mbl"><strong>Владелец дисконта: </strong> <%= @checkout.discount_owner%></div>
+        <div class="mbm"><strong>Владелец дисконта: </strong> <%= @checkout.discount_owner%></div>
         <div class="mbs"><strong>Куплено:</strong></div>
         <table class="simple-table">
         <%@checkout.purchases.each do |purchase|%>
@@ -34,9 +34,19 @@
   <div class="col1of4">
     <div class="container mbl mls">
       <div class="box-header mbm"><h1>Статус</h1></div>
+      <div class="mam">
       <%=form_for [:admin, @checkout] do |f|%>
-        
+        <div class="field">
+          <label for="">Статус:</label>
+          <%= f.select :status, options_for_select(Checkout::STATUSES, @checkout.status), {}, :class=>"chzn-select"%>
+        </div>
+        <div class="field">
+          <label>Комментарий:</label>
+          <%=f.text_area :comment, :class=>"text", :size=>"0x11"%>
+        </div>
+        <%=f.submit "Сохранить", :class=>"submit-button"%>
       <%end%>
+      </div>
     </div>
   </div>
 </div>

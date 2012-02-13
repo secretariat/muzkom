@@ -4,9 +4,9 @@
   </div>
   <div class="col3of4">
   <div class="container mbl mls">
-    <div class="box-header mbm"><h1>Товары</h1></div>
+    <div class="box-header mbm"><h1><%= @subcategory.nil? ? "Товары" :  @subcategory.name%></h1></div>
       <div class="clearfix mam">
-        <%= link_to "Добавить", new_admin_product_path, :class=>"submit-button right"%>
+        <%= link_to "Добавить",  new_product_link, :class=>"submit-button right" %>
       </div>
       <div class="mhm">
       <table class="data-table mbm">
@@ -21,7 +21,7 @@
         </thead>
         <tfoot>
           <tr>
-            <td colspan="9">Показано <%= "#{@products.count} из #{Product.count}" %> товаров</td>
+            <td colspan="9">Показано <%= "#{@products.count} из #{@total}" %> товаров</td>
           </tr>
         </tfoot>
         <tbody>
@@ -29,12 +29,12 @@
           <tr>
             <td><input type="checkbox" /></td>
             <td><%= product.brand.name%></td>
-            <td><%= link_to product.title, edit_admin_product_path(product)%></td>
+            <td><%= link_to product.title, edit_product_link(product)%></td>
             <td><%= real_product_price product.price%> <%= product.currency.upcase%></td>
             <td>
-            <%=link_to visibility_button(product.visibility), "", :class=>"visibility-button"%>
-            <%=link_to 'Edit' , edit_admin_product_path(product), :class=>"action-button" %>
-            <%=link_to 'Delete' , admin_product_path(product), :method=>:delete, :confirm=>"Вы уверены, что хотите удалить эту страницу?", :class=>"action-button"%>
+            <%= link_to visibility_button(product.visibility), product_visibility_link(product), :class=>"visibility-button", :method => :post %>
+            <%= link_to 'Edit' , edit_product_link(product), :class=>"action-button" %>
+            <%= link_to 'Delete' , delete_product_link(product), :method=>:delete, :confirm=>"Вы уверены, что хотите удалить эту страницу?", :class=>"action-button"%>
             </td>
           </tr>
           <%end%>
