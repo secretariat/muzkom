@@ -23,7 +23,9 @@ class Product < ActiveRecord::Base
   end
   
   def self.similar(product)
-    where(:brand_id=>product.brand.id, :subcategory_id=>product.subcategory.id).limit(6)
+    expensive =  where("status_id != 4 AND subcategory_id=#{product.subcategory.id} AND price > #{product.price}").limit(3).order("price")
+    cheaper = where("status_id != 4 AND subcategory_id=#{product.subcategory.id} AND price < #{product.price}").limit(3).order("price DESC")
+    cheaper | expensive
   end
   
   def converted_price(curr)
