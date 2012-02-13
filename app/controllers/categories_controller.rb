@@ -13,7 +13,7 @@ class CategoriesController < ShopController
   private
   
   def list_brands 
-    @brand_list = Brand.where("id in (select distinct brand_id from products where subcategory_id=#{params[:id]} and visibility=0)").order(:name)
+    @brand_list = Brand.where("id in (select distinct brand_id from products where subcategory_id=#{params[:id]} and visibility=true)").order(:name)
   end
   
 end
