@@ -1,0 +1,29 @@
+<div class="clearfix">
+  <div class="col1of5">
+    <%=render "shared/brands_filter"%>
+    <%=render "shared/catalog"%>
+  </div>
+  <div class="col3of5">
+      <div class="container mhs">
+        <div class="mhm mvs">
+          <h3 class="mbs"><%= @publication.title%></h3>
+          <div class="breadcrumb">
+            <%= link_to "Главная", root_path %> /
+            <%= link_to "Новости", publications_path%> 
+          </div>
+          <div class="wysiwyg mbl">
+            <%= @publication.text.html_safe%>
+          </div>
+          <h4 class="mbm">Последние новости:</h4>
+          <% @related.each do |pub|%>
+            <p>
+              <%=human_date pub.date%> <%=link_to pub.title, publication_path(pub)%>
+            </p>
+          <%end%>
+        </div>
+      </div>  
+    </div>
+  <div class="col1of5">
+    <%=render "shared/contacts"%>
+  </div>
+</div

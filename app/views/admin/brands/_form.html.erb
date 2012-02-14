@@ -1,0 +1,44 @@
+<%=form_for [:admin, @brand] do |f|%>
+<div class="clearfix mbm">
+  <%= link_to "Оменить", admin_brands_path, :class=>"submit-button right"%>
+  <%=f.submit "Сохранить", :class=>"submit-button right mrs"%>
+</div>
+<fieldset>
+  <div class="field clearfix">
+    <div class="col3of4">
+      <label for="">Название страницы</label>
+      <%=f.text_field :name, :class=>"text"%>
+    </div>
+  </div>
+  <div class="field clearfix">
+    <div class="col3of4">
+      <label for="">Заголовок</label>
+      <%=f.text_field :title, :class=>"text"%>
+    </div>
+  </div>
+  <div class="field clearfix">
+    <label for="">Изображение к новости</label>
+    <%= image_tag(@brand.logo_url(:thumb), :style=>"border: 1px solid #ddd") %><br />
+    <%= f.file_field :logo %>
+    <%= f.hidden_field :logo_cache %>
+  </div>
+  <div class="field clearfix">
+    <div class="col3of4">
+      <label for="">Meta описание</label>
+      <%=f.text_area :meta_d, :class=>"text", :size=>"0x3"%>
+    </div>
+  </div>
+  <div class="field clearfix">
+    <div class="col3of4">
+      <label for="">Meta ключевые слова</label>
+      <%=f.text_area :meta_k, :class=>"text", :size=>"0x3"%>
+    </div>
+  </div>
+  <div class="fieldclearfix">
+    <div class="col3of4">
+      <label for="">Текст страницы</label>
+      <%=f.text_area :text, :class=>"text", :id=>"pannel", :style=> "width: 750px; height: 300px;"%>
+    </div>
+  </div>
+</fieldset>
+<%end%>

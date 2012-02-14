@@ -1,0 +1,20 @@
+<div class="container mbm">
+  <div class="box-header">
+    <h1>Курс Валют</h1>
+  </div>
+  <div class="clearfix pam">
+    <%= form_for [:admin, @brand, @currency] do |f|%>
+    <div class="field">
+      <strong>1 USD = </strong><%= f.text_field :usd_to_uah, :class=>"text", :style=>"width: 100px;"%>
+    </div>
+    <div class="field">
+      <strong>1 EUR = </strong><%= f.text_field :eur_to_uah, :class=>"text", :style=>"width: 100px;"%>
+    </div>
+    <%id = @brand.nil? ? 0 : @brand.id%>
+    <%= f.hidden_field :brand_id, :value => id%>
+    <div class="field">
+      <%= f.submit "Сохранить", :class => "submit-button right"%>
+    </div>
+    <%end%>
+  </div>
+</div>

@@ -1,13 +1,48 @@
 <div class="clearfix">
   <div class="col1of4">
+    <div class="mrs">
     <%= render "account_block"%>
+    <%= render "currency"%>
+    </div>
   </div>
   <div class="col3of4">
     <div class="container mls">
       <div class="box-header">
         <h1>Инструменты</h1>
       </div>
-     
+      <div class="pal">
+        <%= link_to admin_pages_path, :class=>"tool-icon" do %>
+          <%= image_tag "admin/edit-select-all.png" %>
+          <span>Страницы</span>
+        <%end%>
+        <%= link_to admin_publications_path, :class=>"tool-icon" do %>
+          <%= image_tag "admin/text-x-generic.png"%>
+          <span>Новости</span>
+        <%end%>
+        <%= link_to admin_promotions_path, :class=>"tool-icon" do %>
+          <%= image_tag "admin/bookmark-new.png"%>
+          <span>Акции</span>
+        <%end%>
+        <%= link_to admin_brands_path, :class=>"tool-icon" do %>
+          <%= image_tag "admin/edit-paste.png"%>
+          <span>Бренды</span>
+        <%end%>
+        <%= link_to admin_products_path, :class=>"tool-icon" do %>
+          <%= image_tag "admin/products.png"%>
+          <span>Товары</span>
+        <%end%>
+        <%= link_to admin_checkouts_path, :class=>"tool-icon" do %>
+          <%if Checkout.pending.count > 0%>
+            <span class="new"><%= Checkout.pending.count%></span>
+          <%end%>
+          <%= image_tag "admin/x-office-spreadsheet.png"%>
+          <span>Заказы</span>
+        <%end%>
+        <%= link_to "", :class=>"tool-icon" do %>
+          <%= image_tag "admin/comment.png"%>
+          <span>Комменты</span>
+        <%end%>
+      </div>
     </div>
   </div>
 </div>

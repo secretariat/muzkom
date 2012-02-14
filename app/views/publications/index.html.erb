@@ -13,10 +13,14 @@
             <span>Новости</span>
           </div>
           <%@publications.each do |pub|%>
+          <div class="mbm">
             <h4><%=pub.title%></h4>
             <p><%= human_date pub.date%></p>
             <p><%= pub.description.html_safe%></p>
+            <p><%= link_to "читать далее &rarr;".html_safe, publication_path(pub)%></p>
+          </div>
           <%end%>
+          <%= paginate @publications%>
         </div>
       </div>  
     </div>

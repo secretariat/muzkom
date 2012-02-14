@@ -3,7 +3,8 @@
   <div class="mam ">
     <% @latest_news.each do |publication|%>
     <div class="publication">
-      <%= link_to human_date(publication.date), publication_path(publication)%>
+      <%= link_to human_date(publication.date), publication_path(publication)%><br />
+      <strong><%= publication.title%></strong>
       <p><%= publication.description.truncate(200).html_safe%></p>
     </div>
     <%end%>

@@ -27,11 +27,16 @@ Muzkom::Application.routes.draw do
   put 'cart/add/:id' => 'cart#add', :as => :add_to_cart
   delete 'cart/delete/:id' => 'cart#delete', :as => :delete_from_cart
   delete 'cart/empty' => 'cart#empty', :as =>:empty_cart
+  get "/view_product.php" => "products#show"
   
   namespace :admin do
     root :to=>'index#index'
+    resources :brands do
+      resources :currencies
+    end
     resources :categories
     resources :checkouts
+    resources :currencies
     resources :pages
     resources :publications
     resources :promotions

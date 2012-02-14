@@ -1,4 +1,7 @@
 class Brand < ActiveRecord::Base
+  
+  mount_uploader :logo, BrandLogoUploader
+  
   has_one :currency
   has_many :products
   has_many :subcategories, :through => :products

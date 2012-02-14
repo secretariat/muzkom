@@ -8,6 +8,8 @@ class Checkout < ActiveRecord::Base
   
   has_many :purchases
   
+  scope :pending, where(:status=>"pending")
+  
   def add_purchases_from_cart(cart)
     cart.items.each do |item|
       purchases << Purchase.from_cart_item(item)

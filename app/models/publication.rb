@@ -1,9 +1,10 @@
 class Publication < ActiveRecord::Base
   
-  paginates_per 10
+  paginates_per 20
   
   mount_uploader :image, PublicationImageUploader
-  scope :latest, where(:visibility=>true).order("date DESC").limit(3)
-  scope :by_date, where(:visibility=>true).order(:date)
+  scope :visible, where(:visibility=>true)
+  scope :latest, visible.order("date DESC").limit(3)
+  scope :by_date, visible.order("date DESC")
   
 end
