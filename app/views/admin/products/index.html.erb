@@ -31,7 +31,7 @@
           <% @products.each do |product|%>
           <tr>
             <td><input type="checkbox" /></td>
-            <td><%= product.brand.name%></td>
+            <td><%= product.brand.try(:name)%></td>
             <td><%= link_to product.title, edit_product_link(product)%></td>
             <td>
               <%=form_for [:admin, product], :remote => true do |f|%>
