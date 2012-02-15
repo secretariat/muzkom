@@ -11,25 +11,25 @@
         <%=form_for @checkout do |f|%>
           <div class="field clearfix">
             <div class="col1of2">
-              <label for="">Имя</label>
+              <label for="">Имя <span class="astra">*</span></label>
               <%= f.text_field :firstname, :class=>"text"%>
             </div>
           </div>
           <div class="field clearfix">
             <div class="col1of2">
-              <label for="">Фамилия</label>
+              <label for="">Фамилия <span class="astra">*</span></label>
               <%= f.text_field :lastname, :class=>"text"%>
             </div>
           </div>
           <div class="field clearfix">
             <div class="col1of2">
-              <label for="">Отчество</label>
+              <label for="">Отчество <span class="astra">*</span></label>
               <%= f.text_field :fathername, :class=>"text"%>
             </div>
           </div>
           <div class="field clearfix">
             <div class="col1of3">
-              <label for="">Контактный номер телефона</label>
+              <label for="">Номер телефона <span class="astra">*</span></label>
               <%= f.text_field :phone, :class=>"text"%>
             </div>
           </div>
@@ -47,24 +47,24 @@
           </div>
           <div class="field clearfix">
             <div class="col1of2">
-              <label for="">E-mail</label>
+              <label for="">E-mail <span class="astra">*</span></label>
               <%= f.text_field :email, :class=>"text"%>
             </div>
           </div>
           <div class="field clearfix">
             <div class="col1of2">
-              <label for="">Страна</label>
+              <label for="">Страна <span class="astra">*</span></label>
               <%= f.text_field :country, :class=>"text"%>
             </div>
           </div>
           <div class="field clearfix">
             <div class="col1of2">
-              <label for="">Город</label>
+              <label for="">Город <span class="astra">*</span></label>
               <%= f.text_field :city, :class=>"text"%>
             </div>
           </div>
           <div class="field">
-            <label for="">Адрес доставки</label>
+            <label for="">Адрес доставки <span class="astra">*</span></label>
             <%= f.text_area :address, :class=>"text", :size=>"40x5"%>
           </div>
           <div class="field clearfix">

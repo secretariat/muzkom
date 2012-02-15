@@ -17,15 +17,15 @@ class Product < ActiveRecord::Base
   scope :for_index, where(:show_index => true).order("RAND()").limit(12)
   scope :withdrawn, where(:status_id => 4).visible
   scope :on_sale, where("status_id != 4").visible
-  scope :latest, order('created_at DESC').limit(2).visible
+  scope :latest, order('created_at DESC').limit(2).visible.on_sale
   
   def self.by_subcategory(subcategory)
-    where(:subcategory_id => subcategory.id)
+    visible.on_sale.where(:subcategory_id => subcategory.id)
   end
   
   def self.similar(product)
-    expensive =  where("status_id != 4 AND subcategory_id=#{product.subcategory.id} AND price > #{product.price}").limit(3).order("price")
-    cheaper = where("status_id != 4 AND subcategory_id=#{product.subcategory.id} AND price < #{product.price}").limit(3).order("price DESC")
+    expensive =  visible.on_sale.where("status_id != 4 AND subcategory_id=#{product.subcategory.id} AND price > #{product.price}").limit(3).order("price")
+    cheaper = visible.on_sale.where("status_id != 4 AND subcategory_id=#{product.subcategory.id} AND price < #{product.price}").limit(3).order("price DESC")
     cheaper | expensive
   end
   

@@ -35,7 +35,7 @@
                   </strong> 
                 </div>
                 <div class="col1of2">
-                  <a href=""><a href="" class="buy-button right">Купить</a>
+                  <%= link_to "Купить", add_to_cart_path(product), :class=>"buy-button right", :method=>"put"%>
                 </div>
               </div>
             </div>

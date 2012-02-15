@@ -13,7 +13,6 @@ class CheckoutsController < ShopController
       Mailer.client_purchase_notification(@checkout).deliver
       Mailer.admin_purchase_notification(@checkout).deliver
       flash[:submitted_order_id] = @checkout.id
-      redirect_to finish_checkout_url
     else
       flash[:notice] = t("flash.form_error")
       render :new

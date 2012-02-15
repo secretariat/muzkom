@@ -7,27 +7,26 @@ Muzkom::Application.routes.draw do
     resources :brands, :only=>[:show]
   end
   
-  get 'products/' => 'products#index', :as=>:products_option
-  
   resources :products, :only=>[:show] do
     resources :product_comments, :only=>[:create]
     get :withdrawn, :on => :collection
   end
+  
   resources :brands, :only=>[:show] do
     get :withdrawn, :on => :collection
   end
+  
   resources :publications, :only=>[:index, :show]
   resources :checkouts, :only=>[:new, :create]
   
-  get 'checkout/finish' => 'checkouts#finish', :as=>:finish_checkout
   match '/login' => 'sessions#new', :as=>:login
   match '/logout' => 'sessions#destroy', :as=>:logout
+  
   put "/currency_change" => 'shop#change', :as=>:change_currency
   get 'cart' => 'cart#index', :as =>:cart
   put 'cart/add/:id' => 'cart#add', :as => :add_to_cart
   delete 'cart/delete/:id' => 'cart#delete', :as => :delete_from_cart
   delete 'cart/empty' => 'cart#empty', :as =>:empty_cart
-  get "/view_product.php" => "products#show"
   
   namespace :admin do
     root :to=>'index#index'
@@ -66,6 +65,7 @@ Muzkom::Application.routes.draw do
   end
   
   match "/:uri" => "pages#show"
+  get "/view_product.php" => "products#show"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -6,7 +6,7 @@ class Brand < ActiveRecord::Base
   has_many :products
   has_many :subcategories, :through => :products
   
-  scope :alphabetical, order(:name)
+  scope :alphabetical, where(:visibility => true).order(:name)
   
   def conversion
     unless currency.nil?

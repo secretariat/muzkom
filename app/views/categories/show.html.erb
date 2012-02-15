@@ -18,7 +18,7 @@
           <% if !@brand%>
             <h4 class="mbs">Выбор по производителям:</h4>
             <div class="brand-list">
-            <%@brand_list.each do |brand|%>
+            <%@brands.each do |brand|%>
               <span class="brand">
                 <%= link_to brand.name.downcase.capitalize, category_brand_path(@subcategory, brand)%>
                 <span class="quantity">(<%= brand.products.by_subcategory(@subcategory).count%>)</span>

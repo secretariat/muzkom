@@ -1,6 +1,5 @@
 class ProductsController < ShopController
   
-#  before_filter :list_brands, :only=>[:index]
   before_filter :latest_products
   
   def withdrawn
@@ -15,9 +14,4 @@ class ProductsController < ShopController
     @comment = ProductComment.new
   end
   
-  private 
-  
-  def list_brands 
-    @brand_list = Brand.where("id in (select distinct brand_id from products where subcategory_id=#{params[:id]} and visibility=0)").order(:name)
-  end
 end
