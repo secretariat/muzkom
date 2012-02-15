@@ -1,0 +1,42 @@
+<div class="container mbl mrm">
+  <div class="box-header mbm"><h1>Разделы каталога</h1></div>
+  <div class="clearfix mam">
+    <%= link_to "Добавить", new_admin_category_path, :class=>"submit-button right"%>
+  </div>
+  <div class="mhm">
+    <table class="data-table mbm">
+      <thead>
+        <tr>
+          <td class="checkbox"><input type="checkbox"></td>
+          <td>Наименование</td>
+          <td>Категории</td>
+          <td class="actions">Действия</td>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td colspan="9">Показано <%=  @categories.count %> разделов</td>
+        </tr>
+      </tfoot>
+      <tbody>
+        <% @categories.each do |category|%>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td><%= link_to category.name, admin_category_path(category)%></td>
+          <td><span class="muted">Категорий: <%= category.subcategories.count%></span></td>
+          <td>
+            <%= link_to visibility_button(category.visibility), visibility_admin_category_path(category), :class=>"visibility-button", :method => :post %>
+            <%=link_to 'Edit' , edit_admin_category_path(category), :class=>"action-button" %>
+            <%=link_to 'Delete' , admin_category_path(category), :method=>:delete, :confirm=>"Вы уверены, что хотите удалить этот  раздел, со всеми вложенными категориями и товарами?", :class=>"action-button"%>
+          </td>
+        </tr>
+        <%end%>
+        <%if @categories.empty?%>
+        <tr>
+          <td colspan="9"><p>Нет разделов</p></td>
+        </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+</div>

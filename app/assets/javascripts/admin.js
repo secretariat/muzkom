@@ -7,6 +7,9 @@ $(document).ready(function(){
   $("#tab-switcher").uiTabs();
   $('.chzn-select').chosen();
   $('.flash_message').delay(300).animate({'top': 0}, 500).delay(2000).fadeOut(500);  
+  $('.edit-price').blur(function(){
+    $(this).closest('form').submit();
+  });
   $(".catalog .category").click(function(e){
     e.preventDefault();
     $(".subcategories").slideUp();

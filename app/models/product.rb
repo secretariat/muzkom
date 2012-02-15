@@ -14,7 +14,8 @@ class Product < ActiveRecord::Base
   accepts_nested_attributes_for :videos, :allow_destroy => :true, :reject_if => :all_blank
   
   scope :visible, where(:visibility => true)
-  scope :withdrawn, where(:status_id=>4).visible
+  scope :for_index, where(:show_index => true).order("RAND()").limit(12)
+  scope :withdrawn, where(:status_id => 4).visible
   scope :on_sale, where("status_id != 4").visible
   scope :latest, order('created_at DESC').limit(2).visible
   

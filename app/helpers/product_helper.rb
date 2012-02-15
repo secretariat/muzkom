@@ -20,4 +20,12 @@ module ProductHelper
   def product_cancel_link
     return params[:subcategory_id].nil? ? admin_products_path : admin_subcategory_products_path(params[:subcategory_id])
   end
+  
+  def product_show_index_link(product)
+    return params[:subcategory_id].nil? ? show_index_admin_product_path(product) : show_index_admin_subcategory_product_path(params[:subcategory_id], product)
+  end
+  
+  def show_index_button(value)
+    value == true ? ' + ' : ' - '
+  end
 end

@@ -3,7 +3,7 @@ class PagesController < ShopController
   before_filter :latest_products
   
   def index
-    @products = Product.limit(12).all
+    @products = Product.for_index
     @page = Page.find :first
     @slides = Slide.all
   end

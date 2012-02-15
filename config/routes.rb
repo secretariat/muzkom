@@ -31,26 +31,38 @@ Muzkom::Application.routes.draw do
   
   namespace :admin do
     root :to=>'index#index'
-    resources :brands do
-      resources :currencies
-    end
-    resources :categories
     resources :checkouts
     resources :currencies
     resources :pages
     resources :publications
     resources :promotions
-    resources :products do
+    resources :videos
+    resources :users, :only=>[:edit, :update]
+    resources :slides
+    
+    resources :brands do
+      resources :currencies
       post :visibility, :on => :member
     end
-    resources :slides
+    
+    resources :categories do
+      post :visibility, :on => :member
+      resources :subcategories do
+          post :visibility, :on => :member
+      end
+    end
+    
+    resources :products do
+      post :visibility, :on => :member
+      post :show_index, :on => :member
+    end
+    
     resources :subcategories do 
       resources :products do
         post :visibility, :on => :member
+        post :show_index, :on => :member
       end
     end
-    resources :videos
-    resources :users, :only=>[:edit, :update]
   end
   
   match "/:uri" => "pages#show"

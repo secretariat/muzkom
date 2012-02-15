@@ -1,4 +1,4 @@
 class Category < ActiveRecord::Base
-  has_many :subcategories
+  has_many :subcategories, :dependent => :destroy
   scope :visible, where(:visibility=> true)
 end

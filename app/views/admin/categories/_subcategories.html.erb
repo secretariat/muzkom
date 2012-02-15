@@ -1,0 +1,44 @@
+<% unless @category.nil?%>
+  <div class="container mbl mlm">
+    <div class="box-header mbm"><h1>Категории каталога</h1></div>
+    <div class="clearfix mam">
+      <%= link_to "Добавить", new_admin_category_subcategory_path(@category), :class=>"submit-button right"%>
+    </div>
+    <div class="mhm">
+      <table class="data-table mbm">
+        <thead>
+          <tr>
+            <td class="checkbox"><input type="checkbox"></td>
+            <td>Наименование</td>
+            <td>Товаров</td>
+            <td class="actions">Действия</td>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <td colspan="9">Показано <%=  @category.subcategories.count %> категорий</td>
+          </tr>
+        </tfoot>
+        <tbody>
+          <% @category.subcategories.each do |category|%>
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td><%= link_to category.name, admin_subcategory_products_path(@category, category)%></td>
+            <td><span class="muted">Товаров: <%= category.products.count%></span></td>
+            <td>
+              <%= link_to visibility_button(category.visibility), visibility_admin_category_subcategory_path(@category, category), :class=>"visibility-button", :method => :post %>
+              <%=link_to 'Edit' , edit_admin_category_subcategory_path(@category, category), :class=>"action-button" %>
+              <%=link_to 'Delete' , admin_category_subcategory_path(@category,category), :method=>:delete, :confirm=>"Вы уверены, что хотите удалить эту страницу?", :class=>"action-button"%>
+            </td>
+          </tr>
+          <%end%>
+          <%if @category.subcategories.empty?%>
+          <tr>
+            <td colspan="9"><p>Нет категорий</p></td>
+          </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<%end%>

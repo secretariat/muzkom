@@ -1,14 +1,14 @@
 class Admin::ProductsController < AdminController
-  
+  respond_to :html, :js
   before_filter :categories, :only => [:index, :edit, :new]
-  before_filter :find_product, :only => [:edit, :update, :destroy, :visibility]
+  before_filter :find_product, :only => [:edit, :update, :destroy, :visibility, :show_index]
   
   def index
     unless params[:subcategory_id].nil?
-      @products = Product.where("subcategory_id = ?", params[:subcategory_id]).page(1).per(100)
+      @products = Product.where("subcategory_id = ?", params[:subcategory_id]).page(params[:page]).per(100)
       @total = Product.where("subcategory_id = ?", params[:subcategory_id]).count
     else
-      @products = Product.page(1).per(100)
+      @products = Product.page(params[:page]).per(100)
       @total = Product.count
     end
     @subcategory = Subcategory.find params[:subcategory_id] unless  params[:subcategory_id].nil?
@@ -42,12 +42,16 @@ class Admin::ProductsController < AdminController
   
   def update
     @product.update_attributes(params[:product])
-    if @product.save
-      flash[:notice] = t('crud.successful_update')
-      redirect_to list_url
+    unless request.xhr?
+      if @product.save
+        flash[:notice] = t('crud.successful_update')
+        redirect_to list_url
+      else
+        flash.now[:error] = t('crud.error')
+        render :edit
+      end
     else
-      flash.now[:error] = t('crud.error')
-      render :edit
+      render :json => {:status => "ok"}
     end
   end
   
@@ -59,6 +63,16 @@ class Admin::ProductsController < AdminController
   
   def visibility
     @product.visibility = @product.visibility==false ? true : false
+    if @product.save
+      flash[:notice] = t('crud.successful_update')
+    else
+      flash[:error] = t('crud.error')
+    end
+    redirect_to list_url
+  end
+  
+  def show_index
+    @product.show_index = @product.show_index==false ? true : false
     if @product.save
       flash[:notice] = t('crud.successful_update')
     else
