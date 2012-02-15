@@ -23,8 +23,8 @@
           <% @category.subcategories.each do |category|%>
           <tr>
             <td><input type="checkbox" /></td>
-            <td><%= link_to category.name, admin_subcategory_products_path(@category, category)%></td>
-            <td><span class="muted">Товаров: <%= category.products.count%></span></td>
+            <td><%= link_to category.name, admin_subcategory_products_path(category)%></td>
+            <td><span class="muted">Товаров: <%= category.products.size%></span></td>
             <td>
               <%= link_to visibility_button(category.visibility), visibility_admin_category_subcategory_path(@category, category), :class=>"visibility-button", :method => :post %>
               <%=link_to 'Edit' , edit_admin_category_subcategory_path(@category, category), :class=>"action-button" %>

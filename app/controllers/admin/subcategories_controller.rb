@@ -36,8 +36,9 @@ class Admin::SubcategoriesController < AdminController
   end
   
   def visibility
-    @subcategory.visibility = @subcategory.visibility==false ? true : false
+    @subcategory.visibility = vis = @subcategory.visibility==false ? true : false
     if @subcategory.save
+      @subcategory.products.update_all("visibility = #{vis}")
       flash[:success] = t('crud.successful_update')
     else
       flash[:error] = t('crud.error')

@@ -47,8 +47,10 @@ class Admin::CategoriesController < AdminController
   end
   
   def visibility
-    @category.visibility = @category.visibility==false ? true : false
+    @category.visibility= vis = @category.visibility==false ? true : false
     if @category.save
+      @category.subcategories.update_all("visibility = #{vis}")
+      @category.subcategories.each {|sub| sub.products.update_all("visibility = #{vis}")}
       flash[:success] = t('crud.successful_update')
     else
       flash[:error] = t('crud.error')
@@ -63,6 +65,6 @@ private
   end
   
   def categories_list
-    @categories = Category.all
+    @categories = Category.all(:include => :subcategories)
   end
 end
