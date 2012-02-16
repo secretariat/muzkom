@@ -26,6 +26,6 @@ module ProductHelper
   end
   
   def show_index_button(value)
-    value == true ? ' + ' : ' - '
+    value == true ? image_tag('admin/show_index.png') : image_tag('admin/star_disabled.png')
   end
 end

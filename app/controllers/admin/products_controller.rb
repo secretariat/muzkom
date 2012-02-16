@@ -62,22 +62,14 @@ class Admin::ProductsController < AdminController
   end
   
   def visibility
-    @product.visibility = @product.visibility==false ? true : false
-    if @product.save
-      flash[:notice] = t('crud.successful_update')
-    else
-      flash[:error] = t('crud.error')
-    end
+    @product.visibility = @product.visibility == false ? true : false
+    @product.save
     redirect_to list_url
   end
   
   def show_index
     @product.show_index = @product.show_index==false ? true : false
-    if @product.save
-      flash[:notice] = t('crud.successful_update')
-    else
-      flash[:error] = t('crud.error')
-    end
+    @product.save
     redirect_to list_url
   end
   

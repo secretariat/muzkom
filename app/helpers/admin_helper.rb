@@ -1,7 +1,7 @@
 module AdminHelper
   
   def visibility_button(value)
-    value == true ? ' + ' : ' - '
+    value == true ? image_tag('admin/visible.png') : image_tag('admin/invisible.png')
   end
   
   def id_or_blank(property)
