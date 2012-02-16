@@ -31,9 +31,13 @@ $(document).ready(function(){
  });
  $(".product-image-preview a").click(function(e){
     e.preventDefault();
-    var el = $(this).attr("for");
-    $('#photos_container a').lightBox({overlayOpacity: 0.3,});
-    $('#photos_container a#'+el).click();
+    if($("#photos_container").length != 0){
+      var el = $(this).attr("for");
+      $('#photos_container a').lightBox({overlayOpacity: 0.3});
+      $('#photos_container a#'+el).click();
+    }else{
+      $(".product-image-preview a").lightBox({overlayOpacity: 0.3});
+    }
  });
  
  $("select[change=selectBrand]").change(function(){
