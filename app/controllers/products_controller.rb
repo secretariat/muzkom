@@ -4,7 +4,7 @@ class ProductsController < ShopController
   
   def withdrawn
     @products = Product.withdrawn.where("brand_id = ?", params[:brand]).page(params[:page])
-  
+    @brand = Brand.find params[:brand]
   end
   
   def show

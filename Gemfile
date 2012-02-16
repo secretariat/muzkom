@@ -14,6 +14,7 @@ gem 'mini_magick'
 gem 'carrierwave'
 gem 'tinymce-rails'
 gem 'capistrano'
+gem 'remotipart', '~> 0.4'
 gem 'exception_notification'
 
 

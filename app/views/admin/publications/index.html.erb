@@ -27,6 +27,7 @@
             <td><%= link_to publication.title, edit_admin_publication_path(publication)%></td>
             <td><%= human_date_time publication.updated_at %></td>
             <td>
+               <%= link_to visibility_button(publication.visibility), visibility_admin_publication_path(publication), :class=>"visibility-button", :method => :post %>
             <%=link_to 'Edit' , edit_admin_publication_path(publication), :class=>"action-button" %>
             <%=link_to 'Delete' , admin_publication_path(publication), :method=>:delete, :confirm=>"Вы уверены, что хотите удалить эту страницу?", :class=>"action-button"%>
             </td>

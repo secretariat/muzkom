@@ -11,7 +11,8 @@
           <h3 class="mbs">Товары снятые с производства</h3>
           <div class="breadcrumb">
             <%= link_to "Каталог товаров", root_path %> /
-            <span>Товары снтые с производства</span>
+            <%= link_to "Товары снятые с производства", withdrawn_brands_path %> /
+            <span><%= @brand.name%></span>
           </div>
           <div class="clearfix mbm">
             <%= link_to "Все производители", withdrawn_brands_path%>

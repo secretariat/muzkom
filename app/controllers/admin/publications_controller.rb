@@ -43,11 +43,7 @@ class Admin::PublicationsController < AdminController
 
     def visibility
       @publication.visibility = @publication.visibility==false ? true : false
-      if @publication.save
-        flash[:success] = t('crud.successful_update')
-      else
-        flash[:error] = t('crud.error')
-      end
+      @publication.save
       redirect_to admin_publications_url
     end
   private

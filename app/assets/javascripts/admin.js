@@ -1,9 +1,12 @@
 //= require jquery
 //= require jquery_ujs
+//= require jquery.form
+//= require jquery.remotipart
 //= require tinymce-jquery
 //= require_directory ./plugins
 
 $(document).ready(function(){
+  $('a[rel=facebox]').facebox();
   $("#tab-switcher").uiTabs();
   $('.chzn-select').chosen();
   $('.flash_message').delay(300).animate({'top': 0}, 500).delay(2000).fadeOut(500);  

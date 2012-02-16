@@ -110,5 +110,26 @@
     </div>
    <%end%>
   </div>
+  <div class="tab4">
+    <div id="gallery_preview">
+      <% @product.photos.each do |photo|%>
+      <div class="mbl" id="gallery_image_<%= photo.id%>">
+        <%= image_tag photo.image_url(:thumb)%><br />
+        <%=link_to "Удалить", admin_photo_path(photo), :method=>:delete, :remote=>true%>
+      </div>
+      <%end%>
+    </div>
+    <%= link_to "Добавить изображение", "#upload_gallery_image", :class=>"submit-button", :rel=>"facebox"%>
+  </div>
 </fieldset>
 <%end%>
+<div id="upload_gallery_image" class="hidden">
+<%= form_for [:admin, @photo], :html=>{:multipart=> true, :remote=>true} do |f|%>
+  <h3 class="mbm">Добавить фото в галерею</h3>
+  <%= f.file_field :image%>
+  <%= f.hidden_field :product_id, :value=>@product.id%>
+  <div class="mvm">
+    <%=f.submit "Загрузить", :class=>"submit-button"%>
+  </div>
+<%end%>
+</div>

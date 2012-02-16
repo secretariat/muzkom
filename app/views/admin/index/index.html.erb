@@ -6,43 +6,70 @@
     </div>
   </div>
   <div class="col3of4">
-    <div class="container mls">
+    <div class="container mls mbm">
       <div class="box-header">
         <h1>Инструменты</h1>
       </div>
       <div class="pal">
         <%= link_to admin_pages_path, :class=>"tool-icon" do %>
-          <%= image_tag "admin/edit-select-all.png" %>
+          <%= image_tag "admin/edit-select-all.png", :size=>"48x48" %>
           <span>Страницы</span>
         <%end%>
         <%= link_to admin_publications_path, :class=>"tool-icon" do %>
-          <%= image_tag "admin/text-x-generic.png"%>
+          <%= image_tag "admin/text-x-generic.png", :size=>"48x48"%>
           <span>Новости</span>
         <%end%>
         <%= link_to admin_promotions_path, :class=>"tool-icon" do %>
-          <%= image_tag "admin/bookmark-new.png"%>
+          <%= image_tag "admin/bookmark-new.png", :size=>"48x48"%>
           <span>Акции</span>
         <%end%>
         <%= link_to admin_brands_path, :class=>"tool-icon" do %>
-          <%= image_tag "admin/edit-paste.png"%>
+          <%= image_tag "admin/edit-paste.png", :size=>"48x48"%>
           <span>Бренды</span>
         <%end%>
         <%= link_to admin_products_path, :class=>"tool-icon" do %>
-          <%= image_tag "admin/products.png"%>
+          <%= image_tag "admin/products.png", :size=>"48x48"%>
           <span>Товары</span>
         <%end%>
         <%= link_to admin_checkouts_path, :class=>"tool-icon" do %>
           <%if Checkout.pending.count > 0%>
             <span class="new"><%= Checkout.pending.count%></span>
           <%end%>
-          <%= image_tag "admin/x-office-spreadsheet.png"%>
+          <%= image_tag "admin/x-office-spreadsheet.png", :size=>"48x48"%>
           <span>Заказы</span>
         <%end%>
         <%= link_to "", :class=>"tool-icon" do %>
-          <%= image_tag "admin/comment.png"%>
+          <%= image_tag "admin/comment.png", :size=>"48x48"%>
           <span>Комменты</span>
         <%end%>
       </div>
     </div>
+      <div class="container mls">
+        <div class="box-header">
+          <h1>Последние комментарии</h1>
+        </div>
+        <div class="pam">
+          <% @product_comments.each do |comment|%>
+            <div class="mbm">
+              <div class="clearfix dotted">
+                <div class="col1of2">
+                  <%= human_date_time comment.created_at%> –
+                 <span class="muted">Автор:</span>  <strong><%= comment.name%></strong>
+                </div>
+                <div class="last-col">
+                  <div class="right">
+                  <span class="muted">товар:</span> 
+                  <%= link_to comment.product.name, product_path(comment.product), :target=>"_blank"%>
+                  </div>
+                </div>
+              </div>
+              <p><%= comment.text%></p>
+              <div class="clearfix pbm">
+              <%= link_to "Delete", admin_product_comment_path(comment), :method=>:delete, :class=>"action-button" %>
+              </div>
+            </div>
+          <%end%>
+        </div>
+      </div>
   </div>
 </div>

@@ -37,6 +37,7 @@ class Admin::ProductsController < AdminController
     @brands = Brand.order(:name)
     @statuses = Status.all
     @video = Video.new
+    @photo = Photo.new
     @subcategory = Subcategory.find params[:subcategory_id] unless  params[:subcategory_id].nil?
   end
   
