@@ -83,8 +83,20 @@
             </div>
           </div>
           <div class="col2of5">
-            <div class="by-right">
-            <%= link_to image_tag(@product.image_url, :width=>"200"), @product.image_url, :rel=>'facebox', :class => "product-image"%>
+            <div class="right">
+              <div class="product-image-preview">
+                <div class="inner">
+                  <%= link_to image_tag(@product.image_url, :width=>"200"), @product.image_url, :for=>'photo0'%>
+                </div>
+              </div>
+              <% if @product.photos.any?%>
+              <div class="product-image-gallery" id="photos_container">
+                <%=link_to image_tag(@product.image_url(:thumb)), @product.image_url, :class=>"photo", :id=>'photo0', :rel=>"lightbox"%>
+                <% @product.photos.each do |photo|%>
+                  <%=link_to image_tag(photo.image_url(:thumb)), photo.image_url, :class=>"photo", :id=>"photo#{photo.id}", :rel=>"lightbox" %>
+                <%end%>
+              </div>
+              <%end%>
             </div>
           </div>
         </div>

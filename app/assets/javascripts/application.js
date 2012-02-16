@@ -23,6 +23,19 @@ $(document).ready(function(){
     $(this).parent().find(".subcategories").slideDown();
  });
  
+ $(".product-image-gallery .photo").click(function(e){
+    e.preventDefault();
+    var link = $(this).attr("href");
+    $(".product-image-preview img").attr("src", link);
+    $(".product-image-preview a").attr("for", $(this).attr("id"));
+ });
+ $(".product-image-preview a").click(function(e){
+    e.preventDefault();
+    var el = $(this).attr("for");
+    $('#photos_container a').lightBox({overlayOpacity: 0.3,});
+    $('#photos_container a#'+el).click();
+ });
+ 
  $("select[change=selectBrand]").change(function(){
    id = $(this).val();
    window.location.href = "/brands/"+id

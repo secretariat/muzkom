@@ -175,10 +175,25 @@ body
   color: #029f11
 .product-price
   font-size: 20px
-.product-image
-  +inline-block()
-  padding: 10px
+  
+.product-image-preview
+  .inner
+    display: table-cell
+    vertical-align: middle
+  width: 200px
+  height: 200px
+  padding: 5px
+  margin-bottom: 5px
   border: 1px solid #eee
+  img
+    width: 100%
+.product-image-gallery
+  .photo
+    +inline-block()
+    border: 1px solid #f3f3f3
+    width: 50px
+    img
+      width: 100%
   
 table.cart-table
   border-collapse: collapse
