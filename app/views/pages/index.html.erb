@@ -25,7 +25,7 @@
                 <div class="description last-col">
                   <p><%= link_to product.name, product_path(product)%></strong></p>
                   <p><%= product.short_description.html_safe%></p>
-                  <a href="">подробнее</a>
+                  <%= link_to "подробнее", product_path(product) %>
                 </div>
               </div>
               <div class="clearfix">

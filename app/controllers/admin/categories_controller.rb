@@ -58,6 +58,13 @@ class Admin::CategoriesController < AdminController
     redirect_to request.referer || admin_categories_url
   end
   
+  def sort
+    params[:category].each_with_index do |id, index| 
+      Category.update_all({:priority => index+1}, {:id => id})
+    end
+    render :nothing => true
+  end
+  
 private 
 
   def find_category
@@ -65,6 +72,6 @@ private
   end
   
   def categories_list
-    @categories = Category.all(:include => :subcategories)
+    @categories = Category.order(:priority).all(:include => :subcategories)
   end
 end

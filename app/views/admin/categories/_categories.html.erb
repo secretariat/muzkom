@@ -7,7 +7,7 @@
     <table class="data-table mbm">
       <thead>
         <tr>
-          <td class="checkbox"><input type="checkbox"></td>
+          <td><input type="checkbox"></td>
           <td>Наименование</td>
           <td>Категории</td>
           <td class="actions">Действия</td>
@@ -18,10 +18,10 @@
           <td colspan="9">Показано <%=  @categories.count %> разделов</td>
         </tr>
       </tfoot>
-      <tbody>
+      <tbody id="categories" data-update-url="<%= sort_admin_categories_path%>">
         <% @categories.each do |category|%>
-        <tr>
-          <td><input type="checkbox" /></td>
+        <tr id="category_<%= category.id%>">
+          <td class="checkbox"><input type="checkbox" /></td>
           <td><%= link_to category.name, admin_category_path(category)%></td>
           <td><span class="muted">Категорий: <%= category.subcategories.size%></span></td>
           <td>

@@ -58,13 +58,17 @@
         <li><%= link_to "О нас", "/about_us"%></li>
         <li><%= link_to "Оплата/доставка", "/payment_delivery"%></li>
         <li><%= link_to "Гарантия", "/warranty"%></li>
-        <li><%= link_to "Акции", "/stock"%></li>
+        <li><%= link_to "Акции", promotions_path%></li>
         <li><%= link_to "Дисконт", "/discount"%></li>
         <li><%= link_to "Контакты", "/contacts"%></li>
         <li><%= link_to "Корзина", cart_path %></li>
       </ul>
       <div class="col1of5 mts">
-
+        <%= link_to image_tag("icons/facebook.png", :size=>"20x20", :class=>"mas"), "http://www.facebook.com/profile.php?id=100001185448670"%>
+        <%= link_to image_tag("icons/vkontakte.png", :size=>"20x20", :class=>"mas"), "http://vk.com/id55454631"%>
+        <%= link_to image_tag("icons/twitter.png", :size=>"20x20", :class=>"mas"), "https://twitter.com/#!/muzkom_com_ua"%>
+        <%= link_to image_tag("icons/youtube.png", :size=>"20x20", :class=>"mas"), "http://www.youtube.com/user/MUZKOM"%>
+        <%= link_to image_tag("icons/rss.png", :size=>"20x20", :class=>"mas"), "/rss"%>
       </div>
     </div>
     <div class="body">
@@ -98,16 +102,16 @@
         <div class="col1of4">
           <div class="mll">
             <div class="mbm">
-              <%= image_tag "icons/facebook.png", :class=>"icon" %> <a href="">Facebook</a>
+              <%= image_tag "icons/facebook.png", :class=>"icon" %> <a href="http://www.facebook.com/profile.php?id=100001185448670" target="_blank">Facebook</a>
             </div>
             <div class="mbm">
-              <%=image_tag src="icons/vkontakte.png", :class=>"icon"%> <a href="">Вконтакте</a>
+              <%=image_tag src="icons/vkontakte.png", :class=>"icon"%> <a href="http://vk.com/id55454631" target="_blank">Вконтакте</a>
             </div>
             <div class="mbm">
-              <%=image_tag "icons/twitter.png", :class=>"icon" %> <a href="">Twitter</a>
+              <%=image_tag "icons/twitter.png", :class=>"icon" %> <a href="https://twitter.com/#!/muzkom_com_ua" target="_blank">Twitter</a>
             </div>
             <div class="mbm">
-              <%=image_tag "icons/youtube.png", :class=>"icon" %> <a href="">YouTube</a>
+              <%=image_tag "icons/youtube.png", :class=>"icon" %> <a href="http://www.youtube.com/user/MUZKOM" target="_blank">YouTube</a>
             </div>
           </div>
         </div>

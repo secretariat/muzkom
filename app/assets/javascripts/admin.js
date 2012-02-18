@@ -1,5 +1,6 @@
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require jquery.form
 //= require jquery.remotipart
 //= require tinymce-jquery
@@ -9,6 +10,13 @@ $(document).ready(function(){
   $('a[rel=facebox]').facebox();
   $("#tab-switcher").uiTabs();
   $('.chzn-select').chosen();
+  $( "#categories, #subcategories" ).sortable({
+    axis: 'y',
+    handle: '.checkbox',
+    update: function(){
+      $.post($(this).data("update-url"), $(this).sortable('serialize'));
+    }
+  });
   $('.flash_message').delay(300).animate({'top': 0}, 500).delay(2000).fadeOut(500);  
   $('.edit-price').blur(function(){
     $(this).closest('form').submit();
@@ -26,8 +34,11 @@ $(document).ready(function(){
     }else{
       $('#sale-price').removeClass('hidden');
     }
-    
   });
+  
+  
+  
+  
 });
   
 tinyMCE.init({

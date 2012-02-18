@@ -46,6 +46,18 @@ class Admin::SubcategoriesController < AdminController
     redirect_to admin_category_url params[:category_id]
   end
   
+  def sort
+    params[:subcategory].each_with_index do |id, index| 
+      Subcategory.update_all({:priority => index+1}, {:id => id})
+    end
+    render :nothing => true
+  end
+  
+  def move
+    Subcategory.update_all({:category_id => params[:subcategory][:category_id]},{:id => params[:subcategory][:ids]})
+    redirect_to request.referer
+  end
+  
 private 
 
   def find_subcategory

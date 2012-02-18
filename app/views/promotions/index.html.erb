@@ -7,20 +7,19 @@
   <div class="col3of5">
       <div class="container mhs">
         <div class="mhm mvs">
-          <h3 class="mbs">Новости</h3>
+          <h3 class="mbs">Акции и скидки</h3>
           <div class="breadcrumb">
             <%= link_to "Главная", root_path %> /
-            <span>Новости</span>
+            <span>Акции и скидки</span>
           </div>
-          <%@publications.each do |pub|%>
+          <%@promotions.each do |pub|%>
           <div class="mbm">
             <h4 class="mbs"><%=pub.title%></h4>
-            <p><%= human_date pub.date%></p>
             <p><%= pub.description.html_safe%></p>
-            <p><%= link_to "читать далее &rarr;".html_safe, publication_path(pub)%></p>
+            <p><%= link_to "читать далее &rarr;".html_safe, promotion_path(pub)%></p>
           </div>
           <%end%>
-          <%= paginate @publications%>
+          <%= paginate @promotions%>
         </div>
       </div>  
     </div>

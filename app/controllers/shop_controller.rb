@@ -21,7 +21,7 @@ class ShopController < ApplicationController
     end
     
     def load_catalog
-      @categories = Category.visible.includes(:subcategories).where(:subcategories=>{:visibility=>true})
+      @categories = Category.visible.includes(:subcategories).where(:subcategories=>{:visibility=>true}).order('subcategories.priority')
       @brands = Brand.alphabetical
     end
   

@@ -1,6 +1,9 @@
 Muzkom::Application.routes.draw do
   
   root :to=>'pages#index'
+  match '/login' => 'sessions#new', :as=>:login
+  match '/logout' => 'sessions#destroy', :as=>:logout
+  
   resources :sessions, :only=>[:new, :create, :destroy]
   
   resources :categories, :only=>[:show] do
@@ -17,10 +20,8 @@ Muzkom::Application.routes.draw do
   end
   
   resources :publications, :only=>[:index, :show]
+  resources :promotions, :only=>[:index, :show]
   resources :checkouts, :only=>[:new, :create]
-  
-  match '/login' => 'sessions#new', :as=>:login
-  match '/logout' => 'sessions#destroy', :as=>:logout
   
   put "/currency_change" => 'shop#change', :as=>:change_currency
   get 'cart' => 'cart#index', :as =>:cart
@@ -55,6 +56,7 @@ Muzkom::Application.routes.draw do
     
     resources :categories do
       post :visibility, :on => :member
+      post :sort, :on => :collection
       resources :subcategories do
           post :visibility, :on => :member
       end
@@ -66,6 +68,8 @@ Muzkom::Application.routes.draw do
     end
     
     resources :subcategories do 
+      post :sort, :on => :collection
+      post :move, :on => :collection
       resources :products do
         post :visibility, :on => :member
         post :show_index, :on => :member
