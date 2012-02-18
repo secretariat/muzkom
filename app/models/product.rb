@@ -32,7 +32,7 @@ class Product < ActiveRecord::Base
   
   def price_converted(curr, opt = true)
     @rate = brand.conversion
-    pr = (opt == true) ? price_or_sale_price : price
+    pr = (opt == true) ? price_or_sale_price.to_f : price.to_f
     if currency != curr
       pr*@rate.send("#{currency}_to_#{curr}") 
     else
