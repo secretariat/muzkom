@@ -19,7 +19,7 @@ class CartItem
   end
   
   def price(currency)
-    @product.converted_price(currency) * @quantity
+    @product.price_converted(currency) * @quantity
   end
   
 end

@@ -42,9 +42,7 @@
             </div>
             <div class="clearfix">
               <div class="col1of2">
-                <strong class="price">
-                  <%= product_price(product)%>
-                </strong> 
+                 <%= render "shared/product_price", :product=>product%>
               </div>
               <div class="col1of2">
                 <%= link_to "Купить", add_to_cart_path(product), :class=>"buy-button right", :method=>"put"%>

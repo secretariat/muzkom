@@ -42,14 +42,28 @@
           </div>
         </div>
         <div class="field clearfix">
-          <div class="col2of5">
-            <label for="">Цена</label>
-            <div class="col3of5">
-              <%=product_form.text_field :price, :class=>"text", :value=>real_product_price(@product.price)%>
+          <lable>Акции</lable>
+          <%=product_form.select :promotion_ids, options_from_collection_for_select(@promotions, :id, :title, @product.promotion_ids), {}, :multiple=>true, :class=>"chzn-select", :id=>"promotion-selector", "data-placeholder"=>"Выберите акции"%>
+        </div>
+        <div class="field clearfix">
+          <div class="col1of2">
+            <div class="mrm">
+              <label for="">Цена</label>
+              <div class="col3of5">
+                <%=product_form.text_field :price, :class=>"text", :value=>real_product_price(@product.price)%>
+              </div>
+              <div class="col2of5">
+                <div class="mls pts">
+                  <%= product_form.select :currency, ["uah", "usd", "eur"]%>
+                </div>
+              </div>
             </div>
-            <div class="col2of5">
-              <div class="mls pts">
-              <%= product_form.select :currency, ["uah", "usd", "eur"]%>
+          </div>
+          <div class="col1of2">
+            <div id="sale-price" class="<%= 'hidden' unless @product.promotions.any?%> mlm">
+              <label for="">Акционная цена</label>
+              <div class="col3of5">
+                <%=product_form.text_field :sale_price, :class=>"text", :value=>real_product_price(@product.sale_price)%>
               </div>
             </div>
           </div>

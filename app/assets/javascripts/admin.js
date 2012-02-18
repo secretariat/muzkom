@@ -18,6 +18,16 @@ $(document).ready(function(){
     $(".subcategories").slideUp();
     $(this).parent().find(".subcategories").slideDown();
   });
+  
+  $('#promotion-selector').change(function(){
+    if($(this).val() == null){
+      $('#sale-price #product_sale_price').val("0.0");
+      $('#sale-price').addClass('hidden');
+    }else{
+      $('#sale-price').removeClass('hidden');
+    }
+    
+  });
 });
   
 tinyMCE.init({

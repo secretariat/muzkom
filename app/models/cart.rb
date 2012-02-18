@@ -28,6 +28,6 @@ class Cart
   end
   
   def total(curr)
-    @items.sum {|item| item.product.converted_price(curr)*item.quantity}
+    @items.sum {|item| item.product.price_converted(curr)*item.quantity}
   end
 end

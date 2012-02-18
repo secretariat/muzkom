@@ -33,13 +33,16 @@ Muzkom::Application.routes.draw do
     resources :checkouts
     resources :currencies
     resources :pages
-    resources :promotions
     resources :videos
     resources :users, :only=>[:edit, :update]
     resources :slides
     resources :photos
     
-    resources :product_comment
+    resources :product_comments
+    
+    resources :promotions do
+      post :visibility, :on => :member
+    end
     
     resources :publications do
       post :visibility, :on => :member

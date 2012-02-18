@@ -1,0 +1,8 @@
+<%if product.promo?%>
+<span class="old-price">
+  <%= product_old_price(product)%>
+</span> &nbsp;
+<%end%>
+<strong class="price">
+  <%= product_price(product)%>
+</strong>

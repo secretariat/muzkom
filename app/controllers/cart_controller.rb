@@ -11,7 +11,7 @@ class CartController < ShopController
       quantity = params[:quantity] || 1
       @item = @cart.add_product(@product, quantity) 
     end
-    redirect_to request.env["HTTP_REFERER"]
+    redirect_to cart_path
   end
   
   def delete

@@ -3,7 +3,7 @@
   <td><%= link_to promotion.title, edit_admin_promotion_path(promotion)%></td>
   <td><%= human_date_time promotion.updated_at%></td>
   <td>
-    <%=link_to visibility_button(promotion.visibility), admin_promotion_visibility_path(promotion), :class=>"action-button", :style=>"width: 10px;text-align:center;" %>
+    <%=link_to visibility_button(promotion.visibility), visibility_admin_promotion_path(promotion), :class=>"visibility-button", :method=>:post %>
     <%=link_to 'Edit' , edit_admin_promotion_path(promotion), :class=>"action-button" %>
     <%=link_to 'Delete' , admin_promotion_path(promotion), :method=>:delete, :confirm=>"Вы уверены?", :class=>"action-button"%>
   </td>

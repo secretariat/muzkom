@@ -24,6 +24,11 @@
             <div class="mrm mtl">
               <div class="mbm">
                 <span class="muted">цена:</span>
+                <%if @product.promo?%>
+                  <span class="old-price">
+                    <%= product_old_price(@product)%>
+                  </span> &nbsp;
+                <%end%>
                 <span class="product-price">
                   <%= product_price(@product)%>
                 </span>
@@ -161,9 +166,7 @@
           <div class="mbs">
             <%= image_tag(product.image_url(:thumb))%>
           </div>
-          <strong>
-            <%= human_price product.converted_price(session[:currency])%>
-          </strong>
+         <%= render "shared/product_price", :product=>product%>
         </div>
         <%end%>
       </div>

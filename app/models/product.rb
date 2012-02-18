@@ -10,6 +10,7 @@ class Product < ActiveRecord::Base
   has_many :photos, :dependent => :destroy
   has_many :videos, :dependent => :destroy
   has_many :product_comments, :dependent => :destroy
+  has_and_belongs_to_many :promotions
   
   accepts_nested_attributes_for :videos, :allow_destroy => :true, :reject_if => :all_blank
   
@@ -29,17 +30,26 @@ class Product < ActiveRecord::Base
     cheaper | expensive
   end
   
-  def converted_price(curr)
+  def price_converted(curr, opt = true)
     @rate = brand.conversion
+    pr = (opt == true) ? price_or_sale_price : price
     if currency != curr
-      price*@rate.send("#{currency}_to_#{curr}") 
+      pr*@rate.send("#{currency}_to_#{curr}") 
     else
-      price
+      pr
     end
+  end
+  
+  def price_or_sale_price
+    return (sale_price == 0.0) ? price : sale_price
   end
   
   def withdrawn?
     status_id == "4" ? true : false
+  end
+  
+  def promo?
+    sale_price == 0.0 ? false : true
   end
   
 end

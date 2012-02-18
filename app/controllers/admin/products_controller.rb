@@ -38,6 +38,7 @@ class Admin::ProductsController < AdminController
     @statuses = Status.all
     @video = Video.new
     @photo = Photo.new
+    @promotions = Promotion.visible
     @subcategory = Subcategory.find params[:subcategory_id] unless  params[:subcategory_id].nil?
   end
   

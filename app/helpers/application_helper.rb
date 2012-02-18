@@ -18,7 +18,11 @@ module ApplicationHelper
   end
   
   def product_price(product)
-    human_price product.converted_price(session[:currency])
+    human_price product.price_converted(session[:currency])
+  end
+  
+  def product_old_price(product)
+    human_price product.price_converted(session[:currency], false)
   end
   
   def real_product_price(price)
