@@ -41,7 +41,7 @@ class Product < ActiveRecord::Base
   end
   
   def price_or_sale_price
-    return (sale_price == 0.0) ? price : sale_price
+    return (sale_price.to_s == "0.0") ? price : sale_price
   end
   
   def withdrawn?
