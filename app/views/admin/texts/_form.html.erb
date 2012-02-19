@@ -1,0 +1,20 @@
+<%=form_for [:admin, @text] do |f|%>
+<div class="clearfix mbm">
+  <%= link_to "Оменить", admin_pages_path, :class=>"submit-button right"%>
+  <%=f.submit "Сохранить", :class=>"submit-button right mrs"%>
+</div>
+<fieldset>
+  <div class="field clearfix">
+    <div class="col3of4">
+      <label for="">Название</label>
+      <%=f.text_field :name, :class=>"text"%>
+    </div>
+  </div>
+  <div class="fieldclearfix">
+    <div class="col3of4">
+      <label for="">Текст</label>
+      <%=f.text_area :text, :class=>"text", :id=>"pannel", :style=> "width: 750px; height: 300px;"%>
+    </div>
+  </div>
+</fieldset>
+<%end%>

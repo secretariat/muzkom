@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Muzkom</title>
+  <title><%= yield :title%></title>
+  <meta name="description" content="<%=yield :meta_d%>" />
+  <meta name="keywords" content="<%=yield :meta_k%>" />
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>

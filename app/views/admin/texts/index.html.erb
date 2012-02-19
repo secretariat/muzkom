@@ -1,0 +1,42 @@
+<div class="clearfix">
+  <div class="container mbl">
+    <div class="box-header mbm"><h1>Тексты</h1></div>
+      <div class="clearfix mam">
+        <%= link_to "Добавить", new_admin_text_path, :class=>"submit-button right"%>
+      </div>
+      <div class="mhm">
+      <table class="data-table mbm">
+        <thead>
+          <tr>
+            <td class="checkbox"><input type="checkbox"></td>
+            <td>Наименование</td>
+            <td class="actions">Посл.Редакт.</td>
+            <td class="actions">Действия</td>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <td colspan="9">Показано <%=  @texts.count %> текстов</td>
+          </tr>
+        </tfoot>
+        <tbody>
+          <% @texts.each do |text|%>
+          <tr>
+            <td><input type="checkbox" /></td>
+            <td><%= link_to text.name, edit_admin_text_path(text)%></td>
+            <td><%= text.updated_at || "-"%></td>
+            <td>
+            <%=link_to 'Edit' , edit_admin_text_path(text), :class=>"action-button" %>
+            </td>
+          </tr>
+          <%end%>
+          <%if @texts.empty?%>
+            <tr>
+              <td colspan="9"><p>Нет Текстов</p></td>
+            </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

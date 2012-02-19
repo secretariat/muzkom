@@ -3,6 +3,30 @@ module ApplicationHelper
   
   CURRENCIES = {:usd=>"USD", :uah=>"грн", :eur=>"EUR"}
   
+  def meta_data(obj)
+    title obj.title
+    meta_d obj.meta_d
+    meta_k obj.meta_k
+  end
+  
+  def meta_d(meta_d)
+     content_for :meta_d do
+       meta_d
+     end
+   end
+
+   def meta_k(meta_k)
+     content_for :meta_k do
+       meta_k
+     end
+   end
+
+   def title(title)
+     content_for :title do
+       title
+     end
+   end
+  
   def human_date(date)
     return "–" if date.nil?
     date.strftime('%d.%m.%Y')

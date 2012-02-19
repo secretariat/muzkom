@@ -1,4 +1,4 @@
-class Admin::bannersController < AdminController
+class Admin::BannersController < AdminController
   before_filter :find_banner, :only => [:update, :edit, :destroy, :visibility]
   
   def index

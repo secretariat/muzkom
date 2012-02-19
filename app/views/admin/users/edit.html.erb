@@ -1,0 +1,54 @@
+<div class="column3of4">
+  <div class="container mls">
+    <div class="box-header">
+      <h1>Профиль пользователя</h1>
+    </div>
+    <div class="clearfix">
+    <div class="mam col2of3">
+      <%=form_for [:admin, @user] do |f|%>
+      <div class="clearfix mbm">
+        <%= link_to "Оменить", admin_root_path, :class=>"submit-button right"%>
+        <%=f.submit "Сохранить", :class=>"submit-button right mrs"%>
+      </div>
+      <fieldset>
+        <div class="field clearfix">
+          <div class="column1of2">
+            <label for="">Имя</label>
+            <%=f.text_field :firstname, :class=>"text"%>
+          </div>
+        </div>
+        <div class="field clearfix">
+          <div class="column1of2">
+            <label for="">Фамилия</label>
+            <%=f.text_field :lastname, :class=>"text"%>
+          </div>
+        </div>
+        <div class="field clearfix">
+          <div class="column1of2">
+            <label for="">Логин</label>
+            <%=f.text_field :username, :class=>"text"%>
+          </div>
+        </div>
+        <div class="field clearfix">
+          <div class="column1of2">
+            <label for="">Email</label>
+            <%=f.text_field :email, :class=>"text"%>
+          </div>
+        </div>
+        <div class="field clearfix">
+          <div class="column1of2">
+            <label for="">Пароль</label>
+            <%=f.password_field :password, :class=>"text"%>
+          </div>
+        </div>
+        <div class="field clearfix">
+          <div class="column1of2">
+            <label for="">Подтвердить пароль</label>
+            <%=f.password_field :password_confirmation, :class=>"text"%>
+          </div>
+        </div>
+      <%end%>
+    </div>
+    </div>
+  </div>
+</div>

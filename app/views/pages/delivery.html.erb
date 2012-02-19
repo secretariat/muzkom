@@ -1,0 +1,40 @@
+<%meta_data @page %>
+<div class="clearfix">
+  <div class="col1of5">
+    <%=render "shared/brands_filter"%>
+    <%=render "shared/catalog"%>
+    <%=render "shared/news"%>
+  </div>
+  <div class="col3of5">
+    <div class="container clearfix mhs">
+      <div class="wysiwyg mam">
+        <%= @page.text.html_safe%>
+        <ul class="tab-switcher clearfix">
+          <li><a href="#tab1" class="current">Киев</a></li>
+          <li><a href="#tab2">Украина</a></li>
+          <li><a href="#tab3">Ближнее зарубежье</a></li>
+          <li><a href="#tab4">Как заказать?</a></li>
+        </ul>
+        <div class="tab-container">
+          <div id="tab1" class="tab">
+            <%= @kiev.text.html_safe%>
+          </div>
+          <div id="tab2" class="tab hidden">
+            <%= @ukraine.text.html_safe%>
+          </div>
+          <div id="tab3" class="tab hidden">
+            <%= @foreign.text.html_safe%>
+          </div>
+          <div id="tab4" class="tab hidden">
+            <%= @how_to.text.html_safe%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col1of5">
+    <%=render "shared/contacts"%>
+    <%=render "shared/latest"%>
+    <%=render "shared/banners"%>
+  </div>
+</div>
