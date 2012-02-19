@@ -1,0 +1,38 @@
+<div class="container mls">
+  <div class="box-header">
+    <div class="col1of2">
+      <h1>Комментарии к товарам</h1>
+    </div>
+    <div class="col1of2">
+      <ul class="switcher">
+        <li><span>Товары</span></li>
+        <li><%= link_to "Новости", admin_publication_comments_path%></li>
+      </ul>
+    </div>
+  </div>
+  <div class="mam">
+    <% @comments.each do |comment|%>
+    <div class="mbm">
+      <div class="clearfix dotted">
+        <div class="col1of2">
+          <%= human_date_time comment.created_at%> –
+          <span class="muted">Автор:</span>  <strong><%= comment.name%></strong>
+        </div>
+        <div class="last-col">
+          <div class="right">
+            <span class="muted">товар:</span> 
+            <%= link_to comment.product.name, product_path(comment.product), :target=>"_blank"%>
+          </div>
+        </div>
+      </div>
+      <p><%= comment.text%></p>
+      <div class="clearfix pbm">
+        <%= link_to "Delete", admin_product_comment_path(comment), :method=>:delete, :class=>"action-button" %>
+      </div>
+    </div>
+    <%end%>
+    <% if @comments.empty?%>
+      <p class="muted">Нет комментариев</p>
+    <%end%>
+  </div>
+</div>

@@ -7,6 +7,7 @@ class PublicationsController < ShopController
   def show
     @publication = Publication.find params[:id]
     @related = Publication.visible.where("id!=?", params[:id]).order("date DESC").limit(10)
+    @comment = PublicationComment.new
   end
   
 end

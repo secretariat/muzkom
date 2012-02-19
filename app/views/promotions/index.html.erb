@@ -15,7 +15,13 @@
           <%@promotions.each do |pub|%>
           <div class="mbm">
             <h4 class="mbs"><%=pub.title%></h4>
-            <p><%= pub.description.html_safe%></p>
+            <div class="clearfix mbs">
+              <% if pub.has_image?%>
+                <%= image_tag pub.image_url(:thumb), :width=>"100", :class=>"left"%>
+              <%end%>
+              <p><%= pub.description.html_safe%></p>
+            </div>
+
             <p><%= link_to "читать далее &rarr;".html_safe, promotion_path(pub)%></p>
           </div>
           <%end%>

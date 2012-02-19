@@ -6,4 +6,11 @@ class Promotion < ActiveRecord::Base
   has_and_belongs_to_many :products
   
   scope :visible, where(:visibility=>true)
+  
+  def has_image?
+    unless image_url.blank?
+      return image_url == "/assets/fallback/promotion/default.jpg" ? false : true
+    end
+  end
+    
 end

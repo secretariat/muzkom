@@ -14,6 +14,30 @@
           <div class="wysiwyg mbl">
             <%= @publication.text.html_safe%>
           </div>
+          <% @publication.publication_comments.each do |comment|%>
+          <div class="comment">
+            <p><strong><%= comment.name%></strong> <small class="muted"><%= human_date comment.created_at%></small></p>
+            <p><%= comment.text%></p>
+          </div>
+          <%end%>
+          <%if @publication.publication_comments.empty?%>
+          <p class="mbl muted">Не комментариев. Будьте первым, кто оставит комментарий.</p>
+          <%end%>
+          <h4 class="mbm">Добавить новый комментарий:</h4>
+          <div class="mbl">
+            <%=form_for [@publication, @comment] do |f|%>
+            <div class="field">
+              <label for="">Ваше имя</label>
+              <%= f.text_field :name, :class=>"text"%>
+            </div>
+            <div class="field">
+              <label for="">Комментарий</label>
+              <%= f.text_area :text, :class => "text", :size=>"0x5"%>
+            </div>
+            <%= f.hidden_field :publication_id, :value => @publication.id%>
+            <%= f.submit "Отправить", :class => "submit-button"%>
+            <%end%>
+          </div>
           <h4 class="mbm">Последние новости:</h4>
           <% @related.each do |pub|%>
             <p>

@@ -19,7 +19,9 @@ Muzkom::Application.routes.draw do
     get :withdrawn, :on => :collection
   end
   
-  resources :publications, :only=>[:index, :show]
+  resources :publications, :only=>[:index, :show] do
+    resources :publication_comments, :only=>[:create]
+  end
   resources :promotions, :only=>[:index, :show]
   resources :checkouts, :only=>[:new, :create]
   
@@ -37,9 +39,12 @@ Muzkom::Application.routes.draw do
     resources :videos
     resources :users, :only=>[:edit, :update]
     resources :slides
+    resources :banners
     resources :photos
     
-    resources :product_comments
+    resources :product_comments, :only => [:index, :destroy]
+    
+    resources :publication_comments, :only => [:index, :destroy]
     
     resources :promotions do
       post :visibility, :on => :member
