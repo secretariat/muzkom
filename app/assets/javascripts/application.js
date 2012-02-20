@@ -59,4 +59,8 @@ $(document).ready(function(){
    $(selector).fadeIn(200);
  });
  
+ $('.edit-quantity').blur(function(){
+    $(this).closest('form').submit();
+  });
+ 
 });

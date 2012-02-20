@@ -8,6 +8,7 @@ Muzkom::Application.routes.draw do
   get "/warranty" => "pages#show", :uri=>'warranty'
   get "/discount" => "pages#show", :uri=>'discount'
   get "/contacts" => "pages#show", :uri=>'contacts'
+  put "/currency_change" => 'shop#change', :as=>:change_currency
   
   resources :sessions, :only=>[:new, :create, :destroy]
   
@@ -30,11 +31,12 @@ Muzkom::Application.routes.draw do
   resources :promotions, :only=>[:index, :show]
   resources :checkouts, :only=>[:new, :create]
   
-  put "/currency_change" => 'shop#change', :as=>:change_currency
-  get 'cart' => 'cart#index', :as =>:cart
-  put 'cart/add/:id' => 'cart#add', :as => :add_to_cart
-  delete 'cart/delete/:id' => 'cart#delete', :as => :delete_from_cart
-  delete 'cart/empty' => 'cart#empty', :as =>:empty_cart
+  resource :cart, :controller => "cart" do
+    get :index
+    post :change
+    put :add, :on => :member
+    delete :delete, :on => :member
+  end
   
   namespace :admin do
     root :to=>'index#index'

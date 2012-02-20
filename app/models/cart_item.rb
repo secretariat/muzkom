@@ -10,6 +10,10 @@ class CartItem
     @quantity += qnty.to_i
   end
   
+  def update_quantity(qnty)
+    @quantity = qnty.to_i
+  end
+  
   def decrease_quantity
     @quantity -= 1
   end

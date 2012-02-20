@@ -1,3 +1,4 @@
+<% title "Muzkom - Товары снятые с производства #{@brand.name}"%>
 <div class="clearfix">
   <div class="col1of5">
     <%=render "shared/brands_filter"%>
@@ -46,7 +47,7 @@
               </div>
               <div class="col1of2">
                 <%unless product.withdrawn?%>
-                <%= link_to "Купить", add_to_cart_path(product), :class=>"buy-button right", :method=>"put"%>
+                <%= link_to "Купить", add_cart_path(:id=>product.id), :class=>"buy-button right", :method=>:put%>
                 <%end%>
               </div>
             </div>

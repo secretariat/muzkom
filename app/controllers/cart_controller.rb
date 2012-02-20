@@ -26,6 +26,12 @@ class CartController < ShopController
     render :action => "add", :layout=>false
   end
   
+  def change
+    @item = @cart.items.find{|item| item.product.id == params[:cart_item][:product_id].to_i}
+    @item.update_quantity(params[:cart_item][:quantity])
+    redirect_to cart_path
+  end
+  
 private 
 
   def get_product

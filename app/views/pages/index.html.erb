@@ -36,7 +36,7 @@
                   <%= render "shared/product_price", :product => product%>
                 </div>
                 <div class="col1of2">
-                  <%= link_to "Купить", add_to_cart_path(product), :class=>"buy-button right", :method=>"put"%>
+                  <%= link_to "Купить", add_cart_path(:id=>product.id), :class=>"buy-button right", :method=>"put"%>
                 </div>
               </div>
             </div>

@@ -10,22 +10,16 @@ module ApplicationHelper
   end
   
   def meta_d(meta_d)
-     content_for :meta_d do
-       meta_d
-     end
-   end
+    @meta_description = meta_d
+  end
 
-   def meta_k(meta_k)
-     content_for :meta_k do
-       meta_k
-     end
-   end
+  def meta_k(meta_k)
+    @meta_keywords = meta_k
+  end
 
-   def title(title)
-     content_for :title do
-       title
-     end
-   end
+  def title(title)
+    @meta_title = title
+  end
   
   def human_date(date)
     return "–" if date.nil?
