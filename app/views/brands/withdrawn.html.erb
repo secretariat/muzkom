@@ -14,10 +14,10 @@
         </div>
         <div class="clearfix mbm">
           <% @brand_list.each_with_index do |brand, index|%>
-            <div class="col1of4">
+            <div class="col1of3">
               <%= link_to brand.name, withdrawn_products_path(:brand => brand.id) %>
             </div>
-            <%if (index+1)%4==0%>
+            <%if (index+1)%3==0%>
               </div><div class="clearfix mbm">
             <%end%>
           <%end%>

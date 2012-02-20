@@ -5,10 +5,10 @@ class Admin::ProductsController < AdminController
   
   def index
     unless params[:subcategory_id].nil?
-      @products = Product.where("subcategory_id = ?", params[:subcategory_id]).page(params[:page]).per(100)
+      @products = Product.includes(:brand).order("brands.name").where("subcategory_id = ?", params[:subcategory_id]).page(params[:page]).per(100)
       @total = Product.where("subcategory_id = ?", params[:subcategory_id]).count
     else
-      @products = Product.page(params[:page]).per(100)
+      @products = Product.includes(:brand).order("brands.name").page(params[:page]).per(100)
       @total = Product.count
     end
     @subcategory = Subcategory.find params[:subcategory_id] unless  params[:subcategory_id].nil?

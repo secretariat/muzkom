@@ -8,6 +8,7 @@ class CategoriesController < ShopController
     @products = @subcategory.products.visible.on_sale.order(:"#{@order_by}").page(params[:page])
     @current_category = @subcategory
     @brands = @subcategory.products.visible.on_sale.collect{|product| product.brand}.uniq
+    @brands.sort!{|a, b| a.name.downcase <=> b.name.downcase} 
   end
   
 end

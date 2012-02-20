@@ -14,4 +14,8 @@ class Publication < ActiveRecord::Base
     end
   end
   
+  def lead
+    return description.blank? ? meta_d : description
+  end
+  
 end

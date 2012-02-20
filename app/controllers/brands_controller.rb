@@ -18,6 +18,7 @@ class BrandsController < ShopController
   def withdrawn
     @products = Product.withdrawn.page(params[:page])
     @brand_list = Product.withdrawn.collect{|product| product.brand}.uniq
+    @brand_list.sort!{|a, b| a.name.downcase <=> b.name.downcase}
   end
   
 end
