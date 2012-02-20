@@ -24,7 +24,7 @@
           <% @brands.each do |brand|%>
           <tr>
             <td><input type="checkbox" /></td>
-            <td><%= link_to brand.name, edit_admin_brand_path(brand)%></td>
+            <td><%= link_to brand.name, admin_brand_products_path(brand)%></td>
             <td><span class="muted">Товаров: <%= brand.products.count%></span></td>
             <td><%= human_date_time(brand.updated_at) || "-"%></td>
             <td>

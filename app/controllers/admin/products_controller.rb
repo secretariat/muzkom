@@ -8,8 +8,13 @@ class Admin::ProductsController < AdminController
       @products = Product.includes(:brand).order("brands.name").where("subcategory_id = ?", params[:subcategory_id]).page(params[:page]).per(100)
       @total = Product.where("subcategory_id = ?", params[:subcategory_id]).count
     else
-      @products = Product.includes(:brand).order("brands.name").page(params[:page]).per(100)
-      @total = Product.count
+      if params[:brand_id].nil?
+        @products = Product.includes(:brand).order("brands.name").page(params[:page]).per(100)
+        @total = Product.count
+      else
+        @products = Product.where("brand_id = ?", params[:brand_id]).page(params[:page]).per(100)
+        @total = Product.where("brand_id = ?", params[:brand_id]).count
+      end
     end
     @subcategory = Subcategory.find params[:subcategory_id] unless  params[:subcategory_id].nil?
   end
@@ -79,7 +84,11 @@ class Admin::ProductsController < AdminController
 private
 
   def list_url
-    params[:subcategory_id].nil? ? admin_products_url : admin_subcategory_products_url(params[:subcategory_id])
+    unless params[:subcategory_id].nil? 
+      admin_subcategory_products_url(params[:subcategory_id])
+    else
+      return params[:brand_id].nil?  ? admin_products_url : admin_brand_products_url(params[:brand_id])
+  end
   end
   
   def categories

@@ -11,7 +11,7 @@ class BrandsController < ShopController
       @current_category = @subcategory
       render 'categories/show'
     else
-      @products = @brand.products.visible.order(:"#{@order_by}").page(params[:page])
+      @products = @brand.products.visible.on_sale.order(:"#{@order_by}").page(params[:page])
     end
   end
   

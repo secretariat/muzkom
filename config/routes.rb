@@ -60,6 +60,10 @@ Muzkom::Application.routes.draw do
     
     resources :brands do
       resources :currencies
+      resources :products do
+        post :visibility, :on => :member
+        post :show_index, :on => :member
+      end
       post :visibility, :on => :member
     end
     
