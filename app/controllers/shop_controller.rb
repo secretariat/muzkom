@@ -16,7 +16,7 @@ class ShopController < ApplicationController
         return "created_at DESC" if params[:order] == "date"
         params[:order]
       else
-        "name"
+        "price"
       end
     end
     

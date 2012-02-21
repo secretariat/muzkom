@@ -40,7 +40,7 @@
               </div>
               <div class="mbs">
                 <strong>Производитель: </strong> 
-                <a href=""><%= @product.brand.name%></a>
+                <%= link_to @product.brand.name, brand_path(@product.brand)%>
               </div>
               <div class="mbl">
                 <strong>Валюта:</strong>
@@ -92,14 +92,14 @@
             <div class="right">
               <div class="product-image-preview">
                 <div class="inner">
-                  <%= link_to image_tag(@product.image_url), @product.image_url, :for=>'photo0', :title=>"#{link_to("Оригинальное изображение", @product.image_url, :target=>"_blank")}"%>
+                  <%= link_to image_tag(@product.image_url), @product.image_url, :for=>'photo0', :title=>"#{link_to("Смотреть оригинальное изображение", @product.image_url, :target=>"_blank")}"%>
                 </div>
               </div>
               <% if @product.photos.any?%>
               <div class="product-image-gallery" id="photos_container">
-                <%=link_to image_tag(@product.image_url(:thumb)), @product.image_url, :class=>"photo", :id=>'photo0', :rel=>"lightbox", :title=>"#{link_to("Оригинальное изображение", @product.image_url, :target=>"_blank")}"%>
+                <%=link_to image_tag(@product.image_url(:thumb)), @product.image_url, :class=>"photo", :id=>'photo0', :rel=>"lightbox", :title=>"#{link_to("Смотреть оригинальное изображение", @product.image_url, :target=>"_blank")}"%>
                 <% @product.photos.each do |photo|%>
-                  <%=link_to image_tag(photo.image_url(:thumb)), photo.image_url, :class=>"photo", :id=>"photo#{photo.id}", :rel=>"lightbox", :title=>"#{link_to("Оригинальное изображение", photo.image_url, :target=>"_blank")}" %>
+                  <%=link_to image_tag(photo.image_url(:thumb)), photo.image_url, :class=>"photo", :id=>"photo#{photo.id}", :rel=>"lightbox", :title=>"#{link_to("Смотреть оригинальное изображение", photo.image_url, :target=>"_blank")}" %>
                 <%end%>
               </div>
               <%end%>

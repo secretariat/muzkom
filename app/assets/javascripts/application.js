@@ -19,8 +19,14 @@ $(document).ready(function(){
   
   $(".catalog .category").click(function(e){
     e.preventDefault();
-    $(".subcategories").slideUp();
-    $(this).parent().find(".subcategories").slideDown();
+    if($(this).hasClass('current')){
+      $(this).removeClass('current');
+      $(this).parent().find(".subcategories").slideUp();
+    }else{
+      $(".subcategories").slideUp();
+      $(this).addClass('current');
+      $(this).parent().find(".subcategories").slideDown();
+    }
  });
  
  $(".product-image-gallery .photo").click(function(e){
@@ -37,6 +43,7 @@ $(document).ready(function(){
       $('#photos_container a#'+el).click();
     }else{
       $(".product-image-preview a").lightBox({overlayOpacity: 0.3});
+      $(".product-image-preview a").click();
     }
  });
  
