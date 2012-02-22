@@ -21,6 +21,7 @@ class Admin::BannersController < AdminController
    end
 
   def edit
+    @placements = Placement.all
   end
 
   def update
@@ -50,11 +51,14 @@ class Admin::BannersController < AdminController
     redirect_to admin_banners_url
   end
   
-  def upload
-    @filename = params[:file].original_filename.gsub(' ', '_')
-    File.open(banner_upload_root.join(@filename), 'wb') do |file|
-      file.write(params[:file].read)
+  def placement
+    @banner = Banner.find(params[:id])
+    @banner.locations.destroy_all
+    params[:location][:placement_ids].each_with_index do |place, index|
+      l = Location.new(:placement_id=>place, :banner_id=>params[:id], :position=>params[:location][:positions][index])
+      l.save
     end
+    redirect_to edit_admin_banner_url(params[:id])
   end
   
 private

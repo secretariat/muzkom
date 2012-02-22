@@ -36,6 +36,18 @@ $(document).ready(function(){
     }
   });
   
+  $('.text.disabled').attr("disabled", "disabled");
+ 
+  $('.placement').change(function(){
+    var el = $(this).parent().parent().find(".text");
+    if($(this).attr("checked") == "checked"){
+      el.removeClass('hidden');
+      el.removeAttr("disabled");
+    }else{
+      el.addClass('hidden');
+      el.attr("disabled", "disabled");
+    }
+  }); 
   
   
   

@@ -47,10 +47,13 @@ Muzkom::Application.routes.draw do
     resources :videos
     resources :users, :only=>[:edit, :update]
     resources :slides
-    resources :banners
     resources :photos
     resources :product_comments, :only => [:index, :destroy]
     resources :publication_comments, :only => [:index, :destroy]
+    
+    resources :banners do
+      post :placement, :on => :member
+    end
     
     resources :promotions do
       post :visibility, :on => :member

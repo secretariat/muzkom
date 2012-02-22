@@ -1,0 +1,42 @@
+<%=form_for [:admin, @banner] do |f|%>
+<div class="clearfix mbm">
+  <%= link_to "Оменить", admin_banners_path, :class=>"submit-button right"%>
+  <%=f.submit "Сохранить", :class=>"submit-button right mrs"%>
+</div>
+<fieldset class="mbm">
+  <div class="field clearfix">
+    <label for="">Изображение</label>
+    <%= image_tag(@banner.image_url, :style=>"border: 1px solid #ddd;") %><br />
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+  </div>
+  <div class="field clearfix">
+    <div class="col3of4">
+      <label for="">URL</label>
+      <%=f.text_field :link, :class=>"text"%>
+    </div>
+  </div>
+</fieldset>
+<%end%>
+<fieldset>
+  <h2 class="mbl">Расположение</h2>
+  <% unless @banner.new_record?%>
+    <%= form_tag placement_admin_banner_path(@banner), :method=>:post do |form|%>
+      <%@placements.each do |placement|%>
+        <div class="field clearfix">
+          <div class="col1of3">
+          <%= check_box_tag "location[placement_ids][]", placement.id, @banner.placements.include?(placement), :class=>"placement" %>
+          <%= placement.name %><br />
+          </div>
+          <div class="col1of3">
+            <% val = @banner.placements.include?(placement) ? Location.where(:banner_id=>@banner.id, :placement_id=>placement.id)[0].position : 0%>
+            <% dis = @banner.placements.include?(placement) ? "" : " disabled"%>
+            <% css_class = @banner.placements.include?(placement) ? "" : " hidden"%>
+            <%= text_field "location[positions]", "",  :class=>"text#{css_class}#{dis}", :style=>"width: 40px", :value=>val%>
+          </div>
+        </div>
+      <%end%>
+      <%= submit_tag "Сохранить", :class=>"submit-button"%>
+    <%end%>
+  <%end%>
+</fieldset>

@@ -165,7 +165,7 @@
             </strong>
           </div>
           <div class="mbs">
-            <%= image_tag(product.image_url(:thumb))%>
+            <%= link_to image_tag(product.image_url(:thumb)), product_path(product)%>
           </div>
          <%= render "shared/product_price", :product=>product%>
         </div>

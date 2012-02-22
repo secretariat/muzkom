@@ -8,6 +8,9 @@ class BrandsController < ShopController
     unless params[:category_id].nil?
       @subcategory = @brand.subcategories.find(params[:category_id])
       @products = @brand.products.visible.on_sale.by_subcategory(@subcategory).order(:"#{@order_by}").page(params[:page])
+      if order_by == "price"
+        @products.sort!{|a, b| a.price_converted(session[:currency]) <=> b.price_converted(session[:currency])}
+      end
       @current_category = @subcategory
       render 'categories/show'
     else

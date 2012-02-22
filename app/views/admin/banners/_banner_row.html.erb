@@ -1,0 +1,10 @@
+<tr>
+  <td><input type="checkbox"></td>
+  <td><%= image_tag banner.image_url, :style=>"height: 50px"%></td>
+  <td><%= link_to banner.link, banner.link%></td>
+  <td><%= human_date_time banner.updated_at%></td>
+  <td>
+    <%=link_to 'Edit' , edit_admin_banner_path(banner), :class=>"action-button" %>
+    <%=link_to 'Delete' , admin_banner_path(banner), :method=>:delete, :confirm=>"Вы уверены?", :class=>"action-button"%>
+  </td>
+</tr>

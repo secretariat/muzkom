@@ -1,0 +1,38 @@
+<div class="container mls">
+  <div class="box-header">
+    <h1>Баннеры</h1>
+  </div>
+  <div class="mam">
+    <div class="clearfix mbm">
+      <%= link_to "Добавить", new_admin_banner_path, :class=>"submit-button right"%>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <td class="checkbox"><input type="checkbox"></td>
+          <td>Изображение</td>
+          <td>Ссылка</td>
+          <td class="actions">Посл. редакт.</td>
+          <td class="actions">Действия</td>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td colspan="5"><p>Показано <%= @banners.length%> из <%= @banners.length%></p></td>
+        </tr>
+      </tfoot>
+      <tbody>
+        <% @banners.each do |banner|%>
+        <%= render "banner_row", :banner=>banner%>
+        <%end%>
+        <% if @banners.empty?%>
+        <tr>
+          <td colspan="6">
+            <p>Не найдено ни одного баннера</p>
+          </td>
+        </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -22,7 +22,7 @@ class ShopController < ApplicationController
     
     def load_catalog
       @categories = Category.visible.includes(:subcategories).where(:subcategories=>{:visibility=>true}).order('subcategories.priority')
-      @brands = Brand.alphabetical
+      @brands_for_filter = Brand.alphabetical
     end
   
     def get_store_data
