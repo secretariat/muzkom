@@ -1,0 +1,61 @@
+<%meta_data @page%>
+<div class="clearfix">
+  <div class="col1of5">
+    <%=render "shared/brands_filter"%>
+    <%=render "shared/catalog"%>
+    <%=render "shared/news"%>
+  </div>
+  <div class="col3of5">
+    <div class="container clearfix mhs">
+      <div class="wysiwyg mam">
+        <%= @page.text.html_safe%>
+      </div>
+      <div class="mam">
+        <%=form_for @feedback do |f|%>
+        <div class="field clearfix">
+          <div class="col2of3">
+            <label for="">ФИО: <span class="astra">*</span></label>
+            <%= f.text_field :name, :class => "text"%>
+          </div>
+        </div>
+        <div class="field clearfix">
+          <div class="col2of3">
+            <label for="">Телефон: <span class="astra">*</span></label>
+            <%= f.text_field :phone, :class => "text"%>
+          </div>
+        </div>
+        <div class="field clearfix">
+          <div class="col2of3">
+            <label for="">Email: <span class="astra">*</span></label>
+            <%= f.text_field :email, :class => "text"%>
+          </div>
+        </div>
+        <div class="field clearfix">
+          <div class="col2of3">
+            <label for="">Город: </label>
+            <%= f.text_field :city, :class => "text"%>
+          </div>
+        </div>
+        <div class="field">
+          <label for="">Тема</label>
+          <select name="feedback[subject]" id="">
+            <option value="">продать</option>
+            <option value="">купить</option>
+            <option value="">заказать прайс лист</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="">Текст сообщения: <span class="astra">*</span></label>
+          <%= f.text_area :text, :class => "text", :size=>"0x5"%>
+        </div>
+        <%= f.submit "Отправить", :class => "submit-button"%>
+        <%end%>
+      </div>
+    </div>
+  </div>
+  <div class="col1of5">
+    <%=render "shared/contacts"%>
+    <%=render "shared/latest"%>
+    <%=render "shared/banners"%>
+  </div>
+</div>

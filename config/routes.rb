@@ -10,7 +10,8 @@ Muzkom::Application.routes.draw do
   get "/contacts" => "pages#show", :uri=>'contacts'
   put "/currency_change" => 'shop#change', :as=>:change_currency
   
-  resources :sessions, :only=>[:new, :create, :destroy]
+  resources :sessions, :only => [:new, :create, :destroy]
+  resources :feedbacks, :only => [:new, :create]
   
   resources :categories, :only=>[:show] do
     resources :brands, :only=>[:show]
