@@ -18,9 +18,9 @@
   </div>
 </fieldset>
 <%end%>
-<fieldset>
-  <h2 class="mbl">Расположение</h2>
-  <% unless @banner.new_record?%>
+<% unless @banner.new_record?%>
+  <fieldset>
+    <h2 class="mbl">Расположение</h2>
     <%= form_tag placement_admin_banner_path(@banner), :method=>:post do |form|%>
       <%@placements.each do |placement|%>
         <div class="field clearfix">
@@ -38,5 +38,5 @@
       <%end%>
       <%= submit_tag "Сохранить", :class=>"submit-button"%>
     <%end%>
-  <%end%>
-</fieldset>
+  </fieldset>
+<%end%>
