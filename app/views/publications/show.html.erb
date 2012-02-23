@@ -12,6 +12,21 @@
             <%= link_to "Главная", root_path %> /
             <%= link_to "Новости", publications_path%> 
           </div>
+          <div class="clearfix mbl">
+            <div class="left mrs">
+              <div class="fb-like" data-send="false" data-layout="button_count" data-width="150" data-show-faces="false"></div>
+            </div>
+            <div class="left mrs">
+              <div id="vk_like"></div>
+              <script type="text/javascript">
+              VK.Widgets.Like("vk_like", {type: "button"});
+              </script>
+            </div>
+            <div class="left mrs">
+              <a href="https://twitter.com/share" class="twitter-share-button" data-via="muzkom" data-lang="ru" data-related="muzkom" data-hashtags="muzkom">Твитнуть</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            </div>
+          </div>
           <div class="wysiwyg mbl">
             <%= @publication.text.html_safe%>
           </div>
