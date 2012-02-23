@@ -23,6 +23,7 @@ class ShopController < ApplicationController
     def load_catalog
       @categories = Category.visible.includes(:subcategories).where(:subcategories=>{:visibility=>true}).order('subcategories.priority')
       @brands_for_filter = Brand.alphabetical
+      @contacts = Text.find(6)
     end
   
     def get_store_data

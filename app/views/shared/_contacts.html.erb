@@ -1,12 +1,7 @@
 <div class="container contacts">
   <h2><span>Контакты</span></h2>
   <div class="pam">
-    <p>
-      Пн.- Пт.<br />
-      с <strong>10.00</strong> – <strong>19.00</strong><br />
-      он-лайн заказы 24/7<br />
-      Сб. с <strong>11.00</strong> - <strong>15.00</strong><br />
-    </p>
+    <%= @contacts.text.html_safe%>
     <div class="clearfix">
       <div class="col1of6">
         <img src="/assets/icons/phone.png" alt="" width=""  /> 
