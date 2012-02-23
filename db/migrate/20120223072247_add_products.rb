@@ -87,5 +87,6 @@ class AddProducts < ActiveRecord::Migration
   end
 
   def down
+    execute "DELETE FROM `products` WHERE id>6665 AND id<6747"
   end
 end
