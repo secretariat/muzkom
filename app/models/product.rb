@@ -12,6 +12,8 @@ class Product < ActiveRecord::Base
   has_many :product_comments, :dependent => :destroy
   has_and_belongs_to_many :promotions
   
+  validates_presence_of :name, :price, :currency, :subcategory_id, :brand_id
+  
   accepts_nested_attributes_for :videos, :allow_destroy => :true, :reject_if => :all_blank
   
   scope :visible, where(:visibility => true)

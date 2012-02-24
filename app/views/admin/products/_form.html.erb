@@ -1,5 +1,5 @@
 <% @product.videos.build %>
-<%= form_for [:admin, @subcategory, @product] do |product_form|%>
+<%= form_for [:admin, @product] do |product_form|%>
 <div class="clearfix">
   <ul class="tabs" id="tab-switcher">
     <li id="current" for="tab1">Основное</li>
@@ -16,7 +16,7 @@
       <div class="col1of2">
         <div class="field clearfix">
           <label for="">Наименование товара</label>
-          <%=product_form.text_field :title, :class=>"text"%>
+          <%=product_form.text_field :name, :class=>"text"%>
         </div>
         <div class="field clearfix">
           <label for="">Видимый</label>
@@ -103,6 +103,7 @@
       <%=product_form.text_area :description, :class=>"text", :id=>"pannel", :style=> "width: 780px; height: 300px;"%>
     </div>
   </div>
+
   <div id="tab3">
     <div class="clearfix">
     <div class="video-container">
@@ -137,6 +138,7 @@
   </div>
 </fieldset>
 <%end%>
+<% unless @product.new_record?%>
 <div id="upload_gallery_image" class="hidden">
 <%= form_for [:admin, @photo], :html=>{:multipart=> true, :remote=>true} do |f|%>
   <h3 class="mbm">Добавить фото в галерею</h3>
@@ -147,3 +149,4 @@
   </div>
 <%end%>
 </div>
+<%end%>

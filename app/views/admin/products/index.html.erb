@@ -32,7 +32,7 @@
           <tr>
             <td><input type="checkbox" /></td>
             <td><%= product.brand.try(:name)%></td>
-            <td><%= link_to product.title, edit_product_link(product)%></td>
+            <td><%= link_to product.name, edit_product_link(product)%></td>
             <td>
               <%=form_for [:admin, product], :remote => true do |f|%>
                 <%=f.text_field :price, :value=> real_product_price(product.price), :class=>"edit-price"%> 

@@ -1,6 +1,6 @@
 class Admin::ProductsController < AdminController
   respond_to :html, :js
-  before_filter :categories, :only => [:index, :edit, :new]
+  before_filter :load_lists, :only => [:edit, :new]
   before_filter :find_product, :only => [:edit, :update, :destroy, :visibility, :show_index]
   
   def index
@@ -16,35 +16,29 @@ class Admin::ProductsController < AdminController
         @total = Product.where("brand_id = ?", params[:brand_id]).count
       end
     end
+    @categories = Category.all
     @subcategory = Subcategory.find params[:subcategory_id] unless  params[:subcategory_id].nil?
   end
   
   def new
     @product = Product.new
-    @brands = Brand.order(:name)
-    @statuses = Status.all
-    @subcategory = Subcategory.find params[:subcategory_id] unless  params[:subcategory_id].nil?
   end
   
   def create
-    @product = Part.new(params[:part])
+    @product = Product.new(params[:product])
     if @product.save
       flash[:notice] = t('crud.successful_update')
       redirect_to list_url
     else
       flash.now[:error] = t('crud.error')
-      # flash.now[:error] += ". "+@auto.errors.messages[:image][0] unless @auto.errors.messages[:image].nil?
+      load_lists
       render :new
     end
   end
   
   def edit
-    @brands = Brand.order(:name)
-    @statuses = Status.all
     @video = Video.new
     @photo = Photo.new
-    @promotions = Promotion.visible
-    @subcategory = Subcategory.find params[:subcategory_id] unless  params[:subcategory_id].nil?
   end
   
   def update
@@ -91,11 +85,15 @@ private
   end
   end
   
-  def categories
-    @categories = Category.all
-  end
-  
   def find_product
     @product = Product.find params[:id]
+  end
+  
+  def load_lists
+    @brands = Brand.order(:name)
+    @statuses = Status.all
+    @categories = Category.all
+    @promotions = Promotion.visible
+    @subcategory = Subcategory.find params[:subcategory_id] unless  params[:subcategory_id].nil?
   end
 end

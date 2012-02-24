@@ -10,7 +10,7 @@
           <h3 class="mbs"><%= @promotion.title%></h3>
           <div class="breadcrumb">
             <%= link_to "Главная", root_path %> /
-            <%= link_to "Акции и скидки", publications_path%> 
+            <%= link_to "Акции и скидки", promotions_path%> 
           </div>
           <div class="wysiwyg mbl">
             <%= @promotion.text.html_safe%>
