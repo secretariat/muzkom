@@ -21,7 +21,6 @@ class Admin::BrandsController < AdminController
     end
 
     def edit
-      @currency = @brand.currency || Currency.new
     end
 
     def update
@@ -51,6 +50,7 @@ class Admin::BrandsController < AdminController
       end
       redirect_to admin_brands_url
     end
+    
   private
 
     def find_brand

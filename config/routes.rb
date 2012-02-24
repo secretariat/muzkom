@@ -42,7 +42,6 @@ Muzkom::Application.routes.draw do
   namespace :admin do
     root :to=>'index#index'
     resources :checkouts
-    resources :currencies
     resources :pages
     resources :texts
     resources :videos
@@ -65,7 +64,10 @@ Muzkom::Application.routes.draw do
     end
     
     resources :brands do
-      resources :currencies
+      resources :currencies, :only=>[:index] do
+        post :enter, :on => :collection
+        delete :remove, :on => :collection
+      end
       resources :products do
         post :visibility, :on => :member
         post :show_index, :on => :member
@@ -94,6 +96,11 @@ Muzkom::Application.routes.draw do
         post :show_index, :on => :member
       end
     end
+    
+    resources :currencies, :only => [:index] do
+      post :change, :on => :collection
+    end
+
   end
   
   get "/view_product.php" => "products#show"

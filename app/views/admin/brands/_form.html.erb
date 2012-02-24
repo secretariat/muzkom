@@ -17,7 +17,7 @@
     </div>
   </div>
   <div class="field clearfix">
-    <label for="">Изображение к новости</label>
+    <label for="">Лого производителя</label>
     <%= image_tag(@brand.logo_url(:thumb), :style=>"border: 1px solid #ddd") %><br />
     <%= f.file_field :logo %>
     <%= f.hidden_field :logo_cache %>

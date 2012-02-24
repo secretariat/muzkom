@@ -2,17 +2,19 @@ class Brand < ActiveRecord::Base
   
   mount_uploader :logo, BrandLogoUploader
   
-  has_one :currency
+  has_many :currencies
   has_many :products, :dependent => :destroy
   has_many :subcategories, :through => :products
   
   scope :alphabetical, where(:visibility => true).order(:name)
   
-  def conversion
-    unless currency.nil?
-      currency
+  def conversion(input, output)
+    curr = currencies.where(:input=>input, :output=>output)
+    unless curr.blank?
+      curr[0].coef
     else
-      Currency.find_by_brand_id(0)
+      curr = Currency.where(:brand_id=>0, :input=>input, :output=>output)
+      curr[0].coef
     end
   end
 

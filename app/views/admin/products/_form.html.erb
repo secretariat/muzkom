@@ -1,5 +1,7 @@
 <% @product.videos.build %>
-<%= form_for [:admin, @product] do |product_form|%>
+<% param = @subcategory unless @subcategory.nil?%>
+<% param = @brand unless @brand.nil?%>
+<%= form_for [:admin, param, @product] do |product_form|%>
 <div class="clearfix">
   <ul class="tabs" id="tab-switcher">
     <li id="current" for="tab1">Основное</li>

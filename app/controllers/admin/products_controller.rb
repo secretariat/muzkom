@@ -81,7 +81,7 @@ private
     unless params[:subcategory_id].nil? 
       admin_subcategory_products_url(params[:subcategory_id])
     else
-      return params[:brand_id].nil?  ? admin_products_url : admin_brand_products_url(params[:brand_id])
+      return params[:brand_id].nil? ? admin_products_url : admin_brand_products_url(params[:brand_id])
   end
   end
   
@@ -95,5 +95,6 @@ private
     @categories = Category.all
     @promotions = Promotion.visible
     @subcategory = Subcategory.find params[:subcategory_id] unless  params[:subcategory_id].nil?
+    @brand = Brand.find params[:brand_id] unless  params[:brand_id].nil?
   end
 end

@@ -3,17 +3,20 @@
     <h1>Курс Валют</h1>
   </div>
   <div class="clearfix pam">
-    <%= form_for [:admin, @brand, @currency] do |f|%>
+    <%= form_tag change_admin_currencies_path do %>
     <div class="field">
-      <strong>1 USD = </strong><%= f.text_field :usd_to_uah, :class=>"text", :style=>"width: 100px;"%>
+      <strong>1 USD = </strong>
+      <input type="text" name="currency[usd]" class="text" value="<%= @usd.coef%>" style="width: 100px"/>
     </div>
     <div class="field">
-      <strong>1 EUR = </strong><%= f.text_field :eur_to_uah, :class=>"text", :style=>"width: 100px;"%>
+      <strong>1 EUR = </strong>
+      <input type="text" name="currency[eur]" class="text" value="<%= @eur.coef%>" style="width: 100px"/>
+      
     </div>
     <%id = @brand.nil? ? 0 : @brand.id%>
-    <%= f.hidden_field :brand_id, :value => id%>
+    <%= hidden_field :currency, :brand_id, :value => id%>
     <div class="field">
-      <%= f.submit "Сохранить", :class => "submit-button right"%>
+      <input type="submit" value="Сохранить" class="submit-button right">
     </div>
     <%end%>
   </div>
