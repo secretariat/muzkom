@@ -24,6 +24,8 @@ class ShopController < ApplicationController
       @categories = Category.visible.includes(:subcategories).where(:subcategories=>{:visibility=>true}).order('subcategories.priority')
       @brands_for_filter = Brand.alphabetical
       @contacts = Text.find(6)
+      @banners_left = Placement.find(9).banners.order(:position)
+      @banners_right = Placement.find(10).banners.order(:position)
     end
   
     def get_store_data

@@ -6,6 +6,8 @@ class PagesController < ShopController
     @products = Product.for_index
     @page = Page.find :first
     @slides = Slide.all
+    @banners_left = Placement.find(1).banners.order(:position)
+    @banners_right = Placement.find(2).banners.order(:position)
   end
   
   def show

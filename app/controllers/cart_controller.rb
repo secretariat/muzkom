@@ -4,6 +4,8 @@ class CartController < ShopController
   before_filter :get_product, :only => [:add, :delete]
   
   def index
+    @banners_left = Placement.find(7).banners.order(:position)
+    @banners_right = Placement.find(8).banners.order(:position)
   end
   
   def add
