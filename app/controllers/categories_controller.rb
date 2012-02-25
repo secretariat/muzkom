@@ -5,12 +5,13 @@ class CategoriesController < ShopController
   def show
     @order_by = order_by
     @subcategory = Subcategory.find params[:id]
-    @products = @subcategory.products.visible.on_sale.order(:"#{@order_by}").page(params[:page])
     if order_by == "price"
-      @products.sort!{|a, b| a.price_converted(session[:currency]) <=> b.price_converted(session[:currency])}
+      @products = Product.by_subcategory(@subcategory).order_by_price.page(params[:page])
+    else
+      @products = Product.by_subcategory(@subcategory).order(:"#{@order_by}").page(params[:page])
     end
     @current_category = @subcategory
-    @brands = @subcategory.products.visible.on_sale.collect{|product| product.brand}.uniq
+    @brands = Product.by_subcategory(@subcategory).includes(:brand).collect{|product| product.brand}.uniq
     @brands.sort!{|a, b| a.name.downcase <=> b.name.downcase} 
   end
   

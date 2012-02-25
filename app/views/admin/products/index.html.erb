@@ -4,7 +4,13 @@
   </div>
   <div class="col3of4">
   <div class="container mbl mls">
-    <div class="box-header mbm"><h1><%= @subcategory.nil? ? "Товары" :  @subcategory.name%></h1></div>
+    <div class="box-header mbm"><h1>
+      <% unless @subcategory.nil?%>
+        <%= @subcategory.name%>
+      <%else%>
+        Товары <%= @brand.name unless @brand.nil?%>
+      <%end%>
+    </h1></div>
       <div class="clearfix mam">
         <div class="left mtm">
           <%= paginate @products%>

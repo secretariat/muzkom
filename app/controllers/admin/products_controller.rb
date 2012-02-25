@@ -17,6 +17,7 @@ class Admin::ProductsController < AdminController
       end
     end
     @categories = Category.all
+    @brand = Brand.find params[:brand_id] unless  params[:brand_id].nil?
     @subcategory = Subcategory.find params[:subcategory_id] unless  params[:subcategory_id].nil?
   end
   
