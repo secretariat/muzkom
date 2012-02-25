@@ -15,6 +15,12 @@
             <%= link_to "Главная", root_path %> /
             <span>Товары <%= @brand.name%></span>
           </div>
+          <% unless @brand.text.blank? %>
+            <div class="mbl">
+              <%=image_tag @brand.logo_url(:thumb), :class=>"left mrl"%>
+              <%= @brand.text.html_safe%>
+            </div>
+          <%end%>
           <div class="clearfix mbm">
             <div class="col1of2">
               <span>Сортировка по:</span>
