@@ -8,6 +8,7 @@ Muzkom::Application.routes.draw do
   get "/warranty" => "pages#show", :uri=>'warranty'
   get "/discount" => "pages#show", :uri=>'discount'
   get "/contacts" => "pages#show", :uri=>'contacts'
+  get "/feed" => "pages#feed"
   put "/currency_change" => 'shop#change', :as=>:change_currency
   
   resources :sessions, :only => [:new, :create, :destroy]

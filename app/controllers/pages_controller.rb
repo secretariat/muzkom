@@ -22,4 +22,10 @@ class PagesController < ShopController
     @how_to = Text.find 4
   end
   
+  def feed
+    @publications = Publication.visible.order("date DESC").limit(10)
+    respond_to do |format|
+      format.rss { render :layout => false } #index.rss.builder
+    end
+  end
 end

@@ -8,6 +8,7 @@
   <%= javascript_include_tag "application" %>
   <%= favicon_link_tag "favicon.png"%>
   <%= csrf_meta_tags %>
+  <%= auto_discovery_link_tag :rss, "/feed.rss" %>
   <script type="text/javascript" src="http://userapi.com/js/api/openapi.js?48"></script>
   <script type="text/javascript">
     VK.init({apiId: 2800557, onlyWidgets: true});
@@ -71,7 +72,7 @@
         <%= link_to image_tag("icons/vkontakte.png", :size=>"20x20", :class=>"mas"), "http://vk.com/id55454631"%>
         <%= link_to image_tag("icons/twitter.png", :size=>"20x20", :class=>"mas"), "https://twitter.com/#!/muzkom_com_ua"%>
         <%= link_to image_tag("icons/youtube.png", :size=>"20x20", :class=>"mas"), "http://www.youtube.com/user/MUZKOM"%>
-        <%= link_to image_tag("icons/rss.png", :size=>"20x20", :class=>"mas"), "/rss"%>
+        <%= link_to image_tag("icons/rss.png", :size=>"20x20", :class=>"mas"), "/feed"%>
       </div>
     </div>
     <div class="body">
