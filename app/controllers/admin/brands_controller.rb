@@ -44,11 +44,8 @@ class Admin::BrandsController < AdminController
       @brand.visibility = vis = @brand.visibility==false ? true : false
       if @brand.save
         @brand.products.update_all("visibility = #{vis}")
-        flash[:success] = t('crud.successful_update')
-      else
-        flash[:error] = t('crud.error')
       end
-      redirect_to admin_brands_url
+      redirect_to admin_brands_url unless request.xhr?
     end
     
   private

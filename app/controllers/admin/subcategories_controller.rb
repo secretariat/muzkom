@@ -39,11 +39,8 @@ class Admin::SubcategoriesController < AdminController
     @subcategory.visibility = vis = @subcategory.visibility==false ? true : false
     if @subcategory.save
       @subcategory.products.update_all("visibility = #{vis}")
-      flash[:success] = t('crud.successful_update')
-    else
-      flash[:error] = t('crud.error')
     end
-    redirect_to admin_category_url params[:category_id]
+    redirect_to admin_category_url(params[:category_id]) unless request.xhr?
   end
   
   def sort

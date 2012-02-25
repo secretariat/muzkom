@@ -66,13 +66,13 @@ class Admin::ProductsController < AdminController
   def visibility
     @product.visibility = @product.visibility == false ? true : false
     @product.save
-    redirect_to list_url
+    redirect_to list_url unless request.xhr?
   end
   
   def show_index
     @product.show_index = @product.show_index==false ? true : false
     @product.save
-    redirect_to list_url
+    redirect_to list_url unless request.xhr?
   end
   
   

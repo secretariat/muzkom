@@ -51,11 +51,10 @@ class Admin::CategoriesController < AdminController
     if @category.save
       @category.subcategories.update_all("visibility = #{vis}")
       @category.subcategories.each {|sub| sub.products.update_all("visibility = #{vis}")}
-      flash[:success] = t('crud.successful_update')
-    else
-      flash[:error] = t('crud.error')
     end
-    redirect_to request.referer || admin_categories_url
+    unless request.xhr?
+      redirect_to request.referer || admin_categories_url
+    end
   end
   
   def sort

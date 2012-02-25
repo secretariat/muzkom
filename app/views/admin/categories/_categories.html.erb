@@ -25,7 +25,7 @@
           <td><%= link_to category.name, admin_category_path(category)%></td>
           <td><span class="muted">Категорий: <%= category.subcategories.size%></span></td>
           <td>
-            <%= link_to visibility_button(category.visibility), visibility_admin_category_path(category), :class=>"visibility-button", :method => :post %>
+            <%= link_to visibility_button(category.visibility), visibility_admin_category_path(category), :class=>"visibility-button", :method => :post, :id=>"visibility_#{category.id}", :remote=>true %>
             <%=link_to 'Edit' , edit_admin_category_path(category), :class=>"action-button" %>
             <%=link_to 'Delete' , admin_category_path(category), :method=>:delete, :confirm=>"Вы уверены, что хотите удалить этот  раздел, со всеми вложенными категориями и товарами?", :class=>"action-button"%>
           </td>

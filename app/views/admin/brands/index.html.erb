@@ -28,7 +28,7 @@
             <td><span class="muted">Товаров: <%= brand.products.count%></span></td>
             <td><%= human_date_time(brand.updated_at) || "-"%></td>
             <td>
-            <%= link_to visibility_button(brand.visibility), visibility_admin_brand_path(brand), :class=>"visibility-button", :method => :post %>
+            <%= link_to visibility_button(brand.visibility), visibility_admin_brand_path(brand), :class=>"visibility-button", :method => :post, :id=>"visibility_#{brand.id}", :remote=>true %>
             <%=link_to 'Edit' , edit_admin_brand_path(brand), :class=>"action-button" %>
             <%=link_to 'Delete' , admin_brand_path(brand), :method=>:delete, :confirm=>"Вы уверены, что хотите удалить этого производителя со всеми вложенными товарами?", :class=>"action-button"%>
             </td>
