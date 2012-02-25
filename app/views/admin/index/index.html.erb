@@ -58,6 +58,13 @@
           <%= image_tag "admin/text-x-generic.png", :size=>"48x48"%>
           <span>Тексты</span>
         <%end%>
+        <%= link_to admin_feedbacks_path, :class=>"tool-icon" do %>
+        <%if Feedback.count > 0%>
+          <span class="new"><%= Feedback.count%></span>
+        <%end%>
+          <%= image_tag "admin/messages.png", :size=>"48x48"%>
+          <span>Сообщения</span>
+        <%end%>
       </div>
     </div>
       <div class="container mls">
@@ -65,7 +72,7 @@
           <h1>Последние комментарии</h1>
         </div>
         <div class="pam">
-          <% @product_comments.each do |comment|%>
+          <% @product_comments.order("created_at DESC").each do |comment|%>
             <div class="mbm">
               <div class="clearfix dotted">
                 <div class="col1of2">

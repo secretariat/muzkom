@@ -49,6 +49,7 @@ Muzkom::Application.routes.draw do
     resources :users, :only=>[:edit, :update]
     resources :slides
     resources :photos
+    resources :feedbacks, :only => [:index, :destroy]
     resources :product_comments, :only => [:index, :destroy]
     resources :publication_comments, :only => [:index, :destroy]
     

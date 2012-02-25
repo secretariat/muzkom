@@ -58,7 +58,7 @@
               <%= f.text_area :text, :class => "text", :size=>"0x5"%>
             </div>
             <%= f.hidden_field :publication_id, :value => @publication.id%>
-            <%= f.submit "Отправить", :class => "submit-button"%>
+            <%= link_to "Отправить", "#", :class=>"submit-button add-publication-comment"%>
             <%end%>
           </div>
           <h4 class="mbm">Последние новости:</h4>

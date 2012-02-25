@@ -1,0 +1,33 @@
+<div class="container mbm">
+  <div class="box-header clearfix">
+    <h1>Обратная связь</h1>
+  </div>
+  <div class="mam">
+    <% @feedbacks.each do |feedback|%>
+    <div class="mbm">
+      <div class="clearfix dotted">
+        <div class="col1of2">
+          <%= human_date_time feedback.created_at%> –
+          <strong><%= feedback.name%></strong>
+        </div>
+        <div class="last-col">
+          <div class="right">
+            <span class="muted">Тема:</span>
+            <strong><%= feedback.subject%></strong>
+            <%= feedback.city.blank? ? "" : ", #{feedback.city}"%>
+          </div>
+        </div>
+      </div>
+      <div class="mbs"><strong>Телефон:</strong> <%= feedback.phone%></div>
+      <div class="mbs"><strong>Email:</strong> <%= feedback.email%></div>
+      <p><%= feedback.text%></p>
+      <div class="clearfix pbm">
+        <%= link_to "Delete", admin_feedback_path(feedback), :method=>:delete, :class=>"action-button" %>
+      </div>
+    </div>
+    <%end%>
+    <% if @feedbacks.empty?%>
+      <p class="muted">Нет комментариев</p>
+    <%end%>
+  </div>
+</div>

@@ -73,6 +73,47 @@ $(document).ready(function(){
  $('.edit-quantity').blur(function(){
     $(this).closest('form').submit();
   });
+  
+  $('.add-product-comment').click(function(e){
+    e.preventDefault();
+    var errors = false;
+    if($("#product_comment_name").val() == ""){
+      $("#product_comment_name").closest(".field").addClass("field_with_errors");
+      errors = true
+    }else{
+      $("#product_comment_name").closest(".field").removeClass("field_with_errors");
+    }
+    if($("#product_comment_text").val() == ""){
+      $("#product_comment_text").closest(".field").addClass("field_with_errors");
+      errors = true
+    } else{
+        $("#product_comment_text").closest(".field").removeClass("field_with_errors");
+      }
+    if(errors == false){
+      $(this).closest("form").submit();
+    }
+  });
+  
+  
+  $('.add-publication-comment').click(function(e){
+    e.preventDefault();
+    var errors = false;
+    if($("#publication_comment_name").val() == ""){
+      $("#publication_comment_name").closest(".field").addClass("field_with_errors");
+      errors = true
+    }else{
+      $("#publication_comment_name").closest(".field").removeClass("field_with_errors");
+    }
+    if($("#publication_comment_text").val() == ""){
+      $("#publication_comment_text").closest(".field").addClass("field_with_errors");
+      errors = true
+    } else{
+        $("#publication_comment_text").closest(".field").removeClass("field_with_errors");
+      }
+    if(errors == false){
+      $(this).closest("form").submit();
+    }
+  });
  
 });
 
