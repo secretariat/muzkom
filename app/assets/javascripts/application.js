@@ -59,6 +59,10 @@ $(document).ready(function(){
  
  $(".tab-switcher a").click(function(e){
    e.preventDefault();
+   var value = $(this).attr("for");
+   if(value != 'undefined'){
+     setCookie("tab", value, 1);
+   }
    var selector = $(this).attr('href');
    $('.tab-switcher a').removeClass('current');
    $(this).addClass('current');
@@ -71,3 +75,14 @@ $(document).ready(function(){
   });
  
 });
+
+function setCookie(name,value, days) {
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	}
+	else var expires = "";
+	document.cookie = name+"="+value+expires+"; path=/";
+	return true;
+}

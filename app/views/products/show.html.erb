@@ -109,44 +109,58 @@
         </div>
         <div class="clearfix">
           <ul class="tab-switcher clearfix">
-            <li><a href="#tab1" class="current">Описание</a></li>
+            <li><a href="#tab1" for="tab1" class="<%= 'current' if cookies[:tab].nil? || cookies[:tab] == 'tab1'%>">Описание</a></li>
             <% unless @product.videos.empty?%>
               <li><a href="#tab2">Видео</a></li>
             <%end%>
-            <li><a href="#tab3">Комментарии (<%= @product.product_comments.count%>)</a></li>
+            <li><a href="#tab3" for="tab3" class='<%= 'current' if cookies[:tab] == 'tab3'%>'>Комментарии (<%= @product.product_comments.count%>)</a></li>
           </ul>
           <div class="tab-container">
-            <div id="tab1" class="tab">
-              <%= @product.description.html_safe%>
+            <div id="tab1" class="tab <%='hidden' unless cookies[:tab] == 'tab1'%>">
+              <div class="mam">
+                <%= @product.description.html_safe%>
+              </div>
             </div>
             <% unless @product.videos.empty?%>
             <div id="tab2" class="tab hidden">
-              
+              <div class="mam">
+                <%@product.videos.each do |video|%>
+                  <div class="mbm">
+                    <%=video.code.html_safe%>
+                  </div>
+                <%end%>
+              </div>
             </div>
             <%end%>
-            <div id="tab3" class="tab hidden">
-              <% @product.product_comments.each do |comment|%>
-              <div class="comment">
-                <p><strong><%= comment.name%></strong> <small class="muted"><%= human_date comment.created_at%></small></p>
+            <div id="tab3" class="tab <%= 'hidden' unless cookies[:tab] == 'tab3'%>">
+              <% @product.product_comments.each_with_index do |comment, i|%>
+              <div class="comment <%=(i+1)%2 == 0 ? 'z2' : 'z1'%>">
+                <div class="mbs">
+                  <small class="muted"><%= human_date_time comment.created_at%></small> |
+                  <strong><%= comment.name%></strong>
+                </div>
                 <p><%= comment.text%></p>
               </div>
               <%end%>
-              <%if @product.product_comments.empty?%>
-              <p class="mbl">Не комментариев. Будьте первым, кто оставит комментарий.</p>
-              <%end%>
-              <h4 class="mbm">Добавить новый комментарий</h4>
-              <%=form_for [@product, @comment] do |f|%>
-              <div class="field">
-                <label for="">Ваше имя</label>
-                <%= f.text_field :name, :class=>"text"%>
+              <div class="mam">
+                <%if @product.product_comments.empty?%>
+                  <p class="mvl muted">Не комментариев. Будьте первым, кто оставит комментарий.</p>
+                <%end%>
+                <br />
+                <h4 class="mbm">Добавить новый комментарий</h4>
+                <%=form_for [@product, @comment] do |f|%>
+                <div class="field">
+                  <label for="">Ваше имя</label>
+                  <%= f.text_field :name, :class=>"text"%>
+                </div>
+                <div class="field">
+                  <label for="">Комментарий</label>
+                  <%= f.text_area :text, :class => "text", :size=>"0x5"%>
+                </div>
+                <%= f.hidden_field :product_id, :value => @product.id%>
+                <%= f.submit "Отправить", :class => "submit-button"%>
+                <%end%>
               </div>
-              <div class="field">
-                <label for="">Комментарий</label>
-                <%= f.text_area :text, :class => "text", :size=>"0x5"%>
-              </div>
-              <%= f.hidden_field :product_id, :value => @product.id%>
-              <%= f.submit "Отправить", :class => "submit-button"%>
-              <%end%>
             </div>
           </div>
         </div>

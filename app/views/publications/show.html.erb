@@ -31,15 +31,21 @@
           <div class="wysiwyg mbl">
             <%= @publication.text.html_safe%>
           </div>
-          <% @publication.publication_comments.each do |comment|%>
-          <div class="comment">
-            <p><strong><%= comment.name%></strong> <small class="muted"><%= human_date comment.created_at%></small></p>
-            <p><%= comment.text%></p>
+        </div>
+        <% @publication.publication_comments.each_with_index do |comment, i|%>
+        <div class="comment <%=(i+1)%2 == 0 ? 'z2' : 'z1'%>">
+          <div class="mbs">
+            <small class="muted"><%= human_date_time comment.created_at%></small> |
+            <strong><%= comment.name%></strong> 
           </div>
-          <%end%>
+          <p><%= comment.text%></p>
+        </div>
+        <%end%>
+        <div class="mhm">
           <%if @publication.publication_comments.empty?%>
-          <p class="mbl muted">Не комментариев. Будьте первым, кто оставит комментарий.</p>
+            <p class="mbl muted">Не комментариев. Будьте первым, кто оставит комментарий.</p>
           <%end%>
+          <br />
           <h4 class="mbm">Добавить новый комментарий:</h4>
           <div class="mbl">
             <%=form_for [@publication, @comment] do |f|%>
