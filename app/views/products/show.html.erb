@@ -114,14 +114,15 @@
         </div>
         <div class="clearfix">
           <ul class="tab-switcher clearfix">
-            <li><a href="#tab1" for="tab1" class="<%= 'current' if cookies[:tab].nil? || cookies[:tab] == 'tab1'%>">Описание</a></li>
+            <% cookies[:tab] = 'tab1' if cookies[:tab].nil? %>
+            <li><a href="#tab1" for="tab1" class="<%= 'current' if cookies[:tab] == 'tab1'%>">Описание</a></li>
             <% unless @product.videos.empty?%>
               <li><a href="#tab2">Видео</a></li>
             <%end%>
             <li><a href="#tab3" for="tab3" class='<%= 'current' if cookies[:tab] == 'tab3'%>'>Комментарии (<%= @product.product_comments.count%>)</a></li>
           </ul>
           <div class="tab-container">
-            <div id="tab1" class="tab <%='hidden' if cookies[:tab].blank?  || cookies[:tab] != 'tab1'%>">
+            <div id="tab1" class="tab <%='hidden' if cookies[:tab] != 'tab1'%>">
               <div class="mam">
                 <%= @product.description.html_safe%>
               </div>
