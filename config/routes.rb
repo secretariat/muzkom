@@ -105,12 +105,12 @@ Muzkom::Application.routes.draw do
 
   end
   
-  get "page.php" => "pages#show", :uri=>'about_us'
-  get "contact.php" => "feedbacks#new"
-  get "contact.php" => "cart#index"
-  get "news.php" => "publications#index"
-  get "view_new.php" => "publications#show"
-  get "products.php" => "categories#show"
-  get "view_product.php" => "products#show"
+  match "/page.php" => "pages#show", :uri=>'about_us'
+  match "/contact.php" => "feedbacks#new"
+  match "/cart.php" => "cart#index"
+  match "/news.php" => "publications#index"
+  match "/view_new.php" => "publications#show"
+  match "/products.php" => "categories#show"
+  match "/view_product.php" => "products#show"
 
 end
