@@ -13,7 +13,8 @@
   <div class="fieldclearfix">
     <div class="col3of4">
       <label for="">Текст</label>
-      <%=f.text_area :text, :class=>"text", :id=>"pannel", :style=> "width: 750px; height: 300px;"%>
+      <%= id = @text.id == 8 ? "" : "pannel"%>
+      <%=f.text_area :text, :class=>"text", :id=>id, :style=> "width: 750px; height: 300px;"%>
     </div>
   </div>
 </fieldset>

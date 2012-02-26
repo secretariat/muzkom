@@ -12,6 +12,7 @@ class ProductsController < ShopController
     @similar = Product.similar(@product)
     @current_category = @product.subcategory
     @comment = ProductComment.new
+    @title_text = Text.find 8
     @banners_left = Placement.find(5).banners.order(:position)
     @banners_right = Placement.find(6).banners.order(:position)
   end
