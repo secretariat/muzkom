@@ -121,7 +121,7 @@
             <li><a href="#tab3" for="tab3" class='<%= 'current' if cookies[:tab] == 'tab3'%>'>Комментарии (<%= @product.product_comments.count%>)</a></li>
           </ul>
           <div class="tab-container">
-            <div id="tab1" class="tab <%='hidden' if  !cookies[:tab].blank?  && cookies[:tab] != 'tab1'%>">
+            <div id="tab1" class="tab <%='hidden' if cookies[:tab].blank?  || cookies[:tab] != 'tab1'%>">
               <div class="mam">
                 <%= @product.description.html_safe%>
               </div>
