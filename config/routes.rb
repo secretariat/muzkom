@@ -108,9 +108,9 @@ Muzkom::Application.routes.draw do
   get "page.php" => "pages#show", :uri=>'about_us'
   get "contact.php" => "feedbacks#new"
   get "contact.php" => "cart#index"
-  get "/news.php" => "publications#index"
+  get "news.php" => "publications#index"
   get "view_new.php" => "publications#show"
-  get "/products.php" => "categories#show"
-  get "/view_product.php" => "products#show"
+  get "products.php" => "categories#show"
+  get "view_product.php" => "products#show"
 
 end
