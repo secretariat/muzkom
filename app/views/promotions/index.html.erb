@@ -19,7 +19,7 @@
             <h4 class="mbs"><%=pub.title%></h4>
             <div class="clearfix mbs">
               <% if pub.has_image?%>
-                <%= image_tag pub.image_url(:thumb), :width=>"100", :class=>"left"%>
+                <%= image_tag pub.image_url(:thumb), :class=>"left mrm"%>
               <%end%>
               <p><%= pub.description.html_safe%></p>
             </div>
