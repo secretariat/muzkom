@@ -75,11 +75,11 @@
         <li><%= link_to "Корзина", cart_path %></li>
       </ul>
       <div class="col1of5 mts">
-        <%= link_to image_tag("icons/facebook.png", :size=>"20x20", :class=>"mas"), "http://www.facebook.com/profile.php?id=100001185448670"%>
-        <%= link_to image_tag("icons/vkontakte.png", :size=>"20x20", :class=>"mas"), "http://vk.com/id55454631"%>
-        <%= link_to image_tag("icons/twitter.png", :size=>"20x20", :class=>"mas"), "https://twitter.com/#!/muzkom_com_ua"%>
-        <%= link_to image_tag("icons/youtube.png", :size=>"20x20", :class=>"mas"), "http://www.youtube.com/user/MUZKOM"%>
-        <%= link_to image_tag("icons/rss.png", :size=>"20x20", :class=>"mas"), "/feed"%>
+        <%= link_to image_tag("icons/facebook.png", :size=>"20x20", :class=>"mas"), "http://www.facebook.com/profile.php?id=100001185448670", :target=>"_blank"%>
+        <%= link_to image_tag("icons/vkontakte.png", :size=>"20x20", :class=>"mas"), "http://vk.com/id55454631", :target=>"_blank"%>
+        <%= link_to image_tag("icons/twitter.png", :size=>"20x20", :class=>"mas"), "https://twitter.com/#!/muzkom_com_ua", :target=>"_blank"%>
+        <%= link_to image_tag("icons/youtube.png", :size=>"20x20", :class=>"mas"), "http://www.youtube.com/user/MUZKOM", :target=>"_blank"%>
+        <%= link_to image_tag("icons/rss.png", :size=>"20x20", :class=>"mas"), "/feed", :target=>"_blank"%>
       </div>
     </div>
     <div class="body">
@@ -130,6 +130,25 @@
           </div>
         </div>
       </div>
+    </div>
+    <br />
+    <div class="" style="width: 88px; margin: 0 auto;">
+    <!-- MyCounter v.2.0 -->
+    <script type="text/javascript"><!--
+    my_id = 77732;
+    my_width = 88;
+    my_height = 41;
+    my_alt = "MyCounter - счётчик и статистика";
+    //--></script>
+    <script type="text/javascript"
+     src="http://scripts.mycounter.ua/counter2.0.js">
+    </script><noscript>
+    <a target="_blank" href="http://mycounter.ua/"><img
+    src="http://get.mycounter.ua/counter.php?id=77732"
+    title="MyCounter - счётчик и статистика"
+    alt="MyCounter - счётчик и статистика"
+    width="88" height="41" border="0" /></a></noscript>
+    <!--/ MyCounter -->
     </div>
     <!--LiveInternet counter--><script type="text/javascript"><!--document.write("<a href='http://www.liveinternet.ru/click' "+"target=_blank><img src='//counter.yadro.ru/hit?t44.2;r"+escape(document.referrer)+((typeof(screen)=="undefined")?"":";s"+screen.width+""+screen.height+""+(screen.colorDepth?screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+";"+Math.random()+"' alt='' title='LiveInternet' "+"border='0' width='31' height='31'><\/a>")//--></script><!--/LiveInternet-->
 </body>

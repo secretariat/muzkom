@@ -19,4 +19,11 @@ class Admin::CheckoutsController < AdminController
     end
   end
   
+  def destroy
+    @checkout = Checkout.find params[:id]
+    @checkout.destroy
+    redirect_to admin_checkouts_url
+  end
+  
+  
 end

@@ -1,3 +1,4 @@
+#encoding: utf-8
 module AdminHelper
   
   def visibility_button(value)
@@ -15,5 +16,11 @@ module AdminHelper
       end
       return id
     end
+  end
+  
+  def human_status(status)
+    return "Ожидает" if status == 'pending'
+    return "Выполняется" if status == 'started'
+    return "Выполнен" if status == 'finished'
   end
 end

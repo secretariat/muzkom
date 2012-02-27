@@ -9,7 +9,7 @@
           <td>Дата</td>
           <td>Заказчик</td>
           <td>Адрес</td>
-          <td class='info'>Статус</td>
+          <td style='width: 120px'>Статус</td>
           <td style="width: 70px">Действия</td>
         </tr>
       </thead>
@@ -28,7 +28,8 @@
           <td><%= human_date_time checkout.created_at%></td>
           <td><%= checkout.fullname%></td>
           <td><span class="muted"><%=checkout.country%>, <%=checkout.city%><br /><%=checkout.address%></span></td>
-          <td><%= link_to image_tag("icons/icon_comment.gif"), "#", :title => checkout.comment unless checkout.comment.blank?%></td>
+          <td><%= human_status checkout.status%>
+          <%= link_to image_tag("icons/icon_comment.gif"), "#", :title => checkout.comment unless checkout.comment.blank?%></td>
           <td>
             <%=link_to 'Delete' , admin_checkout_path(checkout), :method=>:delete, :confirm=>"Вы уверены, что хотите удалить этот заказ?", :class=>"action-button"%>
           </td>

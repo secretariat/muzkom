@@ -12,7 +12,7 @@ class Admin::ProductsController < AdminController
         @products = Product.includes(:brand).order("brands.name").page(params[:page]).per(100)
         @total = Product.count
       else
-        @products = Product.where("brand_id = ?", params[:brand_id]).page(params[:page]).per(100)
+        @products = Product.where("brand_id = ?", params[:brand_id]).order(:name).page(params[:page]).per(100)
         @total = Product.where("brand_id = ?", params[:brand_id]).count
       end
     end
