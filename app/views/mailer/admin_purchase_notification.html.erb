@@ -11,10 +11,10 @@
 <table style="border-collpase: collapse; border: 1px solid #eee;">
   <% @checkout.purchases.each do |purchase|%>
   <tr>
-    <td style="padding: 10px;border: 1px solid #eee;"><%= image_tag "http://muzkom.com.ua{#{purchase.product.image_url}", :size=>"100x100"%></td>
+    <td style="padding: 10px;border: 1px solid #eee;"><%= image_tag "http://muzkom.com.ua#{purchase.product.image_url}", :size=>"100x100"%></td>
     <td style="padding: 10px;border: 1px solid #eee;"><%= purchase.product.title %></td>
     <td style="padding: 10px;border: 1px solid #eee;"><%= purchase.quantity %></td>
-    <td style="padding: 10px;border: 1px solid #eee;"><%= purchase.price %></td>
+    <td style="padding: 10px;border: 1px solid #eee;"><%= purchase.price %> грн</td>
   </tr>
   <%end%>
 </table>
