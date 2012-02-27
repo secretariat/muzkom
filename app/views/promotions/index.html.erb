@@ -22,7 +22,7 @@
                 <%= image_tag pub.image_url(:thumb), :class=>"left mrm"%>
               <%end%>
               <p><%= pub.description.html_safe%>
-                <%= link_to "читать далее &rarr;".html_safe, publication_path(pub)%>
+                <%= link_to "читать далее &rarr;".html_safe, promotion_path(pub)%>
               </p>
             </div>
           </div>

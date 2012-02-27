@@ -1,8 +1,8 @@
 class CartItem
-  attr_reader :product, :quantity
+  attr_reader :product_id, :quantity
   
   def initialize(product, quantity=1)
-    @product = product
+    @product_id = product.id
     @quantity = quantity.to_i
   end
   
@@ -22,8 +22,13 @@ class CartItem
     @product.title
   end
   
+  
+  def product
+    Product.find @product_id
+  end
+  
   def price(currency)
-    @product.price_converted(currency) * @quantity
+    product.price_converted(currency) * @quantity
   end
   
 end

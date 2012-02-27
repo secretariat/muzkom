@@ -10,11 +10,11 @@ class Product < ActiveRecord::Base
   has_many :photos, :dependent => :destroy
   has_many :videos, :dependent => :destroy
   has_many :product_comments, :dependent => :destroy
-  has_and_belongs_to_many :promotions
+  #has_and_belongs_to_many :promotions
   
   validates_presence_of :name, :price, :currency, :subcategory_id, :brand_id
   
-  accepts_nested_attributes_for :videos, :allow_destroy => :true, :reject_if => :all_blank
+ # accepts_nested_attributes_for :videos, :allow_destroy => :true, :reject_if => :all_blank
   
   scope :visible, where(:visibility => true)
   scope :for_index, where(:show_index => true).order("RAND()").limit(12)
@@ -33,13 +33,13 @@ class Product < ActiveRecord::Base
     cheaper | expensive
   end
   
-  def price_converted(curr, opt = true)
-    pr = (opt == true) ? price_or_sale_price.to_f : price.to_f
-    if currency != curr
-      rate = brand.conversion(currency, curr)
-      pr*rate
+  def price_converted(global_currency, opt = true)
+    output_price = (opt == true) ? price_or_sale_price.to_f : price.to_f
+    if currency != global_currency
+      coef = brand.currency_rate(currency, global_currency)
+      output_price*coef
     else
-      pr
+      output_price
     end
   end
   

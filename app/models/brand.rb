@@ -8,13 +8,13 @@ class Brand < ActiveRecord::Base
   
   scope :alphabetical, where(:visibility => true).order(:name)
   
-  def conversion(input, output)
+  def currency_rate(input, output)
     curr = currencies.where(:input=>input, :output=>output)
     unless curr.blank?
-      curr[0].coef
+      curr[0].coef.to_f
     else
       curr = Currency.where(:brand_id=>0, :input=>input, :output=>output)
-      curr[0].coef
+      curr[0].coef.to_f
     end
   end
 

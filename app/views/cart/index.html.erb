@@ -38,7 +38,7 @@
               <tr>
                 <td><%= link_to image_tag('icons/delete.png'), delete_cart_path(:id=>item.product.id), :method => :delete, :class=>"delete", :confirm=>"Вы уверены что хотите удалить этот товар из корзины?"%></td>
                 <td><%= image_tag Product.find_by_id(item.product.id).image_url(:thumb)%></td>
-                <td><%= link_to item.title, product_path(:id=>item.product.id)%></td>
+                <td><%= link_to item.product.title, product_path(:id=>item.product.id)%></td>
                 <td>
                   <%= form_tag change_cart_path, {}  do%>
                     <%= hidden_field :cart_item, :product_id, :value => item.product.id%>
