@@ -16,6 +16,7 @@ gem 'tinymce-rails'
 gem 'capistrano'
 gem 'remotipart', '~> 0.4'
 gem 'exception_notification'
+gem 'sitemap_generator'
 
 
 # Gems used only for assets and not required
