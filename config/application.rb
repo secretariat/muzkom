@@ -1,8 +1,6 @@
 require File.expand_path('../boot', __FILE__)
+
 require 'rails/all'
-if !Rails.env.development? && !Rails.env.test?
-  config.middleware.insert_before Rack::Cache, Rack::Static, :urls => [config.assets.prefix], :root => 'public'
-end
 
 
 if defined?(Bundler)
