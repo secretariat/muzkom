@@ -19,11 +19,11 @@
           <%= form_tag enter_admin_brand_currencies_path(@brand) do %>
           <div class="field">
             <strong>1 USD = </strong>
-            <input type="text" name="currency[usd]" class="text" value="<%= @brand.conversion("usd", "uah")%>" style="width: 100px"/>
+            <input type="text" name="currency[usd]" class="text" value="<%= @brand.currency_rate("usd", "uah")%>" style="width: 100px"/>
           </div>
           <div class="field">
             <strong>1 EUR = </strong>
-            <input type="text" name="currency[eur]" class="text" value="<%= @brand.conversion("eur", "uah")%>" style="width: 100px"/>
+            <input type="text" name="currency[eur]" class="text" value="<%= @brand.currency_rate("eur", "uah")%>" style="width: 100px"/>
 
           </div>
           <div class="field">
