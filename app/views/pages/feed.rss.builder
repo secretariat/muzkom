@@ -1,8 +1,8 @@
 xml.instruct! :xml, :version => "1.0" 
 xml.rss :version => "2.0" do
   xml.channel do
-    xml.title "Your Blog Title"
-    xml.description "A blog about software and chocolate"
+    xml.title "Muzkom.com.ua"
+    xml.description "Интернет магазин оборудование для: DJ‘s, саунд-продюсеров, музыкантов, ночных клубов"
     xml.link publications_url
 
     for post in @publications

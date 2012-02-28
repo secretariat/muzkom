@@ -44,6 +44,9 @@
         <div class="right mvm">
           <div class="mbm">
             <span class="muted">Все цены в </span>
+            <div class="right mts">
+              <g:plusone size="medium" annotation="none"></g:plusone>
+            </div>
             <%= form_tag change_currency_path, :method => :put do%>
             <select name="currency" id="" style="width: 80px" change="submitForm">
               <option value="uah" <%= "selected" if session[:currency] == "uah"%>>ГРН</option>
