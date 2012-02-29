@@ -88,6 +88,7 @@ Muzkom::Application.routes.draw do
     resources :products do
       post :visibility, :on => :member
       post :show_index, :on => :member
+      get :switch, :on => :collection
     end
     
     resources :subcategories do 

@@ -4,13 +4,27 @@
   </div>
   <div class="col3of4">
   <div class="container mbl mls">
-    <div class="box-header mbm"><h1>
-      <% unless @subcategory.nil?%>
-        <%= @subcategory.name%>
-      <%else%>
-        Товары <%= @brand.name unless @brand.nil?%>
-      <%end%>
-    </h1></div>
+    <div class="box-header mbm">
+      <div class="clearfix">
+      <div class="col1of2">
+        <h1>
+          <% unless @subcategory.nil?%>
+          <%= @subcategory.name%>
+          <%else%>
+          Товары <%= @brand.name unless @brand.nil?%> 
+          <%= "снятые с производства" if session[:show_only_products] == "withdrawn"%>
+          <%= "в продаже" if session[:show_only_products] == "on_sale"%>
+          <%end%>
+        </h1>
+      </div>
+      <div class="col1of2">
+        <div class="mtm right">
+        <%= link_to "Товары в продаже", switch_admin_products_path(:show=>"on_sale")%> |
+        <%= link_to "Cнятые с производства", switch_admin_products_path(:show=>"withdrawn")%>
+        </div>
+      </div>
+      </div>
+    </div>
       <div class="clearfix mam">
         <div class="left mtm">
           <%= paginate @products%>

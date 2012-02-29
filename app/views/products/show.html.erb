@@ -153,6 +153,11 @@
                   <p class="mvl muted">Не комментариев. Будьте первым, кто оставит комментарий.</p>
                 <%end%>
                 <br />
+                <% unless flash[:form_error].nil? %>
+                  <div class="form-error">
+                    <%= flash[:form_error]%>
+                  </div>
+                <%end%>
                 <h4 class="mbm">Добавить новый комментарий</h4>
                 <%=form_for [@product, @comment] do |f|%>
                 <div class="field">
@@ -162,6 +167,9 @@
                 <div class="field">
                   <label for="">Комментарий</label>
                   <%= f.text_area :text, :class => "text", :size=>"0x5"%>
+                </div>
+                <div class="field">
+                  <%= recaptcha_tags :display=>{:theme=>"white"}%>
                 </div>
                 <%= f.hidden_field :product_id, :value => @product.id%>
                 <%= link_to "Отправить", "#", :class=>"submit-button add-product-comment"%>

@@ -17,6 +17,7 @@ gem 'capistrano'
 gem 'remotipart', '~> 0.4'
 gem 'exception_notification'
 gem 'sitemap_generator'
+gem "recaptcha", :require => "recaptcha/rails"
 
 
 # Gems used only for assets and not required

@@ -4,16 +4,21 @@ class Admin::ProductsController < AdminController
   before_filter :find_product, :only => [:edit, :update, :destroy, :visibility, :show_index]
   
   def index
+    unless session[:show_only_products].nil?
+      where = session[:show_only_products]=="withdrawn" ? "status_id = 4" : "status_id != 4"
+    else
+      where = ""
+    end
     unless params[:subcategory_id].nil?
-      @products = Product.includes(:brand).order("brands.name").where("subcategory_id = ?", params[:subcategory_id]).page(params[:page]).per(100)
-      @total = Product.where("subcategory_id = ?", params[:subcategory_id]).count
+      @products = Product.includes(:brand).order("brands.name").where("subcategory_id = ? #{where}", params[:subcategory_id]).page(params[:page]).per(100)
+      @total = Product.where("subcategory_id = ? #{where}", params[:subcategory_id]).count
     else
       if params[:brand_id].nil?
-        @products = Product.includes(:brand).order("brands.name").page(params[:page]).per(100)
-        @total = Product.count
+        @products = Product.includes(:brand).where(where).order("brands.name").page(params[:page]).per(100)
+        @total = Product.where(where).count
       else
-        @products = Product.where("brand_id = ?", params[:brand_id]).order(:name).page(params[:page]).per(100)
-        @total = Product.where("brand_id = ?", params[:brand_id]).count
+        @products = Product.where("brand_id = ? #{where}", params[:brand_id]).order(:name).page(params[:page]).per(100)
+        @total = Product.where("brand_id = ? #{where}", params[:brand_id]).count
       end
     end
     @categories = Category.all
@@ -73,6 +78,13 @@ class Admin::ProductsController < AdminController
     @product.show_index = @product.show_index==false ? true : false
     @product.save
     redirect_to list_url unless request.xhr?
+  end
+  
+  def switch
+    unless params[:show].nil?
+      session[:show_only_products] = params[:show]
+    end
+    redirect_to request.referer || admin_products_path
   end
   
   
