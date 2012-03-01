@@ -1,4 +1,4 @@
-<% title "#{@product.title} #{@product.subcategory.name} #{@title_text.text}"%>
+<% title "#{@product.title} #{@product.subcategory.try(:name)} #{@title_text.text}"%>
 <%meta_d @product.meta_d%>
 <%meta_k @product.meta_k%>
 <div class="clearfix">
@@ -16,7 +16,7 @@
           <%= link_to "Каталог товаров", root_path %> /
           <% unless @product.withdrawn?%>
           <a href=""><%= @product.subcategory.category.name%></a> /
-          <%= link_to @product.subcategory.name, category_path(@product.subcategory)%> /
+          <%= link_to @product.subcategory.try(:name), category_path(@product.subcategory)%> /
           <%else%>
             <%= link_to "Товары снятые с производства", withdrawn_brands_path%> /
           <%end%>

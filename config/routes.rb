@@ -77,6 +77,15 @@ Muzkom::Application.routes.draw do
       post :visibility, :on => :member
     end
     
+    resources :subcategories do 
+      post :sort, :on => :collection
+      post :move, :on => :collection
+      resources :products do
+        post :visibility, :on => :member
+        post :show_index, :on => :member
+      end
+    end
+    
     resources :categories do
       post :visibility, :on => :member
       post :sort, :on => :collection
@@ -91,14 +100,6 @@ Muzkom::Application.routes.draw do
       get :switch, :on => :collection
     end
     
-    resources :subcategories do 
-      post :sort, :on => :collection
-      post :move, :on => :collection
-      resources :products do
-        post :visibility, :on => :member
-        post :show_index, :on => :member
-      end
-    end
     
     resources :currencies, :only => [:index] do
       post :change, :on => :collection

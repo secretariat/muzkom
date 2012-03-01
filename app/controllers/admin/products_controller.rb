@@ -5,7 +5,7 @@ class Admin::ProductsController < AdminController
   
   def index
     unless session[:show_only_products].nil?
-      where = session[:show_only_products]=="withdrawn" ? "status_id = 4" : "status_id != 4"
+      where = session[:show_only_products]=="withdrawn" ? "AND status_id = 4" : "AND status_id != 4"
     else
       where = ""
     end
@@ -14,8 +14,8 @@ class Admin::ProductsController < AdminController
       @total = Product.where("subcategory_id = ? #{where}", params[:subcategory_id]).count
     else
       if params[:brand_id].nil?
-        @products = Product.includes(:brand).where(where).order("brands.name").page(params[:page]).per(100)
-        @total = Product.where(where).count
+        @products = Product.includes(:brand).where("1=1 #{where}").order("brands.name").page(params[:page]).per(100)
+        @total = Product.where("1=1 #{where}").count
       else
         @products = Product.where("brand_id = ? #{where}", params[:brand_id]).order(:name).page(params[:page]).per(100)
         @total = Product.where("brand_id = ? #{where}", params[:brand_id]).count
