@@ -43,6 +43,12 @@ class Admin::SubcategoriesController < AdminController
     redirect_to admin_category_url(params[:category_id]) unless request.xhr?
   end
   
+  def destroy
+    @subcategory.destroy
+    flash[:success] = t('crud.successful_destroy')
+    redirect_to admin_category_url(@subcategory.category)
+  end
+  
   def sort
     params[:subcategory].each_with_index do |id, index| 
       Subcategory.update_all({:priority => index+1}, {:id => id})

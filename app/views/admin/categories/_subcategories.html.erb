@@ -33,7 +33,7 @@
                <td>
                  <%= link_to visibility_button(category.visibility), visibility_admin_category_subcategory_path(@category, category), :class=>"visibility-button", :method => :post, :id=>"visibility_#{category.id}", :remote=>true %>
                  <%=link_to 'Edit' , edit_admin_category_subcategory_path(@category, category), :class=>"action-button" %>
-                 <%=link_to 'Delete' , admin_category_subcategory_path(@category,category), :method=>:delete, :confirm=>"Вы уверены, что хотите удалить эту страницу?", :class=>"action-button"%>
+                 <%=link_to 'Delete' , admin_category_subcategory_path(@category,category), :method=>:delete, :confirm=>"Вы уверены, что хотите удалить эту категорию со всеми вложенными товарами?", :class=>"action-button"%>
                </td>
              </tr>
              <%end%>

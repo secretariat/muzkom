@@ -49,6 +49,9 @@
           <label for="">Текст сообщения: <span class="astra">*</span></label>
           <%= f.text_area :text, :class => "text", :size=>"0x5"%>
         </div>
+        <div class="field">
+          <%= recaptcha_tags :display=>{:theme=>"white"}%>
+        </div>
         <%= f.submit "Отправить", :class => "submit-button"%>
         <%end%>
       </div>

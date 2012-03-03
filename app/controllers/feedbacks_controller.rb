@@ -9,10 +9,10 @@ class FeedbacksController < ShopController
   
   def create
     @feedback = Feedback.new(params[:feedback])
-    unless @feedback.save
-      render :new
-    else
+    if verify_recaptcha(:model=> @feedback) && @feedback.save
       @text = Text.find 7
+    else
+      render :new
     end
   end
   
