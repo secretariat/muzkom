@@ -8,7 +8,7 @@ class ProductsController < ShopController
   end
   
   def show
-    @product = Product.find params[:id]
+    @product = Product.visible.find(params[:id])
     @similar = Product.similar(@product)
     @current_category = @product.subcategory
     @comment = ProductComment.new

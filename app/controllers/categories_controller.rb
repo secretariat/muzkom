@@ -4,7 +4,7 @@ class CategoriesController < ShopController
 
   def show
     @order_by = order_by
-    @subcategory = Subcategory.find params[:id]
+    @subcategory = Subcategory.visible.find params[:id]
     if order_by == "price"
       @products = Product.by_subcategory(@subcategory).order_by_price.page(params[:page])
     else

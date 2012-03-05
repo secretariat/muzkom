@@ -7,6 +7,7 @@ class Brand < ActiveRecord::Base
   has_many :subcategories, :through => :products
   
   scope :alphabetical, where(:visibility => true).order(:name)
+  scope :visible,  where(:visibility => true)
   
   def currency_rate(input, output)
     curr = currencies.where(:input=>input, :output=>output)

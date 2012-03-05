@@ -3,7 +3,7 @@ class BrandsController < ShopController
   before_filter :latest_products
   
   def show
-    @brand = Brand.find params[:id]
+    @brand = Brand.visible.find params[:id]
     @order_by = order_by
     unless params[:category_id].nil?
       @subcategory = @brand.subcategories.find(params[:category_id])
