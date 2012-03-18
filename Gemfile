@@ -7,6 +7,7 @@ gem 'rails', '3.1.3'
 
 gem 'mysql2'
 gem 'hirb'
+gem 'execjs'
 #gem 'therubyracer'
 gem 'kaminari'
 gem 'authlogic'
