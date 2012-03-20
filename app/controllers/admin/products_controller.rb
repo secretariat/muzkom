@@ -1,6 +1,6 @@
 class Admin::ProductsController < AdminController
   respond_to :html, :js
-  before_filter :load_lists, :only => [:edit, :new]
+  before_filter :load_lists, :only => [:edit, :new, :update]
   before_filter :find_product, :only => [:edit, :update, :destroy, :visibility, :show_index]
   
   def index
@@ -54,7 +54,6 @@ class Admin::ProductsController < AdminController
         flash[:notice] = t('crud.successful_update')
         redirect_to list_url
       else
-        @categories = Category.all
         flash.now[:error] = t('crud.error')
         render :edit
       end
