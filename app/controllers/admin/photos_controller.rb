@@ -1,5 +1,5 @@
 class Admin::PhotosController < AdminController
-    
+  respond_to :html, :js
   before_filter :remember_id, :only => [:destroy]
   after_filter :remove_id_directory, :only => [:destroy]
   

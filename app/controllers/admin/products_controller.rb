@@ -54,6 +54,7 @@ class Admin::ProductsController < AdminController
         flash[:notice] = t('crud.successful_update')
         redirect_to list_url
       else
+        @categories = Category.all
         flash.now[:error] = t('crud.error')
         render :edit
       end
