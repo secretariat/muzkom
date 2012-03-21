@@ -71,7 +71,7 @@ tinyMCE.init({
   plugins : "autosave, paste, fullscreen",
   theme_advanced_toolbar_location : "top",
   theme_advanced_toolbar_align : "left",
-  theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,forecolor,backcolor",
+  theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,undo,redo,|,justifyleft,justifycenter,justifyright,justifyfull,|,forecolor,backcolor",
   theme_advanced_buttons2 : "bullist,numlist,|,link,unlink,|,outdent,indent,blockquote,|,image,cleanup,|,code,fullscreen",
   theme_advanced_buttons3 : "",
 });
