@@ -35,6 +35,7 @@ Muzkom::Application.configure do
 
   # Use a different logger for distributed setups
   # config.logger = SyslogLogger.new
+  config.logger = Logger.new(config.log_path, "weekly")
 
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
@@ -57,8 +58,8 @@ Muzkom::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.action_mailer.smtp_settings = {:enable_starttls_auto => false}
-  # config.active_support.deprecation = :notify
-  #   config.middleware.use ExceptionNotifier, 
-  #     :sender_address => 'noreply@muzkom.com',
-  #     :exception_recipients => 'alchapone@yandex.ru'
+  config.active_support.deprecation = :notify
+  config.middleware.use ExceptionNotifier, 
+    :sender_address => 'noreply@muzkom.com',
+    :exception_recipients => 'alchapone@yandex.ru'
 end
