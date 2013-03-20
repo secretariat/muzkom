@@ -1,0 +1,21 @@
+<div class="product list">
+  <div class="clearfix mbm">
+    <div class="image">
+      <%= link_to image_tag(product.image_url(:thumb)), product_path(product)%>
+    </div>
+    <div class="last-col pll">
+      <p><strong><%=link_to product.name, product_path(product)%></strong></p>
+      <p><%= product.short_description.html_safe%></p>
+      <p><span class="success"><%= product.status.name%></span></p>
+      <%= link_to "подробнее >>", product_path(product) %>
+    </div>
+  </div>
+  <div class="clearfix">
+    <div class="col1of2">
+      <%= render "shared/product_price", :product => product%>
+    </div>
+    <div class="col1of2">
+      <%= link_to "Купить", add_cart_path(:id=>product.id), :class=>"buy-button right", :method=>:put %>
+    </div>
+  </div>
+</div>
