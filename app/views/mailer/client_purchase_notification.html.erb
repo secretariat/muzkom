@@ -7,6 +7,7 @@
   <strong>Адрес:</strong> <%= @checkout.country%>, <%=@checkout.city%> <%= @checkout.address%><br />
 </p>
 <p>Ваш заказ:</p>
+<p><strong>Номер заказа: </strong><%= @checkout.id%></p>
 <table style="border-collpase: collapse; border: 1px solid #eee;">
   <% @checkout.purchases.each do |purchase|%>
   <tr>

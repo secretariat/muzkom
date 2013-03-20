@@ -2,7 +2,7 @@
   <div class="col3of4">
     <div class="container mbl mrs">
       <div class="box-header mbm">
-        <h1 class="left">Заказ № <%=four_digit_id@checkout.id%></h1>
+          <h1 class="left">Заказ № <%=@checkout.id%></h1>
         <p class="mtm right"><%= human_date_time @checkout.created_at%></p>
       </div>
       <div class="mam">
@@ -27,6 +27,11 @@
             <td><strong><%= real_product_price purchase.price%> грн</strong></td>
           </tr>
         <%end%>
+          <tr>
+            <td colspan="2"><strong>Итого:</strong></td>
+            <td><%= @checkout.purchases.sum{|p|p.quantity}%></td>
+            <td><strong><%= real_product_price @checkout.purchases.sum{|p|p.price}%> грн</strong></td>
+          </tr>
         </table>
       </div>
     </div>

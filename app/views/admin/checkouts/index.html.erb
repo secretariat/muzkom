@@ -23,7 +23,7 @@
         <tr>
           <td><input type="checkbox" /></td>
           <td>
-          <%= link_to image_tag("icons/ticket.png")+" "+four_digit_id(checkout.id), admin_checkout_path(checkout)%>
+            <%= link_to "#{image_tag("icons/ticket.png")} #{checkout.id}".html_safe, admin_checkout_path(checkout)%>
           </td>
           <td><%= human_date_time checkout.created_at%></td>
           <td><%= checkout.fullname%></td>

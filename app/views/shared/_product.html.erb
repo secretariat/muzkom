@@ -4,7 +4,8 @@
       <%= link_to image_tag(product.image_url(:thumb)), product_path(product)%>
     </div>
     <div class="last-col pll">
-      <p><strong><%=link_to product.name, product_path(product)%></strong></p>
+      <div class="mbs"><strong><%=link_to product.name, product_path(product)%></strong></div>
+      <div><span class="muted">Код товара: <%= product.id%></span></div>
       <p><%= product.short_description.html_safe%></p>
       <p><span class="success"><%= product.status.name%></span></p>
       <%= link_to "подробнее >>", product_path(product) %>

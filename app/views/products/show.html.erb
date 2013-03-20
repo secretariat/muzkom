@@ -38,12 +38,15 @@
                 </span>
               </div>
               <div class="mbs">
-                <strong>Наличие: </strong> 
+                <strong>Код товара: </strong>
+                <span><%= @product.id%></span>
+              </div>
+              <div class="mbm">
+                <strong>Наличие: </strong>
                 <span class="success"><%= @product.status.name%></span>
               </div>
-              <div class="mbs">
-                <strong>Производитель: </strong> 
-                <%= link_to @product.brand.name, brand_path(@product.brand)%>
+              <div class="mbm">
+                <%= image_tag @product.brand.logo_url(:thumb)%>
               </div>
               <div class="mbl">
                 <strong>Валюта:</strong>
@@ -78,6 +81,7 @@
                   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                 </div>
               </div>
+              <%unless @product.withdrawn?%>
               <div class="clearfix mbl">
                 <div class="col1of2">
                   <%= link_to "/payment_delivery" do%>
@@ -92,26 +96,30 @@
                   <%end%>
                 </div>
               </div>
+              <%end%>
             </div>
           </div>
           <div class="col2of5">
             <div class="right">
               <div class="product-image-preview">
                 <div class="inner">
-                  <%= link_to image_tag(@product.image_url), @product.image_url, :for=>'photo0', :title=>"#{link_to("Смотреть оригинальное изображение", @product.image_url, :target=>"_blank")}"%>
+                  <%= link_to image_tag(@product.image_url), @product.image_url, :for=>'photo0', :title=>"#{link_to("Увеличить изображение", @product.image_url, :target=>"_blank")}"%>
                 </div>
               </div>
               <% if @product.photos.any?%>
               <div class="product-image-gallery" id="photos_container">
-                <%=link_to image_tag(@product.image_url(:thumb)), @product.image_url, :class=>"photo", :id=>'photo0', :rel=>"lightbox", :title=>"#{link_to("Смотреть оригинальное изображение", @product.image_url, :target=>"_blank")}"%>
+                <%=link_to image_tag(@product.image_url(:thumb)), @product.image_url, :class=>"photo", :id=>'photo0', :rel=>"lightbox", :title=>"#{link_to("Увеличить изображение", @product.image_url, :target=>"_blank")}"%>
                 <% @product.photos.each do |photo|%>
-                  <%=link_to image_tag(photo.image_url(:thumb)), photo.image_url, :class=>"photo", :id=>"photo#{photo.id}", :rel=>"lightbox", :title=>"#{link_to("Смотреть оригинальное изображение", photo.image_url, :target=>"_blank")}" %>
+                  <%=link_to image_tag(photo.image_url(:thumb)), photo.image_url, :class=>"photo", :id=>"photo#{photo.id}", :rel=>"lightbox", :title=>"#{link_to("Увеличить изображение", photo.image_url, :target=>"_blank")}" %>
                 <%end%>
               </div>
               <%end%>
             </div>
           </div>
         </div>
+        <%if @product.withdrawn?%>
+          <div class="notification mbl">Данная модель <%= @product.name%> продана и уже не производится. Актуальные модели можно найти в разделе <%= link_to @product.subcategory.name, category_path(@product.subcategory)%>.</div>
+        <%end%>
         <div class="clearfix">
           <ul class="tab-switcher clearfix">
             <% cookies[:tab] = 'tab1' if cookies[:tab].nil? %>

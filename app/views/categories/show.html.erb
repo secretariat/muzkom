@@ -14,7 +14,12 @@
           <div class="breadcrumb">
             <%= link_to "Каталог товаров", root_path %> /
             <%= link_to @subcategory.category.name, "#"%> /
-            <span><%= @subcategory.name%></span>
+            <%unless @brand.blank?%>
+              <span><%= link_to @subcategory.name, category_path(@subcategory)%></span> /
+              <span><%= @brand.name%></span>
+            <%else%>
+              <span><%= @subcategory.name%></span>
+            <%end%>
           </div>
           <div class="clearfix mbl">
           <% if !@brand%>

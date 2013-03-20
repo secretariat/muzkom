@@ -59,12 +59,12 @@
           <div class="cart">
              <%= link_to image_tag("cart.png"), cart_path %>
             <div class="left mtx">
-              <strong>товаров:</strong> 
+              <strong>товаров:</strong>
               <strong class="value"><%=@cart.items.sum{|i| i.quantity}%></strong><br />
               <strong>на сумму:</strong> <strong class="value"><%= human_price @cart.total(session[:currency])%> </strong>
             </div>
           </div>
-        </div>  
+        </div>
       </div>
     </div>
     <div class="navigation">

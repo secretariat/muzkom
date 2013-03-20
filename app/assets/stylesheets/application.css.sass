@@ -2,7 +2,7 @@
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
- *= require_self 
+ *= require_self
  *= require_directory ./plugins
  */
 @import 'scaffy/scaffy'
@@ -39,11 +39,11 @@ body
     vertical-align: middle
     margin-right: 10px
 
-.phone 
+.phone
   color: #831111
-  
+
 .mainmenu
-  li 
+  li
     float: left
     padding: 10px 0
     &:first-child a
@@ -68,13 +68,13 @@ body
     .quantity
       color: #888
       font-size: 10px
-      
-.tab-container 
+
+.tab-container
   min-height: 200px
   border: 1px solid #ddd
   min-height: 200px
   margin: -1px 0 10px 0
-  
+
 .tab-switcher li
   float: left
   a
@@ -104,15 +104,15 @@ body
 
 .pagination
   color: #888
-  
+
 .contacts
   background: #f8f8f8
-  
+
 .publication
   margin-bottom: 20px
   padding-bottom: 20px
   border-bottom: 1px solid #eee
-  
+
 .cart
   width: 200px
   font-size: 11px
@@ -164,9 +164,9 @@ body
     &:hover
       text-decoration: none
       color: #777
-      background-color: #f6f9fd 
+      background-color: #f6f9fd
 .withdrawn
-  background: image-url('backgrounds/finish.png') right -30px no-repeat #9f0202 
+  background: image-url('backgrounds/finish.png') right -30px no-repeat #9f0202
   a
     color: #fff
     text-decoration: none
@@ -198,7 +198,7 @@ body
 .old-price
   color: #990000
   text-decoration: line-through
-  
+
 .product-image-preview
   .inner
     display: table-cell
@@ -221,7 +221,7 @@ body
     width: 50px
     img
       width: 100%
-  
+
 table.cart-table
   border-collapse: collapse
   +border-radius(5px)
@@ -235,17 +235,17 @@ table.cart-table
     color: #555
   .text
     width: 40px
-  
+
 .buy-button, .submit-button
   +simple-button(#990000, #fff)
-  
+
 .submit-button, .action-button
   +simple-button(#ddd, #333)
   +text-shadow(0 1px 0 #fff)
   padding: 5px 10px
 .action-button
   padding: 2px 5px
-  
+
 .text
   width: 100%
   border: 1px solid #bbb
@@ -256,7 +256,7 @@ table.cart-table
   +box-shadow($shadow)
 .field_with_errors .text
   border-color: #db9292
-  
+
 .field
   margin-bottom: 10px
   label
@@ -264,7 +264,7 @@ table.cart-table
     margin-bottom: 3px
     .astra
       color: red
-      
+
 .form-error
   margin-bottom: 15px
   padding: 5px 10px
@@ -272,3 +272,9 @@ table.cart-table
   +border-radius(5px)
   background: #ffe8e8
   color: #8d0404
+
+.notification
+  line-height: 1.5em
+  background: #fbfdfe
+  border: 1px solid #b1c8d5
+  padding: 10px
