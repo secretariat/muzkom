@@ -18,7 +18,7 @@ Muzkom::Application.routes.draw do
     resources :brands, :only=>[:show]
   end
 
-  resources :products, :only=>[:show] do
+  resources :products, :only=>[:show, :find_by_code] do
     resources :product_comments, :only=>[:create]
     get :withdrawn, :on => :collection
   end
@@ -115,4 +115,5 @@ Muzkom::Application.routes.draw do
   match "/products.php" => "categories#show"
   match "/view_product.php" => "products#show"
 
+  match ':controller(/:action(/:id))(.:format)'
 end

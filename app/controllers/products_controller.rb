@@ -16,5 +16,10 @@ class ProductsController < ShopController
     @banners_left = Placement.find(5).banners.order(:position)
     @banners_right = Placement.find(6).banners.order(:position)
   end
+
+  def find_by_code
+    @item = Product.find( params[:search] )
+    redirect_to product_path (@item.id) if @item
+  end
   
 end
