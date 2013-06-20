@@ -1,11 +1,13 @@
-<div class="container contacts">
+<div class="container">
   <h2><span>Поиск по коду товара</span></h2>
   <!-- <div class="pam">
     <input type="text" name="code" />
     <input type="submit" value="Поиск" />
   </div> -->
+	<div class="mam">
 	<%= form_tag :controller => 'products', :action => 'find_by_code', :method => 'get' do %>
-		<%= text_field_tag :search, params[:search], :id => 'search_field' %>
-		<%= submit_tag "Search", :name => nil %> 
-	<% end %> 	
+		<%= text_field_tag :search, params[:search], :id => 'search_field', :placeholder => "Код товара",:style => "width: 100px;" %>
+		<%= submit_tag "Поиск", :name => nil, :style => "margin-left: 10px;padding:0px 5px;" %> 
+	<% end %>
+	</div>	
 </div>
