@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module UseScpForDeployment
   def self.included(base)
     base.send(:alias_method, :old_upload, :upload)

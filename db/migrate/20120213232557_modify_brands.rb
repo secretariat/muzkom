@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ModifyBrands < ActiveRecord::Migration
   def up
     add_column :brands, :title, :string, :default => "", :null => false

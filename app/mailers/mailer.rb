@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 class Mailer < ActionMailer::Base
   default :from => "noreply@muzkom.com"
   default_url_options[:host] = "muzkom.artsite.com.ua"

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ProductsPromotions < ActiveRecord::Migration
   def up
     create_table :products_promotions, :id=>false do |t|

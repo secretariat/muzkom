@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Admin::PhotosController < AdminController
   respond_to :html, :js
   before_filter :remember_id, :only => [:destroy]

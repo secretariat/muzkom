@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Admin::BrandsController < AdminController
     before_filter :find_brand, :only => [:update, :edit, :destroy, :visibility]
 

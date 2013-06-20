@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateCurrencies < ActiveRecord::Migration
   def change
     create_table :currencies do |t|

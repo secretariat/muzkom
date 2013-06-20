@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'capistrano_colors'
 require 'capistrano/ext/multistage'
 
@@ -7,14 +8,15 @@ set :application, "muzkom"
 
 set :scm, :git
 set :scm_verbose, true
-set :repository,  "git@gitorious.org:muzkom/muzkom.git"
+# set :repository,  "git@gitorious.org:muzkom/muzkom.git"
+set :repository,  "git@github.com:secretariat/muzkom.git"
 set :branch, 'master'
 set :deploy_via, :copy
 
 set :use_sudo, false
 set :keep_releases, 5
 
-set :stages, ["staging", "production"] 
+set :stages, ["staging", "production"]
 set :default_stage, "staging"
 
 after "deploy:update_code", "deploy:symlink_shared"

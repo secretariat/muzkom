@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateCheckouts < ActiveRecord::Migration
   def change
     create_table :checkouts do |t|

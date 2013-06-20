@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 class PublicationImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:

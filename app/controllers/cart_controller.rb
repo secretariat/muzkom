@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 class CartController < ShopController
   
   before_filter :get_product, :only => [:add, :delete]

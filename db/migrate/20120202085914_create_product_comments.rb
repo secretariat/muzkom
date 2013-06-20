@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateProductComments < ActiveRecord::Migration
   def change
     create_table :product_comments do |t|

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Admin::TextsController < AdminController
     before_filter :find_text, :only => [:update, :edit, :destroy, :visibility]
 

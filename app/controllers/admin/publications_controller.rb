@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Admin::PublicationsController < AdminController
   
     before_filter :find_publication, :only => [:update, :edit, :destroy, :visibility]

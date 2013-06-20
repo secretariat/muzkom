@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Admin::CategoriesController < AdminController
   before_filter :categories_list, :only => [:index, :show]
   before_filter :find_category, :only => [:edit, :update, :show, :destroy, :visibility ]

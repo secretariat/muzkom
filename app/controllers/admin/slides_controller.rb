@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Admin::SlidesController < AdminController
   before_filter :find_slide, :only => [:update, :edit, :destroy, :visibility]
   

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 class Checkout < ActiveRecord::Base
   
   STATUSES = {"Ожидает"=>"pending", "Выполняется"=>"started", "Выполнен"=>"finished"}

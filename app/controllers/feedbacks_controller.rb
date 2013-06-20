@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class FeedbacksController < ShopController
   
   before_filter :latest_products

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class PagesController < ShopController
   
   before_filter :latest_products

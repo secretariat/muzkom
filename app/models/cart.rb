@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Cart
   attr_accessor :items
   

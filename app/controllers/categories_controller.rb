@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CategoriesController < ShopController
 
   before_filter :latest_products

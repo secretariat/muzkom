@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class FixSessionStore < ActiveRecord::Migration
   def self.up
     change_column :sessions, :data, :text, :limit => 4.megabytes

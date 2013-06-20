@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddStatusAndCommentToCheckout < ActiveRecord::Migration
   def change
     add_column :checkouts, :status, :string, :default => "pending", :null => false

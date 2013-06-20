@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Admin::BannersController < AdminController
   before_filter :find_banner, :only => [:update, :edit, :destroy, :visibility]
   

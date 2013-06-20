@@ -1,12 +1,13 @@
+# -*- encoding : utf-8 -*-
 class ProductsController < ShopController
-  
+
   before_filter :latest_products
-  
+
   def withdrawn
     @products = Product.withdrawn.where("brand_id = ?", params[:brand]).page(params[:page])
     @brand = Brand.find params[:brand]
   end
-  
+
   def show
     @product = Product.visible.find(params[:id])
     @similar = Product.similar(@product)
@@ -18,8 +19,13 @@ class ProductsController < ShopController
   end
 
   def find_by_code
-    @item = Product.find( params[:search] )
-    redirect_to product_path (@item.id) if @item
+    @item = Product.where( :id => params[:search] ).first
+    if !@item.blank?
+      redirect_to product_path (@item.id)
+    else
+      flash[:notice] = "Товар с кодом #{params[:search]} не найден."
+      redirect_to request.referer
+    end
   end
-  
+
 end

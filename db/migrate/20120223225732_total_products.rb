@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class TotalProducts < ActiveRecord::Migration
   def up
     add_column :products, :total, :decimal, :precision=>10, :scale=>2, :default=>0

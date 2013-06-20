@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Admin::ProductsController < AdminController
   respond_to :html, :js
   before_filter :load_lists, :only => [:edit, :new, :update]

@@ -87,6 +87,11 @@
       </div>
     </div>
     <div class="body">
+      <% if flash[:notice] %>
+        <center>
+          <p class="notice"><b> <%= flash[:notice] %> </b></p>
+        </center>
+      <% end %>
       <%= yield %>
     </div>
     <div class="footer">

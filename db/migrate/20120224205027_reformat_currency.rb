@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ReformatCurrency < ActiveRecord::Migration
   def up
     rename_table :currencies, :currencies_old

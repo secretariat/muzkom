@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Admin::SubcategoriesController < AdminController
   
   before_filter :find_subcategory, :only => [:edit, :update, :show, :destroy, :visibility ]

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ModifyBanner < ActiveRecord::Migration
   def up
     remove_column :banners, :code

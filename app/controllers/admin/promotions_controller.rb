@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Admin::PromotionsController < AdminController
   before_filter :find_promotion, :only => [:update, :edit, :destroy, :visibility]
   

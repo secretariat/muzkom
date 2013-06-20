@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ModifyCategories < ActiveRecord::Migration
   def up
     add_column :categories, :title, :string, :default => "", :null => false

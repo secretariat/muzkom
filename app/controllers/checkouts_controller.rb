@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CheckoutsController < ShopController
   
   def new
