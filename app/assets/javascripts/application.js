@@ -5,8 +5,10 @@
 // the compiled file.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 //= require_directory ./plugins
+//= require_tree .
 
 $(document).ready(function(){
   Pubsub.init();
@@ -127,3 +129,4 @@ function setCookie(name,value, days) {
 	document.cookie = name+"="+value+expires+"; path=/";
 	return true;
 }
+

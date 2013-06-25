@@ -62,5 +62,5 @@ Muzkom::Application.configure do
   config.active_support.deprecation = :notify
   config.middleware.use ExceptionNotifier, 
     :sender_address => 'noreply@muzkom.com',
-    :exception_recipients => 'alchapone@yandex.ru'
+    :exception_recipients => 'info@citrusdev.com.ua'
 end

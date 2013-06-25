@@ -29,8 +29,11 @@ class ProductsController < ShopController
   end
 
   def full_search
-    if params[:search]
-      @products
+    @products = Product.order(:name).where("name like ?", "%#{params[:term]}%")
+    render json: @products.map(&:name)
+    # respond_to do |format|
+    #   format.json render :partial => "shared/full_search.json"
+    # end
   end
 
 end
