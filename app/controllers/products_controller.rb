@@ -2,6 +2,7 @@
 class ProductsController < ShopController
 
   before_filter :latest_products
+  autocomplete :product, :name, :full => true, :display_value => :display_autocomplete, :extra_data => [:price]
 
   def withdrawn
     @products = Product.withdrawn.where("brand_id = ?", params[:brand]).page(params[:page])
@@ -26,14 +27,6 @@ class ProductsController < ShopController
       flash[:notice] = "Товар с кодом #{params[:search]} не найден."
       redirect_to request.referer
     end
-  end
-
-  def full_search
-    @products = Product.order(:name).where("name like ?", "%#{params[:term]}%")
-    render json: @products.map(&:name)
-    # respond_to do |format|
-    #   format.json render :partial => "shared/full_search.json"
-    # end
   end
 
 end

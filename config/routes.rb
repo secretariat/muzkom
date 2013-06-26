@@ -12,8 +12,9 @@ Muzkom::Application.routes.draw do
   get "/feed" => "pages#feed"
   put "/currency_change" => 'shop#change', :as=>:change_currency
 
-
-  get "/products/full_search"
+  resources :products do
+    get :autocomplete_product_name, :on => :collection
+  end
 
   resources :sessions, :only => [:new, :create, :destroy]
   resources :feedbacks, :only => [:new, :create]

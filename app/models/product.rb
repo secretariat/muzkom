@@ -56,4 +56,8 @@ class Product < ActiveRecord::Base
     sale_price == 0.0 ? false : true
   end
 
+  def display_autocomplete
+    "#{self.name}" + ' ' + "#{self.price} грн."
+  end
+
 end

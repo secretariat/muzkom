@@ -8,7 +8,7 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require_directory ./plugins
-//= require_tree .
+//= require autocomplete-rails
 
 $(document).ready(function(){
   Pubsub.init();
