@@ -57,7 +57,7 @@ class Product < ActiveRecord::Base
   end
 
   def display_autocomplete
-    "#{self.name}" + ' ' + "#{self.price} грн."
+    "<img src='http://www.muztorg.ua/content/shop/item_7369_sm1.jpg'/>" + "#{self.name}" + ' ' + "#{self.price} грн."
   end
 
 end

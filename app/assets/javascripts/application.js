@@ -116,7 +116,7 @@ $(document).ready(function(){
       $(this).closest("form").submit();
     }
   });
- 
+
 });
 
 function setCookie(name,value, days) {
@@ -129,4 +129,3 @@ function setCookie(name,value, days) {
 	document.cookie = name+"="+value+expires+"; path=/";
 	return true;
 }
-

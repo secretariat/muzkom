@@ -2,7 +2,7 @@
 class ProductsController < ShopController
 
   before_filter :latest_products
-  autocomplete :product, :name, :full => true, :display_value => :display_autocomplete, :extra_data => [:price]
+  autocomplete :product, :name, :full => true, :display_value => :display_autocomplete, :extra_data => [:price, :image]
 
   def withdrawn
     @products = Product.withdrawn.where("brand_id = ?", params[:brand]).page(params[:page])
