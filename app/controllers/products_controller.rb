@@ -38,7 +38,15 @@ class ProductsController < ShopController
   end
 
   def fullsearch
-    @products = Product.search(params[:search])
+
+    @products = Product.search(params[:fullsearch])
+    if @products.blank?
+      flash[:notice] = "По Вашему запросу ничего не найдено."
+      redirect_to request.referer
+    else
+      flash[:notice] = "Результатов: #{@products.size}"
+    end
+
     @page = Page.find :first
     @slides = Slide.all
     @banners_left = Placement.find(1).banners.order(:position)

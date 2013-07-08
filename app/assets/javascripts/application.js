@@ -12,13 +12,13 @@
 
 $(document).ready(function(){
   Pubsub.init();
-  
+
   $('.slider').nivoSlider({
     animSpeed: 500,
     pauseTime: 5000,
     directionNavHide: true
   });
-  
+
   $(".catalog .category").click(function(e){
     e.preventDefault();
     if($(this).hasClass('current')){
@@ -30,7 +30,7 @@ $(document).ready(function(){
       $(this).parent().find(".subcategories").slideDown();
     }
  });
- 
+
  $(".product-image-gallery .photo").click(function(e){
     e.preventDefault();
     var link = $(this).attr("href");
@@ -48,7 +48,7 @@ $(document).ready(function(){
       $(".product-image-preview a").click();
     }
  });
- 
+
  $("select[change=selectBrand]").change(function(){
    id = $(this).val();
    window.location.href = "/brands/"+id
@@ -56,9 +56,9 @@ $(document).ready(function(){
  $("select[change=submitForm]").change(function(){
     $(this).closest("form").submit();
  });
- 
+
   $("a[rel=facebox]").facebox();
- 
+
  $(".tab-switcher a").click(function(e){
    e.preventDefault();
    var value = $(this).attr("for");
@@ -71,11 +71,11 @@ $(document).ready(function(){
    $('.tab-container .tab').hide();
    $(selector).fadeIn(200);
  });
- 
+
  $('.edit-quantity').blur(function(){
     $(this).closest('form').submit();
   });
-  
+
   $('.add-product-comment').click(function(e){
     e.preventDefault();
     var errors = false;
@@ -95,8 +95,8 @@ $(document).ready(function(){
       $(this).closest("form").submit();
     }
   });
-  
-  
+
+
   $('.add-publication-comment').click(function(e){
     e.preventDefault();
     var errors = false;
@@ -120,10 +120,13 @@ $(document).ready(function(){
   return $('#products_search').autocomplete({
     dataType: "json",
     source: "/products/search",
-    minLength: 2
+    minLength: 2,
+    select: function( event, ui ) {
+        window.location.href = "/products/" + ui.item.id;
+    }
   }).data("autocomplete")._renderItem = function(ul, item) {
     var inner_html;
-    inner_html ="<a href=\"/products/"+ item.id +"\"> \
+    inner_html ="<a class=\"link\" href=\"/products/"+ item.id +"\"> \
                     <div class=\"list_item_container\"> \
                     <div class=\"image_search\"> \
                       <img width=\"70\" height=\"70\" src=\"" + item.image.url + "\" ></div> \

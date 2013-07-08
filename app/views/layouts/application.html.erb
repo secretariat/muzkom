@@ -43,7 +43,10 @@
           <div class="cls"></div>
           <p class="left">Оборудование для: DJ‘s | саунд-продюсеров | музыкантов | ночных клубов</p>
           <div class="cls"></div>
-          <%= text_field_tag :search, params[:search], :id => "products_search", :class => "right" %>
+          <%= form_tag products_fullsearch_path, :method => 'get' do %>
+            <%= text_field_tag :fullsearch, params[:fullsearch], :id => "products_search", :class => "right" %>
+            <%= submit_tag "Search", :name => nil %>
+          <% end %>
         </div>
         <div class="right mvm">
           <div class="relative mbm">
