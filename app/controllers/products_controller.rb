@@ -29,4 +29,20 @@ class ProductsController < ShopController
     end
   end
 
+  def search
+    @prods = Product.where( "name LIKE ?", "%#{params[:term]}%" )
+    # @prods = Products.search( params[:search] )
+    respond_to do |format|
+      format.json { render :json => @prods }
+    end
+  end
+
+  def fullsearch
+    @products = Product.search(params[:search])
+    @page = Page.find :first
+    @slides = Slide.all
+    @banners_left = Placement.find(1).banners.order(:position)
+    @banners_right = Placement.find(2).banners.order(:position)
+  end
+
 end

@@ -56,9 +56,12 @@ class Product < ActiveRecord::Base
     sale_price == 0.0 ? false : true
   end
 
-  def display_autocomplete
-    # "<img src='http://www.muztorg.ua/content/shop/item_7369_sm1.jpg'/>" + 
-    "#{self.name}," + ' ' + "Цена: #{self.price} грн."
+  def self.search(search="digitech ")
+    if search
+      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+    else
+      find(:all)
+    end
   end
 
 end

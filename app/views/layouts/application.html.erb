@@ -6,7 +6,6 @@
   <meta name="keywords" content="<%= @meta_keywords || "звуковое оборудование и музыкальные инструменты"%>" />
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "autocomplete-rails.js" %>
   <%= favicon_link_tag "favicon.png"%>
   <%= csrf_meta_tags %>
   <%= auto_discovery_link_tag :rss, "/feed.rss" %>
@@ -39,12 +38,16 @@
           <%= link_to image_tag("logo.png", :class=>"mvs"), root_path %><br />
         </div>
         <div class="col2of4 ptm">
-          <h4 class="mbs">Интернет магазин</h4>
-          <p>Оборудование для: DJ‘s | саунд-продюсеров | музыкантов | ночных клубов</p>
+          <h4 class="mbs left">Интернет магазин</h4>
           <p class="right">(063) <span class="phone"> 625 48 05</span>, (044) <span class="phone">592 86 14</span></p>
-          <%= form_tag 'some/path' do %>
-            <%= autocomplete_field_tag 'autocompleted', '', autocomplete_product_name_products_path, :size => 29, :placeholder => "Введите текст для поиска" %>
+          <div class="cls"></div>
+          <p class="left">Оборудование для: DJ‘s | саунд-продюсеров | музыкантов | ночных клубов</p>
+          <div class="cls"></div>
+          <%= form_tag products_fullsearch_path, :method => 'get' do %>
+            <%= text_field_tag :search, params[:search], :id => "products_search", :class => "right" %>
+            <%= submit_tag "Search", :name => nil %>
           <% end %>
+         
         </div>
         <div class="right mvm">
           <div class="relative mbm">

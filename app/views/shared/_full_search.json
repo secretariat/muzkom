@@ -1,3 +1,0 @@
-{
-    "first_name": "<%= @product.name.to_json %>",
-}

@@ -5,7 +5,8 @@ role :app, "a2s66.a2hosting.com"                          # This may be the same
 role :db,  "a2s66.a2hosting.com", :primary => true # This is where Rails migrations will run
 role :db,  "a2s66.a2hosting.com"
 
-set :user, "chaplins"
+# set :user, "chaplins"
+set :user, "muzkomco"
 set :copy_remote_dir, '/home/chaplins/tmp'
 set :deploy_to, "/home/chaplins/public_html/#{application}"
 

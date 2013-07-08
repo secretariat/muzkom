@@ -117,7 +117,25 @@ $(document).ready(function(){
     }
   });
 
+  return $('#products_search').autocomplete({
+    dataType: "json",
+    source: "/products/search",
+    minLength: 2
+  }).data("autocomplete")._renderItem = function(ul, item) {
+    var inner_html;
+    inner_html ="<a href=\"/products/"+ item.id +"\"> \
+                    <div class=\"list_item_container\"> \
+                    <div class=\"image_search\"> \
+                      <img width=\"70\" height=\"70\" src=\"" + item.image.url + "\" ></div> \
+                    <div class=\"label\">"+ item.name +"</div><br/>  \
+                    <div class=\"price_search\">" + item.price + "</div> \
+                    </div> \
+                    </a>";
+    return $("<li></li>").data("item.autocomplete", item).append(inner_html).appendTo(ul);
+  };
+
 });
+
 
 function setCookie(name,value, days) {
 	if (days) {
@@ -129,3 +147,27 @@ function setCookie(name,value, days) {
 	document.cookie = name+"="+value+expires+"; path=/";
 	return true;
 }
+
+
+// jQuery ->
+//   $('#products_search').autocomplete(
+//     dataType: "json",
+//     source: "/products/search",
+//     minLength: 2
+//   ).data("autocomplete")._renderItem = (ul, item) ->
+//     inner_html = "<a><div class=\"list_item_container\"><div class=\"image\"><img src=\"" + item.image + "\"></div><div class=\"label\">" + item.name + "</div><div class=\"description\">" +item.price+ "</div></div></a>"
+//     $("<li></li>").data("item.autocomplete", item).append(inner_html).appendTo ul
+
+
+// jQuery(function() {
+//   return $('#products_search').autocomplete({
+//     dataType: "json",
+//     source: "/products/search",
+//     minLength: 2
+//   }).data("autocomplete")._renderItem = function(ul, item) {
+//     var inner_html;
+//     inner_html ="<a><div class=\"list_item_container\"><div class=\"image\"><img src=\"" + image.name + "\"></div><div class=\"label\">" + item.name + "</div><div class=\"description\">" + item.price + "</div></div></a>";
+//     // inner_html = "<a><div class=\"list_item_container\"><div class=\"image\"><img src=\"" + item.image + "\"></div><div class=\"label\">" + item.name + "</div><div class=\"description\">" + item.price + "</div></div></a>";
+//     return $("<li></li>").data("item.autocomplete", item).append(inner_html).appendTo(ul);
+//   };
+// });
