@@ -1,5 +1,8 @@
 # -*- encoding : utf-8 -*-
 class ProductsController < ShopController
+  
+  include ActionView::Helpers::NumberHelper 
+  include ApplicationHelper
 
   before_filter :latest_products
   autocomplete :product, :name, :full => true, :display_value => :display_autocomplete, :extra_data => [:price, :image]
@@ -30,7 +33,10 @@ class ProductsController < ShopController
   end
 
   def search
-    @prods = Product.where( "name LIKE ?", "%#{params[:term]}%" )
+    @prods = Product.where( "name LIKE ?", "%#{params[:term]}%" ).to_a
+    puts @prods.class
+    sleep(5)
+    @prods.map!{ |p| p.price = product_price( p ) }
     # @prods = Products.search( params[:search] )
     respond_to do |format|
       format.json { render :json => @prods }
@@ -38,7 +44,7 @@ class ProductsController < ShopController
   end
 
   def fullsearch
-
+    @session = session[:currency]
     @products = Product.search(params[:fullsearch])
     if @products.blank?
       flash[:notice] = "По Вашему запросу ничего не найдено."

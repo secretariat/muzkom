@@ -1,7 +1,8 @@
 # -*- encoding : utf-8 -*-
 class ApplicationController < ActionController::Base
+ 	
   protect_from_forgery
-  
+
   def current_user_session
     return @current_user_session if defined?(@current_user_session)
     @current_user_session = Session.find
