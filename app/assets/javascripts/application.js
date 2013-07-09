@@ -131,7 +131,7 @@ $(document).ready(function(){
                     <div class=\"image_search\"> \
                       <img width=\"70\" height=\"70\" src=\"" + item.image.url + "\" ></div> \
                     <div class=\"label\">"+ item.name +"</div><br/>  \
-                    <div class=\"price_search\">" + item.price + currency + "</div> \
+                    <div class=\"price_search\">" + item.price + " " + currency + "</div> \
                     </div> \
                     </a>";
     return $("<li></li>").data("item.autocomplete", item).append(inner_html).appendTo(ul);
