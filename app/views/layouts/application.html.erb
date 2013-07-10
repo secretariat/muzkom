@@ -42,25 +42,24 @@
         <div class="col1of4">
           <%= link_to image_tag("logo.png", :class=>"mvs"), root_path %><br />
         </div>
-        <div class="col2of4 ptm">
+        <div class="col2of4 ptm left" >
           <h4 class="mbs left">Интернет магазин</h4>
           <p class="right">(063) <span class="phone"> 625 48 05</span>, (044) <span class="phone">592 86 14</span></p>
           <div class="cls"></div>
           <p class="left">Оборудование для: DJ‘s | саунд-продюсеров | музыкантов | ночных клубов</p>
           <div class="cls"></div>
-         
           <div class="left">
             <%= form_tag products_fullsearch_path, :method => 'get' do %>
+              <div style="width:487px;height:28px;display:block;">
               
-              <div style="height:28px;">
                 <%= text_field_tag :fullsearch, params[:fullsearch], :id => "products_search", :placeholder => "Поиск товара"%>
-                <%= submit_tag "", :name => nil, :class => "searchbtn"  %>
-              </div>
+                <%= submit_tag "", :name => nil, :class => "searchbtn right"  %>
+            
             <% end %>
           </div>
-          <div class="cls"></div>
         </div>
-        <div class="right mvm">
+      </div>
+      <div class="right mvm">
           <div class="relative mbm">
             <span class="muted">Все цены в </span>
             <div style="position: absolute;right: 0;">
@@ -83,7 +82,6 @@
             </div>
           </div>
         </div>
-      </div>
     </div>
     <div class="navigation">
       <ul class="mainmenu col4of5">
