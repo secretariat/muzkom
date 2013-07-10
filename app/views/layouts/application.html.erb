@@ -51,13 +51,16 @@
           <div class="cls"></div>
           <p class="left">Оборудование для: DJ‘s | саунд-продюсеров | музыкантов | ночных клубов</p>
           <div class="cls"></div>
-          <div class="cls"></div>
+         
           <div class="left">
-          <%= form_tag products_fullsearch_path, :method => 'get' do %>
-            <%= text_field_tag :fullsearch, params[:fullsearch], :id => "products_search", :placeholder => "Поиск товара"%>
-            <%= submit_tag "", :name => nil, :class => "searchbtn"  %>
-          <% end %>
-        </div>
+            <%= form_tag products_fullsearch_path, :method => 'get' do %>
+              
+              <div style="height:28px;">
+                <%= text_field_tag :fullsearch, params[:fullsearch], :id => "products_search", :placeholder => "Поиск товара"%>
+                <%= submit_tag "", :name => nil, :class => "searchbtn"  %>
+              </div>
+            <% end %>
+          </div>
           <div class="cls"></div>
         </div>
         <div class="right mvm">
