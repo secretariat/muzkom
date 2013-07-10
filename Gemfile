@@ -19,6 +19,7 @@ gem 'exception_notification'
 gem 'sitemap_generator'
 gem "recaptcha", :require => "recaptcha/rails"
 gem 'ransack'
+gem 'rails3-jquery-autocomplete'
 
 
 # Gems used only for assets and not required
