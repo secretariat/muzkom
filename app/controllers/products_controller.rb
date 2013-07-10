@@ -35,8 +35,7 @@ class ProductsController < ShopController
   def search
     @prods = Product.where( "name LIKE ?", "%#{params[:term]}%" ).to_a
     puts @prods.inspect
-    @prods.each{ |p| puts p.price = product_price( p ) }
-    sleep(5)
+    @prods.each{ |p| p.price = product_price( p ) }
     # @prods = Products.search( params[:search] )
     respond_to do |format|
       format.json { render :json => @prods }

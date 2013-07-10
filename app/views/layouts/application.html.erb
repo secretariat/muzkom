@@ -14,12 +14,9 @@
     VK.init({apiId: 2800557, onlyWidgets: true});
   </script>
 
-
-
   <%= javascript_tag do %>
     window.currency = "<%=j session[:currency] %>";
   <% end %>
-
 
   <script type="text/javascript">
     (function() {
@@ -52,7 +49,7 @@
           <p class="left">Оборудование для: DJ‘s | саунд-продюсеров | музыкантов | ночных клубов</p>
           <div class="cls"></div>
           <%= form_tag products_fullsearch_path, :method => 'get' do %>
-            <%= text_field_tag :fullsearch, params[:fullsearch], :id => "products_search", :class => "right" %>
+            <%= text_field_tag :fullsearch, params[:fullsearch], :id => "products_search", :class => "right", :placeholder => "поиск по сайту" %>
             <%= submit_tag "Search", :name => nil %>
           <% end %>
         </div>
