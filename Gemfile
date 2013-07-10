@@ -18,6 +18,7 @@ gem 'remotipart', '~> 0.4'
 gem 'exception_notification'
 gem 'sitemap_generator'
 gem "recaptcha", :require => "recaptcha/rails"
+gem 'ransack'
 gem 'rails3-jquery-autocomplete'
 
 
