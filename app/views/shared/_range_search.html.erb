@@ -1,5 +1,10 @@
-<%= form_tag do%>
-	от <%= text_field_tag :from, nil,  :class => "from_to" %> до 
-	<%= text_field_tag :to,nil, :class => "from_to" %>
-	<%= submit_tag "Go" %>
-<% end %>
+<div class="container">
+  <h2><span>Диапазон цен</span></h2>
+	<div class="mam">
+		<%= form_tag do%>
+			от <%= text_field_tag :from, nil,  :class => "from_to" %> до
+			<%= text_field_tag :to,nil, :class => "from_to" %>
+			<%= submit_tag ">>" %>
+		<% end %>
+	</div>
+</div>
