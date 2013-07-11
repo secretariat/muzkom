@@ -33,7 +33,7 @@ class ProductsController < ShopController
   end
 
   def search
-    @prods = Product.where( "name LIKE ?", "%#{params[:term]}%" ).to_a
+    @prods = Product.where( "name LIKE ? AND visibility = ?", "%#{params[:term]}%", true ).to_a
     @prods.each{ |p| p.price = product_price( p ) }
     # @prods = Products.search( params[:search] )
     respond_to do |format|
@@ -43,7 +43,7 @@ class ProductsController < ShopController
 
   def fullsearch
     @session = session[:currency]
-    @products = Product.search(params[:fullsearch])
+    @products = Product.search( params[:fullsearch] )
     if @products.blank?
       flash[:notice] = "По Вашему запросу ничего не найдено."
       redirect_to request.referer

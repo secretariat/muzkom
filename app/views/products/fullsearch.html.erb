@@ -12,32 +12,12 @@
     <div class="mhs">
       <div class="clearfix mbs">
         <%@products.each_with_index do |product, index|%>
-          <div class="col1of2">
-            <div class="product block<%= product_class index+1%>">
-              <div class="clearfix mbm">
-                <div class="image">
-                  <%= link_to image_tag(product.image_url(:thumb)), product_path(product)%>
-                </div>
-                <a href="<%= product_path(product)%>">
-                  <div class="description last-col">
-                    <p class="search_descr header "><%= product.name%></p>
-                    <div class="search_descr"><%= product.short_description.truncate(75).html_safe%></div>
-                    <%= link_to "подробнее >>", product_path(product) %>
-                  </div>
-                </a>
-              </div>
-              <div class="clearfix">
-                <div class="col1of2">
-                  <%= render "shared/product_price", :product => product%>
-                </div>
-                <div class="col1of2">
-                  <%= link_to "Купить", add_cart_path(:id=>product.id), :class=>"buy-button right", :method=>"put"%>
-                </div>
-              </div>
-            </div>
-          </div>
+          <% @products.each do |product|%>
+            <%= render "shared/product", :product => product%>
+          <%end%>
           <%if (index+1)%2 == 0 %>
-            </div><div class="clearfix mbs">
+      </div>
+      <div class="clearfix mbs">
           <%end%>
         <%end%>
       </div>

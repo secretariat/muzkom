@@ -1,9 +1,12 @@
 # -*- encoding : utf-8 -*-
 class CategoriesController < ShopController
 
+  CURRENCIES = {:usd=>"USD", :uah=>"грн", :eur=>"EUR"}
+
   before_filter :latest_products
 
   def show
+    # @currency = CURRENCIES[:"#{session[:currency]}"]
     @order_by = order_by
     @subcategory = Subcategory.visible.find params[:id]
     if order_by == "price"
