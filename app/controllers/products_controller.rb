@@ -11,7 +11,7 @@ class ProductsController < ShopController
     @products = Product.withdrawn.where("brand_id = ?", params[:brand]).page(params[:page])
     @brand = Brand.find params[:brand]
   end
-
+  
   def show
     @product = Product.visible.find(params[:id])
     @similar = Product.similar(@product)

@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 Muzkom::Application.routes.draw do
 
   root :to=>'pages#index'
@@ -14,10 +13,7 @@ Muzkom::Application.routes.draw do
 
   get 'products/search'
   get 'products/fullsearch'
-
-  resources :products do
-    get :autocomplete_product_name, :on => :collection
-  end
+  # get 'products/find_by_code'
 
   resources :sessions, :only => [:new, :create, :destroy]
   resources :feedbacks, :only => [:new, :create]
