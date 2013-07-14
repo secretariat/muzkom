@@ -13,7 +13,7 @@ Muzkom::Application.routes.draw do
 
   get 'products/search'
   get 'products/fullsearch'
-  # get 'products/find_by_code'
+  get 'brands/range'
 
   resources :sessions, :only => [:new, :create, :destroy]
   resources :feedbacks, :only => [:new, :create]
