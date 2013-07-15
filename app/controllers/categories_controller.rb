@@ -14,32 +14,13 @@ class CategoriesController < ShopController
     @subcategory = Subcategory.visible.find params[:id]
     if order_by == "price"
       @products = Product.by_subcategory(@subcategory).includes(:status).order_by_price.page(params[:page])
-      @products.each do |p|
-        # p.price = product_price( p )
-        if p.promo?
-          p.price = product_old_price( p )
-          p.sale_price = product_price( p )
-        else
-          p.price = product_price( p )
-        end
-      end
-      @products.sort_by!{|p| p.price}
+      # @products = sort_price_withfix(@products)
+      # @products.sort_by!{|p| p.price}
     else
       @products = Product.by_subcategory(@subcategory).includes(:status).order(:"#{@order_by}").page(params[:page])
-      @products.each do |p|
-        if p.promo?
-          p.price = product_old_price( p )
-          p.sale_price = product_price( p )
-        else
-          p.price = product_price( p )
-        end
-      end
+      # @products = sort_price_withfix(@products)
     end
 
-    @products.each do |p|
-      puts "#{p.id}\t#{p.price}\t#{p.sale_price}"
-    end
-    sleep(5)
     @current_category = @subcategory
     @brands = Product.by_subcategory(@subcategory).includes(:brand).collect{|product| product.brand}.uniq
     @brands.sort!{|a, b| a.name.downcase <=> b.name.downcase}

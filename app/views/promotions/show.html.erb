@@ -11,7 +11,7 @@
           <h3 class="mbs"><%= @promotion.title%></h3>
           <div class="breadcrumb">
             <%= link_to "Главная", root_path %> /
-            <%= link_to "Акции и скидки", promotions_path%> 
+            <%= link_to "Акции и скидки", promotions_path%>
           </div>
           <div class="wysiwyg mbl">
             <%= @promotion.text.html_safe%>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="clearfix">
                       <div class="col1of2">
-                        <%= render "shared/product_price", :product => product%>
+                        <%= render "shared/product_price_promotions", :product => product%>
                       </div>
                       <div class="col1of2">
                         <%= link_to "Купить", add_cart_path(:id=>product.id), :class=>"buy-button right", :method=>:put%>

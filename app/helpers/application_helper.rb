@@ -64,4 +64,17 @@ module ApplicationHelper
     end
   end
 
+  def sort_price_withfix( products )
+    products.each do |p|
+      p.price = product_old_price( p )
+      if p.promo?
+        p.sale_price = product_price( p )
+        temp = p.sale_price
+        p.sale_price = p.price
+        p.price = temp
+      end
+    end
+    return products
+  end
+
 end
