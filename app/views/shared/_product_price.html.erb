@@ -1,8 +1,15 @@
 <%if product.promo?%>
 <span class="old-price">
-  <%= product_old_price(product)%>
+  <%#= product_old_price(product)%>
+  <%= human_price(product.price)%>
 </span> <br />
 <%end%>
 <strong class="price">
-  <%= product_price(product)%>
+  <%#= product_price(product)%>
+  <% if product.promo? %>
+  	<%= human_price(product.sale_price) %>
+	<% else %>
+		<%= human_price(product.price) %>
+	<% end %>
+
 </strong>
