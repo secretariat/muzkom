@@ -2,7 +2,7 @@
 class AdminController < ApplicationController
   layout "admin"
   before_filter :authenticate
-  
+
 private
   def authenticate
     @current_user = current_user
