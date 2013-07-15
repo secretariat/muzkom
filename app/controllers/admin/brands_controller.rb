@@ -48,11 +48,11 @@ class Admin::BrandsController < AdminController
       end
       redirect_to admin_brands_url unless request.xhr?
     end
-    
+
   private
 
     def find_brand
       @brand = Brand.find params[:id]
     end
-  
+
 end

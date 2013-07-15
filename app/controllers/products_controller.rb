@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class ProductsController < ShopController
-  
+
   include ActionView::Helpers::NumberHelper 
   include ApplicationHelper
 
@@ -11,7 +11,7 @@ class ProductsController < ShopController
     @products = Product.withdrawn.where("brand_id = ?", params[:brand]).page(params[:page])
     @brand = Brand.find params[:brand]
   end
-  
+
   def show
     @product = Product.visible.find(params[:id])
     @similar = Product.similar(@product)
@@ -46,7 +46,7 @@ class ProductsController < ShopController
     @products = Product.search( params[:fullsearch] )
     if @products.blank?
       flash[:notice] = "По Вашему запросу ничего не найдено."
-      redirect_to request.referer
+      # redirect_to request.referer if request.referer
     else
       flash[:notice] = "Результатов: #{@products.size}"
     end
