@@ -80,10 +80,11 @@ module ApplicationHelper
   def sort_price_withfix( products )
     products.each do |p|
       if p.promo?
-        p.sale_price = human_price p.price_converted( session[:currency])
+        p.sale_price = human_price p.price_converted( session[:currency] )
         p.price = human_price p.price_converted( session[:currency], false )
       else
-        p.sale_price = p.price = human_price p.price_converted( session[:currency] )
+        p.price = human_price p.price_converted( session[:currency] )
+        p.sale_price = p.price
       end
     end
     return products
