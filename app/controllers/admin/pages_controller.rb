@@ -55,5 +55,4 @@ class Admin::PagesController < AdminController
     def find_page
       @page = Page.find params[:id]
     end
-  
 end

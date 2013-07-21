@@ -64,14 +64,26 @@ module ApplicationHelper
     end
   end
 
+  def revert_price( products )
+    products.each do |p|
+      p.sale_price = 0.0 if p.sale_price == p.price
+      if p.promo?
+        p.sale_price = human_price p.price_converted_reverse( session[:currency])
+        p.price = human_price p.price_converted_reverse( session[:currency], false)
+      else
+        p.price = human_price p.price_converted_reverse( session[:currency] )
+      end
+    end
+    return products
+  end
+
   def sort_price_withfix( products )
     products.each do |p|
-      p.price = product_old_price( p )
       if p.promo?
-        p.sale_price = product_price( p )
-        temp = p.sale_price
-        p.sale_price = p.price
-        p.price = temp
+        p.sale_price = human_price p.price_converted( session[:currency])
+        p.price = human_price p.price_converted( session[:currency], false )
+      else
+        p.sale_price = p.price = human_price p.price_converted( session[:currency] )
       end
     end
     return products

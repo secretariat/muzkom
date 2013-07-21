@@ -43,10 +43,10 @@ class ProductsController < ShopController
 
   def fullsearch
     @session = session[:currency]
+
     @products = Product.search( params[:fullsearch] )
     if @products.blank?
-      flash[:notice] = "По Вашему запросу ничего не найдено."
-      # redirect_to request.referer if request.referer
+      flash[:notice] = params[:fullsearch].blank? ? "Не указаны параметры для поиска!!!" : "По Вашему запросу ничего не найдено."
     else
       flash[:notice] = "Результатов: #{@products.size}"
     end

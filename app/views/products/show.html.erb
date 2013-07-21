@@ -122,7 +122,8 @@
         <%end%>
         <div class="clearfix">
           <ul class="tab-switcher clearfix">
-            <% cookies[:tab] = 'tab1' if cookies[:tab].nil? %>
+            <%# cookies[:tab] = 'tab1' if cookies[:tab].nil? %>
+            <% cookies[:tab] = 'tab1'%>
             <li><a href="#tab1" for="tab1" class="<%= 'current' if cookies[:tab] == 'tab1'%>">Описание</a></li>
             <% unless @product.videos.empty?%>
               <li><a href="#tab2">Видео</a></li>

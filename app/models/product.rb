@@ -23,6 +23,7 @@ class Product < ActiveRecord::Base
   scope :on_sale, where("status_id != 4").visible
   scope :latest, order('created_at DESC').limit(2).visible.on_sale
   scope :order_by_price, select("id, name, price, currency, image, short_description, status_id, brand_id, sale_price, CASE currency WHEN  'uah' THEN price ELSE (SELECT coef FROM currencies WHERE (brand_id = brand_id AND input = currency AND output =  'uah') OR (brand_id =0 AND input = currency AND output ='uah') ORDER BY id LIMIT 1) * price END AS total").order('total')
+  scope :order_by_sale_price, order(:sale_price)
 
   def self.by_subcategory(subcategory)
     visible.on_sale.where(:subcategory_id => subcategory.id)
@@ -44,6 +45,16 @@ class Product < ActiveRecord::Base
     end
   end
 
+  def price_converted_reverse(global_currency, opt = true)
+    output_price = (opt == true) ? price_or_sale_price.to_f : price.to_f
+    if currency != global_currency
+      coef = brand.currency_rate(currency, global_currency)
+      output_price/coef
+    else
+      output_price
+    end
+  end
+
   def price_or_sale_price
     return (sale_price.to_s == "0.0") ? price : sale_price
   end
@@ -57,11 +68,7 @@ class Product < ActiveRecord::Base
   end
 
   def self.search(search)
-    if search
-      find(:all, :conditions => ['name LIKE ? AND visibility = ?', "%#{search}%", true ] )
-    else
-      find(:all)
-    end
+    search.blank? ? [] : find(:all, :conditions => ['name LIKE ? AND visibility = ?', "%#{search}%", true ] )
   end
 
 end
