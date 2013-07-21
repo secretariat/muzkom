@@ -13,8 +13,15 @@ class CategoriesController < ShopController
       # @products = Product.by_subcategory(@subcategory).includes(:status).order_by_price.page(params[:page])
       @products = Product.by_subcategory(@subcategory).includes(:status).order_by_price
       @products = sort_price_withfix(@products)
+      @products.sort_by!{|p| p.sale_price}
       @products = revert_price( @products )
       @products = Kaminari.paginate_array(@products).page(params[:page]).per(10)
+      # @products.order_by_sale_price.page(params[:page])
+      # @products.each { |p| puts p.price  }
+      # sleep(10)
+      # @products.each { |p| puts p.price  }
+      # sleep(10)
+      # @products = @products.page(params[:page]).order_by_sale_price
     else
       @products = Product.by_subcategory(@subcategory).includes(:status).order(:"#{@order_by}").page(params[:page])
     end
