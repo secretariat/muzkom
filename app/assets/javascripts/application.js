@@ -120,7 +120,7 @@ $(document).ready(function(){
   return $('#products_search').autocomplete({
     dataType: "json",
     source: "/products/search",
-    minLength: 3,
+    minLength: 4,
     select: function( event, ui ) {
         window.location.href = "/products/" + ui.item.id;
     }
