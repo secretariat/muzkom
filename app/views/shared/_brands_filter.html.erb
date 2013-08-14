@@ -2,6 +2,6 @@
   <h2><span>Производители</span></h2>
   <div class="mam">
     <%default = @brand.id if @brand && !@subcategory%>
-    <%= select_tag :brand, options_from_collection_for_select(@brands_for_filter, 'id', 'name', default), {:prompt =>"Выберите производителя", :style=>"width: 100%", :change=>"selectBrand"}%>
+    <%= select_tag :brand,  options_from_collection_for_select(@brands_for_filter, 'id', 'name', default), {:prompt =>"Выберите производителя", :style=>"width: 100%", :change=>"selectBrand" }%>
   </div>
 </div>

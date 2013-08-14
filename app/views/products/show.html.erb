@@ -20,6 +20,7 @@
           <%else%>
             <%= link_to "Товары снятые с производства", withdrawn_brands_path%> /
           <%end%>
+          <%= link_to @product.brand.name.capitalize, brand_path(@product.brand) %> /
           <span><%= @product.name%></span>
         </div>
 
