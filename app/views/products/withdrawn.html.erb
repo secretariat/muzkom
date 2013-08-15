@@ -40,6 +40,10 @@
                 <p><strong><%=link_to product.name, product_path(product)%></strong></p>
                 <div><span class="muted">Код товара: <%= product.id%></span></div>
                 <p><%= product.short_description.html_safe%></p>
+                <div class="mbm">
+                  <strong>Наличие: </strong>
+                  <span class="success"><%= product.status.name%></span>
+                </div>
                 <%= link_to "подробнее >>", product_path(product) %>
               </div>
             </div>
