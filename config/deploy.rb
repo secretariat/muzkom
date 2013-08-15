@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-require 'capistrano_colors'
+# require 'capistrano_colors'
 require 'capistrano/ext/multistage'
 
 default_run_options[:pty] = true
