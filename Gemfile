@@ -21,7 +21,9 @@ gem "recaptcha", :require => "recaptcha/rails"
 gem 'ransack'
 gem 'rails3-jquery-autocomplete'
 
-
+# group :profile do
+#   gem 'ruby-prof'
+# end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
