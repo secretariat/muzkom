@@ -1,6 +1,6 @@
 <div class="container">
   <h2 class="highlight">Каталог товаров</h2>
-  <ul class="nav_menu_css">
+  <ul class="catalog">
     <% @categories.each do |category|%>
       <li>
         <%= link_to category.name, "#", :class=>"category"%>
