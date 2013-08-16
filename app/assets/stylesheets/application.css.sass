@@ -165,6 +165,68 @@ body
       text-decoration: none
       color: #777
       background-color: #f6f9fd
+
+.nav_menu_css
+  .category
+    display: block
+    padding: 6px 10px 6px 20px
+    background: #f8f8f8 image-url('icons/black-arrow.png') 10px 11px no-repeat
+    border-top: 1px solid #ececec
+    color: #333
+    &:hover
+      color: #990000
+      background-color: #f0f0f0
+      text-decoration: none
+ 
+  .subcategory
+    color: #666
+    display: block
+    border-top: 1px solid #f0f0f0
+    background: #fff image-url('icons/gray-arrow.png') 20px 11px no-repeat
+    &:hover
+      text-decoration: none
+      color: #777
+      background-color: #f6f9fd
+  li
+    cursor: pointer
+    font: inherit/ 1.18 georgia, arial, helvetica, serif
+    list-style-type: none
+    padding: 0
+    span
+      display: block
+      height: 25px
+      padding: 5px 3px 0 20px
+      border-bottom: 1px solid #4100FF
+      background: #FF5300
+      margin-bottom: 2px
+    &:first-child > span
+    &:last-child > span
+      margin-bottom: -2px
+    ul
+      border: #eee 3px solid
+      display: none
+    li
+      cursor: pointer
+      margin: 2px
+      padding: 1px
+      border-bottom: 1px solid #F0F0F0
+    &:hover:first-child > span
+      background: #FF8100
+      color: #905
+    li:hover
+      background: #FFD6AE
+      color: #905
+      border-bottom: 1px solid #F0F0F0
+    span:hover
+      background: #FF8100
+      color: #990055
+    &:hover ul
+      background: #fff
+      display: block
+      margin: 0
+      padding: 1px
+
+
 .withdrawn
   background: image-url('backgrounds/finish.png') right -30px no-repeat #9f0202
   a
