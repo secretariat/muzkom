@@ -42,6 +42,10 @@
                 <strong>Код товара: </strong>
                 <span><%= @product.id%></span>
               </div>
+              <div class="mbs">
+                <strong>Доступны другие цвета: </strong>
+                <span><%= @presence %></span>
+              </div>
               <div class="mbm">
                 <strong>Наличие: </strong>
                 <span class="success"><%= @product.status.name%></span>
