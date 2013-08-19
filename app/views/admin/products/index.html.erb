@@ -70,7 +70,13 @@
             </td>
             <td>
             <%= link_to show_index_button(product.show_index), product_show_index_link(product), :method => :post, :class=>"visibility-button", :id=>"show_index_#{product.id}", :remote=>true%>
-            <span class="color_area"><%= image_tag ('icons/colors1.png')%></span>
+            <span class="color_area">
+              <% if product.color_present? %>
+                <%= image_tag ('icons/colors1.png')%>
+              <% else %>
+                <%= image_tag ('icons/colors2.png')%>
+              <% end %>
+            </span>
             <%= link_to visibility_button(product.visibility), product_visibility_link(product), :class=>"visibility-button", :method => :post, :id=>"visibility_#{product.id}", :remote=>true %>
             <%= link_to 'Edit' , edit_product_link(product), :class=>"action-button" %>
             <%= link_to 'Delete' , delete_product_link(product), :method=>:delete, :confirm=>"Вы уверены, что хотите удалить эту страницу?", :class=>"action-button"%>

@@ -71,4 +71,9 @@ class Product < ActiveRecord::Base
     search.blank? ? [] : find(:all, :conditions => ['name LIKE ? AND visibility = ?', "%#{search}%", true ] )
   end
 
+  def color_present?
+    return (color_presence == true) ? true : false
+  end
+
+
 end
