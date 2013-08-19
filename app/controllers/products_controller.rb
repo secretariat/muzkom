@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 class ProductsController < ShopController
 
-  include ActionView::Helpers::NumberHelper 
+  include ActionView::Helpers::NumberHelper
   include ApplicationHelper
 
   before_filter :latest_products
@@ -20,7 +20,6 @@ class ProductsController < ShopController
     @title_text = Text.find 8
     @banners_left = Placement.find(5).banners.order(:position)
     @banners_right = Placement.find(6).banners.order(:position)
-    @presence = @product.color_presence == true ? " Да" : " Нет"
   end
 
   def find_by_code

@@ -74,12 +74,14 @@
               <%= f.text_field :delivery_time, :class=>"text"%>
             </div>
           </div>
-          <div class="field clearfix">
-            <div class="col2of3">
-              <label for="">Желаемый цвет</label>
-              <%= f.text_field :delivery_time, :class=>"text"%>
+          <% if @cart.color_present %>
+            <div class="field clearfix">
+              <div class="col2of3">
+                <label for="">Желаемый цвет</label>
+                <%= f.text_field :delivery_time, :class=>"text"%>
+              </div>
             </div>
-          </div>
+          <% end %>
           <div class="field">
             <label for="">Комментарии к заказу</label>
             <%= f.text_area :comment, :class=>"text", :size=>"40x5"%>
