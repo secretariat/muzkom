@@ -42,11 +42,12 @@
                 <strong>Код товара: </strong>
                 <span><%= @product.id%></span>
               </div>
-              <div class="mbs">
-                <strong>Доступны другие цвета: </strong>
-                <span class="icon"><%= image_tag ('icons/cross2.png'), :class=>"yes" %></span>
-
-              </div>
+              <% if @product.color_present? %>
+                <div class="mbs">
+                  <strong>Доступны другие цвета: </strong>
+                  <span class="icon"><%= image_tag ('icons/cross2.png'), :class=>"yes" %></span>
+                </div>
+              <% end %>
               <div class="mbm">
                 <strong>Наличие: </strong>
                 <span class="success"><%= @product.status.name%></span>
