@@ -17,7 +17,7 @@ class Checkout < ActiveRecord::Base
   end
 
   def fullname
-    "#{lastname} #{firstname} #{fathername}"
+    "#{firstname} #{lastname} #{fathername}"
   end
 
 end
