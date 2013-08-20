@@ -39,7 +39,7 @@ namespace :deploy do
   end
 
   task :migrations do
-    run "cd #{release_path} && rake RAILS_ENV=production db:migrate"
+    run "cd #{release_path} && bundle exec rake db:migrate RAILS_ENV=production"
   end
 
 end
