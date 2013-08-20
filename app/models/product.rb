@@ -22,7 +22,7 @@ class Product < ActiveRecord::Base
   scope :withdrawn, where(:status_id => 4).visible
   scope :on_sale, where("status_id != 4").visible
   scope :latest, order('created_at DESC').limit(2).visible.on_sale
-  scope :order_by_price, select("id, name, price, currency, image, short_description, status_id, brand_id, sale_price, CASE currency WHEN  'uah' THEN price ELSE (SELECT coef FROM currencies WHERE (brand_id = brand_id AND input = currency AND output =  'uah') OR (brand_id =0 AND input = currency AND output ='uah') ORDER BY id LIMIT 1) * price END AS total").order('total')
+  scope :order_by_price, select("id, color_presence, name, price, currency, image, short_description, status_id, brand_id, sale_price, CASE currency WHEN  'uah' THEN price ELSE (SELECT coef FROM currencies WHERE (brand_id = brand_id AND input = currency AND output =  'uah') OR (brand_id =0 AND input = currency AND output ='uah') ORDER BY id LIMIT 1) * price END AS total").order('total')
   scope :order_by_sale_price, order(:sale_price)
 
   def self.by_subcategory(subcategory)
@@ -74,5 +74,4 @@ class Product < ActiveRecord::Base
   def color_present?
     return (color_presence == true) ? true : false
   end
-
 end

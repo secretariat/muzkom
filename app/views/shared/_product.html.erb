@@ -7,6 +7,12 @@
       <div class="mbs"><strong><%=link_to product.name, product_path(product)%></strong></div>
       <div><span class="muted">Код товара: <%= product.id%></span></div>
       <p><%= product.short_description.html_safe%></p>
+      <% if product.color_present? %>
+        <div class="mbs">
+          <strong>Товар доступен в разных цветах:</strong>
+          <span class="icon"><%= image_tag ('icons/checkbox_1.png'), :class=>"yes" %></span>
+        </div>
+      <% end %>
       <p><span class="success"><%= product.status.name%></span></p>
       <%= link_to "подробнее >>", product_path(product) %>
     </div>
