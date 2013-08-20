@@ -20,6 +20,7 @@
           <%else%>
             <%= link_to "Товары снятые с производства", withdrawn_brands_path%> /
           <%end%>
+          <%= link_to @product.brand.name.capitalize, brand_path(@product.brand) %> /
           <span><%= @product.name%></span>
         </div>
 
@@ -46,7 +47,7 @@
                 <span class="success"><%= @product.status.name%></span>
               </div>
               <div class="mbm">
-                <%= image_tag @product.brand.logo_url(:thumb)%>
+                <%= link_to (image_tag @product.brand.logo_url(:thumb) ), brand_path( @product.brand ) %>
               </div>
               <div class="mbl">
                 <strong>Валюта:</strong>

@@ -119,7 +119,6 @@ GEM
     recaptcha (0.3.4)
     remotipart (0.4.2)
     rmagick (2.13.1)
-    ruby-prof (0.13.0)
     sass (3.2.1)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -166,7 +165,6 @@ DEPENDENCIES
   recaptcha
   remotipart (~> 0.4)
   rmagick
-  ruby-prof
   sass-rails (~> 3.2.3)
   sitemap_generator
   therubyracer
