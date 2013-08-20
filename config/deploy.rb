@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+	# -*- encoding : utf-8 -*-
 # require 'capistrano_colors'
 require 'capistrano/ext/multistage'
 
@@ -22,4 +22,5 @@ set :default_stage, "staging"
 after "deploy:update_code", "deploy:symlink_shared"
 after "deploy:symlink_shared", "deploy:bundle"
 after "deploy:bundle", "deploy:assets"
+after "deploy:assets", "deploy:migrations"
 after "deploy:create_symlink", "deploy:cleanup"
