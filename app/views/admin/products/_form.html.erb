@@ -26,6 +26,11 @@
           <span><%=product_form.radio_button :visibility, false%> Нет</span>
         </div>
         <div class="field clearfix">
+          <label for="">Доступны другие цвета</label>
+          <span><%=product_form.radio_button :color_presence, true%> Да</span>
+          <span><%=product_form.radio_button :color_presence, false%> Нет</span>
+        </div>
+        <div class="field clearfix">
           <div class="col2of5">
             <label for="">Статус</label>
             <%=product_form.select :status_id, options_from_collection_for_select(@statuses, :id, :name, id_or_blank(@product.status)), {}, :class=>"chzn-select"%>

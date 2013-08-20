@@ -17,6 +17,9 @@
         <div class="mbs"><strong>Комментарий: </strong> <%= @checkout.comment%></div>
         <div class="mbs"><strong>Дисконтная карта: </strong> <%= @checkout.discount%></div>
         <div class="mbm"><strong>Владелец дисконта: </strong> <%= @checkout.discount_owner%></div>
+        <% if @checkout.wished_color.present? %>
+          <div class="mbs"><strong>Желаемый цвет:</strong> <%= @checkout.wished_color%></div>
+        <% end %>
         <div class="mbs"><strong>Куплено:</strong></div>
         <table class="simple-table">
         <%@checkout.purchases.each do |purchase|%>

@@ -11,7 +11,7 @@
           <% unless @subcategory.nil?%>
           <%= @subcategory.name%>
           <%else%>
-          Товары <%= @brand.name unless @brand.nil?%> 
+          Товары <%= @brand.name unless @brand.nil?%>
           <%= "снятые с производства" if session[:show_only_products] == "withdrawn"%>
           <%= "в продаже" if session[:show_only_products] == "on_sale"%>
           <%end%>
@@ -64,7 +64,7 @@
             </td>
             <td>
               <%=form_for [:admin, product], :remote => true do |f|%>
-                <%=f.text_field :price, :value=> real_product_price(product.price), :class=>"edit-price"%> 
+                <%=f.text_field :price, :value=> real_product_price(product.price), :class=>"edit-price"%>
               <%end%>
               <%= product.currency.upcase%>
             </td>

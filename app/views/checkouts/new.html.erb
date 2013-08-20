@@ -5,7 +5,7 @@
     <%=render "shared/news"%>
     <%=render "shared/left_banner"%>
   </div>
-  <div class="col3of5"> 
+  <div class="col3of5">
     <div class="container mhs">
       <div class="mhm mvs">
         <h3 class="mbm">Оформление заказа</h3>
@@ -69,11 +69,19 @@
             <%= f.text_area :address, :class=>"text", :size=>"40x5"%>
           </div>
           <div class="field clearfix">
-            <div class="col1of3">
+            <div class="col2of3">
               <label for="">Желательное время доставки</label>
               <%= f.text_field :delivery_time, :class=>"text"%>
             </div>
           </div>
+          <% if @cart.color_present %>
+            <div class="field clearfix">
+              <div class="col2of3">
+                <label for="">Желаемый цвет</label>
+                <%= f.text_field :wished_color, :class=>"text"%>
+              </div>
+            </div>
+          <% end %>
           <div class="field">
             <label for="">Комментарии к заказу</label>
             <%= f.text_area :comment, :class=>"text", :size=>"40x5"%>

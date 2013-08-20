@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 class ProductsController < ShopController
 
-  include ActionView::Helpers::NumberHelper 
+  include ActionView::Helpers::NumberHelper
   include ApplicationHelper
 
   before_filter :latest_products

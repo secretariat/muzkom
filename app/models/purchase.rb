@@ -2,7 +2,7 @@
 class Purchase < ActiveRecord::Base
   belongs_to :checkout
   belongs_to :product
-  
+
   def self.from_cart_item(cart_item)
     purchase = self.new
     purchase.product = cart_item.product
@@ -10,5 +10,5 @@ class Purchase < ActiveRecord::Base
     purchase.price = cart_item.price('uah')
     purchase
   end
-  
+
 end

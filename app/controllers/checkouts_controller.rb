@@ -1,11 +1,11 @@
 # -*- encoding : utf-8 -*-
 class CheckoutsController < ShopController
-  
+
   def new
     redirect_to cart_path if @cart.items.empty?
     @checkout = Checkout.new
   end
-  
+
   def create
     @checkout = Checkout.new(params[:checkout])
     @checkout.add_purchases_from_cart(@cart)
@@ -20,8 +20,8 @@ class CheckoutsController < ShopController
       render :new
     end
   end
-  
+
   def finish
-    
+
   end
 end
