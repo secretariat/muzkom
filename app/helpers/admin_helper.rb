@@ -6,6 +6,10 @@ module AdminHelper
     value == true ? image_tag('admin/visible.png') : image_tag('admin/invisible.png')
   end
 
+  def color_presence_button(value)
+    value == true ? image_tag('admin/colors1.png') : image_tag('admin/colors2.png')
+  end
+
   def id_or_blank(property)
     property.id unless property.nil?
   end

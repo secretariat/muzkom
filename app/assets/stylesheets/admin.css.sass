@@ -2,15 +2,15 @@
 @import "scaffy/scaffy"
 html, body
   height: 100%
-  
+
 body, input, textarea
   font-family: Arial
   font-size: 13px
   line-height: 1.231
   color: #333
   background: #eee
-  
-.inner 
+
+.inner
   max-width: 90%
   min-width: 960px
   padding: 0 20px
@@ -80,12 +80,12 @@ h3
   font-size: 14px
   line-height: 21px
   color: #333
-a 
+a
   color: #2B587A
   text-decoration: none
   &:hover
     text-decoration: none
-    color: #333  
+    color: #333
 .color_area
   background-color: white
   background-image: -moz-linear-gradient(center top , #FAFAFA, #E9E9E9)
@@ -100,7 +100,7 @@ a
   position: relative
   top: 3px
 
-.flash_message 
+.flash_message
   position: absolute
   padding: 11px 0
   width: 100%
@@ -113,8 +113,8 @@ a
     background: green
   &.error
     background: #b34c00
-    
-  
+
+
 .login-pannel
   width: 280px
   margin: 0 auto
@@ -127,16 +127,16 @@ a
     padding: 5px 20px
     color: #fff
     +vertical-gradient(#555, #333)
-    +border-radius(10px 10px 0 0)    
+    +border-radius(10px 10px 0 0)
   .footer
     height: 25px
     padding: 5px 20px
-    background: #f5f5f5 
+    background: #f5f5f5
     border-top: 1px solid #e0e0e0
     +border-radius(0 0 10px 10px)
   .field
     margin-bottom: 20px
-  & input.text 
+  & input.text
     width: 200px
     border: 1px solid #ccc
     background: #fafafa
@@ -150,34 +150,34 @@ a
   .submit-button
     padding: 3px 10px
     +simple-button(#555, #fff, 5px)
-  
-.navigation 
+
+.navigation
   margin-bottom: 10px
   +vertical-gradient(#222, #333)
   +box-shadow(-3px 2px 3px rgba(0, 0, 0, 0.25))
-  h1  
+  h1
     color: #fff
     text-shadow: none
     line-height: 40px
     margin-bottom: 0
-  .account-block 
+  .account-block
     padding: 14px 0 8px 0
     text-align: right
   a
     color: #f0f0f0
-  a:hover 
+  a:hover
     color: #fff
   .nav li
     float: left
     a
       display: block
       padding: 14px 10px 10px 10px
-    &:hover 
+    &:hover
       background: #3c3c3c
-    &.active 
+    &.active
       background: #222
       color: #fff
-  
+
 .user-info
   background: #FAFAFA
   +border-radius(0 0 5px 5px)
@@ -202,7 +202,7 @@ a
       border-top: 1px solid #fff
     li:first-child a
       border-top: none
-      
+
 .tool-icon
   position: relative
   +inline-block()
@@ -231,40 +231,40 @@ a
 .dotted
   border-bottom: 1px dotted #ccc
   margin-bottom: 5px
-      
+
 .data-table
   width: 100%
   border: 1px solid #ccc
-  thead 
-    color: #1C1C1C 
-    font-weight: bold 
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 1) 
+  thead
+    color: #1C1C1C
+    font-weight: bold
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 1)
     +vertical-gradient(#fff, #f0f0f0)
-  tfoot 
-    color: #777 
+  tfoot
+    color: #777
     +vertical-gradient(#fff, #f0f0f0)
-  td 
+  td
     padding: 8px 10px
     border-bottom: 1px solid #ccc
     border-right: 1px dashed #ddd
   tbody tr
-    &:nth-child(odd) td 
+    &:nth-child(odd) td
       background: #F9F9F9
-    &:hover td 
+    &:hover td
       background: #fafaef
   .drag
     +inline-block()
     width: 8px
     height: 16px
     background: image-url('icons/draggable.gif')
-  .checkbox 
+  .checkbox
     width: 15px
-  .actions 
+  .actions
     width: 110px
-  .info 
+  .info
     width: 80px
-  
-    
+
+
 .simple-table
   width: 100%
   border-collapse: collapse
@@ -273,7 +273,7 @@ a
     border: 1px solid #ddd
     padding: 10px
     vertical-align: middle
-    
+
 .tabs
   position: relative
   bottom: -1px
@@ -311,7 +311,7 @@ a
       background: #fff
     span
       background: #eee
-    
+
 .submit-button, .action-button, .visibility-button
   border: 1px solid #aaa
   color: #3B3B3B
@@ -341,21 +341,21 @@ a
   text-align: center
   img
     vertical-align: bottom
-  
-fieldset 
+
+fieldset
   min-height: 300px
   position: relative
   border: 1px solid #ccc
   padding: 20px
   background: #F8F8F8
   +border-radius(5px)
-    
+
 .field
   margin-bottom: 15px
   label
     display: block
     margin-bottom: 2px
-  .text, select 
+  .text, select
     width: 100%
   .text
     border: 1px solid #aaa
@@ -368,7 +368,7 @@ fieldset
       border: 1px solid #aaa
     &:focus
       +box-shadow(0 0 3px rgba(20,15,10, .3))
-  .field_with_errors .text 
+  .field_with_errors .text
     border: 1px solid #C88383
 
 .edit-price
@@ -379,7 +379,7 @@ fieldset
   padding: 2px
   margin-right: 5px
   +border-radius(5px)
-  
+
 
 .image-preview
   border: 1px solid #aaa
@@ -390,4 +390,3 @@ fieldset
 
 .catalog li
   padding: 4px
-  

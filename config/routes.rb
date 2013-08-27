@@ -76,6 +76,7 @@ Muzkom::Application.routes.draw do
       end
       resources :products do
         post :visibility, :on => :member
+        post :color_presence, :on => :member
         post :show_index, :on => :member
       end
       post :visibility, :on => :member
@@ -86,6 +87,7 @@ Muzkom::Application.routes.draw do
       post :move, :on => :collection
       resources :products do
         post :visibility, :on => :member
+        post :color_presence, :on => :member
         post :show_index, :on => :member
       end
     end
@@ -100,6 +102,7 @@ Muzkom::Application.routes.draw do
 
     resources :products do
       post :visibility, :on => :member
+      post :color_presence, :on => :member
       post :show_index, :on => :member
       get :switch, :on => :collection
     end

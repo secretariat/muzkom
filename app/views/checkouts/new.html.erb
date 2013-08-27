@@ -76,8 +76,10 @@
           </div>
           <% if @cart.color_present %>
             <div class="field clearfix">
+              <div class="col3of3">
+                <label for="">Желательный цвет товара (если товар доступен в разных цветах)</label>
+              </div>
               <div class="col2of3">
-                <label for="">Желаемый цвет</label>
                 <%= f.text_field :wished_color, :class=>"text"%>
               </div>
             </div>

@@ -15,12 +15,12 @@
         <div class="breadcrumb">
           <%= link_to "Каталог товаров", root_path %> /
           <% unless @product.withdrawn?%>
-          <a href=""><%= @product.subcategory.category.name%></a> /
-          <%= link_to @product.subcategory.try(:name), category_path(@product.subcategory)%> /
+            <a href=""><%= @product.subcategory.category.name%></a> /
+            <%= link_to @product.subcategory.try(:name), category_path(@product.subcategory)%> /
           <%else%>
             <%= link_to "Товары снятые с производства", withdrawn_brands_path%> /
           <%end%>
-          <%= link_to @product.brand.name.capitalize, brand_path(@product.brand) %> /
+          <%= link_to @product.brand.name.capitalize, category_brand_path(@product.subcategory, @product.brand)%> /
           <span><%= @product.name%></span>
         </div>
 

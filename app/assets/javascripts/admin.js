@@ -17,7 +17,7 @@ $(document).ready(function(){
       $.post($(this).data("update-url"), $(this).sortable('serialize'));
     }
   });
-  $('.flash_message').delay(300).animate({'top': 0}, 500).delay(2000).fadeOut(500);  
+  $('.flash_message').delay(300).animate({'top': 0}, 500).delay(2000).fadeOut(500);
   $('.edit-price').blur(function(){
     $(this).closest('form').submit();
   });
@@ -26,7 +26,7 @@ $(document).ready(function(){
     $(".subcategories").slideUp();
     $(this).parent().find(".subcategories").slideDown();
   });
-  
+
   $('#promotion-selector').change(function(){
     if($(this).val() == null){
       $('#sale-price #product_sale_price').val("0.0");
@@ -35,9 +35,9 @@ $(document).ready(function(){
       $('#sale-price').removeClass('hidden');
     }
   });
-  
+
   $('.text.disabled').attr("disabled", "disabled");
- 
+
   $('.placement').change(function(){
     var el = $(this).parent().parent().find(".text");
     if($(this).attr("checked") == "checked"){
@@ -47,12 +47,12 @@ $(document).ready(function(){
       el.addClass('hidden');
       el.attr("disabled", "disabled");
     }
-  }); 
-  
-  
-  
+  });
+
+
+
 });
-  
+
 tinyMCE.init({
   mode : "exact",
   elements : "short-pannel",
