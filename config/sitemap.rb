@@ -26,23 +26,23 @@ SitemapGenerator::Sitemap.create do
     '/payment_delivery'
     '/publications'
     '/promotions'
-    
+
     Publication.find_each do |article|
       add publication_path(article), :lastmod => article.updated_at
     end
-    
+
     Promotion.find_each do |article|
       add promotion_path(article), :lastmod => article.updated_at
     end
-    
+
     Product.find_each do |article|
       add product_path(article), :lastmod => article.updated_at
     end
-    
+
     Subcategory.find_each do |article|
       add category_path(article), :lastmod => article.updated_at
     end
-    
+
     Brand.find_each do |article|
       add brand_path(article), :lastmod => article.updated_at
     end
