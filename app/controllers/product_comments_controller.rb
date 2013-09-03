@@ -1,5 +1,4 @@
 # -*- encoding : utf-8 -*-
-#encoding: utf-8
 class ProductCommentsController < ShopController
   def create
     @comment = ProductComment.new(params[:product_comment])
