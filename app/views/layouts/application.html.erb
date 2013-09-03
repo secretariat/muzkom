@@ -51,10 +51,10 @@
           <div class="left">
             <%= form_tag products_fullsearch_path, :method => 'get' do %>
               <div style="width:487px;height:28px;display:block;">
-              
+
                 <%= text_field_tag :fullsearch, params[:fullsearch], :id => "products_search", :placeholder => "Поиск товара"%>
                 <%= submit_tag "", :name => nil, :class => "searchbtn right"  %>
-            
+
             <% end %>
           </div>
         </div>
