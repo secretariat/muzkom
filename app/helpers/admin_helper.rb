@@ -1,6 +1,13 @@
 # -*- encoding : utf-8 -*-
 module AdminHelper
 
+  #def availability_button(value)
+  #  return image_tag('admin/green.png') if value == 'avaible'
+  #  return image_tag('admin/red.png') if value == 'notavaible'
+  #  return image_tag('admin/yellow.png') if value == 'expecting'
+  #  return image_tag('admin/quest.png') if value == 'check'
+  #end
+
   def visibility_button(value)
     value == true ? image_tag('admin/visible.png') : image_tag('admin/invisible.png')
   end
