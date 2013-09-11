@@ -42,4 +42,7 @@ namespace :deploy do
     run "cd #{release_path} && bundle exec rake db:migrate RAILS_ENV=production"
   end
 
+  task :refresh_sitemaps do
+    run "cd #{latest_release} && RAILS_ENV=#{rails_env} rake sitemap:refresh"
+  end
 end
