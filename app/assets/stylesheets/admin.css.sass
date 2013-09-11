@@ -342,6 +342,68 @@ a
   img
     vertical-align: bottom
 
+.avaibility-button
+  border: 1px solid #aaa
+  color: #3B3B3B
+  +text-shadow(0 1px 0 #fff)
+  +inline-block()
+  cursor: pointer
+  +vertical-gradient(#fafafa, #e9e9e9)
+  +border-radius(5px)
+  $shadow: inset 0 1px 0 #fff, 0 0 1px rgba(100,100,100,.5)
+  +box-shadow($shadow)
+  position: relative
+  top: 1px
+  
+  
+
+
+.avaibility-button-inner
+  width: 14px
+  height: 14px
+  display: inline-block
+  vertical-align: bottom
+  margin: 2px
+  &.red
+    background: image-url('admin/red.png')
+    &:hover
+      background: image-url('admin/grey.png')
+    &.off
+      background: image-url('admin/grey.png')
+      &:hover
+        background: image-url('admin/red.png')
+  &.green
+    background: image-url('admin/green.png')
+    &:hover
+      background: image-url('admin/grey.png')
+    &.off
+      background: image-url('admin/grey.png')
+      &:hover
+        background: image-url('admin/green.png')
+  &.yellow
+    background: image-url('admin/yellow.png')
+    &:hover
+      background: image-url('admin/grey.png')
+    &.off
+      background: image-url('admin/grey.png')
+      &:hover
+        background: image-url('admin/yellow.png')
+  &.quest
+    background: image-url('admin/quest.png')
+    &:hover
+      background: image-url('admin/grey.png')
+    &.off
+      background: image-url('admin/grey.png')
+      &:hover
+        background: image-url('admin/quest.png')
+
+
+
+
+
+
+
+
 fieldset
   min-height: 300px
   position: relative

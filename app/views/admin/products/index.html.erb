@@ -39,7 +39,7 @@
             <td class="actions">Производитель</td>
             <td>Товар</td>
             <td style='width: 125px'>Цена</td>
-            <td style="width: 185px">Действия</td>
+            <td style="width: 280px">Действия</td>
           </tr>
         </thead>
         <tfoot>
@@ -69,6 +69,10 @@
               <%= product.currency.upcase%>
             </td>
             <td>
+            <a class="avaibility-button"><div class="avaibility-button-inner green"></div></a>
+            <a class="avaibility-button"><div class="avaibility-button-inner yellow off"></div></a>
+            <a class="avaibility-button"><div class="avaibility-button-inner red off"></div></a>
+            <a class="avaibility-button"><div class="avaibility-button-inner quest off"></div></a>
             <%= link_to show_index_button(product.show_index), product_show_index_link(product), :method => :post, :class=>"visibility-button", :id=>"show_index_#{product.id}", :remote=>true%>
 
             <%= link_to color_presence_button(product.color_presence), product_color_presence_link(product), :class=>"visibility-button", :method => :post, :id=>"color_visibility_#{product.id}", :remote=>true %>
