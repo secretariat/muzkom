@@ -83,6 +83,11 @@ class Admin::ProductsController < AdminController
     redirect_to list_url unless request.xhr?
   end
 
+
+  def change_status
+    redirect_to list_url unless request.xhr?
+  end
+
   def show_index
     @product.show_index = @product.show_index==false ? true : false
     @product.save

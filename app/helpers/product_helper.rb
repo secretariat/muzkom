@@ -41,6 +41,14 @@ module ProductHelper
     end
   end
 
+  def product_status_link(product)
+    unless params[:subcategory_id].nil?
+      change_status_admin_subcategory_product_path(params[:subcategory_id], product)
+    else
+      return params[:brand_id].nil? ? change_status_admin_product_path(product) : change_status_admin_brand_product_path(params[:brand_id], product)
+    end
+  end
+
   def product_cancel_link
     unless params[:subcategory_id].nil?
       admin_subcategory_products_path(params[:subcategory_id])
