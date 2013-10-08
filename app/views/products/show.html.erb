@@ -1,5 +1,5 @@
 <% title "#{@product.title} #{@product.subcategory.try(:name)} #{@title_text.text}"%>
-<% meta_d sanitize(strip_tags("#{@product.name} | #{@product.short_description} #{@keywords_text.text}") )%>
+<% meta_d sanitize(strip_tags("#{@product.name} | #{@product.short_description} #{@keywords_text.text}").gsub("\"", "&quot;") )%>
 <%#meta_d @product.meta_d%>
 <%meta_k @product.meta_k%>
 <div class="clearfix">

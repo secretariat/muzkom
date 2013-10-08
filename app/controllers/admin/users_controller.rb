@@ -1,10 +1,10 @@
 # -*- encoding : utf-8 -*-
 class Admin::UsersController < AdminController
- 
+
   def edit
     @user = User.find params[:id]
   end
-  
+
   def update
     @user = User.find params[:id]
     @user.update_attributes(params[:user])
@@ -16,5 +16,5 @@ class Admin::UsersController < AdminController
       render :edit
     end
   end
-  
+
 end

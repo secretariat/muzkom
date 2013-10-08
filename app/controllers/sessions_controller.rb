@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 class SessionsController < ApplicationController
   layout "signin"
- 
+
   def new
     #redirect_to admin_root_url if current_user
     @user_session = Session.new
@@ -26,5 +26,5 @@ class SessionsController < ApplicationController
     flash[:notice] = t('authlogic.logout')
     redirect_to login_url
   end
-  
+
 end
