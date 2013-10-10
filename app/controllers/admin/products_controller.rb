@@ -2,7 +2,7 @@
 class Admin::ProductsController < AdminController
   respond_to :html, :js
   before_filter :load_lists, :only => [:edit, :new, :update]
-  before_filter :find_product, :only => [:edit, :update, :destroy, :visibility, :color_presence, :show_index]
+  before_filter :find_product, :only => [:edit, :update, :destroy, :visibility, :color_presence, :show_index, :change_status]
 
   def index
     unless session[:show_only_products].nil?
@@ -85,6 +85,9 @@ class Admin::ProductsController < AdminController
 
 
   def change_status
+    @button_id = params[:button_id]
+    @product.status_id = params[:button_id]
+    @product.save
     redirect_to list_url unless request.xhr?
   end
 

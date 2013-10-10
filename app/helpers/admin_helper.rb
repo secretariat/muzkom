@@ -1,20 +1,20 @@
 # -*- encoding : utf-8 -*-
 module AdminHelper
 
-  #def availability_button(value)
-  #  return image_tag('admin/green.png') if value == 'avaible'
-  #  return image_tag('admin/red.png') if value == 'notavaible'
-  #  return image_tag('admin/yellow.png') if value == 'expecting'
-  #  return image_tag('admin/quest.png') if value == 'check'
-  #end
-  def availability_button( value )
+  def availability_button( value, static )
+    value = value.to_i
+    static = static.to_i
+    ret = nil
     case value
-    when 1 ; return image_tag('admin/red.png')
-    when 2 ; return image_tag('admin/green.png')
-    when 3 ; return image_tag('admin/yellow.png')
-    when 5 ; return image_tag('admin/quest.png')
-    else
+      when 1 ; ret = image_tag('admin/red.png', :class => "avaibility-button-inner yellow off") if value == static
+      when 2 ; ret = image_tag('admin/green.png', :class => "avaibility-button-inner green off") if value == static
+      when 3 ; ret = image_tag('admin/yellow.png', :class => "avaibility-button-inner yellow off") if value == static
+      when 5 ; ret = image_tag('admin/quest.png', :class => "avaibility-button-inner quest off") if value == static
+      # else return image_tag('admin/grey.png', :class => "avaibility-button-inner yellow off")
     end
+    puts "val:#{value}\tsta:#{static}\tret#{ret}"
+    sleep(1)
+    return ret.blank? ? ret = image_tag('admin/grey.png', :class => "avaibility-button-inner yellow off") : ret
   end
 
   def visibility_button(value)

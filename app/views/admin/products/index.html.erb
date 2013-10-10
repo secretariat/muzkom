@@ -69,15 +69,16 @@
               <%= product.currency.upcase%>
             </td>
             <td>
-            <%#= link_to availability_button(1), product_status_link(product), :method => :post, :class => "avaibility-button-inner", :id=>"inplace_#{product.id}", :remote=>true%>
-              <!-- <div class="avaibility-button-inner green"></div> -->
-            <%# end %>
-            <!-- <a class="avaibility-button"><div class="avaibility-button-inner yellow off"></div></a> -->
-            <!-- <a class="avaibility-button"><div class="avaibility-button-inner red off"></div></a> -->
-            <!-- <a class="avaibility-button"><div class="avaibility-button-inner quest off"></div></a> -->
+
+            <%= link_to availability_button(product.status_id.to_i, 1), product_status_link(product, :button_id => 1), :method => :post, :class => "avaibility-button", :id=>"status_#{product.id}_1", :remote=>true %>
+            <%= link_to availability_button(product.status_id.to_i, 2), product_status_link(product, :button_id => 2), :method => :post, :class => "avaibility-button", :id=>"status_#{product.id}_2", :remote=>true %>
+            <%= link_to availability_button(product.status_id.to_i, 3), product_status_link(product, :button_id => 3), :method => :post, :class => "avaibility-button", :id=>"status_#{product.id}_3", :remote=>true %>
+            <%= link_to availability_button(product.status_id.to_i, 5), product_status_link(product, :button_id => 5), :method => :post, :class => "avaibility-button", :id=>"status_#{product.id}_5", :remote=>true %>
+
             <%= link_to show_index_button(product.show_index), product_show_index_link(product), :method => :post, :class=>"visibility-button", :id=>"show_index_#{product.id}", :remote=>true%>
             <%= link_to color_presence_button(product.color_presence), product_color_presence_link(product), :class=>"visibility-button", :method => :post, :id=>"color_visibility_#{product.id}", :remote=>true %>
             <%= link_to visibility_button(product.visibility), product_visibility_link(product), :class=>"visibility-button", :method => :post, :id=>"visibility_#{product.id}", :remote=>true %>
+
             <%= link_to 'Edit' , edit_product_link(product), :class=>"action-button" %>
             <%= link_to 'Delete' , delete_product_link(product), :method=>:delete, :confirm=>"Вы уверены, что хотите удалить эту страницу?", :class=>"action-button"%>
             </td>
