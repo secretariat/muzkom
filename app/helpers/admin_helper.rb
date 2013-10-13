@@ -12,8 +12,8 @@ module AdminHelper
       when 5 ; ret = image_tag('admin/quest.png', :class => "avaibility-button-inner quest off") if value == static
       # else return image_tag('admin/grey.png', :class => "avaibility-button-inner yellow off")
     end
-    puts "val:#{value}\tsta:#{static}\tret#{ret}"
-    sleep(1)
+    # puts "val:#{value}\tsta:#{static}\tret#{ret}"
+    # sleep(1)
     return ret.blank? ? ret = image_tag('admin/grey.png', :class => "avaibility-button-inner yellow off") : ret
   end
 
