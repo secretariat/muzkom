@@ -85,8 +85,9 @@ class Admin::ProductsController < AdminController
 
 
   def change_status
-    @button_id = params[:button_id]
-    @product.status_id = params[:button_id]
+    @current_status = @product.status_id
+    @button_id = params[:button_id].present? ? params[:button_id] : 5
+    @product.status_id = @button_id
     @product.save
     redirect_to list_url unless request.xhr?
   end

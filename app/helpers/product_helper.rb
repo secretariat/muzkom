@@ -45,7 +45,7 @@ module ProductHelper
     unless params[:subcategory_id].nil?
       change_status_admin_subcategory_product_path(params[:subcategory_id], product, params[:bid] => bid)
     else
-      return params[:brand_id].nil? ? change_status_admin_product_path(product, params[:bid] => bid) : change_status_admin_brand_product_path(params[:brand_id], product)
+      return params[:brand_id].nil? ? change_status_admin_product_path(product, params[:bid] => bid) : change_status_admin_brand_product_path(params[:brand_id], product, params[:bid] => bid)
     end
   end
 

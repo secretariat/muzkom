@@ -1,1 +1,2 @@
 $('#status_<%= @product.id%>_<%= @button_id %>').html('<%= availability_button( @product.status_id, @button_id ) %>');
+$('#status_<%= @product.id%>_<%= @current_status %>').html('<%= availability_button( @product.status_id, 123 ) %>');
