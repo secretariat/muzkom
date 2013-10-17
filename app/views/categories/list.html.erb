@@ -1,0 +1,24 @@
+<%#meta_data @subcategory%>
+<div class="clearfix">
+  <div class="col1of5">
+    <%=render "shared/brands_filter"%>
+    <%=render "shared/range_search" %>
+    <%=render "shared/catalog"%>
+    <%=render "shared/news"%>
+    <%=render "shared/left_banner"%>
+  </div>
+  <div class="col3of5">
+    <% @current_category.subcategories.each do |subcategory| %>
+    <div style="position: relative;float: left;">
+      <%= link_to (image_tag subcategory.logo_url(:thumb) ), category_path(subcategory) %><br/>
+      <%= link_to subcategory.name, category_path(subcategory), :class=>"subcategory" %>
+    </div>
+    <% end %>
+  </div>
+  <div class="col1of5">
+    <%=render "shared/code_search"%>
+    <%=render "shared/contacts"%>
+    <%=render "shared/latest"%>
+    <%=render "shared/right_banner"%>
+  </div>
+</div>

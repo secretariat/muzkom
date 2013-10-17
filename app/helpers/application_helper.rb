@@ -49,7 +49,7 @@ module ApplicationHelper
 
   def show_subcategories(category)
     return "hidden" if @current_category.nil?
-    return "hidden" unless @current_category.category.id == category.id
+    return "hidden" unless @current_category.id == category.id
   end
 
   def product_class(index)

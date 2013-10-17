@@ -14,6 +14,7 @@ Muzkom::Application.routes.draw do
   get 'products/search'
   get 'products/fullsearch'
   get 'brands/range'
+  get 'categories/list'
 
   resources :sessions, :only => [:new, :create, :destroy]
   resources :feedbacks, :only => [:new, :create]

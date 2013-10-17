@@ -19,17 +19,17 @@ $(document).ready(function(){
     directionNavHide: true
   });
 
-  $(".catalog .category").click(function(e){
-    e.preventDefault();
-    if($(this).hasClass('current')){
-      $(this).removeClass('current');
-      $(this).parent().find(".subcategories").slideUp();
-    }else{
-      $(".subcategories").slideUp();
-      $(this).addClass('current');
-      $(this).parent().find(".subcategories").slideDown();
-    }
- });
+ //  $(".catalog .category").click(function(e){
+ //    e.preventDefault();
+ //    if($(this).hasClass('current')){
+ //      $(this).removeClass('current');
+ //      $(this).parent().find(".subcategories").slideUp();
+ //    }else{
+ //      $(".subcategories").slideUp();
+ //      $(this).addClass('current');
+ //      $(this).parent().find(".subcategories").slideDown();
+ //    }
+ // });
 
  $(".product-image-gallery .photo").click(function(e){
     e.preventDefault();

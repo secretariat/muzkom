@@ -28,4 +28,14 @@ class CategoriesController < ShopController
     @banners_right = Placement.find(4).banners.order(:position)
   end
 
+  def list
+    # @subcategory = Subcategory.visible.find params[:id]
+    @current_category = Category.visible.find params[:id]
+
+    # @brands = Product.by_subcategory(@subcategory).includes(:brand).collect{|product| product.brand}.uniq
+    # @brands.sort!{|a, b| a.name.downcase <=> b.name.downcase}
+    @banners_left = Placement.find(3).banners.order(:position)
+    @banners_right = Placement.find(4).banners.order(:position)
+  end
+
 end
