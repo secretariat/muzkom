@@ -9,9 +9,9 @@ Muzkom::Application.configure do
     :user_name            => 'noreply@muzkom.com.ua',
     :password             => 'noreply123!@#',
     :authentication       => 'login',
-    :openssl_verify_mode  => 'none',
+    :openssl_verify_mode  => 'none'
   }
-
+  config.action_mailer.raise_delivery_errors = true
   # Code is not reloaded between requests
   config.cache_classes = true
 
