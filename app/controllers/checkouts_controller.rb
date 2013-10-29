@@ -12,7 +12,7 @@ class CheckoutsController < ShopController
     if @checkout.save
       session[:cart] = nil
       Mailer.client_purchase_notification(@checkout).deliver
-      # Mailer.admin_purchase_notification(@checkout).deliver
+      Mailer.admin_purchase_notification(@checkout).deliver
       flash[:submitted_order_id] = @checkout.id
       @success = Text.find 5
     else

@@ -1,8 +1,6 @@
 # -*- encoding : utf-8 -*-
 class Mailer < ActionMailer::Base
-  # default :from => "noreply@muzkom.com.ua"
-  default :from => "dtg.admin@citrusdev.com.ua"
-  # default_url_options[:host] = "muzkom.artsite.com.ua"
+  default :from => "noreply@muzkom.com.ua"
 
   def client_purchase_notification(checkout)
     @checkout = checkout

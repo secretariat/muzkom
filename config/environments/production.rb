@@ -56,6 +56,16 @@ Muzkom::Application.configure do
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
   config.i18n.fallbacks = true
+  ActionMailer::Base.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "mail.muzkom.com.ua",
+    :port                 => 26,
+    :domain               => "mail.muzkom.com.ua",
+    :user_name            => 'noreply@muzkom.com.ua',
+    :password             => 'noreply123!@#',
+    :authentication       => 'login',
+    :openssl_verify_mode  => 'none',
+  }
 
   # Send deprecation notices to registered listeners
   config.action_mailer.smtp_settings = {:enable_starttls_auto => false}
