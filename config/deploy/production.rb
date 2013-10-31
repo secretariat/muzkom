@@ -11,10 +11,10 @@ module UseScpForDeployment
 end
 
 Capistrano::Configuration.send(:include, UseScpForDeployment)
-role :web, "194.28.84.147"                          # Your HTTP server, Apache/etc
-role :app, "194.28.84.147"                          # This may be the same as your `Web` server
-role :db,  "194.28.84.147", :primary => true # This is where Rails migrations will run
-role :db,  "194.28.84.147"
+role :web, "193.169.188.185"                          # Your HTTP server, Apache/etc
+role :app, "193.169.188.185"                          # This may be the same as your `Web` server
+role :db,  "193.169.188.185", :primary => true # This is where Rails migrations will run
+role :db,  "193.169.188.185"
 
 set :user, "muzkomco"
 set :copy_remote_dir, '/home/muzkomco/tmp'
