@@ -29,7 +29,7 @@ class CategoriesController < ShopController
   end
 
   def list
-    # @subcategory = Subcategory.visible.find params[:id]
+    # @suzbcategory = Subcategory.visible.find params[:id]
     @current_category = Category.visible.find params[:id]
 
     # @brands = Product.by_subcategory(@subcategory).includes(:brand).collect{|product| product.brand}.uniq
