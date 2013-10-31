@@ -21,7 +21,7 @@ class CategoriesController < ShopController
       @products = Product.by_subcategory(@subcategory).includes(:status).order(:"#{@order_by}").page(params[:page])
     end
 
-    @current_category = @subcategory
+    @current_category = @subcategory.category
     @brands = Product.by_subcategory(@subcategory).includes(:brand).collect{|product| product.brand}.uniq
     @brands.sort!{|a, b| a.name.downcase <=> b.name.downcase}
     @banners_left = Placement.find(3).banners.order(:position)
@@ -29,7 +29,6 @@ class CategoriesController < ShopController
   end
 
   def list
-    # @subcategory = Subcategory.visible.find params[:id]
     @current_category = Category.visible.find params[:id]
 
     # @brands = Product.by_subcategory(@subcategory).includes(:brand).collect{|product| product.brand}.uniq
