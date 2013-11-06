@@ -30,7 +30,6 @@ class CategoriesController < ShopController
 
   def list
     @current_category = Category.visible.find params[:id]
-
     # @brands = Product.by_subcategory(@subcategory).includes(:brand).collect{|product| product.brand}.uniq
     # @brands.sort!{|a, b| a.name.downcase <=> b.name.downcase}
     @banners_left = Placement.find(3).banners.order(:position)
