@@ -8,7 +8,7 @@
     <%=render "shared/left_banner"%>
   </div>
   <div class="col3of5">
-    <% @current_category.subcategories.each do |subcategory| %>
+    <% @current_category.subcategories.visible.order('subcategories.priority').each do |subcategory| %>
       <div class="cat-block">
         <%= link_to (image_tag(subcategory.logo_url, :size => "200x200", :alt => subcategory.name)), category_path(subcategory) %><br/>
         <%= link_to subcategory.name, category_path(subcategory)%>
