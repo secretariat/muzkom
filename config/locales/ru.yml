@@ -22,3 +22,5 @@ ru:
        first: <- 
        last: ->
        truncate: ...
+  flash:
+    form_error: "Вы некорретно заполнили обязательные поля"

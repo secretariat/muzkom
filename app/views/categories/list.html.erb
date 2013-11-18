@@ -1,4 +1,9 @@
-<%#meta_data @subcategory%>
+<% list = ""%>
+<% @current_category.subcategories.visible.order('subcategories.priority').each{ |sc| list = list + "#{sc.name}, "}%>
+<% title "#{@current_category.name} | "+"#{list}"%>
+<% meta_d sanitize(strip_tags("#{@current_category} | #{@keywords_text.text}").gsub("\"", "&quot;") )%>
+<% meta_k "@product.meta_k"%>
+
 <div class="clearfix">
   <div class="col1of5">
     <%=render "shared/brands_filter"%>

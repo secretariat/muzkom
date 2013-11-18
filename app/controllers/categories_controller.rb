@@ -29,6 +29,7 @@ class CategoriesController < ShopController
   end
 
   def list
+    @keywords_text = Text.find 10
     @current_category = Category.visible.find params[:id]
     # @brands = Product.by_subcategory(@subcategory).includes(:brand).collect{|product| product.brand}.uniq
     # @brands.sort!{|a, b| a.name.downcase <=> b.name.downcase}
