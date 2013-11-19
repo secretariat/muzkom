@@ -26,6 +26,21 @@
     })();
   </script>
   <script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-18304512-1']);  _gaq.push(['_setDomainName', 'muzkom.com.ua']);  _gaq.push(['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script>
+
+  <script type="text/javascript">
+      CharacterCount = function(TextArea,FieldToCount){
+      var myField = document.getElementById(TextArea);
+      var myLabel = document.getElementById(FieldToCount);
+      if(!myField || !myLabel){return false}; // catches errors
+      var MaxChars =  myField.maxLengh;
+      if(!MaxChars){MaxChars =  myField.getAttribute('maxlength') ; };  if(!MaxChars){return false};
+      var remainingChars =   MaxChars - myField.value.length
+      myLabel.innerHTML = "Комментарий (" + remainingChars+" символов осталось из "+MaxChars+")"
+    }
+
+    setInterval(function(){CharacterCount('myfield','CharCountLabel1')},55);
+  </script>
+
 </head>
 <body>
   <div id="fb-root"></div>
