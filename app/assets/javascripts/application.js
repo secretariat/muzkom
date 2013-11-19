@@ -139,19 +139,6 @@ $(document).ready(function(){
 
 });
 
-// CharacterCount = function(TextArea,FieldToCount){
-//   var myField = document.getElementById(TextArea);
-//   var myLabel = document.getElementById(FieldToCount);
-//   if(!myField || !myLabel){return false}; // catches errors
-//   var MaxChars =  myField.maxLengh;
-//   if(!MaxChars){MaxChars =  myField.getAttribute('maxlength') ; };  if(!MaxChars){return false};
-//   var remainingChars =   MaxChars - myField.value.length
-//   myLabel.innerHTML = "Комментарий (" + remainingChars+" символов осталось из "+MaxChars+")"
-// }
-
-// setInterval(function(){CharacterCount('myfield','CharCountLabel1')},55);
-
-
 function setCookie(name,value, days) {
 	if (days) {
 		var date = new Date();
