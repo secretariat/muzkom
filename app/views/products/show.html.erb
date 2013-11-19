@@ -181,8 +181,8 @@
                   <%= f.text_field :name, :class=>"text"%>
                 </div>
                 <div class="field">
-                  <label for="">Комментарий</label>
-                  <%= f.text_area :text, :class => "text", :size=>"0x5"%>
+                  <label id='CharCountLabel1' for=""></label>
+                  <%= f.text_area :text, :class => "text", :size=>"0x5", :maxlength => 250, :id => 'myfield' %>
                 </div>
                 <div class="field">
                   <%= recaptcha_tags :display=>{:theme=>"white"}%>
@@ -221,3 +221,6 @@
     <%=render "shared/right_banner"%>
   </div>
 </div>
+
+<script type='text/javascript'>
+</script>
