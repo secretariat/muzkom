@@ -1,0 +1,10 @@
+<tr>
+  <td><input type="checkbox"></td>
+  <td><%= link_to credit.title, edit_admin_credit_path(credit)%></td>
+  <td><%= human_date_time credit.updated_at%></td>
+  <td>
+    <%=link_to visibility_button(credit.visibility), visibility_admin_credit_path(credit), :class=>"visibility-button", :method=>:post %>
+    <%=link_to 'Edit' , edit_admin_credit_path(credit), :class=>"action-button" %>
+    <%=link_to 'Delete' , admin_credit_path(credit), :method=>:delete, :confirm=>"Вы уверены?", :class=>"action-button"%>
+  </td>
+</tr>

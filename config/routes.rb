@@ -36,6 +36,7 @@ Muzkom::Application.routes.draw do
     resources :publication_comments, :only=>[:create]
   end
   resources :promotions, :only=>[:index, :show]
+  resources :credits, :only=>[:index, :show]
   resources :checkouts, :only=>[:new, :create]
 
   resource :cart, :controller => "cart" do
@@ -63,6 +64,10 @@ Muzkom::Application.routes.draw do
     end
 
     resources :promotions do
+      post :visibility, :on => :member
+    end
+
+    resources :credits do
       post :visibility, :on => :member
     end
 
