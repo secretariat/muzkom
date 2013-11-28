@@ -15,7 +15,7 @@ class ProductsController < ShopController
   def show
     @product = Product.visible.find(params[:id])
     @similar = Product.similar(@product)
-    @current_category = @product.subcategory
+    @current_category = @product.subcategory.category
     @comment = ProductComment.new
     @title_text = Text.find 8
     @keywords_text = Text.find 9

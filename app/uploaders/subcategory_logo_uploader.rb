@@ -17,7 +17,7 @@ class SubcategoryLogoUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    "/assets/fallback/" + [version_name, "default.jpg"].compact.join('_')
+    "/assets/fallback/" + [version_name, "categoris_w_p.jpg"].compact.join('_')
   end
 
   # Process files as they are uploaded:
