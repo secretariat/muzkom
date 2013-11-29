@@ -1,7 +1,7 @@
 class CreditsController < ShopController
 
 	def index
-    @credits = Credit.visible.page(params[:page])
+    @credits = Credit.visible.order('created_at DESC').page(params[:page])
   end
 
   def show

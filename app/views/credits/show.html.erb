@@ -29,6 +29,9 @@
             </div>
           </div>
           <div class="wysiwyg mbl">
+            <% if @credit.has_image?%>
+                <%= image_tag @credit.image_url(:thumb), :class=>"left mrm"%>
+            <%end%>
             <%= @credit.text.html_safe%>
           </div>
         </div>

@@ -2,7 +2,7 @@
 class PromotionsController < ShopController
 
   def index
-    @promotions = Promotion.visible.page(params[:page])
+    @promotions = Promotion.visible.order('created_at DESC').page(params[:page])
   end
 
   def show
