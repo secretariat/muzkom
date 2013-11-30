@@ -31,7 +31,7 @@ class CreditImageUploader < CarrierWave::Uploader::Base
   version :large do
      process :resize_to_limit => [350, 350]
   end
-  
+
   version :thumb do
      process :resize_to_fill => [100, 100]
   end

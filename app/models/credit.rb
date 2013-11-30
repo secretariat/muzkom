@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Credit < ActiveRecord::Base
 
   paginates_per 20
