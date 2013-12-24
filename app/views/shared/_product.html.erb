@@ -4,7 +4,13 @@
       <%= link_to image_tag(product.image_url(:thumb)), product_path(product)%>
     </div>
     <div class="last-col pll">
-      <div class="mbs"><strong><%=link_to product.name, product_path(product)%></strong></div>
+      <div class="mbs"><strong><%=link_to product.name, product_path(product)%></strong>       
+        <%#if @product.promo?%>
+            <%= link_to "/credits" do%>
+              <span class="label label-important">Акция</span>
+            <%end%>
+          <%#end%>
+      </div>
       <div><span class="muted">Код товара: <%= product.id%></span></div>
       <p><%= product.short_description.html_safe%></p>
       <% if product.color_present? %>

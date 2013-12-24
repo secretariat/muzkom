@@ -11,7 +11,13 @@
   <div class="col3of5">
     <div class="container mhs">
       <div class="mhm mvs">
-        <h3 class="mbs"><%= @product.name%></h3>
+        <h3 class="mbs"><%= @product.name%>
+          <%#if @product.promo?%>
+            <%= link_to "/credits" do%>
+              <span class="label label-important">Акция</span>
+            <%end%>
+          <%#end%>
+        </h3>
         <div class="breadcrumb">
           <%= link_to "Каталог товаров", root_path %> /
           <% unless @product.withdrawn?%>
@@ -32,7 +38,7 @@
                 <%if @product.promo?%>
                   <span class="old-price">
                     <%= product_old_price(@product)%>
-                  </span> &nbsp;
+                  </span>
                 <%end%>
                 <span class="product-price">
                   <%= product_price(@product)%>
@@ -56,10 +62,6 @@
               <div class="mbm">
                 <%= link_to (image_tag @product.brand.logo_url(:thumb) ), brand_path( @product.brand ) %>
               </div>
-                <%= link_to "/credits" do%>
-                  <%= image_tag "promo/promo1.png", :class=>"left mrm", :size=>"100x100"%>
-                  Акция
-                <%end%>
               </div>
               <div class="mbl">
                 <strong>Валюта:</strong>
