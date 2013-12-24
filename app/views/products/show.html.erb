@@ -52,8 +52,14 @@
                 <strong>Наличие: </strong>
                 <span class="success"><%= @product.status.name%></span>
               </div>
+              <div class="clearfix mbl">
               <div class="mbm">
                 <%= link_to (image_tag @product.brand.logo_url(:thumb) ), brand_path( @product.brand ) %>
+              </div>
+                <%= link_to "/credits" do%>
+                  <%= image_tag "promo/promo1.png", :class=>"left mrm", :size=>"100x100"%>
+                  Акция
+                <%end%>
               </div>
               <div class="mbl">
                 <strong>Валюта:</strong>
