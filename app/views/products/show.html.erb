@@ -13,7 +13,7 @@
       <div class="mhm mvs">
         <h3 class="mbs"><%= @product.name%>
           <%if !@product.promotions.empty? %>
-            <%= link_to promotion_path(@product.promotions.first), :title => @product.promotions.first.description do%>
+            <%= link_to promotion_path(@product.promotions.first), :data => { :title => @product.promotions.first.description} do%>
               <span class="label label-important">Акция</span>
             <%end%>
           <%end%>
