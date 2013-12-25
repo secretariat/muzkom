@@ -6,7 +6,7 @@
     <div class="last-col pll">
       <div class="mbs"><strong><%=link_to product.name, product_path(product)%></strong>
         <%if !product.promotions.empty? %>
-            <%= link_to promotion_path(product.promotions.first), :title => product.promotions.first.description do%>
+            <%= link_to promotion_path(product.promotions.first), :data => { :title => product.promotions.first.description} do%>
               <span class="label label-important">Акция</span>
             <%end%>
         <%end%>
