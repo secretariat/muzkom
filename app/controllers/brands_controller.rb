@@ -1,6 +1,9 @@
 # -*- encoding : utf-8 -*-
 class BrandsController < ShopController
 
+  include ActionView::Helpers::NumberHelper
+  include ApplicationHelper
+
   before_filter :latest_products
 
   def show
@@ -9,7 +12,12 @@ class BrandsController < ShopController
     unless params[:category_id].nil?
       @subcategory = @brand.subcategories.find(params[:category_id])
       if order_by == "price"
-        @products =  @brand.products.by_subcategory(@subcategory).order_by_price.page(params[:page])
+        # @products =  @brand.products.by_subcategory(@subcategory).order_by_price.page(params[:page])
+        @products = Product.by_subcategory(@subcategory).includes(:status).order_by_price
+        @products = sort_price_withfix(@products)
+        @products.sort!{|p, p1| p.sale_price <=> p1.sale_price}
+        @products = revert_price( @products )
+        @products = Kaminari.paginate_array(@products).page(params[:page]).per(10)
       else
         @products =  @brand.products.by_subcategory(@subcategory).order(:"#{@order_by}").page(params[:page])
       end
