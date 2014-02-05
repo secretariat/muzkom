@@ -12,19 +12,27 @@ class BrandsController < ShopController
     unless params[:category_id].nil?
       @subcategory = @brand.subcategories.find(params[:category_id])
       if order_by == "price"
-        # @products =  @brand.products.by_subcategory(@subcategory).order_by_price.page(params[:page])
-        @products = Product.by_subcategory(@subcategory).includes(:status).order_by_price
-        @products = sort_price_withfix(@products)
-        @products.sort!{|p, p1| p.sale_price <=> p1.sale_price}
-        @products = revert_price( @products )
-        @products = Kaminari.paginate_array(@products).page(params[:page]).per(10)
+        @products =  @brand.products.by_subcategory(@subcategory).order_by_price.page(params[:page])
+        # @products = Product.by_subcategory(@subcategory).includes(:status).order_by_price
+        # @products = sort_price_withfix(@products)
+        # @products.sort!{|p, p1| p.sale_price <=> p1.sale_price}
+        # @products = revert_price( @products )
+        # @products = Kaminari.paginate_array(@products).page(params[:page]).per(10)
       else
         @products =  @brand.products.by_subcategory(@subcategory).order(:"#{@order_by}").page(params[:page])
       end
       @current_category = @subcategory.category
       render 'categories/show'
     else
-      @products = @brand.products.visible.on_sale.order(:"#{@order_by}").page(params[:page])
+      if order_by == "price"
+        @products = @brand.products.visible.on_sale.order(:"#{@order_by}")
+        @products = sort_price_withfix(@products)
+        @products.sort!{|p, p1| p.sale_price <=> p1.sale_price}
+        @products = revert_price( @products )
+        @products = Kaminari.paginate_array(@products).page(params[:page]).per(10)
+      else
+        @products = @brand.products.visible.on_sale.order(:"#{@order_by}").page(params[:page])
+      end
     end
   end
 
