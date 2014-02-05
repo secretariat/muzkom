@@ -78,7 +78,7 @@ module ApplicationHelper
   end
 
   def sort_price_withfix( products )
-    puts "start"
+    # puts "start"
     products.each do |p|
       if p.promo?
         p.sale_price = human_price p.price_converted( session[:currency] )
