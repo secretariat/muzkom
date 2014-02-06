@@ -3,6 +3,7 @@ class Brand < ActiveRecord::Base
 
   mount_uploader :logo, BrandLogoUploader
 
+  belongs_to :brand_group
   has_many :currencies
   has_many :products, :dependent => :destroy
   has_many :subcategories, :through => :products

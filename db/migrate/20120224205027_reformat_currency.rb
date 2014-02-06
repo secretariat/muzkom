@@ -2,7 +2,7 @@
 class ReformatCurrency < ActiveRecord::Migration
   def up
     rename_table :currencies, :currencies_old
-    
+
     create_table :currencies do |t|
       t.integer :brand_id, :null=>false
       t.string :input, :default=>"", :limit=>3, :null=>false
@@ -10,7 +10,7 @@ class ReformatCurrency < ActiveRecord::Migration
       t.float :coef, :precision=>10, :scale=>4, :default=>0
       t.timestamps
     end
-    
+
     execute "INSERT INTO `currencies` (`brand_id`, `input`, `output`, `coef`) VALUES (0, 'usd', 'uah', 8.100)"
     execute "INSERT INTO `currencies` (`brand_id`, `input`, `output`, `coef`) VALUES (0, 'eur', 'uah', 11.000)"
     execute "INSERT INTO `currencies` (`brand_id`, `input`, `output`, `coef`) VALUES (0, 'usd', 'eur', 0.7364)"

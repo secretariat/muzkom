@@ -1,12 +1,12 @@
 # -*- encoding : utf-8 -*-
 #encoding: utf-8
 class Admin::CurrenciesController < AdminController
-  
+
   before_filter :check_if_null, :only=>[:enter, :change]
-  
+
   def index
   end
-  
+
   def enter
     calculate params[:currency]
     brand_id = params[:brand_id].to_i
@@ -22,13 +22,13 @@ class Admin::CurrenciesController < AdminController
     end
     redirect_to redirect_url
   end
-  
+
   def change
     calculate params[:currency]
     update_coef 0
     redirect_to redirect_url
   end
-  
+
 private
 
   def check_if_null
@@ -37,7 +37,7 @@ private
       redirect_to redirect_url
     end
   end
-  
+
   def calculate(data)
     @usd_to_uah = data[:usd].to_f
     @eur_to_uah = data[:eur].to_f
@@ -46,7 +46,7 @@ private
     @usd_to_eur = data[:usd].to_f/data[:eur].to_f
     @eur_to_usd = data[:eur].to_f/data[:usd].to_f
   end
-  
+
   def update_coef(brand_id)
     Currency.update_all({:coef=>@usd_to_uah},{:brand_id=>brand_id, :input=>"usd", :output=>"uah"})
     Currency.update_all({:coef=>@eur_to_uah},{:brand_id=>brand_id, :input=>"eur", :output=>"uah"})
@@ -55,7 +55,7 @@ private
     Currency.update_all({:coef=>@usd_to_eur},{:brand_id=>brand_id, :input=>"usd", :output=>"eur"})
     Currency.update_all({:coef=>@eur_to_usd},{:brand_id=>brand_id, :input=>"eur", :output=>"usd"})
   end
-  
+
   def redirect_url
     unless params[:brand_id].nil?
       edit_admin_brand_url params[:brand_id]
@@ -63,5 +63,5 @@ private
       admin_root_url
     end
   end
-  
+
 end

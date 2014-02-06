@@ -1,0 +1,47 @@
+<div class="clearfix">
+  <div class="container mbl">
+    <div class="box-header mbm"><h1>Группы брендов</h1></div>
+      <div class="clearfix mam">
+        <%= link_to "Добавить", new_admin_brand_group_path, :class=>"submit-button right"%>
+      </div>
+      <div class="mhm">
+      <table class="data-table mbm">
+        <thead>
+          <tr>
+            <td class="checkbox"><input type="checkbox"></td>
+            <td>Группа</td>
+            <td>Брендов</td>
+            <td class="actions">Посл.Редакт.</td>
+            <td class="actions">Действия</td>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <td colspan="9">Показано <%=  @brand_group.count %> групп</td>
+          </tr>
+        </tfoot>
+        <tbody>
+          <% @brand_group.each do |group|%>
+          <tr>
+            <td><input type="checkbox" /></td>
+            <!-- <td><%#= link_to group.name, "#"%></td> -->
+            <td><%= group.name %></td>
+            <td><span class="muted">Брендов в группе: <%#= group.products.count%></span></td>
+            <td><%= human_date_time(group.updated_at) || "-"%></td>
+            <td>
+            <%#= link_to visibility_button(group.visibility), visibility_admin_group_path(group), :class=>"visibility-button", :method => :post, :id=>"visibility_#{group.id}", :remote=>true %>
+            <%=link_to 'Edit' , edit_admin_brand_group_path(group), :class=>"action-button" %>
+            <%=link_to 'Delete' , admin_brand_group_path(group), :method=>:delete, :confirm=>"Вы уверены, что хотите удалить этого производителя со всеми вложенными товарами?", :class=>"action-button"%>
+            </td>
+          </tr>
+          <%end%>
+          <%if @brand_group.empty?%>
+            <tr>
+              <td colspan="9"><p>Нет групп</p></td>
+            </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

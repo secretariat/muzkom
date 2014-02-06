@@ -1,0 +1,20 @@
+<%=form_for [:admin, @brand_group] do |f|%>
+  <div class="clearfix mbm">
+    <%= link_to "Отменить", admin_brand_groups_path, :class=>"submit-button right"%>
+    <%=f.submit "Сохранить", :class=>"submit-button right mrs"%>
+  </div>
+  <fieldset>
+    <div class="field clearfix">
+      <div class="col2of4">
+        <label for="">Название группы брендов</label>
+        <%=f.text_field :name, :class=>"text"%>
+      </div>
+    </div>
+    <div class="field clearfix">
+      <div class="col1of4">
+        <label for="">Заголовок</label>
+        <%=f.text_field :input, :class=>"text"%>
+      </div>
+    </div>
+  </fieldset>
+<%end%>

@@ -1,6 +1,7 @@
 Muzkom::Application.routes.draw do
 
   root :to=>'pages#index'
+
   match '/login' => 'sessions#new', :as=>:login
   match '/logout' => 'sessions#destroy', :as=>:logout
   get "/payment_delivery" => "pages#delivery"
@@ -51,6 +52,7 @@ Muzkom::Application.routes.draw do
     root :to=>'index#index'
     resources :checkouts
     resources :pages
+    resources :brand_groups
     resources :texts
     resources :videos
     resources :users, :only=>[:edit, :update]
