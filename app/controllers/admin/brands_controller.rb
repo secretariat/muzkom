@@ -1,58 +1,64 @@
 # -*- encoding : utf-8 -*-
 class Admin::BrandsController < AdminController
-    before_filter :find_brand, :only => [:update, :edit, :destroy, :visibility]
+  before_filter :find_brand, :only => [:update, :edit, :destroy, :visibility]
 
-    def index
-      @brands = Brand.order(:name)
-    end
+  def index
+    @brands = Brand.order(:name)
+  end
 
-    def new
-      @brand = Brand.new
-    end
+  def new
+    @brand = Brand.new
+    @brand_groups = BrandGroup.all
+  end
 
-    def create
-      @brand = Brand.new(params[:brand])
-      if @brand.save
-        flash[:success] = t('crud.successful_create')
-        redirect_to admin_brands_url
-      else
-        flash[:error] = t('crud.error')
-        render :action => :new
-      end
-    end
-
-    def edit
-    end
-
-    def update
-      @brand.update_attributes(params[:brand])
-      if @brand.save
-        flash[:success] =  t('crud.successful_update')
-        redirect_to admin_brands_url
-      else
-        flash[:error] = t('crud.error')
-        render :edit
-      end
-    end
-
-    def destroy
-      @brand.destroy
-      flash[:success] = t('crud.successful_destroy')
+  def create
+    @brand = Brand.new(params[:brand])
+    if @brand.save
+      flash[:success] = t('crud.successful_create')
       redirect_to admin_brands_url
+    else
+      flash[:error] = t('crud.error')
+      render :action => :new
     end
+  end
 
-    def visibility
-      @brand.visibility = vis = @brand.visibility==false ? true : false
-      if @brand.save
-        @brand.products.update_all("visibility = #{vis}")
-      end
-      redirect_to admin_brands_url unless request.xhr?
+  def edit
+    @brand_groups = BrandGroup.all
+  end
+
+  # def show
+    
+  # end
+
+  def update
+    @brand.update_attributes(params[:brand])
+    if @brand.save
+      flash[:success] =  t('crud.successful_update')
+      redirect_to admin_brands_url
+    else
+      flash[:error] = t('crud.error')
+      render :edit
     end
+  end
+
+  def destroy
+    @brand.destroy
+    flash[:success] = t('crud.successful_destroy')
+    redirect_to admin_brands_url
+  end
+
+  def visibility
+    @brand.visibility = vis = @brand.visibility==false ? true : false
+    if @brand.save
+      @brand.products.update_all("visibility = #{vis}")
+    end
+    redirect_to admin_brands_url unless request.xhr?
+  end
 
   private
 
-    def find_brand
-      @brand = Brand.find params[:id]
-    end
+  def find_brand
+    @brand = Brand.find params[:id]
+  end
 
 end

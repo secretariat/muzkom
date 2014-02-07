@@ -1,14 +1,14 @@
 # -*- encoding : utf-8 -*-
 class Admin::CheckoutsController < AdminController
-  
+
   def index
     @checkouts = Checkout.order("created_at DESC")
   end
-  
+
   def show
     @checkout = Checkout.find params[:id]
   end
-  
+
   def update
     @checkout = Checkout.find params[:id]
     @checkout.update_attributes(params[:checkout])
@@ -19,12 +19,12 @@ class Admin::CheckoutsController < AdminController
       render :show
     end
   end
-  
+
   def destroy
     @checkout = Checkout.find params[:id]
     @checkout.destroy
     redirect_to admin_checkouts_url
   end
-  
-  
+
+
 end

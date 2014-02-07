@@ -52,7 +52,6 @@ Muzkom::Application.routes.draw do
     root :to=>'index#index'
     resources :checkouts
     resources :pages
-    resources :brand_groups
     resources :texts
     resources :videos
     resources :users, :only=>[:edit, :update]
@@ -61,6 +60,7 @@ Muzkom::Application.routes.draw do
     resources :feedbacks, :only => [:index, :destroy]
     resources :product_comments, :only => [:index, :destroy]
     resources :publication_comments, :only => [:index, :destroy]
+    resources :brand_groups
 
     resources :banners do
       post :placement, :on => :member

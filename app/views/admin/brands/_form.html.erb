@@ -16,6 +16,14 @@
       <%=f.text_field :title, :class=>"text"%>
     </div>
   </div>
+
+  <div class="field clearfix">
+    <div class="col2of5">
+      <label for="">Группа брендов<%= id_or_blank(@brand.brand_group) %></label>
+      <%= f.select :brand_group_id, options_from_collection_for_select(@brand_groups, :id, :name, id_or_blank(@brand.brand_group)), {}, :class=>"chzn-select"%>
+    </div>
+  </div>
+
   <div class="field clearfix">
     <label for="">Лого производителя</label>
     <%= image_tag(@brand.logo_url(:thumb), :style=>"border: 1px solid #ddd") %><br />
