@@ -13,7 +13,7 @@
       <input type="text" name="currency[eur]" class="text" value="<%= @eur.coef%>" style="width: 100px"/>
     </div>
     <%id = @brand.nil? ? 0 : @brand.id%>
-    <%= hidden_field :currency, :brand_id, :value => id%>
+    <%= hidden_field :currency, :brand_id, :value => id %>
     <div class="field">
       <input type="submit" value="Сохранить" class="submit-button right">
     </div>

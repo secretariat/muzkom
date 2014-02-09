@@ -11,6 +11,8 @@
             <td class="checkbox"><input type="checkbox"></td>
             <td>Группа</td>
             <td>Брендов</td>
+            <td>USD</td>
+            <td>EUR</td>
             <td class="actions">Посл.Редакт.</td>
             <td class="actions">Действия</td>
           </tr>
@@ -27,6 +29,8 @@
             <td><%= link_to group.name, admin_brand_group_path(group)%></td>
             <!-- <td><%#= group.name %></td> -->
             <td><span class="muted">Брендов в группе: <%= group.brands.count%></span></td>
+            <td><span class="muted"><%= group.usd_to_uah %></span></td>
+            <td><span class="muted"><%= group.eur_to_uah %></span></td>
             <td><%= human_date_time(group.updated_at) || "-"%></td>
             <td>
             <%#= link_to visibility_button(group.visibility), visibility_admin_group_path(group), :class=>"visibility-button", :method => :post, :id=>"visibility_#{group.id}", :remote=>true %>
