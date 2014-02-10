@@ -63,7 +63,7 @@ class Admin::BrandsController < AdminController
     @usd = @brand_group.usd_to_uah
     @eur = @brand_group.eur_to_uah
     calculate( @usd, @eur )
-    update_coef brand.id
+    ( brand.currencies.size == 0 ) ? create_coef( brand.id ) : update_coef( brand.id )
   end
 
   def calculate( usd, eur )
@@ -84,6 +84,14 @@ class Admin::BrandsController < AdminController
     Currency.update_all({:coef=>@eur_to_usd},{:brand_id=>brand_id, :input=>"eur", :output=>"usd"})
   end
 
+  def create_coef(brand_id)
+    Currency.create({:coef=>@usd_to_uah, :brand_id => brand_id, :input=>"usd", :output=>"uah"})
+    Currency.create({:coef=>@eur_to_uah, :brand_id => brand_id, :input=>"eur", :output=>"uah"})
+    Currency.create({:coef=>@uah_to_usd, :brand_id => brand_id, :input=>"uah", :output=>"usd"})
+    Currency.create({:coef=>@uah_to_eur, :brand_id => brand_id, :input=>"uah", :output=>"eur"})
+    Currency.create({:coef=>@usd_to_eur, :brand_id => brand_id, :input=>"usd", :output=>"eur"})
+    Currency.create({:coef=>@eur_to_usd, :brand_id => brand_id, :input=>"eur", :output=>"usd"})
+  end
 
   def find_brand
     @brand = Brand.find params[:id]
