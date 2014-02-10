@@ -3,11 +3,16 @@ class Admin::BrandGroupsController < AdminController
   before_filter :check_if_null, :only=>[:enter, :change]
 
   def index
-  	@brand_group = BrandGroup.all
+  	@brand_group = BrandGroup.order("name ASC")
+    @default_group_size = Brand.where( :brand_group_id => [1,nil] ).size
   end
 
   def show
-    @brands = BrandGroup.find(params[:id]).brands
+    if params[:id].to_i == 1
+      @brands = Brand.where( :brand_group_id => [1,nil] )
+    else
+      @brands = BrandGroup.find(params[:id]).brands.order("name ASC")
+    end
   end
 
   def new

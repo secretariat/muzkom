@@ -28,7 +28,11 @@
             <td><input type="checkbox" /></td>
             <td><%= link_to group.name, admin_brand_group_path(group)%></td>
             <!-- <td><%#= group.name %></td> -->
-            <td><span class="muted">Брендов в группе: <%= group.brands.count%></span></td>
+            <td>
+              <span class="muted">
+                Брендов в группе: <%= (group.id == 1) ? @default_group_size : group.brands.count %>
+              </span>
+            </td>
             <td><span class="muted"><%= group.usd_to_uah %></span></td>
             <td><span class="muted"><%= group.eur_to_uah %></span></td>
             <td><%= human_date_time(group.updated_at) || "-"%></td>
