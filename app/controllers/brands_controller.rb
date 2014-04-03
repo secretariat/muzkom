@@ -8,17 +8,22 @@ class BrandsController < ShopController
 
   def show
     # @brand = Brand.visible.find params[:id]
-    @brand = Brand.visible.find([52])
+    @brand = Brand.visible.find([52,72,3])
     @order_by = order_by
     @products = nil
     unless params[:category_id].nil?
       @subcategory = @brand.first.subcategories.find(params[:category_id])
+      @brands = Product.by_subcategory(@subcategory).includes(:brand).collect{|product| product.brand}.uniq
       if order_by == "price"
         @brand.each do |brand|
           if @products.nil?
             @products = brand.products.by_subcategory(@subcategory).order_by_price.page(params[:page])
+            puts @products.to_a.size
+            # sleep(3)
           else
             @products += brand.products.by_subcategory(@subcategory).order_by_price.page(params[:page])
+            puts @products.to_a.size
+            # sleep(3)
           end
         end
         @products = Kaminari.paginate_array(@products).page(params[:page])

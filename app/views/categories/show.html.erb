@@ -11,38 +11,51 @@
 
       <div class="container mhs">
         <div class="mhm mvs">
-          <% if @brand %>
-            <% @name = "" %>
-            <% @brand.each do |br|  %>
-              <% @name = "#{br.name}/#{@name}" %>
-            <% end %>
-          <% end %>
+          <%# if @brand %>
+            <%# @name = "" %>
+            <%# @brand.each do |br|  %>
+              <%# @name = "#{br.name}/#{@name}" %>
+            <%# end %>
+          <%# end %>
           <h3 class="mbs"><%= @subcategory.name%></h3>
-          <h4><%= @name %></h4>
+          <!-- <h4><%#= @name %></h4> -->
           <div class="breadcrumb">
             <%= link_to "Каталог товаров", root_path %> /
             <%= link_to @subcategory.category.name, "#"%> /
             <%unless @brand.blank?%>
               <span><%= link_to @subcategory.name, category_path(@subcategory)%></span> /
-              <span><%= @brand[0].name%></span>
+              <span><%#= @brand[0].name%></span>
             <%else%>
               <span><%= @subcategory.name%></span>
             <%end%>
           </div>
           <div class="clearfix mbl">
-          <% if @brand.nil? %>
+          <%# if @brand.nil? %>
             <h4 class="mbs">Выбор по производителям:</h4>
             <div class="brand-list">
-            <% @brands.each do |brand| %>
-              <span class="brand">
-                <%= link_to brand.name.downcase.capitalize, category_brand_path(@subcategory, brand)%>
-                <span class="quantity">(<%= brand.products.by_subcategory(@subcategory).count%>)</span>
-              </span>
-            <%end%>
+              <% @brands.each do |brand| %>
+                <span class="brand">
+                  <%= link_to brand.name.downcase.capitalize, category_brand_path(@subcategory, brand)%>
+                  <span class="quantity">(<%= brand.products.by_subcategory(@subcategory).count%>)</span>
+                </span>
+              <%end%>
             </div>
-          <%else%>
-            <%= link_to "&larr; Все производители".html_safe, category_path(@subcategory)%>
-          <%end%>
+          <%#else%>
+            <%#= link_to "&larr; Все производители".html_safe, category_path(@subcategory)%>
+          <%#end%>
+            <div class="brand-list">
+            <br/>
+              <% if @brand %>
+                <h4 class="mbs">Фильтр:</h4>
+                <% @brand.each do |brand| %>
+                  <span class="brand">
+                    <%= link_to "x "+brand.name.downcase.capitalize, category_brand_path(@subcategory, brand)%>
+                    <span class="quantity">(<%= brand.products.by_subcategory(@subcategory).count%>)</span>
+                  </span><br/>
+                <%end%>
+              <%end%>
+            </div>
+
           </div>
           <div class="clearfix mbm">
             <div class="col1of2">
