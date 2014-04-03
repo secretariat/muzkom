@@ -7,12 +7,21 @@ class BrandsController < ShopController
   before_filter :latest_products
 
   def show
-    @brand = Brand.visible.find params[:id]
+    # @brand = Brand.visible.find params[:id]
+    @brand = Brand.visible.find([52])
     @order_by = order_by
+    @products = nil
     unless params[:category_id].nil?
-      @subcategory = @brand.subcategories.find(params[:category_id])
+      @subcategory = @brand.first.subcategories.find(params[:category_id])
       if order_by == "price"
-        @products =  @brand.products.by_subcategory(@subcategory).order_by_price.page(params[:page])
+        @brand.each do |brand|
+          if @products.nil?
+            @products = brand.products.by_subcategory(@subcategory).order_by_price.page(params[:page])
+          else
+            @products += brand.products.by_subcategory(@subcategory).order_by_price.page(params[:page])
+          end
+        end
+        @products = Kaminari.paginate_array(@products).page(params[:page])
         # @products = Product.by_subcategory(@subcategory).includes(:status).order_by_price
         # @products = sort_price_withfix(@products)
         # @products.sort!{|p, p1| p.sale_price <=> p1.sale_price}
@@ -24,6 +33,7 @@ class BrandsController < ShopController
       @current_category = @subcategory.category
       render 'categories/show'
     else
+      @brand = Brand.visible.find params[:id]
       if order_by == "price"
         @products = @brand.products.visible.on_sale.order(:"#{@order_by}")
         @products = sort_price_withfix(@products)

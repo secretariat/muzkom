@@ -11,22 +11,29 @@
 
       <div class="container mhs">
         <div class="mhm mvs">
-          <h3 class="mbs"><%= @subcategory.name%> <%= @brand.name if @brand%></h3>
+          <% if @brand %>
+            <% @name = "" %>
+            <% @brand.each do |br|  %>
+              <% @name = "#{br.name}/#{@name}" %>
+            <% end %>
+          <% end %>
+          <h3 class="mbs"><%= @subcategory.name%></h3>
+          <h4><%= @name %></h4>
           <div class="breadcrumb">
             <%= link_to "Каталог товаров", root_path %> /
             <%= link_to @subcategory.category.name, "#"%> /
             <%unless @brand.blank?%>
               <span><%= link_to @subcategory.name, category_path(@subcategory)%></span> /
-              <span><%= @brand.name%></span>
+              <span><%= @brand[0].name%></span>
             <%else%>
               <span><%= @subcategory.name%></span>
             <%end%>
           </div>
           <div class="clearfix mbl">
-          <% if !@brand%>
+          <% if @brand.nil? %>
             <h4 class="mbs">Выбор по производителям:</h4>
             <div class="brand-list">
-            <%@brands.each do |brand|%>
+            <% @brands.each do |brand| %>
               <span class="brand">
                 <%= link_to brand.name.downcase.capitalize, category_brand_path(@subcategory, brand)%>
                 <span class="quantity">(<%= brand.products.by_subcategory(@subcategory).count%>)</span>
@@ -47,7 +54,7 @@
             </div>
             <div class="col1of2">
               <div class="pagination right">
-                <%= paginate @products%>
+                <%= paginate @products %>
               </div>
             </div>
           </div>
