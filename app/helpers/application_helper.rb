@@ -91,4 +91,16 @@ module ApplicationHelper
     return products
   end
 
+  def get_products_from_brands( brands, subcategory, order_by )
+    products = nil
+    brands.each do |brand|
+      if products.nil?
+        products = brand.products.by_subcategory( subcategory )
+      else
+        products += brand.products.by_subcategory( subcategory )
+      end
+    end
+    products
+  end
+
 end

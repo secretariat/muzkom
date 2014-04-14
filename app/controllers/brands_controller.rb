@@ -7,33 +7,38 @@ class BrandsController < ShopController
   before_filter :latest_products
 
   def show
+    # session[:brands] = nil
+    if params[:delete] && !session[:brands].nil?
+      session[:brands].delete(params[:id].to_i)
+    else
+      if session[:brands].nil?
+        session[:brands] = [params[:id].to_i]
+      else
+        session[:brands] << params[:id].to_i unless session[:brands].include?( params[:id].to_i )
+      end
+    end
     # @brand = Brand.visible.find params[:id]
-    @brand = Brand.visible.find([52,72,3])
+    @brand = Brand.visible.find( session[:brands] )
     @order_by = order_by
     @products = nil
     unless params[:category_id].nil?
       @subcategory = @brand.first.subcategories.find(params[:category_id])
       @brands = Product.by_subcategory(@subcategory).includes(:brand).collect{|product| product.brand}.uniq
       if order_by == "price"
-        @brand.each do |brand|
-          if @products.nil?
-            @products = brand.products.by_subcategory(@subcategory).order_by_price.page(params[:page])
-            puts @products.to_a.size
-            # sleep(3)
-          else
-            @products += brand.products.by_subcategory(@subcategory).order_by_price.page(params[:page])
-            puts @products.to_a.size
-            # sleep(3)
-          end
-        end
-        @products = Kaminari.paginate_array(@products).page(params[:page])
-        # @products = Product.by_subcategory(@subcategory).includes(:status).order_by_price
-        # @products = sort_price_withfix(@products)
-        # @products.sort!{|p, p1| p.sale_price <=> p1.sale_price}
-        # @products = revert_price( @products )
-        # @products = Kaminari.paginate_array(@products).page(params[:page]).per(10)
+        @products = get_products_from_brands( @brand, @subcategory, order_by )
+        @products = sort_price_withfix(@products)
+        @products.sort!{|p, p1| p.sale_price <=> p1.sale_price}
+        @products = revert_price( @products )
+        @products = Kaminari.paginate_array(@products).page(params[:page]).per(10)
       else
-        @products =  @brand.products.by_subcategory(@subcategory).order(:"#{@order_by}").page(params[:page])
+        # @products =  @brand.products.by_subcategory(@subcategory).order(:"#{@order_by}").page(params[:page])
+        @products = get_products_from_brands( @brand, @subcategory, order_by )
+        if order_by == "name"
+          @products.sort!{|p, p1| p.name <=> p1.name}
+        else
+          @products.sort!{|p, p1| p.updated_at <=> p1.updated_at}
+        end
+        @products = Kaminari.paginate_array(@products).page(params[:page]).per(10)
       end
       @current_category = @subcategory.category
       render 'categories/show'
@@ -46,7 +51,7 @@ class BrandsController < ShopController
         @products = revert_price( @products )
         @products = Kaminari.paginate_array(@products).page(params[:page]).per(10)
       else
-        @products = @brand.products.visible.on_sale.order(:"#{@order_by}").page(params[:page])
+        @products = @brand.products.visible.on_sale.order(:"#{@order_by}").page(params[:page]).per(10)
       end
     end
   end
@@ -66,5 +71,9 @@ class BrandsController < ShopController
   #     render 'categories/show'
   #   end
   # end
+
+  def delete_brands_from_filter
+    session[:brands].delete(params[:id].to_i)
+  end
 
 end

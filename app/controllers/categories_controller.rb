@@ -7,6 +7,7 @@ class CategoriesController < ShopController
   before_filter :latest_products
 
   def show
+    session[:brands] = nil
     @order_by = order_by
     @subcategory = Subcategory.visible.find params[:id]
     if order_by == "price"
@@ -28,6 +29,7 @@ class CategoriesController < ShopController
   end
 
   def list
+    session[:brands] = nil
     @keywords_text = Text.find 10
     # @suzbcategory = Subcategory.visible.find params[:id]
     @current_category = Category.visible.find params[:id]
