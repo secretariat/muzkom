@@ -7,9 +7,11 @@ class BrandsController < ShopController
   before_filter :latest_products
 
   def show
-    # session[:brands] = nil
     if params[:delete] && !session[:brands].nil?
       session[:brands].delete(params[:id].to_i)
+      if session[:brands].size == 0
+        redirect_to category_path(params[:category_id]) and return
+      end
     else
       if session[:brands].nil?
         session[:brands] = [params[:id].to_i]
@@ -22,7 +24,7 @@ class BrandsController < ShopController
     @order_by = order_by
     @products = nil
     unless params[:category_id].nil?
-      @subcategory = @brand.first.subcategories.find(params[:category_id])
+      @subcategory = @brand.first.subcategories.find( params[:category_id] )
       @brands = Product.by_subcategory(@subcategory).includes(:brand).collect{|product| product.brand}.uniq
       if order_by == "price"
         @products = get_products_from_brands( @brand, @subcategory, order_by )
