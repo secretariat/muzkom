@@ -26,7 +26,7 @@ class ProductsController < ShopController
   def find_by_code
     @item = Product.where( :id => params[:search], :visibility => true ).first
     if !@item.blank?
-      redirect_to product_path (@item.id)
+      redirect_to product_path(@item.id)
     else
       flash[:notice] = "Товар с кодом #{params[:search]} не найден."
       redirect_to request.referer
