@@ -48,6 +48,7 @@
               <% if @brand %>
                 <h4 class="mbs">Фильтр:</h4>
                 <% @brand.each do |brand| %>
+                  <% next if brand.products.by_subcategory(@subcategory).count == 0 %>
                   <span class="brand">
                     <%= link_to "x "+brand.name.downcase.capitalize, category_brand_path(@subcategory, brand, :delete => true) %>
                     <span class="quantity">(<%= brand.products.by_subcategory(@subcategory).count%>)</span>

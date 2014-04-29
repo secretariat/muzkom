@@ -7,6 +7,9 @@ class BrandsController < ShopController
   before_filter :latest_products
 
   def show
+
+    puts session[:brands]
+
     if params[:delete] && !session[:brands].nil?
       session[:brands].delete(params[:id].to_i)
       if session[:brands].size == 0
@@ -24,7 +27,8 @@ class BrandsController < ShopController
     @order_by = order_by
     @products = nil
     unless params[:category_id].nil?
-      @subcategory = @brand.first.subcategories.find( params[:category_id] )
+      # @subcategory = @brand.first.subcategories.find( params[:category_id] )
+      @subcategory = get_subcategory( @brand )
       @brands = Product.by_subcategory(@subcategory).includes(:brand).collect{|product| product.brand}.uniq
       if order_by == "price"
         @products = get_products_from_brands( @brand, @subcategory, order_by )
@@ -33,12 +37,12 @@ class BrandsController < ShopController
         @products = revert_price( @products )
         @products = Kaminari.paginate_array(@products).page(params[:page]).per(10)
       else
-        # @products =  @brand.products.by_subcategory(@subcategory).order(:"#{@order_by}").page(params[:page])
         @products = get_products_from_brands( @brand, @subcategory, order_by )
         if order_by == "name"
           @products.sort!{|p, p1| p.name <=> p1.name}
         else
-          @products.sort!{|p, p1| p.updated_at <=> p1.updated_at}
+          @products.sort!{|p, p1| p.updated_at && p1.updated_at ? p.updated_at <=> p1.updated_at : p.updated_at ? 1 : -1 }
+          # @products.sort_by(&:updated_at)
         end
         @products = Kaminari.paginate_array(@products).page(params[:page]).per(10)
       end
@@ -76,6 +80,18 @@ class BrandsController < ShopController
 
   def delete_brands_from_filter
     session[:brands].delete(params[:id].to_i)
+  end
+
+  private
+
+  def get_subcategory( brands )
+    brands.each do |br|
+      if br.subcategories.find_by_id( params[:category_id] )
+        return br.subcategories.find_by_id( params[:category_id] )
+      else
+        session[:brands].delete(br.id)
+      end
+    end
   end
 
 end
