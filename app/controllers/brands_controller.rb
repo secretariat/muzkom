@@ -41,8 +41,10 @@ class BrandsController < ShopController
         if order_by == "name"
           @products.sort!{|p, p1| p.name <=> p1.name}
         else
-          @products.sort!{|p, p1| p.updated_at && p1.updated_at ? p.updated_at <=> p1.updated_at : p.updated_at ? 1 : -1 }
+          # @products.sort!{|p, p1| p.updated_at && p1.updated_at ? p.updated_at <=> p1.updated_at : p.updated_at ? 1 : -1 }
+          @products.sort!{|p, p1| p.created_at && p1.created_at ? p.created_at <=> p1.created_at : p.created_at ? 1 : -1 }
           # @products.sort_by(&:updated_at)
+          @products.reverse!
         end
         @products = Kaminari.paginate_array(@products).page(params[:page]).per(10)
       end
