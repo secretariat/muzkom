@@ -21,7 +21,7 @@
           <!-- <h4><%#= @name %></h4> -->
           <div class="breadcrumb">
             <%= link_to "Каталог товаров", root_path %> /
-            <%= link_to @subcategory.category.name, "#"%> /
+            <%= link_to @subcategory.category.name, categories_list_path(:id => @subcategory.category.id) %> /
             <%unless @brand.blank?%>
               <span><%= link_to @subcategory.name, category_path(@subcategory)%></span> /
               <span><%#= @brand[0].name%></span>

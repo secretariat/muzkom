@@ -8,8 +8,6 @@ class BrandsController < ShopController
 
   def show
 
-    puts session[:brands]
-
     if params[:delete] && !session[:brands].nil?
       session[:brands].delete(params[:id].to_i)
       if session[:brands].size == 0
