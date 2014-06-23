@@ -13,19 +13,24 @@
     <%=render "shared/left_banner"%>
   </div>
   <div class="col3of5">
-    <br/>
-    <center>
-      <h1><%= @current_category.name %></h1>
-    </center>
-    <br/>
-    <% @current_category.subcategories.visible.order('subcategories.priority').each do |subcategory| %>
-      <div class="cat-block">
-        <%= link_to (image_tag(subcategory.logo_url, :size => "200x200", :alt => subcategory.name)), category_path(subcategory) %><br/>
-        <%= link_to subcategory.name, category_path(subcategory)%>
-      </div>
-    <% end %>
+
     <div class="mbs">
-      <%= @current_category.text.html_safe%>
+      <center>
+        <h3 class="mbs"><%= @current_category.name %></h3>
+      </center>
+      <br/>
+      <% @current_category.subcategories.visible.order('subcategories.priority').each do |subcategory| %>
+        <div class="cat-block">
+          <%= link_to (image_tag(subcategory.logo_url, :size => "200x200", :alt => subcategory.name)), category_path(subcategory) %><br/>
+          <%= link_to subcategory.name, category_path(subcategory)%>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="mhs">
+      <div class="mbs">
+        <%= @current_category.text.html_safe%>
+      </div>
     </div>
   </div>
 
