@@ -33,7 +33,7 @@ class BrandsController < ShopController
         @products = sort_price_withfix(@products)
         @products.sort!{|p, p1| p.sale_price <=> p1.sale_price}
         @products = revert_price( @products )
-        @products = Kaminari.paginate_array(@products).page(params[:page]).per(10)
+        @products = Kaminari.paginate_array(@products).page(params[:page]).per(20)
       else
         @products = get_products_from_brands( @brand, @subcategory, order_by )
         if order_by == "name"
@@ -44,7 +44,7 @@ class BrandsController < ShopController
           # @products.sort_by(&:updated_at)
           @products.reverse!
         end
-        @products = Kaminari.paginate_array(@products).page(params[:page]).per(10)
+        @products = Kaminari.paginate_array(@products).page(params[:page]).per(20)
       end
       @current_category = @subcategory.category
       render 'categories/show'
@@ -55,9 +55,9 @@ class BrandsController < ShopController
         @products = sort_price_withfix(@products)
         @products.sort!{|p, p1| p.sale_price <=> p1.sale_price}
         @products = revert_price( @products )
-        @products = Kaminari.paginate_array(@products).page(params[:page]).per(10)
+        @products = Kaminari.paginate_array(@products).page(params[:page]).per(20)
       else
-        @products = @brand.products.visible.on_sale.order(:"#{@order_by}").page(params[:page]).per(10)
+        @products = @brand.products.visible.on_sale.order(:"#{@order_by}").page(params[:page]).per(20)
       end
     end
   end

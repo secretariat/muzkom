@@ -16,7 +16,7 @@ class CategoriesController < ShopController
       @products = sort_price_withfix(@products)
       @products.sort!{|p, p1| p.sale_price <=> p1.sale_price}
       @products = revert_price( @products )
-      @products = Kaminari.paginate_array(@products).page(params[:page]).per(10)
+      @products = Kaminari.paginate_array(@products).page(params[:page]).per(20)
     else
       @products = Product.by_subcategory(@subcategory).includes(:status).order(:"#{@order_by}").page(params[:page])
     end

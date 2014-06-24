@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 class Product < ActiveRecord::Base
 
-  paginates_per 10
+  paginates_per 20
 
   mount_uploader :image, ProductImageUploader
 
