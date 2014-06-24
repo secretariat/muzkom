@@ -138,11 +138,13 @@
         <li><%= link_to "Корзина", cart_path %></li>
       </ul>
       <div class="col1of5 mts">
-        <%= link_to image_tag("icons/facebook.png", :size=>"20x20", :class=>"mas"), "http://www.facebook.com/profile.php?id=100001185448670", :target=>"_blank"%>
-        <%= link_to image_tag("icons/vkontakte.png", :size=>"20x20", :class=>"mas"), "http://vk.com/id55454631", :target=>"_blank"%>
-        <%= link_to image_tag("icons/twitter.png", :size=>"20x20", :class=>"mas"), "https://twitter.com/#!/muzkom_com_ua", :target=>"_blank"%>
-        <%= link_to image_tag("icons/youtube.png", :size=>"20x20", :class=>"mas"), "http://www.youtube.com/user/MUZKOM", :target=>"_blank"%>
-        <%= link_to image_tag("icons/rss.png", :size=>"20x20", :class=>"mas"), "/feed.rss", :target=>"_blank"%>
+        <noindex>
+          <%= link_to image_tag("icons/facebook.png", :size=>"20x20", :class=>"mas"), "http://www.facebook.com/profile.php?id=100001185448670", :target=>"_blank", :rel => "nofollow"%>
+          <%= link_to image_tag("icons/vkontakte.png", :size=>"20x20", :class=>"mas"), "http://vk.com/id55454631", :target=>"_blank", :rel => "nofollow"%>
+          <%= link_to image_tag("icons/twitter.png", :size=>"20x20", :class=>"mas"), "https://twitter.com/#!/muzkom_com_ua", :target=>"_blank", :rel => "nofollow"%>
+          <%= link_to image_tag("icons/youtube.png", :size=>"20x20", :class=>"mas"), "http://www.youtube.com/user/MUZKOM", :target=>"_blank", :rel => "nofollow"%>
+          <%= link_to image_tag("icons/gplus.png", :size=>"20x20", :class=>"mas"), "https://plus.google.com/+MuzkomUaKiev/posts", :target=>"_blank", :rel => "nofollow"%>
+        </noindex>
       </div>
     </div>
     <div class="body">
@@ -180,21 +182,29 @@
         </div>
         <div class="col1of4">
           <div class="mll">
-            <div class="mbm">
-              <%= image_tag "icons/facebook.png", :class=>"social_icon" %> <a href="http://www.facebook.com/profile.php?id=100001185448670" target="_blank">Facebook</a>
-            </div>
-            <div class="mbm">
-              <%=image_tag src="icons/vkontakte.png", :class=>"social_icon"%> <a href="http://vk.com/id55454631" target="_blank">Вконтакте</a>
-            </div>
-            <div class="mbm">
-              <%=image_tag "icons/twitter.png", :class=>"social_icon" %> <a href="https://twitter.com/#!/muzkom_com_ua" target="_blank">Twitter</a>
-            </div>
-            <div class="mbm">
-              <%=image_tag "icons/youtube.png", :class=>"social_icon" %> <a href="http://www.youtube.com/user/MUZKOM" target="_blank">YouTube</a>
-            </div>
-            <div class="mbm">
-              <%= image_tag "icons/livejournal_logo.png", :class=>"social_icon"%><a href="http://muzkom-com-ua.livejournal.com/" target="_blank">LiveJournal</a>
-            </div>
+            <noindex>
+              <div class="mbm">
+                <%= image_tag "icons/facebook.png", :class=>"social_icon" %> <a href="http://www.facebook.com/profile.php?id=100001185448670" target="_blank" rel="nofollow">Facebook</a>
+              </div>
+              <div class="mbm">
+                <%=image_tag src="icons/vkontakte.png", :class=>"social_icon"%> <a href="http://vk.com/id55454631" target="_blank" rel="nofollow">Вконтакте</a>
+              </div>
+              <div class="mbm">
+                <%=image_tag "icons/twitter.png", :class=>"social_icon" %> <a href="https://twitter.com/#!/muzkom_com_ua" target="_blank" rel="nofollow">Twitter</a>
+              </div>
+              <div class="mbm">
+                <%=image_tag "icons/youtube.png", :class=>"social_icon" %> <a href="http://www.youtube.com/user/MUZKOM" target="_blank" rel="nofollow">YouTube</a>
+              </div>
+              <div class="mbm">
+                <%= image_tag "icons/livejournal_logo.png", :class=>"social_icon"%><a href="http://muzkom-com-ua.livejournal.com/" target="_blank" rel="nofollow">LiveJournal</a>
+              </div>
+              <div class="mbm">
+                <%= image_tag "icons/rss.png", :class=>"social_icon" %><a href="/feed.rss" target="_blank" rel="nofollow">RSS</a>
+              </div>
+              <div class="mbm">
+                <%= image_tag "icons/gplus.png", :size=>"20x20", :class=>"social_icon"%><a href="https://plus.google.com/+MuzkomUaKiev/posts" target="_blank" rel="nofollow">Google+</a>
+              </div>
+            </noindex>
           </div>
         </div>
       </div>
