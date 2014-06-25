@@ -6,8 +6,16 @@
 	  <%#=render "shared/left_banner"%>
 	</div>
 	<div class="col3of5">
+	<br>
 		<center>
-			404 NOT FOUND
+			<h2 style="color:#900;font-size:28px !important;">Страница не найдена!</h2>
+			<br>
+			<%=image_tag "404.png"%>
+			<br>
+			<br>
+			<h4>Страница которую Вы ищете не существует либо она устарела и была удалена.</h4>
+			<br>
+			<%= link_to "Вернуться на главную", root_path, :style=>"font-size:18px" %><br />
 		</center>
 	</div>
 	<div class="col1of5">
