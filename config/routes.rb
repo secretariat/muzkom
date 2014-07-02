@@ -136,7 +136,7 @@ Muzkom::Application.routes.draw do
 
   match ':controller(/:action(/:id))(.:format)'
 
-  # unless Rails.application.config.consider_all_requests_local
+  unless Rails.application.config.consider_all_requests_local
     match '*not_found' => 'errors#error_404'
-  # end
+  end
 end
