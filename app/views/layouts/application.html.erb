@@ -179,6 +179,19 @@
           <div class="clearfix">
             <p class="mrm">Copyright 2010 - <%= Time.now.year%> Muzkom.com.ua Все права защищены. Интернет магазин MUZKOM предлагает купить музыкальные инструменты, DJ оборудование, световое и звуковое оборудование от лучших производителей с доставкой по всей Украине. </p>
           </div>
+          <div class="clearfix">
+            <p class="mrm">
+              <!-- Leolink partners programm -->
+              <% if @links.size > 0 %>
+                <span>Партнерская программа Leolink:</span>
+                  <% @links.each_with_index do |link, index| %>
+                    <% l = link.split(";") %>
+                    <%= link_to l[0], l[1], :target => "_blank" %>
+                    <%= "|" if index != @links.size-1 %>
+                  <% end %>
+              <% end %>
+            </p>
+          </div>
         </div>
         <div class="col1of4">
           <div class="mll">
