@@ -1,0 +1,26 @@
+<div class="row p-t-20 ">
+    <div class="col-md-3"><img src="images/Logo.png"/></div>
+    <div class="col-md-2">
+    <span class="big-icon phone-blue"></span>
+    <div class="right m-0 raleway">
+    (063) 625 48 05<br>
+    (044) 592 86 14</div>
+    </div>
+    <div class="col-md-3">
+     <span class="big-icon pin-blue"></span>
+       <div class="right m-0 raleway">
+       Пн.- Пт.: 10:00 – 19:00<br>
+       Онлайн заказы: 24/7/365</div>
+    </div>
+    <div class="col-md-3">
+      <div class="right-inner-addon">
+        <%= form_tag products_fullsearch_path, :method => 'get' do %>
+                  <i class="glyphicon glyphicon-search"></i>
+                  <%= text_field_tag :fullsearch, params[:fullsearch], :class=> "form-control", :id => "products_search", :placeholder => "Поиск..."%>
+                  <%= submit_tag "", :name => nil, :class => "search-btn"  %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-1"> <span class="big-icon cart-blue"></span></div>
+</div>
+<div class="row p-l-15 p-b-5">Оборудование для: DJ‘s | саунд-продюсеров | музыкантов | ночных клубов</div>

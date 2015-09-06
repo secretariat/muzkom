@@ -1,16 +1,12 @@
-<div class="container">
-  <h2><span>Новые поступления</span></h2>
-  <div class="pam">
+<div class="row white m-l-m10 m-t-20">
+  <div class="col-md-12">
+    <h2 class="opensans red"><i>Новые поступления</i></h2>
+  </div>
     <% @latest_products.each do |product|%>
-    <div class="by-center mbl">
-      <div class="">
-        <strong><%= link_to product.name, product_path(product)%></strong>
-      </div>
-      <div class="mbs">
-        <%= image_tag product.image_url(:thumb)%>
-      </div>      
-      <%= render "shared/product_price", :product => product%>
+    <div class="col-md-3 p-b-10">
+      <%= image_tag product.image_url(:thumb), :class=> "product-image"%>
+      <center><%= render "shared/product_price", :product => product%>
+      <span class="product-name"><%= link_to product.name, product_path(product)%></span></center>
     </div>
     <%end%>
-  </div>
 </div>

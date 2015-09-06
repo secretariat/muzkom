@@ -1,10 +1,7 @@
 # -*- encoding : utf-8 -*-
-require 'leolink'
-
 class ApplicationController < ActionController::Base
 
   protect_from_forgery
-  before_filter :leolink
 
   def current_user_session
     return @current_user_session if defined?(@current_user_session)
@@ -28,10 +25,6 @@ class ApplicationController < ActionController::Base
       format.html { render :template => "errors/error_#{status}", :layout => 'layouts/application', :status => status }
       format.all { render :nothing => true, :status => status }
     end
-  end
-
-  def leolink
-    @links = Leolink.new(request.env['REQUEST_URI']).process
   end
 
 end

@@ -4,243 +4,34 @@
   <title><%= @meta_title || "Muzkom - Интернет магазин оборудование для: DJ‘s, саунд-продюсеров, музыкантов, ночных клубов"%></title>
   <meta name="description" content="<%= @meta_description || "DJ оборудование, студийное оборудование, музыкальные инструменты, звуковое и световое оборудование"%>" />
   <meta name="keywords" content="<%= @meta_keywords || "звуковое оборудование и музыкальные инструменты"%>" />
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
+  <% stylesheet_link_tag    "application" %>
+  <% javascript_include_tag "application" %>
   <%= favicon_link_tag "favicon.png"%>
   <%= csrf_meta_tags %>
   <%= auto_discovery_link_tag :rss, "/feed.rss" %>
-  <script type="text/javascript" src="http://userapi.com/js/api/openapi.js?48"></script>
-  <script type="text/javascript">
-    VK.init({apiId: 2800557, onlyWidgets: true});
-  </script>
-  <style type="text/css">
-    a {
-      color: #900;
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: red;
-      position: relative;
-    }
-    a[data-title]:hover:after {
-      left: 5px;
-      opacity: 1;
-    }
-    a[data-title]:after {
-      content: attr(data-title);
-      color: #fff;
-      padding: 4px 8px;
-      font-size: 12px;
-      position: absolute;
-      left:-9999px;
-      opacity:0;
-      top: 100%;
-      white-space: normal;
-      width: 250px;
-      z-index: 2;
-      background:#333;
-      background:rgba(51,51,51,0.75);
-      -webkit-transition: 0.25s linear opacity;
-    }
-  </style>
-  <%= javascript_tag do %>
-    window.currency = "<%=j session[:currency] %>";
-  <% end %>
-
-  <script type="text/javascript">
-    (function() {
-      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-      po.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-    })();
-  </script>
-  <script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-18304512-1']);  _gaq.push(['_setDomainName', 'muzkom.com.ua']);  _gaq.push(['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script>
-
-  <script type="text/javascript">
-      CharacterCount = function(TextArea,FieldToCount){
-      var myField = document.getElementById(TextArea);
-      var myLabel = document.getElementById(FieldToCount);
-      if(!myField || !myLabel){return false}; // catches errors
-      var MaxChars =  myField.maxLengh;
-      if(!MaxChars){MaxChars =  myField.getAttribute('maxlength') ; };  if(!MaxChars){return false};
-      var remainingChars =   MaxChars - myField.value.length
-      myLabel.innerHTML = "Комментарий (" + remainingChars+" символов осталось из "+MaxChars+")"
-    }
-
-    setInterval(function(){CharacterCount('myfield','CharCountLabel1')},55);
-  </script>
-
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/site.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-  <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
-  <div class="wrapper">
-    <div class="header">
-      <div class="clearfix">
-        <div class="col1of4">
-          <%= link_to image_tag("logo.png", :class=>"mvs"), root_path %><br />
-        </div>
-        <div class="col2of4 ptm left" >
-          <h4 class="mbs left">Интернет магазин</h4>
-          <p class="right">(063) <span class="phone"> 625 48 05</span>, (044) <span class="phone">592 86 14</span></p>
-          <div class="cls"></div>
-          <p class="left">Оборудование для: DJ‘s | саунд-продюсеров | музыкантов | ночных клубов</p>
-          <div class="cls"></div>
-          <div class="left">
-            <%= form_tag products_fullsearch_path, :method => 'get' do %>
-              <div style="width:487px;height:28px;display:block;">
-                <%= text_field_tag :fullsearch, params[:fullsearch], :id => "products_search", :placeholder => "Поиск товара"%>
-                <%= submit_tag "", :name => nil, :class => "searchbtn right"  %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <div class="right mvm">
-          <div class="relative mbm">
-            <span class="muted">Все цены в </span>
-            <div style="position: absolute;right: 0;">
-              <g:plusone size="medium" annotation="none"></g:plusone>
-            </div>
-            <%= form_tag change_currency_path, :method => :put do%>
-            <select name="currency" id="" style="width: 80px" change="submitForm">
-              <option value="uah" <%= "selected" if session[:currency] == "uah"%>>ГРН</option>
-              <option value="usd" <%= "selected" if session[:currency] == "usd"%>>USD</option>
-              <option value="eur" <%= "selected" if session[:currency] == "eur"%>>EUR</option>
-            </select>
-            <%end%>
-          </div>
-          <div class="cart">
-             <%= link_to image_tag("cart.png"), cart_path %>
-            <div class="left mtx">
-              <strong>товаров:</strong>
-              <strong class="value"><%=@cart.items.sum{|i| i.quantity}%></strong><br />
-              <strong>на сумму:</strong> <strong class="value"><%= human_price @cart.total(session[:currency])%> </strong>
-            </div>
-          </div>
-        </div>
+<div class="container">
+  <%=render "shared/header"%>
+  <%=render "shared/navbar"%>
+  <div class="row">
+    <div class="col-md-3 w20">
+      <%=render "shared/catalog"%>
+      <%=render "shared/brands_filter"%>
+      <%=render "shared/news"%>
+      
     </div>
-    <div class="navigation">
-      <ul class="mainmenu col4of5">
-        <li><%= link_to "Новости", publications_path%></li>
-        <li><%= link_to "О нас", "/about_us"%></li>
-        <li><%= link_to "Оплата/доставка", "/payment_delivery"%></li>
-        <li><%= link_to "Гарантия", "/warranty"%></li>
-        <li><%= link_to "Акции", promotions_path%></li>
-        <li><%= link_to "Дисконт", "/discount"%></li>
-        <li><%= link_to "Контакты", new_feedback_path%></li>
-        <li><%= link_to "Корзина", cart_path %></li>
-      </ul>
-      <div class="col1of5 mts">
-        <noindex>
-          <%= link_to image_tag("icons/facebook.png", :size=>"20x20", :class=>"mas"), "http://www.facebook.com/profile.php?id=100001185448670", :target=>"_blank", :rel => "nofollow"%>
-          <%= link_to image_tag("icons/vkontakte.png", :size=>"20x20", :class=>"mas"), "http://vk.com/id55454631", :target=>"_blank", :rel => "nofollow"%>
-          <%= link_to image_tag("icons/twitter.png", :size=>"20x20", :class=>"mas"), "https://twitter.com/#!/muzkom_com_ua", :target=>"_blank", :rel => "nofollow"%>
-          <%= link_to image_tag("icons/youtube.png", :size=>"20x20", :class=>"mas"), "http://www.youtube.com/user/MUZKOM", :target=>"_blank", :rel => "nofollow"%>
-          <%= link_to image_tag("icons/gplus.png", :size=>"20x20", :class=>"mas"), "https://plus.google.com/+MuzkomUaKiev/posts", :target=>"_blank", :rel => "nofollow"%>
-        </noindex>
-      </div>
-    </div>
-    <div class="body">
-      <% if flash[:notice] %>
-        <center>
-          <p class="notice"><b> <%= flash[:notice] %> </b></p>
-        </center>
-      <% end %>
+    <div class="col-md-9 w80 m-l-15">
       <%= yield %>
     </div>
-    <div class="footer">
-      <div class="clearfix">
-        <div class="col3of4">
-          <div class="clearfix mbl">
-            <div class="col2of5">
-              <p class="block by-center">
-                <%= image_tag "logo_small.png" %><br />
-                профессиональное музыкальное оборуование
-                <br />
-                <br />
-              </p>
-            </div>
-            <div class="col3of5">
-              <div class="block">
-                <p class="mbn">г. Киев</p>
-                <p class="mbn">Тел.:<br /> (063) 625 48 05,</p>
-                <p class="mbn">(044) 592 86 14</p>
-                <p class="mbn">ICQ: 570560950</p>
-              </div>
-            </div>
-          </div>
-          <div class="clearfix">
-            <p class="mrm">Copyright 2010 - <%= Time.now.year%> Muzkom.com.ua Все права защищены. Интернет магазин MUZKOM предлагает купить музыкальные инструменты, DJ оборудование, световое и звуковое оборудование от лучших производителей с доставкой по всей Украине. </p>
-          </div>
-          <div class="clearfix">
-            <p class="mrm">
-              <!-- Leolink partners programm -->
-              <% if @links.size > 0 %>
-                <span>Партнерская программа Leolink:</span>
-                  <% @links.each_with_index do |link, index| %>
-                    <% l = link.split(";") %>
-                    <%= link_to l[0], l[1], :target => "_blank" %>
-                    <%= "|" if index != @links.size-1 %>
-                  <% end %>
-              <% end %>
-            </p>
-          </div>
-        </div>
-        <div class="col1of4">
-          <div class="mll">
-            <noindex>
-              <div class="mbm">
-                <%= image_tag "icons/facebook.png", :class=>"social_icon" %> <a href="http://www.facebook.com/profile.php?id=100001185448670" target="_blank" rel="nofollow">Facebook</a>
-              </div>
-              <div class="mbm">
-                <%=image_tag src="icons/vkontakte.png", :class=>"social_icon"%> <a href="http://vk.com/id55454631" target="_blank" rel="nofollow">Вконтакте</a>
-              </div>
-              <div class="mbm">
-                <%=image_tag "icons/twitter.png", :class=>"social_icon" %> <a href="https://twitter.com/#!/muzkom_com_ua" target="_blank" rel="nofollow">Twitter</a>
-              </div>
-              <div class="mbm">
-                <%=image_tag "icons/youtube.png", :class=>"social_icon" %> <a href="http://www.youtube.com/user/MUZKOM" target="_blank" rel="nofollow">YouTube</a>
-              </div>
-              <div class="mbm">
-                <%= image_tag "icons/livejournal_logo.png", :class=>"social_icon"%><a href="http://muzkom-com-ua.livejournal.com/" target="_blank" rel="nofollow">LiveJournal</a>
-              </div>
-              <div class="mbm">
-                <%= image_tag "icons/rss.png", :class=>"social_icon" %><a href="/feed.rss" target="_blank" rel="nofollow">RSS</a>
-              </div>
-              <div class="mbm">
-                <%= image_tag "icons/gplus.png", :size=>"20x20", :class=>"social_icon"%><a href="https://plus.google.com/+MuzkomUaKiev/posts" target="_blank" rel="nofollow">Google+</a>
-              </div>
-            </noindex>
-          </div>
-        </div>
-      </div>
-    </div>
-    <br />
-    <div class="" style="width: 88px; margin: 0 auto;">
-    <!-- MyCounter v.2.0 -->
-    <script type="text/javascript"><!--
-    my_id = 77732;
-    my_width = 88;
-    my_height = 41;
-    my_alt = "MyCounter - счётчик и статистика";
-    //--></script>
-    <script type="text/javascript"
-     src="http://scripts.mycounter.ua/counter2.0.js">
-    </script><noscript>
-    <a target="_blank" href="http://mycounter.ua/"><img
-    src="http://get.mycounter.ua/counter.php?id=77732"
-    title="MyCounter - счётчик и статистика"
-    alt="MyCounter - счётчик и статистика"
-    width="88" height="41" border="0" /></a></noscript>
-    <!--/ MyCounter -->
-    </div>
-    <!--LiveInternet counter--><script type="text/javascript"><!--document.write("<a href='http://www.liveinternet.ru/click' "+"target=_blank><img src='//counter.yadro.ru/hit?t44.2;r"+escape(document.referrer)+((typeof(screen)=="undefined")?"":";s"+screen.width+""+screen.height+""+(screen.colorDepth?screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+";"+Math.random()+"' alt='' title='LiveInternet' "+"border='0' width='31' height='31'><\/a>")//--></script><!--/LiveInternet-->
+  </div>
+  <%=render "shared/footer"%>
+</div>
 </body>
 </html>
