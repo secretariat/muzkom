@@ -1,11 +1,11 @@
-<div class="row">
+<div class="row visible-md-block visible-lg-block">
   <ul class="nav nav-menu raleway" role="menu" aria-labelledby="dropdownMenu">
     <% @categories.each_with_index do |category, index|%>
         <li class="dropdown-submenu">
-          <%= link_to category.name, categories_list_path(:id => category.id), :class=>"category"%>
-          <ul class="dropdown-menu">
+          <%= link_to category.name, categories_list_path(:id => category.id), :class=>"category lnav-a"%>
+          <ul class="dropdown-menu p-0">
             <%category.subcategories.each_with_index do |subcategory, subindex|%>
-              <li><%=link_to subcategory.name, category_path(subcategory)%></li>
+              <li><%=link_to subcategory.name, category_path(subcategory),:class => "lnav-a"%></li>
               <% if subindex != category.subcategories.length-1 %>
                 <li class="divider"></li>
               <%end%>
@@ -19,7 +19,7 @@
   <li>
   </ul>
 </div>
-<div class="row obsolete-products" >
+<div class="row obsolete-products visible-md-block visible-lg-block" >
   <div class="col-md-8 p-0">
     <strong><%= link_to "Товары снятые с производства", withdrawn_brands_path%></strong>
   </div>
@@ -27,6 +27,3 @@
     <span class="big-icon bag-grey right"></span>
   </div>
 </div>
-
-
-

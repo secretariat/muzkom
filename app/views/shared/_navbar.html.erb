@@ -1,8 +1,8 @@
-<div class="row">
-<nav class="navbar navbar-muzkom">
+<div class="row p-t-10">
+<nav class="navbar navbar-muzkom navbar-default m-0 raleway">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <button type="button" class="navbar-toggle collapsed m-t-20" data-toggle="collapse" data-target="#navbar222" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -10,18 +10,17 @@
       </button>
       <a class="navbar-brand" href="#">КАТАЛОГ ТОВАРОВ</a>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li><%= link_to "Новости", publications_path%></li>
-        <li><%= link_to "О нас", "/about_us"%></li>
-        <li><%= link_to "Оплата/доставка", "/payment_delivery"%></li>
-        <li><%= link_to "Гарантия", "/warranty"%></li>
-        <li><%= link_to "Акции", promotions_path%></li>
-        <li><%= link_to "Дисконт", "/discount"%></li>
-        <li><%= link_to "Контакты", new_feedback_path%></li>
-        <li><%= link_to "Корзина", cart_path %></li>
-      </ul>
-    </div><!--/.nav-collapse -->
+    <div aria-expanded="false" id="navbar222" class="navbar-collapse collapse ">
+        <ul class="nav navbar-nav nav-md" >
+            <li><%= link_to "Новости", publications_path, :class=>"nav-a"%></li>
+            <li><%= link_to "О нас", "/about_us", :class=>"nav-a"%></li>
+            <li><%= link_to "Оплата/доставка", "/payment_delivery", :class=>"nav-a"%></li>
+            <li><%= link_to "Гарантия", "/warranty", :class=>"nav-a"%></li>
+            <li><%= link_to "Акции", promotions_path, :class=>"nav-a"%></li>
+            <li><%= link_to "Дисконт", "/discount", :class=>"nav-a"%></li>
+            <li><%= link_to "Контакты", new_feedback_path, :class=>"nav-a"%></li>
+        </ul>
+    </div>
   </div><!--/.container-fluid -->
 </nav>
 </div>

@@ -1,5 +1,5 @@
-<div class="row news white m-t-20">
- <h5 class="opensans red m-20"><strong><i>Последние новости</i></strong></h5>
+<div class="row news white m-t-20 p-b-25  visible-md-block visible-lg-block">
+ <h5 class="opensans red m-20 m-b-40"><strong><i>Последние новости</i></strong></h5>
   <% @latest_news.each_with_index do |publication, index|%>
   <div class="publication">
 	  	<% if publication.has_image?%>
@@ -9,10 +9,10 @@
 	    <p class="date"><%=human_date(publication.date) %></p>
 	    <p class="description"><%= publication.description.truncate(200).html_safe%></p>
 	    
+  </div>
 	    <% if index != @latest_news.length-1 %>
           <span class="divider divider-pub"></span>
         <%end%>
-  </div>
   <%end%>
-  <center><strong><%= link_to "Все новости", publications_path, :class => "raleway red"%></strong></center>
+  <center><%= link_to "Все новости", publications_path, :class => "raleway red p-b-25"%></center>
 </div>
