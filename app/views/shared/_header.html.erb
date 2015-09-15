@@ -1,26 +1,35 @@
-<div class="row p-t-20 ">
-    <div class="col-md-3"><img src="images/Logo.png"/></div>
-    <div class="col-md-2">
-    <span class="big-icon phone-blue"></span>
-    <div class="right m-0 raleway">
-    (063) 625 48 05<br>
-    (044) 592 86 14</div>
+<div class="row p-t-5">
+    <div class="col-md-3 col-sm-3"><img style="width: 100%" src="images/Logo.png"/></div>
+    <div class="col-md-2 col-md-offset-1 col-sm-3  p-0">
+      <div class="col-md-3 col-sm-3 p-0"><span class="big-icon phone-blue"></span></div>
+      <div class="col-md-9 col-sm-8 p-0"><div class="m-0 raleway">(063) 625 48 05<br>(044) 592 86 14</div></div>
     </div>
-    <div class="col-md-3">
-     <span class="big-icon pin-blue"></span>
-       <div class="right m-0 raleway">
-       Пн.- Пт.: 10:00 – 19:00<br>
-       Онлайн заказы: 24/7/365</div>
+    <div class="col-md-3 col-sm-4">
+     <div class="col-md-2 col-sm-2 p-0"><span class="big-icon pin-blue"></span></div>
+     <div class="col-md-10 col-sm 10 p-0 p-l-5"><div class="m-0 raleway">Пн.- Пт.: 10:00 – 19:00<br>Онлайн заказы: 24/7/365</div></div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2 hidden-sm hidden-xs">
       <div class="right-inner-addon">
-        <%= form_tag products_fullsearch_path, :method => 'get' do %>
+        <%= form_tag products_fullsearch_path, :method => 'get', :style=>"height:35px" do %>
                   <i class="glyphicon glyphicon-search"></i>
                   <%= text_field_tag :fullsearch, params[:fullsearch], :class=> "form-control", :id => "products_search", :placeholder => "Поиск..."%>
-                  <%= submit_tag "", :name => nil, :class => "search-btn"  %>
+                  <%= submit_tag "", :name => nil, :class => "glyphicon glyphicon-search"  %>
         <% end %>
       </div>
     </div>
-    <div class="col-md-1"> <span class="big-icon cart-blue"></span></div>
+    <div class="col-md-1 col-sm-1"><%= link_to cart_path do %><span class="big-icon cart-blue  right"><% end %></span></div>
 </div>
-<div class="row p-l-15 p-b-5">Оборудование для: DJ‘s | саунд-продюсеров | музыкантов | ночных клубов</div>
+<div class="row p-l-15 p-t-5">
+  <div class="col-md-12 col-sm-9 p-0">
+    Оборудование для: DJ‘s | саунд-продюсеров | музыкантов | ночных клубов
+  </div>
+  <div class="col-sm-3 hidden-md hidden-lg p-0">
+      <div class="right-inner-addon">
+        <%= form_tag products_fullsearch_path, :method => 'get', :style=>"height:35px" do %>
+                  <i class="glyphicon glyphicon-search"></i>
+                  <%= text_field_tag :fullsearch, params[:fullsearch], :class=> "form-control", :id => "products_search", :placeholder => "Поиск..."%>
+                  <%= submit_tag "", :name => nil, :class => "glyphicon glyphicon-search"  %>
+        <% end %>
+      </div>
+    </div>
+</div>

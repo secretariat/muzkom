@@ -1,4 +1,4 @@
-<div class="row p-t-20">
+<div class="row p-t-20 visible-md-block visible-lg-block">
 	<%default = @brand.id if @brand && !@subcategory%>
 	<%= select_tag :brand,  options_from_collection_for_select(@brands_for_filter, 'id', 'name', default), {:prompt =>"Выберите производителя", :class => "form-control brand-selector", :change=>"selectBrand" }%>
 </div>

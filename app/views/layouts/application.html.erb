@@ -14,20 +14,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/site.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    
 </head>
 <body>
+<%=render "shared/top"%>
 <div class="container">
   <%=render "shared/header"%>
   <%=render "shared/navbar"%>
+
   <div class="row">
-    <div class="col-md-3 w20">
+    <div class="col-md-3 col-md-3-m">
       <%=render "shared/catalog"%>
       <%=render "shared/brands_filter"%>
       <%=render "shared/news"%>
       
     </div>
-    <div class="col-md-9 w80 m-l-15">
+    <div class="col-md-9 col-md-9-m m-l-15 col-sm-12">
       <%= yield %>
     </div>
   </div>
