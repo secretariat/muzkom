@@ -1,31 +1,31 @@
 <div class="row black raleway m-t-20">
   <div class="footer ">
     <div class="row">
-      <div class="col-md-3 col-sm-3 col-xs-3">
-      <div class="row">
-        <div class="col-md-5  col-sm-5 col-xs-5">
-          <%= image_tag "/images/main/logo_white.png", :style=>"width:100%" %>
-        </div>       
-        <div class="col-md-7 col-sm-7 col-xs-7">
-          <div class="row">
-            <div class="col-md-2 col-sm-2 col-xs-2 p-0">
-              <span class="small-icon pin-white"></span>
+      <div class="col-md-3 col-sm-3 hidden-xs">
+        <div class="row">
+          <div class="col-md-5  col-sm-5">
+            <%= image_tag "/images/main/logo_white.png", :style=>"width:100%" %>
+          </div>       
+          <div class="col-md-7 col-sm-7">
+            <div class="row">
+              <div class="col-md-2 col-sm-2 p-0">
+                <span class="small-icon pin-white"></span>
+              </div>
+              <div class="col-md-8 p-0">г. Киев</div>
             </div>
-            <div class="col-md-8 p-0">г. Киев</div>
+            <div class="row p-t-5">
+              <div class="col-md-2  col-sm-2 col-xs-2 p-0 p-t-10">
+                <span class="small-icon phone-white"></span>
+              </div>
+              <div class="col-md-10 col-sm-10 col-xs-10 p-0">
+                (063) 625 48 05<br>
+                (044) 592 86 14
+              </div>
+            </div>
           </div>
-          <div class="row p-t-5">
-            <div class="col-md-2  col-sm-2 col-xs-2 p-0 p-t-10">
-              <span class="small-icon phone-white"></span>
-            </div>
-            <div class="col-md-10 col-sm-10 col-xs-10 p-0">
-              (063) 625 48 05<br>
-              (044) 592 86 14
-            </div>
-          </div>
-        </div>
         </div>  
       </div>
-      <div class="col-md-2  col-sm-2 col-xs-2">
+      <div class="col-md-2  col-sm-2 col-xs-6">
           <ul class="footer-nav">
           <li><%= link_to "Новости", publications_path%></li>
           <li><%= link_to "О нас", "/about_us"%></li>
@@ -37,10 +37,29 @@
           <li><%= link_to "Корзина", cart_path %></li>
         </ul>
       </div>
-      <div class="col-md-7 col-sm-7 col-xs-7">
+      <div class="col-md-7 col-sm-7 hidden-xs">
           <p>Copyright 2010 - <%= Time.now.year%> Muzkom.com.ua Все права защищены. Интернет магазин MUZKOM предлагает купить музыкальные инструменты, DJ оборудование, световое и звуковое оборудование от лучших производителей с доставкой по всей Украине.</p>
           <p><span class="goriz-icon visa-white"></span><span class="goriz-icon mc-white m-t-5"></span></p>
-
+      </div>
+      <div class="col-xs-6 visible-xs-block p-0">
+      <div class="row">
+              <div class="col-xs-2 p-0">
+                <span class="small-icon pin-white"></span>
+              </div>
+              <div class="col-xs-10 p-0">г. Киев</div>
+            </div>
+            <div class="row p-t-5">
+               <div class="col-xs-2 p-0">
+                <span class="small-icon phone-white"></span>
+              </div>
+              <div class="col-xs-10 p-0">
+                (063) 625 48 05<br>
+                (044) 592 86 14
+              </div>
+            </div>
+            <div class="row p-t-5">
+              <span class="goriz-icon visa-white"></span><span class="goriz-icon mc-white m-t-5"></span>
+            </div>
       </div>
     </div>
     <div class="row p-t-10">

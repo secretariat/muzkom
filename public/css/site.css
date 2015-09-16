@@ -133,6 +133,9 @@ body {
 .white{
 	background-color: #fff;
 }
+.text-white{
+	color: #fff !important;
+}
 
 .black{
 	background-color: #000;
@@ -231,22 +234,22 @@ body {
 }
 
 .usd-white-selected:before {
-	content: url("/images/main/cur_usd_selected.png");
+	content: url("/images/main/round_usd.png");
 }
 .usd-white:before {
-	content: url("/images/main/cur_usd.png");
+	content: url("/images/main/currency_usd_white.png");
 }
 .eur-white-selected:before {
-	content: url("/images/main/cur_eur_selected.png");
+	content: url("/images/main/round_eur.png");
 }
 .eur-white:before {
-	content: url("/images/main/cur_eur.png");
+	content: url("/images/main/currency_eur_white.png");
 }
 .uah-white-selected:before {
-	content: url("/images/main/cur_uah_selected.png");
+	content: url("/images/main/round_uah.png");
 }
 .uah-white:before {
-	content: url("/images/main/cur_uah.png");
+	content: url("/images/main/currency_uah_white.png");
 }
 
 
@@ -324,10 +327,11 @@ h1,h2,h3,h4,h5 {
 }
 .price {
 	display: block;
-	width: 176px;
+	width: 100%;
 	height: 30px;
 	background-repeat: no-repeat;
 	background-image: url("/images/main/label_mini.png");
+	background-position: 0px 0px;
 	color: #fff;
 	text-align: left;
 	font-size: 18px;
@@ -347,7 +351,7 @@ h1,h2,h3,h4,h5 {
 	font-size: 18px;
 	padding: 2px 0 0 15px;
 	font-family: 'OpenSans';
-	margin-top: 20px;
+	margin-top: 2px;
 	margin-bottom: 20px;
 }
 
@@ -359,7 +363,8 @@ h1,h2,h3,h4,h5 {
 
 
 .product-name a {
-	color: #7f7f7f;
+	color: #6b6b6b;
+	font-size: 16px;
 	text-align: center;
 	font-family: 'OpenSans';
 }
@@ -478,7 +483,7 @@ h1,h2,h3,h4,h5 {
 .obsolete-products {
 	max-width:230px; 
 	background-color: #dbdbdb;
-	padding: 17px 20px;
+	padding: 17px 15px;
 }
 .obsolete-products a {
 	color: #7f7f7f;
@@ -527,7 +532,7 @@ h1,h2,h3,h4,h5 {
 }
 .footer-nav {
 	list-style-type: none;
-
+	padding-left: 0;
 }
 .footer-nav > li > a {
 	color: #fff;
@@ -610,11 +615,45 @@ h1,h2,h3,h4,h5 {
     }
 }
 
+
+.status{
+
+}
+.status.status-available {
+	color: #8ab6ff;
+}
+.status.status-other {
+	color: #bdbdbd;
+}
+.bg-red {
+	background-color: #d32f2f !important;
+}
+
+@media (max-width: 767px) {
+	.item {
+		height: 290px;
+	}
+	.price {
+		width: 100%;
+		background-position: -47px 0px;
+	}
+}
+
 @media (min-width: 991px) {
 	.col-md-9.col-md-9-m {
 		width: 80% !important;
 	}
 	.col-md-3.col-md-3-m {
 		width: 20% !important;
+	}
+}
+
+@media (max-width: 1199px) {
+	.item {
+		height: 370px;
+	}
+	.price {
+		width: 100%;
+		background-position: -47px 0px;
 	}
 }
