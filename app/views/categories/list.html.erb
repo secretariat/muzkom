@@ -4,25 +4,23 @@
 <% meta_d sanitize(strip_tags("#{list} | #{@keywords_text.text}").gsub("\"", "&quot;") )%>
 <% meta_k sanitize(strip_tags("#{list}").gsub("\"", "&quot;") )%>
 
-<div class="clearfix">
-  <div class="col1of5">
-    <%=render "shared/brands_filter"%>
-    <%=render "shared/range_search" %>
-    <%=render "shared/catalog"%>
-    <%=render "shared/news"%>
-    <%=render "shared/left_banner"%>
-  </div>
-  <div class="col3of5">
-    <div class="ccontainer">
-      <div class="mbs">
-        <center>
-          <h3 class="mbs"><%= @current_category.name %></h3>
-        </center>
+<div class="subcategorieslist">
+  
+  <div >
+    <div >
+      <div class="row">
+        
+          <h5  class="opensans red m-20 m-b-40"><strong><%= @current_category.name %></strong></h5>
+        
         <br/>
         <% @current_category.subcategories.visible.order('subcategories.priority').each do |subcategory| %>
-          <div class="cat-block">
-            <%= link_to (image_tag(subcategory.logo_url, :size => "200x200", :alt => subcategory.name)), category_path(subcategory) %><br/>
-            <%= link_to subcategory.name, category_path(subcategory)%>
+          <div class="col-xs-4 col-ss-6 col-md-4 col-ls-6">
+            <div class="subcategoryitem">
+              <%= link_to (image_tag(subcategory.logo_url, :size => "200x200", :alt => subcategory.name)), category_path(subcategory) %><br/>
+              <div class = "subcategorylink">
+                <%= link_to subcategory.name, category_path(subcategory)%>
+              </div>
+            </div>
           </div>
         <% end %>
       </div>
@@ -37,10 +35,5 @@
   </div>
 
 
-  <div class="col1of5">
-    <%=render "shared/code_search"%>
-    <%=render "shared/contacts"%>
-    <%=render "shared/latest"%>
-    <%=render "shared/right_banner"%>
-  </div>
+  
 </div>

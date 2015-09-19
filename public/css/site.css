@@ -570,6 +570,21 @@ h1,h2,h3,h4,h5 {
 .nav>li>a {
 	padding: 0;
 }
+.subcategoryitem>a{
+
+	margin-left: auto ;
+	margin-right: auto;
+}
+.subcategorylink>a{
+	position: relative;
+	top: -30px;
+	font-size: 20;
+	color: white;
+	text-decoration: none;
+	margin-left: auto ;
+	margin-right: auto;
+	
+}
 
 @media (min-width: 1200px) {
 	.nav-a {
@@ -657,3 +672,6 @@ h1,h2,h3,h4,h5 {
 		background-position: -47px 0px;
 	}
 }
+
+
+
