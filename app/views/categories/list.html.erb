@@ -10,7 +10,7 @@
     <div >
       <div class="row">
         
-          <h5  class="opensans red m-20 m-b-40"><strong><%= @current_category.name %></strong></h5>
+          <h5  class="opensans red m-20 m-b-40"><strong><i><i2><%= @current_category.name %></i2></i></strong></h5>
         
         <br/>
         <% @current_category.subcategories.visible.order('subcategories.priority').each do |subcategory| %>
