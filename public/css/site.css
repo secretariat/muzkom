@@ -51,6 +51,21 @@ body {
 	margin-left: 0px !important;
 }
 
+.m-l-58 
+{
+	margin-left: 58px !important;
+}
+
+.m-t-15 
+{
+	margin-top: 12px !important;
+}
+
+.m-r-13
+{
+	margin-right: 13px !important;
+}
+
 .m-l-m10 
 {
 	margin-left: -10px !important;
@@ -88,6 +103,10 @@ body {
 {
 	padding-top: 10px !important
 }
+.p-t-15
+{
+	padding-top: 15px !important
+}
 .p-t-20 
 {
 	padding-top: 20px !important
@@ -105,6 +124,10 @@ body {
 	padding-left: 5px !important
 }
 
+.p-l-10
+{
+	padding-left: 10px !important
+}
 .navbar-muzkom
 {
 	border-radius: 0px !important;
@@ -118,6 +141,10 @@ body {
 	padding-left: 25px;
 	color: #dae8ff;
 }
+.navbar-brand {
+	padding-left: 23px;
+}
+
 .navbar-brand,
 .navbar-nav li a {
     line-height: 80px;
@@ -143,7 +170,13 @@ body {
 .big-icon {
 	display: inline-block;
 	position: relative;
-	width: 30px;
+	width: 25px;
+	height: 30px;
+}
+.curr-icon {
+	display: inline-block;
+	position: relative;
+	width: 18px;
 	height: 30px;
 }
 

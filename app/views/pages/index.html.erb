@@ -1,28 +1,28 @@
 <% title "Muzkom - Интернет магазин оборудование для: DJ‘s, саунд-продюсеров, музыкантов, ночных клубов"%>
 <% meta_d "DJ оборудование, студийное оборудование, музыкальные инструменты, звуковое и световое оборудование"%>
 <% meta_k "звуковое оборудование и музыкальные инструменты"%>
-  <div class="row m-0 m-b-10 b-t-10 p-0">
+  <div class="row m-0 b-t-10 p-0">
     <div class="col-md-4 col-sm-4 col-xs-4 p-0">
-      <div class="col-md-2"><center><span class="small-goriz-icon m-l-0 m-10 icon-delivery"></span></center></div>
-      <div class="col-md-10 h30">
-        <center><p class="grey" style="padding-top: 15px">Бесплатная доставка</p></center>
+      <div class="col-md-3"><center><span class="small-goriz-icon m-l-0 m-10 icon-delivery"></span></center></div>
+      <div class="col-md-9 h30">
+        <p class="grey" style="padding-top: 15px">Бесплатная доставка</p>
       </div>
     </div>
     <div class="col-md-4  col-sm-4 col-xs-4 p-0">
-      <div class="col-md-2"><center><span class="small-goriz-icon m-l-0 m-10 icon-prices"></span></center></div>
-      <div class="col-md-10 h30">
-        <center><p class="grey" style="padding-top: 15px">Дисконтная программа</p></center>
+      <div class="col-md-3"><center><span class="small-goriz-icon m-l-0 m-10 icon-prices"></span></center></div>
+      <div class="col-md-9 h30">
+        <p class="grey" style="padding-top: 15px">Дисконтная программа</p>
       </div>
     </div>
     <div class="col-md-4  col-sm-4 col-xs-4  p-0">
       <div class="col-md-3"><center><span class="small-goriz-icon m-l-0 m-10 icon-money"></span></center></div>
       <div class="col-md-9 h30 p-0">
-        <center><p class="grey" style="padding-top: 15px">Рассрочка, оплата частями</p></center>
+        <p class="grey" style="padding-top: 15px">Рассрочка, оплата частями</p>
       </div>
     </div>
   </div>
   <div class="row p-l-5">
-    <%=link_to image_tag(@slides[0].image_url,:style=>"width:100%"), @slides[0].link%>
+    <%=link_to image_tag(@slides[0].image_url,:style=>"width:100%;"), @slides[0].link%>
   </div>
   <%=render "shared/latest"%>
   <div class="row m-t-30 m-b-40" style="padding: 0 20px">
