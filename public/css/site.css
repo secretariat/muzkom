@@ -574,13 +574,13 @@ h1,h2,h3,h4,h5 {
 .subcategorieslist{
 	margin-top: 0px;
 	margin-right: -15px;
-	margin-left: -10px;
+	margin-left: 0px;
 	padding:10px; 
 	background: #FFFFFF;
 }
 
 h6{
-	padding-left: 9px;
+	padding-left: 14px;
 	font-size: 20px;
 	text-transform: uppercase;
 }
@@ -593,7 +593,7 @@ h6{
 }
 
 .subcategoryitem{
-	margin: 40px 15px 40px 15px;
+	margin: 40px 17px 40px 18px;
 }
 .subcategoryitem>a>img{
 	width: 100%;
@@ -616,8 +616,9 @@ h6{
 }
 .subcategorylink>a{
 	position: relative;
-	width: 100%;
-	top: -70px;
+	width: 90%;
+	top: -60px;
+	line-height: 70%;
 	color: white;
 	text-decoration: none;
 	margin: 0 auto ;
@@ -692,7 +693,7 @@ h6{
 		background-position: -47px 0px;
 	}
 	.subcategorieslist{
-		margin-left: -15px;
+		margin-left: -10px;
 		padding: 10px 10px 10px 10px;
 	}
 }
@@ -705,7 +706,7 @@ h6{
 		width: 20% !important;
 	}
 	.subcategorieslist{
-		margin-left: -15px;
+		margin-left: -10px;
 		padding: 10px;
 	}
 }
