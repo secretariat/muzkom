@@ -580,8 +580,9 @@ h1,h2,h3,h4,h5 {
 }
 
 h6{
+	padding-left: 9px;
 	font-size: 20px;
-	text-transform: uppercase
+	text-transform: uppercase;
 }
 
 .mhs{
@@ -592,7 +593,7 @@ h6{
 }
 
 .subcategoryitem{
-	margin: 25px 10px 25px 10px;
+	margin: 40px 15px 40px 15px;
 }
 .subcategoryitem>a>img{
 	width: 100%;
@@ -608,7 +609,7 @@ h6{
 }
 .subcategorylink{
 	text-align: center;
-	font-family: "OpenSans";
+	font-family: 'Raleway';
 	font-size: 18px;
 	font-weight: 900;
 	height: 0px;
