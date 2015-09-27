@@ -3,14 +3,17 @@
 <% title sanitize(strip_tags("#{@current_category.name} | #{@keywords_text.text}").gsub("\"", "&quot;") )%>
 <% meta_d sanitize(strip_tags("#{list} | #{@keywords_text.text}").gsub("\"", "&quot;") )%>
 <% meta_k sanitize(strip_tags("#{list}").gsub("\"", "&quot;") )%>
-
+<div class="categorynav">
+    <div>Category</div>
+</div>
+      
 <div class="subcategorieslist">
   
   <div >
     <div >
       <div class="row">
         
-          <h6  class="opensans red m-20 m-b-10"><strong><i><%= @current_category.name %></i></strong></h5>
+        <h6  class="opensans red m-20 m-b-10"><strong><i><%= @current_category.name %></i></strong></h5>
         
         
         <% @current_category.subcategories.visible.order('subcategories.priority').each do |subcategory| %>
