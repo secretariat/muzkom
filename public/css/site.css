@@ -597,7 +597,7 @@ h6{
 .subcategoryitem>a>img{
 	width: 100%;
 	height: 100%;
-	background: #000000;
+	border: 4px solid transparent;
 }
 
 .subcategoryitem>a>img:hover{
@@ -718,7 +718,7 @@ h6{
 		background-position: -47px 0px;
 	}
 	.subcategorieslist{
-		margin-left: -15px;
+		margin-left: -5px;
 		padding: 10px;
 	}
 }
