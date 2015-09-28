@@ -13,11 +13,12 @@
     <div >
       <div class="row">
         
-        <h6  class="opensans red m-20 m-b-10"><strong><i><%= @current_category.name %></i></strong></h5>
-        
+        <div class="col-md-12">
+          <h3 class="opensans red m-20 m-b-0"><strong><i><%= @current_category.name %></i></strong></h3>
+        </div>
         
         <% @current_category.subcategories.visible.order('subcategories.priority').each do |subcategory| %>
-          <div class="col-ls-6 col-md-4 col-ss-6 col-xs-6">
+          <div class="col-ls-6 col-lg-4 col-md-6 col-ss-6 col-sm-4 col-xs-6">
             <div class="subcategoryitem">
               <%= link_to (image_tag(subcategory.logo_url, :size => "200x200", :alt => subcategory.name)), category_path(subcategory) %><br/>
               <div class = "subcategorylink">

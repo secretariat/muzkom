@@ -3,19 +3,21 @@
     <h3 class="opensans red"><strong><i>Новые поступления</i></strong></h3>
   </div>
     <% @latest_products.each do |product|%>
-    <div class="col-md-3 p-b-10 col-sm-4 col-xs-12 p-t-20">
-      <div class="visible-xs-block col-xs-6 content-center">
-        <div class="product-image-cover"><%= image_tag product.image_url(:thumb), :class=> "product-image"%></div>
-        <%= render "shared/product_price", :product => product%>
-      </div>
-      <div class="visible-xs-block col-xs-6 content-center">
-        <span class="product-name vcenter"><%= link_to product.name, product_path(product) %></span>
-      </div>
-      <div class="hidden-xs content-center">
-        <div class="product-image-cover"><%= image_tag product.image_url(:thumb), :class=> "product-image"%></div>
-        <%= render "shared/product_price", :product => product%>
-        <span class="product-name" ><%= link_to product.name, product_path(product)%></span>
-      </div>
+    <div class="col-md-3 p-b-10 col-sm-4 col-xs-12 p-t-20 latest">
+      <%= link_to product_path(product) do %>
+        <div class="visible-xs-block col-xs-6 content-center">
+          <div class="product-image-cover"><%= image_tag product.image_url(:thumb), :class=> "product-image"%></div>
+          <%= render "shared/product_price", :product => product%>
+        </div>
+        <div class="visible-xs-block col-xs-6 content-center">
+          <span class="product-name vcenter"><%=  product.name %></span>
+        </div>
+        <div class="hidden-xs content-center">
+          <div class="product-image-cover"><%= image_tag product.image_url(:thumb), :class=> "product-image"%></div>
+          <%= render "shared/product_price", :product => product%>
+          <span class="product-name" ><%=  product.name %></span>
+        </div>
+      <%end%>
     </div>
     <%end%>
 </div>

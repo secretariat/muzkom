@@ -1,23 +1,23 @@
 <% title "Muzkom - Интернет магазин оборудование для: DJ‘s, саунд-продюсеров, музыкантов, ночных клубов"%>
 <% meta_d "DJ оборудование, студийное оборудование, музыкальные инструменты, звуковое и световое оборудование"%>
 <% meta_k "звуковое оборудование и музыкальные инструменты"%>
-  <div class="row m-0 b-t-10 p-0">
+  <div class="row m-0 b-t-10 p-0 h-30 p-b-10 p-t-10">
     <div class="col-md-4 col-sm-4 col-xs-4 p-0">
-      <div class="col-md-3"><center><span class="small-goriz-icon m-l-0 m-10 icon-delivery"></span></center></div>
-      <div class="col-md-9 h30">
-        <p class="grey" style="padding-top: 15px">Бесплатная доставка</p>
+      <div class="col-md-2 col-md-offset-1 col-sm-2 p-0"><center><span class="small-goriz-icon m-l-0 m-10 icon-delivery"></span></center></div>
+      <div class="col-md-9 col-sm-10 p-0 p-l-5">
+        <p class="grey p-t-15 p-t-xs-0 text-left text-xs-center" style="line-height:16px;">Бесплатная доставка</p>
       </div>
     </div>
-    <div class="col-md-4  col-sm-4 col-xs-4 p-0">
-      <div class="col-md-3"><center><span class="small-goriz-icon m-l-0 m-10 icon-prices"></span></center></div>
-      <div class="col-md-9 h30">
-        <p class="grey" style="padding-top: 15px">Дисконтная программа</p>
+    <div class="col-md-4 col-sm-4 col-xs-4 p-0">
+      <div class="col-md-2 col-md-offset-1 col-sm-2 p-0"><center><span class="small-goriz-icon m-l-0 m-10 icon-prices"></span></center></div>
+      <div class="col-md-9 col-sm-10">
+        <p class="grey p-t-15 p-t-xs-0 text-left text-xs-center" style="line-height:16px;">Дисконтная программа</p>
       </div>
     </div>
-    <div class="col-md-4  col-sm-4 col-xs-4  p-0">
-      <div class="col-md-3"><center><span class="small-goriz-icon m-l-0 m-10 icon-money"></span></center></div>
-      <div class="col-md-9 h30 p-0">
-        <p class="grey" style="padding-top: 15px">Рассрочка, оплата частями</p>
+    <div class="col-md-4 col-sm-4 col-xs-4  p-0">
+      <div class="col-md-2 col-md-offset-1 col-sm-2 p-0"><center><span class="small-goriz-icon m-l-0 m-10 icon-money"></span></center></div>
+      <div class="col-md-9 col-sm-10">
+        <p class="grey p-t-15 p-t-xs-0 text-left text-xs-center" style="line-height:16px;">Рассрочка, оплата частями</p>
       </div>
     </div>
   </div>
@@ -29,16 +29,19 @@
     <%@products.each_with_index do |product, index|%>
       <div class="col-md-3 p-10 col-sm-4 col-xs-12 content-center">
           <div class="hidden-xs item  content-center">
-            <%= link_to image_tag(product.image_url(:thumb), :class=> "product-image"), product_path(product) %>
-            <%= render "shared/product_price", :product => product%>
-            <span class="product-name"><%= link_to product.name, product_path(product)%></span>
-            <p class="status status-available"><%= product.status.name%></p>
-          <!-- <p class="status status-other"><%= product.status.name%></p> -->
-          <%#= link_to "", add_cart_path(:id=>product.id), :class=>"buy-button right", :method=>"put" do %>
-            <div class="row content-center">
-              <span class="big-icon cart-blue-rectangle"></span>
-            </div> 
-          <%#end%>
+            <%= link_to  product_path(product) do %>
+              <%= image_tag(product.image_url(:thumb), :class=> "product-image") %>
+              <div class="product-description">
+                <%= render "shared/product_price", :product => product%>
+                <span class="product-name"><%= product.name %></span>
+                <p class="status status-available"><%= product.status.name%></p>
+              <!-- <p class="status status-other"><%= product.status.name%></p> -->
+              <%#= link_to "", add_cart_path(:id=>product.id), :class=>"buy-button right", :method=>"put" do %>
+              </div>
+              <p class="content-center">
+                <span class="big-icon cart-blue-rectangle"></span>
+              </p> 
+            <%end%>
           </div>
           <div class="visible-xs-block item  content-center">
             <div class="row">

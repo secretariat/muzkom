@@ -8,7 +8,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><strong>КАТАЛОГ ТОВАРОВ</strong></a>
+      <div class="navbar-brand"><strong>КАТАЛОГ ТОВАРОВ</strong></div>
+      <center><div class="navbar-filter visible-sm-block visible-xs-block">
+        <%default = @brand.id if @brand && !@subcategory%>
+        <%= select_tag :brand,  options_from_collection_for_select(@brands_for_filter, 'id', 'name', default), {:prompt =>"Выберите производителя", :class => "form-control brand-selector raleway", :change=>"selectBrand" }%>
+      </div></center>
     </div>
     <div aria-expanded="false" id="navbar222" class="navbar-collapse collapse ">
         <ul class="nav navbar-nav nav-md nav-mk" >
