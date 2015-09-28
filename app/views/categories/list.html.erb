@@ -4,7 +4,7 @@
 <% meta_d sanitize(strip_tags("#{list} | #{@keywords_text.text}").gsub("\"", "&quot;") )%>
 <% meta_k sanitize(strip_tags("#{list}").gsub("\"", "&quot;") )%>
 <div class="categorynav">
-    <div>Category</div>
+    <div>Каталог товаров > <%= @current_category.name %></div>
 </div>
       
 <div class="subcategorieslist">
