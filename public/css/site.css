@@ -49,9 +49,20 @@ body {
 .m-t-30{
 	margin-top: 30px;
 }
+.m-t-40{
+	margin-top: 40px;
+}
 .m-l-0 
 {
 	margin-left: 0px !important;
+}
+.m-l-17 
+{
+	margin-left: 17px !important;
+}
+.m-r-17 
+{
+	margin-right: 17px !important;
 }
 
 .m-l-58 
@@ -74,6 +85,7 @@ body {
 	margin-left: -10px !important;
 }
 
+
 .p-0
 {
 	padding: 0 !important;
@@ -90,6 +102,10 @@ body {
 
 .p-b-5 {
 	padding-bottom: 5px;
+}
+
+.p-b-15{
+	padding-bottom: 15px;
 }
 
 .p-b-25{
@@ -110,6 +126,10 @@ body {
 .p-t-15
 {
 	padding-top: 15px !important;
+}
+.p-t-15
+{
+	padding-top: 15px !important
 }
 .p-t-20 
 {
@@ -146,6 +166,11 @@ body {
 .text-left {
 	text-align:left;
 }
+.p-l-10 
+{
+	padding-left: 10px !important
+}
+
 
 .navbar-muzkom
 {
@@ -662,22 +687,8 @@ h1,h2,h3,h4,h5 {
 }
 
 .categorynav{
-	margin-left: -5px;
-	width: 100%;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	background: transparent;
 	color: #D2D2D2;
 	font-size: 12px;
-}
-
-
-.subcategorieslist{
-	margin-top: 0px;
-	margin-right: -15px;
-	margin-left: 0px;
-	padding:10px; 
-	background: #FFFFFF;
 }
 
 h6{
@@ -693,37 +704,32 @@ h6{
 
 }
 
-.subcategoryitem{
-	margin: 40px 17px 40px 18px;
-}
-.subcategoryitem>a>img{
+
+.row>a>img{
 	width: 100%;
 	height: 100%;
 	border: 4px solid transparent;
 }
 
-.subcategoryitem>a>img:hover{
+.row>a>img:hover{
 	border: 4px solid #82b1ff;
 	
     
 
 }
 .subcategorylink{
-	padding: 0 10px;
 	text-align: center;
 	word-wrap: break-word;
-	font-family: 'Raleway';
 	font-size: 18px;
 	font-weight: 900;
 	height: 0px;
-
 }
 .subcategorylink>a{
 	position: relative;
 	margin-right: 10px;
 	margin-left: 10px;
 	width: 90%;
-	top: -60px;
+	top: -70px;
 	line-height: 70%;
 	color: white;
 	text-decoration: none;
