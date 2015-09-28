@@ -93,40 +93,44 @@ body {
 }
 .p-t-0
 {
-	padding-top: 0px !important
+	padding-top: 0px !important;
 }
 .p-t-5 
 {
-	padding-top: 5px !important
+	padding-top: 5px !important;
 }
 .p-t-10 
 {
-	padding-top: 10px !important
+	padding-top: 10px !important;
 }
 .p-t-15
 {
-	padding-top: 15px !important
+	padding-top: 15px !important;
 }
 .p-t-20 
 {
-	padding-top: 20px !important
+	padding-top: 20px !important;
+}
+.p-t-30 {
+	padding-top: 30px !important;
+
 }
 .p-b-10 
 {
-	padding-bottom: 10px !important
+	padding-bottom: 10px !important;
 }
 .p-l-15 
 {
-	padding-left: 15px !important
+	padding-left: 15px !important;
 }
 .p-l-5 
 {
-	padding-left: 5px !important
+	padding-left: 5px !important;
 }
 
 .p-l-10
 {
-	padding-left: 10px !important
+	padding-left: 10px !important;
 }
 .navbar-muzkom
 {
@@ -295,6 +299,9 @@ body {
 .cart-blue:before{
 	content: url("/images/main/cart_icon_blue.png");
 }
+.bag-grey {
+width: 32px !important;
+}
 .bag-grey:before{
 	content: url("/images/main/archive_icon_grey.png");
 }
@@ -350,34 +357,40 @@ body {
 
 .red:hover{
 	color: #d32f2f;
-	text-decoration: underline;
 }
 h1,h2,h3,h4,h5 {
 	text-transform: uppercase;
+}
+.content-center {
+	text-align: center;
+}
+.product-image-cover {
+	height: 150px;
 }
 .product-image {
 	width: 70%;
 }
 .price {
-	display: block;
-	width: 100%;
+	display: inline-block;
+	width: 150px;
 	height: 30px;
 	background-repeat: no-repeat;
 	background-image: url("/images/main/label_mini.png");
-	background-position: 0px 0px;
+	background-position: -25px 0px;
 	color: #fff;
 	text-align: left;
 	font-size: 18px;
 	padding: 2px 0 20px 15px;
-	margin-top: 2px;
-	margin-bottom: 15px;
+	margin-top: 4px;
+	margin-bottom: 10px;
 	font-family: 'OpenSans';
 }
 .oldprice {
-	display: block;
-	width: 176px;
+	display: inline-block;
+	width: 150px;
 	height: 47px;
 	background-repeat: no-repeat;
+	background-position: -27px 0px;
 	background-image: url("/images/main/label_down.png");
 	color: #fff;
 	text-align: left;
@@ -516,7 +529,7 @@ h1,h2,h3,h4,h5 {
 .obsolete-products {
 	max-width:230px; 
 	background-color: #dbdbdb;
-	padding: 17px 15px;
+	padding: 17px 15px 17px 25px;
 }
 .obsolete-products a {
 	color: #7f7f7f;
@@ -573,11 +586,13 @@ h1,h2,h3,h4,h5 {
 
 .navbar-nav > li > a {
 	color: #dae8ff !important;
+	border-bottom: 4px solid #2962ff #dae8ff;
 }
 .navbar-nav > li > a:hover {
 	color: #dae8ff !important;
-	text-decoration: underline;
+	text-decoration: none;
 	background-color: #2962FF;
+	border-bottom: 4px solid #dae8ff;
 }
 .vcenter {
 	vertical-align: 50%;
@@ -714,7 +729,6 @@ h6{
     }
 }
 
-
 .status{
 
 }
@@ -760,8 +774,8 @@ h6{
 		height: 370px;
 	}
 	.price {
-		width: 100%;
-		background-position: -47px 0px;
+		width: 150px;
+		background-position: -30px 0px;
 	}
 	.subcategorieslist{
 		margin-left: -5px;

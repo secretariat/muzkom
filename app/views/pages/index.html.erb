@@ -27,27 +27,24 @@
   <%=render "shared/latest"%>
   <div class="row m-t-30 m-b-40" style="padding: 0 20px">
     <%@products.each_with_index do |product, index|%>
-      <div class="col-md-3 p-10 col-sm-4 col-xs-12">
-          <div class="hidden-xs item">
-                <center>
-                  <%= link_to image_tag(product.image_url(:thumb), :class=> "product-image"), product_path(product) %>
-                  <%= render "shared/product_price", :product => product%>
-                  <span class="product-name"><%= link_to product.name, product_path(product)%></span>
-                  <p class="status status-available"><%= product.status.name%></p>
-                </center>
-                <!-- <p class="status status-other"><%= product.status.name%></p> -->
-                <%#= link_to "", add_cart_path(:id=>product.id), :class=>"buy-button right", :method=>"put" do %>
-                  <div class="row">
-                    <center><span class="big-icon cart-blue-rectangle"></span></center>
-                  </div> 
-                <%#end%>
+      <div class="col-md-3 p-10 col-sm-4 col-xs-12 content-center">
+          <div class="hidden-xs item  content-center">
+            <%= link_to image_tag(product.image_url(:thumb), :class=> "product-image"), product_path(product) %>
+            <%= render "shared/product_price", :product => product%>
+            <span class="product-name"><%= link_to product.name, product_path(product)%></span>
+            <p class="status status-available"><%= product.status.name%></p>
+          <!-- <p class="status status-other"><%= product.status.name%></p> -->
+          <%#= link_to "", add_cart_path(:id=>product.id), :class=>"buy-button right", :method=>"put" do %>
+            <div class="row content-center">
+              <span class="big-icon cart-blue-rectangle"></span>
+            </div> 
+          <%#end%>
           </div>
-          <div class="visible-xs-block item">
+          <div class="visible-xs-block item  content-center">
             <div class="row">
               <div class="col-xs-6">
-                <center><%= link_to image_tag(product.image_url(:thumb), :class=> "product-image"), product_path(product) %>
+                <%= link_to image_tag(product.image_url(:thumb), :class=> "product-image"), product_path(product) %>
                 <%= render "shared/product_price", :product => product%>
-                </center>
               </div>
               <div class="col-xs-6">
                 <span class="product-name"><%= link_to product.name, product_path(product) %></span>
