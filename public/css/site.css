@@ -370,6 +370,10 @@ h1,h2,h3,h4,h5 {
 .product-image {
 	width: 70%;
 }
+
+.nav-mk {
+	padding-left: 10px;
+}
 .price {
 	display: inline-block;
 	width: 150px;
@@ -398,7 +402,7 @@ h1,h2,h3,h4,h5 {
 	padding: 2px 0 0 15px;
 	font-family: 'OpenSans';
 	margin-top: 2px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 .oldprice .old{
@@ -539,6 +543,10 @@ h1,h2,h3,h4,h5 {
 	max-width: 230px;
 	padding: 4px 10px;
 	height: 30px;
+	color: #616161;
+}
+.brand-selector option:first-child{
+	color: #616161 !important;
 }
 
 .w20{
