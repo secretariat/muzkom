@@ -578,7 +578,7 @@ h1,h2,h3,h4,h5 {
 	padding-bottom: 15px;
 	background: transparent;
 	color: #D2D2D2;
-	font-size: 10px;
+	font-size: 12px;
 }
 
 
@@ -619,14 +619,19 @@ h6{
 
 }
 .subcategorylink{
+	padding: 0 10px;
 	text-align: center;
+	word-wrap: break-word;
 	font-family: 'Raleway';
 	font-size: 18px;
 	font-weight: 900;
 	height: 0px;
+
 }
 .subcategorylink>a{
 	position: relative;
+	margin-right: 10px;
+	margin-left: 10px;
 	width: 90%;
 	top: -60px;
 	line-height: 70%;
