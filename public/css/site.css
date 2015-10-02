@@ -73,6 +73,10 @@ body {
 	padding-bottom: 5px;
 }
 
+.p-b-15{
+	padding-bottom: 15px;
+}
+
 .p-b-25{
 	padding-bottom: 25px;
 }
@@ -87,6 +91,10 @@ body {
 .p-t-10 
 {
 	padding-top: 10px !important
+}
+.p-t-15
+{
+	padding-top: 15px !important
 }
 .p-t-20 
 {
@@ -104,6 +112,11 @@ body {
 {
 	padding-left: 5px !important
 }
+.p-l-10 
+{
+	padding-left: 10px !important
+}
+
 
 .navbar-muzkom
 {
@@ -572,11 +585,6 @@ h1,h2,h3,h4,h5 {
 }
 
 .categorynav{
-	margin-left: -5px;
-	width: 100%;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	background: transparent;
 	color: #D2D2D2;
 	font-size: 12px;
 }
