@@ -679,7 +679,7 @@ h6{
 		width: 100%;
 		background-position: -47px 0px;
 	}
-	.subcategory_container{
+	.items_container{
 		margin-right: -10px;
 	}
 	
@@ -708,7 +708,7 @@ h6{
 		padding-left: 20px;
 		padding-right: 20px;
 	}
-	.subcategory_container{
+	.items_container{
 		margin-right: -10px;
 	}
 	.subcategorylink>a{
