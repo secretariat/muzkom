@@ -5,11 +5,11 @@
 <% meta_k sanitize(strip_tags("#{list}").gsub("\"", "&quot;") )%>
 
 <div class="row p-t-15 p-l-10 p-b-15 categorynav">
-    <div>Каталог товаров > <%= @current_category.name %></div>
+   <%= link_to "Каталог товаров", root_path %> > <%= @current_category.name %>
 </div>
 <div class="row white m-l-m10 items_container">
   <div class="row ">
-    <h6  class="opensans red m-20 m-b-0"><strong><i><%= @current_category.name %></i></strong></h5>
+    <h6  class="opensans red m-20 m-b-0"><strong><i><%= @current_category.name %></i></strong></h6>
   </div>
   <div class="row subcategory-list" >
     <% @current_category.subcategories.visible.order('subcategories.priority').each do |subcategory| %>

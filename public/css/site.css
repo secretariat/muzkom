@@ -60,6 +60,9 @@ body {
 {
 	margin-left: 17px !important;
 }
+.m-l-20{
+	margin-left: 20px !important;
+}
 .m-l-m10 
 {
 	margin-left: -10px !important;
@@ -568,6 +571,11 @@ h1,h2,h3,h4,h5 {
 	color: #D2D2D2;
 	font-size: 12px;
 }
+.categorynav>a{
+	text-decoration: none;
+	color: #D2D2D2;
+	font-size: 12px;
+}
 h6{
 	padding-left: 14px;
 	font-size: 20px;
@@ -597,6 +605,9 @@ h6{
 	text-decoration: none;
 	margin: 0 auto ;
 }
+.pagination{
+	margin: 0px;
+}
 
 @media (min-width: 1200px) {
 	.nav-a {
@@ -605,6 +616,9 @@ h6{
 	.subcategory-list{
 		padding-left: 0px;
 		padding-right: 0px;
+	}
+	.up-manufacture-filter{
+		display: none;
 	}
 }
 
