@@ -44,10 +44,9 @@
             <%end%>
           </div>
           <div class="visible-xs-block item content-center">
-            <div class="row">
              <%= link_to  product_path(product) do %>
                 <div class="col-xs-6">
-                  <%= image_tag(product.image_url(:thumb), :class=> "product-image") %>
+                  <%= image_tag(product.image_url(:thumb),:height=>"150px", :width=>"150px") %>
                   <%= render "shared/product_price", :product => product%>
                 </div>
                 <div class="col-xs-6" style="text-align:left">
@@ -56,7 +55,6 @@
                   <p class="status status-available"><%= product.status.name%></p>
                 </div>
               <%end%>
-            </div>
             <div class="row">
               <div class="col-xs-10 col-xs-offset-1" style="text-align:left">
                 <%= product.short_description.html_safe %>
