@@ -592,6 +592,9 @@ h1,h2,h3,h4,h5 {
 .brand-selector option:first-child{
 	color: #616161 !important;
 }
+.w30px {
+	width: 30px !important;
+}
 .w20{
 	width: 20% !important;
 }
