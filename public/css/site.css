@@ -199,16 +199,19 @@ body {
 	height: 80px;
 	padding-top: 25px;
 }
+.navbar-muzkom .navbar-brand {
+	padding-left: 25px !important;
+}
 
 .navbar-muzkom .navbar-brand,.navbar-muzkom .navbar-brand:hover{
 	background-color: #2558e5;
-	font-size: 19px;
-	width: 230px;
-	padding-left: 25px;
+	/*width: 230px;*/
 	color: #dae8ff;
 }
+
 .navbar-brand {
-	padding-left: 23px;
+	padding-left: 40px;
+	margin-left: 0 !important;
 }
 
 .navbar-brand,
@@ -351,6 +354,7 @@ body {
 .cart-blue:before{
 	content: url("/images/main/cart_icon_blue.png");
 }
+
 .bag-grey {
 width: 32px !important;
 }
@@ -621,6 +625,7 @@ h1,h2,h3,h4,h5 {
 .footer {
 	color: #fff;
 	margin: 30px;
+	font-size: 13px !important;
 }
 .footer-nav {
 	list-style-type: none;
@@ -753,7 +758,9 @@ h6{
 		margin-right: 0px !important;
 		margin-left: 0px !important;
 	}
+
 }
+
 .xs-product-name
 {
 	font-size: 18px;
@@ -794,12 +801,22 @@ h6{
 	.p-l-phone {
 			padding-left: 25px !important;
 		}
+
 }
 
 @media (min-width: 991px) {
 	.p-l-phone {
-			padding-left: 45px !important;
-		}
+		padding-left: 45px !important;
+	}
+	.col-md-3-xs {
+		width: 19% !important;
+	}
+	.navbar-muzkom .navbar-brand {
+		font-size: 15px;
+	}
+	.obsolete-products a {
+		font-size: 13px;
+	}
 }
 
 @media (max-width: 767px) {
@@ -823,8 +840,7 @@ h6{
 		padding-top: 30px !important;
 	}
 	.navbar-muzkom .navbar-brand {
-		width: 130px;
-		font-size: 12px;
+		font-size: 14px;
 		padding-left: 10px;
 		padding-right: 5px;
 	}
@@ -837,6 +853,9 @@ h6{
 	}
 	.col-md-3.col-md-3-m {
 		width: 20% !important;
+	}
+	.navbar-muzkom .navbar-brand {
+		font-size: 15px;
 	}
 	
 	
@@ -858,6 +877,12 @@ h6{
 		margin-right: -10px;
 	}
 }
-
-
+@media (min-width: 1199px) {
+	.navbar-muzkom .navbar-brand {
+		font-size: 19px;
+	}
+		.obsolete-products a {
+		font-size: 14px;
+	}
+}
 
