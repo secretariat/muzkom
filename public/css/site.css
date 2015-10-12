@@ -511,6 +511,17 @@ h1,h2,h3,h4,h5 {
 	margin-left: 20px !important;
 	margin-right: 15px !important;
 }
+.dropdown-menu.dropdown-menu-social {
+	background-color: #333;
+	width: 400px;
+	clear: none !important;
+	top: 38px;
+}
+.dropdown-menu.dropdown-menu-social > li > a 
+{
+	width: 70px;
+	display: inline-block !important;
+}
 .dropdown-menu > li> a{
    width: 100%;
    white-space: normal;
@@ -595,6 +606,7 @@ h1,h2,h3,h4,h5 {
 .w30px {
 	width: 30px !important;
 }
+
 .w20{
 	width: 20% !important;
 }
@@ -815,7 +827,7 @@ h6{
 		width: 19% !important;
 	}
 	.navbar-muzkom .navbar-brand {
-		font-size: 15px;
+		font-size: 16px;
 	}
 	.obsolete-products a {
 		font-size: 13px;
@@ -846,9 +858,19 @@ h6{
 		padding-top: 30px !important;
 	}
 	.navbar-muzkom .navbar-brand {
-		font-size: 14px;
+		font-size: 11px;
 		padding-left: 10px;
 		padding-right: 5px;
+	}
+	.navbar-filter {
+		width:200px;
+		margin-left: 0px;
+		position: absolute;
+		left: 135px;
+	}
+	.navbar-filter>select {
+		margin: 0;
+		padding-left: 0px;
 	}
 
 }
@@ -860,17 +882,9 @@ h6{
 	.col-md-3.col-md-3-m {
 		width: 20% !important;
 	}
-	.navbar-muzkom .navbar-brand {
-		font-size: 15px;
-	}
-	
-	
 }
 
 @media (max-width: 1199px) {
-/*	.item {
-		height: 370px;
-	}*/
 	.price {
 		width: 150px;
 		background-position: -30px 0px;
@@ -885,7 +899,7 @@ h6{
 }
 @media (min-width: 1199px) {
 	.navbar-muzkom .navbar-brand {
-		font-size: 19px;
+		font-size: 20px;
 	}
 		.obsolete-products a {
 		font-size: 14px;
