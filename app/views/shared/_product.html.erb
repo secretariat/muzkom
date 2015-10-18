@@ -1,13 +1,24 @@
-<div class="product list">
-  <div class="clearfix mbm">
+<div class="row m-l-20 m-r-20 p-10">
+  <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+    <div class="row  label-important">Акция</div>
     <div class="image">
       <%= link_to image_tag(product.image_url(:thumb)), product_path(product)%>
     </div>
+    <div class="clearfix">
+    <div class="col1of2">
+      <%= render "shared/product_price", :product => product%>
+    </div>
+    <div class="col1of2">
+      <%= link_to "Купить", add_cart_path(:id=>product.id), :class=>"buy-button right", :method=>:put %>
+    </div>
+  </div>
+  </div>
+  <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
     <div class="last-col pll">
       <div class="mbs"><strong><%=link_to product.name, product_path(product)%></strong>
         <%if !product.promotions.empty? %>
           <%= link_to promotion_path(product.promotions.first), :data => { :title => product.promotions.first.description} do%>
-            <span class="label label-important">Акция</span>
+            
           <%end%>
         <%end%>
       </div>
@@ -23,12 +34,5 @@
       <%#= link_to "подробнее >>", product_path(product) %>
     </div>
   </div>
-  <div class="clearfix">
-    <div class="col1of2">
-      <%= render "shared/product_price", :product => product%>
-    </div>
-    <div class="col1of2">
-      <%= link_to "Купить", add_cart_path(:id=>product.id), :class=>"buy-button right", :method=>:put %>
-    </div>
-  </div>
+  
 </div>

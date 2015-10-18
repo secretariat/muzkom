@@ -1,55 +1,56 @@
 <%meta_data @subcategory%>
 <div class="row p-t-15 p-l-10 p-b-15 categorynav">
-    
-            <%= link_to "Каталог товаров", root_path %> /
-            <%= link_to @subcategory.category.name, categories_list_path(:id => @subcategory.category.id) %> /
-            <%unless @brand.blank?%>
-              <span><%= link_to @subcategory.name, category_path(@subcategory)%></span> /
-              <span><%#= @brand[0].name%></span>
-            <%else%>
-              <span><%= @subcategory.name%></span>
-            <%end%>
+  <%= link_to "Каталог товаров", root_path %> /
+  <%= link_to @subcategory.category.name, categories_list_path(:id => @subcategory.category.id) %> /
+  <%unless @brand.blank?%>
+    <span><%= link_to @subcategory.name, category_path(@subcategory)%></span> /
+    <span><%#= @brand[0].name%></span>
+  <%else%>
+    <span><%= @subcategory.name%></span>
+  <%end%>
 </div>
 
 <div class="row white m-l-m10 items_container">
   <div class="row ">
     <h6  class="opensans red m-20 m-b-0"><strong><i><%= @subcategory.name%></i></strong></h6>
   </div>
-  <div class="row ">
-    <div class="row">
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-        <span>Сортировать </span>         
-        <select>
-          <option value="price"><a href="?order=price">цене</a></option>
-          <option value="name"><a href="?order=name">названию</a></option>
-          <option value="date"><a href="?order=date">дате</a></option>
-        </select> 
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-        <%= paginate @products %>
-      </div>
+  
+  <div class="row m-l-20">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 m-t-20">
+      <span>Сортировать </span>         
+      <select>
+        <option value="price"><a href="?order=price">цене</a></option>
+        <option value="name"><a href="?order=name">названию</a></option>
+        <option value="date"><a href="?order=date">дате</a></option>
+      </select> 
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+      <%= paginate @products %>
+    </div>
+  </div>
+  <div class="row grey-bg m-l-20 m-r-20 p-10 text-dark-grey up-manufacture-filter ">
+    
+    <div class="input-group">
+      <% @brands.each do |brand| %>
+        <div class="brand p-l-20 p-t-10" >
+          <input type="checkbox" class= "grey-bg">
+          <%= link_to brand.name.downcase.capitalize, category_brand_path(@subcategory, brand)%>
+          <span class="quantity">(<%= brand.products.by_subcategory(@subcategory).count%>)</span>
+
+        </div>
+      <%end%>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-0 col-md-12 col-sm-12 col-xs-12 up-manufacture-filter">
-      <h4 class="mbs">Выбор по производителям:</h4>
-      <div class="brand-list">
-        <% @brands.each do |brand| %>
-          <span class="brand">
-            <%= link_to brand.name.downcase.capitalize, category_brand_path(@subcategory, brand)%>
-            <span class="quantity">(<%= brand.products.by_subcategory(@subcategory).count%>)</span>
-          </span>
-        <%end%>
-      </div>
-    </div>
-    <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+    
+    <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 ">
       <% @products.each do |product|%>
             <%= render "shared/product", :product => product%>
       <%end%>
 
     </div>
     <div class="col-lg-2 col-md-0 col-sm-0 col-xs-0">
-      <h4 class="mbs">Выбор по производителям:</h4>
+      <h1 class="mbs">Выберите желаемые фильтры из списка ниже</h1>
       <div class="brand-list">
         <% @brands.each do |brand| %>
           <span class="brand">
@@ -71,7 +72,7 @@
           
           <div class="clearfix mbl">
           <%# if @brand.nil? %>
-            <h4 class="mbs">Выбор по производителям:</h4>
+            <h1 class="mbs">Выберите желаемые фильтры из списка ниже</h1>
             <div class="brand-list">
               <% @brands.each do |brand| %>
                 <span class="brand">
